@@ -1,0 +1,298 @@
+:root {
+/* --bg-color: #141414;
+--bg-color-light: #1d1d1d;
+--fg-color: #ccc;
+--hl-color: #999999;
+
+--blue: #5385F2;
+--blue: #84c590;
+
+*/
+
+--headerheight: 42px;
+--headertransition: 0.65s ease;
+
+--bg-color: #141414;
+--bg-color-light: #1d1d1d;
+
+--white: #ECEDEC;
+--gold: #B8B994;
+--green: #5E9F45;
+--orange: #B86648;
+
+}
+
+
+html, body {
+	background-color: var(--bg-color);
+	color: var(--white);
+	font-family:  Helvetica, Arial, sans-serif;
+	font-family:  'Courier New', Courier, monospace;
+
+
+	font-weight: normal;
+	font-size: 18px;
+	box-sizing: border-box;
+	margin: 0;
+}
+
+a {
+	color: var(--blue);
+}
+
+main {
+	padding: 24px 8px;
+	display: grid;
+	grid-column-gap: 24px;
+	grid-template-columns: min-content auto;
+}
+
+header {
+	margin: 0;
+	padding: 16px 12px 12px;
+	background-color: var(--bg-color-light);
+	height: var(--headerheight);
+	overflow: hidden;
+	display: grid;
+	grid-template-columns: min-content auto 30px;
+	grid-template-rows: var(--headerheight) auto;
+	transition: height var(--headertransition);
+}
+
+header.open {
+	height: auto;
+}
+
+h1 {
+
+	display: inline-block;
+	font-weight: normal;
+	color: var(--white);
+	font-size: 1.6em;
+	margin: 0;
+	white-space: nowrap;
+}
+
+#arrows {
+	margin: -10px 0 0 24px;
+}
+
+#arrows div {
+	display: inline-block;
+	font-size: 2.4em;
+}
+
+#arrow1 {
+	transform: rotate(20deg);
+}
+
+#arrow2 {
+	transform: rotate(300deg);
+}
+
+#menu_button {
+	color: var(--white);
+	text-align: center;
+	transition: all var(--headertransition);
+}
+
+#menu_button.open {
+	color: var(--orange);
+	transform: rotate(180deg);
+}
+
+#welcome_message {
+	font-weight:  100;
+	line-height: 1.4em;
+	max-width: 860px;
+	margin: 12px auto;
+	padding: 4px;
+	grid-column: 1 / 4;
+	grid-row: 2 / 3;
+}
+
+h2 {
+	font-weight: normal;
+	color: var(--green);
+	font-size: 1.4em;
+	margin: 18px 0;
+}
+
+#share_button, .plus {
+	padding: 2px 4px 3px;
+	border: 1px solid var(--white);
+	border-radius: 6px;
+}
+
+#share_button {
+	text-align: center;
+	width: 200px;
+}
+
+#share_area {
+	width: 350px;
+	text-align: center;
+}
+
+input.clocks, input.patch_info, textarea {
+	color: var(--white);
+	background-color: var(--bg-color);
+	font-family: inherit;
+	font-size: inherit;
+	padding: 2px 6px;
+	width: 60px;
+	border: 1px solid var(--white);
+	border-radius: 6px;
+}
+
+input.patch_info, textarea {
+	width: 340px;
+}
+
+select.patch_info {
+	width: 354px;
+}
+
+textarea {
+	padding-top: 4px;
+	height: 4em;
+}
+
+.item_category {
+	color: var(--gold);
+	padding: 0 0 12px 12px;
+}
+
+.item {
+	display: grid;
+	padding-left: 28px;
+	opacity: 0.5;
+}
+
+.active {
+	opacity: 1;
+}
+
+.item.patch_info {
+	grid-template-columns: 134px min-content auto;
+}
+
+.item.clocks {
+	grid-template-columns: 134px min-content auto;
+}
+
+.item.knobs {
+	grid-template-columns: 320px auto;
+}
+
+.item.jacks {
+	grid-template-columns: 190px max-content max-content;
+}
+
+.item.jacks.addtional {
+	grid-template-columns: 90px max-content max-content;
+}
+
+.item div {
+	margin-bottom: 12px;
+	display: inline-block;
+}
+
+
+
+select {
+	background-color: var(--bg-color);
+	color: var(--white);
+	border-color: var(--white);
+	font-family: inherit;
+	font-size: inherit;
+	width: 77px;
+	padding: 2px 6px;
+	outline-color: var(--orange);
+	-webkit-appearance:none;
+}
+
+select.clocks {
+	width: 106px;
+}
+
+select.knobs {
+	width: 77px;
+}
+
+select.jacks {
+	width: 364px;
+}
+
+.pointy {
+	cursor: pointer;
+	user-select: none;
+}
+
+/* ********* Media Queries ********* */
+
+
+@media only screen and (max-width: 1700px) {
+
+
+
+}
+
+@media only screen and (max-width: 1166px) {
+
+	main {
+		grid-template-columns: auto;
+	}
+
+}
+
+@media only screen and (max-width: 767px) {
+
+
+}
+
+@media only screen and (min-width: 900px) {
+
+	#welcome_message {
+		max-width: 100%;
+		margin: 12px 12px;
+	}
+
+	#welcome_text {
+		width: calc(100% - 325px);
+		max-width: 900px;
+		float: left;
+	}
+
+	#contact_info {
+		width: 225px;
+		padding-left: 60px;
+		padding-right: 40px;
+		float: right;
+	}
+}
+
+
+@media only screen and (max-width: 450px) {
+
+	html, body {
+		font-size: 18px;
+	}
+
+	#welcome_message {
+		font-size: 1em;
+	}
+
+	h1 {
+		font-size: 1.1em;
+	}
+  }
+
+
+@media only screen and (max-width: 360px) {
+
+	html, body {
+		font-size: 14px;
+	}
+
+}

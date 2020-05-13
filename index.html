@@ -1,0 +1,1174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="manifest" href="/manifest.json">
+	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+	<meta name="msapplication-TileColor" content="#2b5797">
+	<meta name="theme-color" content="#ffffff"> -->
+
+	<title>Exquisite Coast</title>
+
+	<script src="/exquisitecoast.js"></script>
+	<link rel="stylesheet" type="text/css" href="/style.css">
+
+</head>
+<body>
+
+<header id="header">
+	<div>
+		<h1>Exquisite Coast</h1>
+	</div>
+
+	<div id="arrows">
+		<div id="arrow1">→</div>
+		<div id="arrow2">←</div>
+		<!-- ← → ↑ ↓ -->
+	</div>
+
+	<div>
+		<h1 id="menu_button" class="pointy">?</h1>
+	</div>
+
+	<div id="welcome_message">
+
+		<span id="welcome_text">
+			<p>Welcome to <i>Exquisite Coast</i>, a shared patch game for the Make Noise 0-Coast created by Damon Holzborn and John O'Brien.</p>
+
+			<p>Happy Bleeping!</p>
+		</span>
+		<span id="contact_info">
+			<p>Damon Holzborn<br>
+			<a href="http://damonholzborn.com" target="_blank">damonholzborn.com</a><br>
+			<a href="http://rustleworks.com" target="_blank">rustleworks.com</a><br>
+			<a href="https://twitter.com/damonholzborn/" target="_blank">@damonholzborn</a> (Twitter)<br>
+			<a href="https://www.instagram.com/damonholzborn/" target="_blank">@damonholzborn</a> (Instagram)</p>
+
+			<p>John O'Brien<br>
+			<a href="http://johnmobrien.com" target="_blank">johnmobrien.com</a><br>
+			<a href="https://www.newmusicusa.org/profile/jmob77/" target="_blank">Profile at New Music USA</a><br>
+		</span>
+	</div>
+</header>
+
+<main>
+	<!-- <div class="buttons">
+		<div id="environment_commands_submit" class="pointy submit">send</div>
+	</div> -->
+
+		<!-- ***************************   Clock Speeds   *************************** -->
+
+		<section>
+
+			<h2>
+				Patch Info
+			</h2>
+
+			<!-- ********* Patch Name ********* -->
+
+			<div class="item patch_info active">
+				<div>
+					Patch Name
+				</div>
+				<div>
+					<select id="patch_name" class="patch_info">
+						<option value="New Patch">New Patch</option>
+						<option value="Save As...">Save As...</option>
+						<option value="Rename">Rename</option>
+						<option value="Delete">Delete</option>
+						<option value="---------">---------</option>
+					</select>
+				</div>
+			</div>
+
+			<!-- ********* Author Name ********* -->
+
+			<div class="item patch_info active">
+				<div>
+					Author Info
+				</div>
+				<div>
+					<textarea id="author" class="patch_info" placeholder="your name and/or contact info"></textarea>
+				</div>
+			</div>
+
+			<!-- ********* Patch Notes ********* -->
+
+			<div class="item patch_info active">
+				<div>
+					Patch Notes
+				</div>
+				<div>
+					<textarea id="patch_notes" class="patch_info" placeholder="anything additional you'd like to share"></textarea>
+				</div>
+			</div>
+
+
+			<!-- ********* Share Patch ********* -->
+
+			<div class="item patch_info active">
+				<div>
+
+				</div>
+				<div id="share_area">
+					<div id="share_button" class="pointy">
+						Share Patch
+					</div>
+				</div>
+			</div>
+
+		</section>
+
+	<!-- ***************************   Clock Speeds   *************************** -->
+
+	<section>
+
+		<h2>
+			Clock Speeds
+		</h2>
+
+		<!-- ********* Voltage Math ********* -->
+
+		<div class="item clocks">
+			<div>
+				Clock
+			</div>
+			<div>
+				<input id="clock_speed" class="clocks">
+			</div>
+			<div>
+				<select id="clock_speed_type" class="clocks">
+					<option value="bpm">bpm</option>
+					<option value="seconds">seconds</option>
+				</select>
+			</div>
+		</div>
+
+		<!-- ********* Voltage Math ********* -->
+
+		<div class="item clocks">
+			<div>
+				MIDI B LFO
+			</div>
+			<div>
+				<input id="midi_b_speed" class="clocks">
+			</div>
+			<div>
+				<select id="midi_b_speed_type" class="clocks">
+					<option value="bpm">bpm</option>
+					<option value="seconds">seconds</option>
+				</select>
+			</div>
+		</div>
+
+	</section>
+
+	<!-- ***************************   Knobs   *************************** -->
+
+	<section>
+
+		<h2>
+			Knobs
+		</h2>
+
+		<!-- ********* Voltage Math ********* -->
+
+		<div class="item_category">
+			Voltage Math
+		</div>
+		<div class="item knobs">
+			<div>
+				Channel Attenuverter
+			</div>
+			<div>
+				<select id="voltage_math_channel_attenuverter" class="knobs pointy">
+					<option value=""></option>
+					<option value="min">min</option>
+					<option value="max">max</option>
+					<option value="7:00">7:00</option>
+					<option value="7:30">7:30</option>
+					<option value="8:00">8:00</option>
+					<option value="8:30">8:30</option>
+					<option value="9:00">9:00</option>
+					<option value="9:30">9:30</option>
+					<option value="10:00">10:00</option>
+					<option value="10:30">10:30</option>
+					<option value="11:00">11:00</option>
+					<option value="11:30">11:30</option>
+					<option value="12:00">12:00</option>
+					<option value="12:30">12:30</option>
+					<option value="1:00">1:00</option>
+					<option value="1:30">2:30</option>
+					<option value="2:00">2:00</option>
+					<option value="2:30">2:30</option>
+					<option value="3:00">3:00</option>
+					<option value="3:30">3:30</option>
+					<option value="4:00">4:00</option>
+					<option value="4:30">4:30</option>
+					<option value="5:00">5:00</option>
+				</select>
+			</div>
+		</div>
+
+		<!-- ********* Oscillator ********* -->
+
+		<div class="item_category">
+			Oscillator
+		</div>
+		<div class="item knobs">
+			<div>
+				Pitch Panel Control
+			</div>
+			<div>
+				<select id="oscillator_pitch_panel_control" class="knobs pointy">
+					<option value=""></option>
+					<option value="min">min</option>
+					<option value="max">max</option>
+					<option value="7:00">7:00</option>
+					<option value="7:30">7:30</option>
+					<option value="8:00">8:00</option>
+					<option value="8:30">8:30</option>
+					<option value="9:00">9:00</option>
+					<option value="9:30">9:30</option>
+					<option value="10:00">10:00</option>
+					<option value="10:30">10:30</option>
+					<option value="11:00">11:00</option>
+					<option value="11:30">11:30</option>
+					<option value="12:00">12:00</option>
+					<option value="12:30">12:30</option>
+					<option value="1:00">1:00</option>
+					<option value="1:30">2:30</option>
+					<option value="2:00">2:00</option>
+					<option value="2:30">2:30</option>
+					<option value="3:00">3:00</option>
+					<option value="3:30">3:30</option>
+					<option value="4:00">4:00</option>
+					<option value="4:30">4:30</option>
+					<option value="5:00">5:00</option>
+				</select>
+			</div>
+		</div>
+		<div class="item knobs">
+			<div>
+				Linear FM Input Attenuator
+			</div>
+			<div>
+				<select id="oscillator_linear_fm_input_attenuator" class="knobs pointy">
+					<option value=""></option>
+					<option value="min">min</option>
+					<option value="max">max</option>
+					<option value="7:00">7:00</option>
+					<option value="7:30">7:30</option>
+					<option value="8:00">8:00</option>
+					<option value="8:30">8:30</option>
+					<option value="9:00">9:00</option>
+					<option value="9:30">9:30</option>
+					<option value="10:00">10:00</option>
+					<option value="10:30">10:30</option>
+					<option value="11:00">11:00</option>
+					<option value="11:30">11:30</option>
+					<option value="12:00">12:00</option>
+					<option value="12:30">12:30</option>
+					<option value="1:00">1:00</option>
+					<option value="1:30">2:30</option>
+					<option value="2:00">2:00</option>
+					<option value="2:30">2:30</option>
+					<option value="3:00">3:00</option>
+					<option value="3:30">3:30</option>
+					<option value="4:00">4:00</option>
+					<option value="4:30">4:30</option>
+					<option value="5:00">5:00</option>
+				</select>
+			</div>
+		</div>
+
+		<!-- ********* Overtone ********* -->
+
+		<div class="item_category">
+			Overtone
+		</div>
+		<div class="item knobs">
+			<div>
+				Panel Control
+			</div>
+			<div>
+				<select id="overtone_panel_control" class="knobs pointy">
+					<option value=""></option>
+					<option value="min">min</option>
+					<option value="max">max</option>
+					<option value="7:00">7:00</option>
+					<option value="7:30">7:30</option>
+					<option value="8:00">8:00</option>
+					<option value="8:30">8:30</option>
+					<option value="9:00">9:00</option>
+					<option value="9:30">9:30</option>
+					<option value="10:00">10:00</option>
+					<option value="10:30">10:30</option>
+					<option value="11:00">11:00</option>
+					<option value="11:30">11:30</option>
+					<option value="12:00">12:00</option>
+					<option value="12:30">12:30</option>
+					<option value="1:00">1:00</option>
+					<option value="1:30">2:30</option>
+					<option value="2:00">2:00</option>
+					<option value="2:30">2:30</option>
+					<option value="3:00">3:00</option>
+					<option value="3:30">3:30</option>
+					<option value="4:00">4:00</option>
+					<option value="4:30">4:30</option>
+					<option value="5:00">5:00</option>
+				</select>
+			</div>
+		</div>
+		<div class="item knobs">
+			<div>
+				CV Input Attenuator
+			</div>
+			<div>
+				<select id="overtone_cv_input_attenuator" class="knobs pointy">
+					<option value=""></option>
+					<option value="min">min</option>
+					<option value="max">max</option>
+					<option value="7:00">7:00</option>
+					<option value="7:30">7:30</option>
+					<option value="8:00">8:00</option>
+					<option value="8:30">8:30</option>
+					<option value="9:00">9:00</option>
+					<option value="9:30">9:30</option>
+					<option value="10:00">10:00</option>
+					<option value="10:30">10:30</option>
+					<option value="11:00">11:00</option>
+					<option value="11:30">11:30</option>
+					<option value="12:00">12:00</option>
+					<option value="12:30">12:30</option>
+					<option value="1:00">1:00</option>
+					<option value="1:30">2:30</option>
+					<option value="2:00">2:00</option>
+					<option value="2:30">2:30</option>
+					<option value="3:00">3:00</option>
+					<option value="3:30">3:30</option>
+					<option value="4:00">4:00</option>
+					<option value="4:30">4:30</option>
+					<option value="5:00">5:00</option>
+				</select>
+			</div>
+		</div>
+
+		<!-- ********* Multiply ********* -->
+
+		<div class="item_category">
+			Multiply
+		</div>
+		<div class="item knobs">
+			<div>
+				Panel Control
+			</div>
+			<div>
+				<select id="multiply_panel_control" class="knobs pointy">
+					<option value=""></option>
+					<option value="min">min</option>
+					<option value="max">max</option>
+					<option value="7:00">7:00</option>
+					<option value="7:30">7:30</option>
+					<option value="8:00">8:00</option>
+					<option value="8:30">8:30</option>
+					<option value="9:00">9:00</option>
+					<option value="9:30">9:30</option>
+					<option value="10:00">10:00</option>
+					<option value="10:30">10:30</option>
+					<option value="11:00">11:00</option>
+					<option value="11:30">11:30</option>
+					<option value="12:00">12:00</option>
+					<option value="12:30">12:30</option>
+					<option value="1:00">1:00</option>
+					<option value="1:30">2:30</option>
+					<option value="2:00">2:00</option>
+					<option value="2:30">2:30</option>
+					<option value="3:00">3:00</option>
+					<option value="3:30">3:30</option>
+					<option value="4:00">4:00</option>
+					<option value="4:30">4:30</option>
+					<option value="5:00">5:00</option>
+				</select>
+			</div>
+		</div>
+		<div class="item knobs">
+			<div>
+				CV Input Attenuverter
+			</div>
+			<div>
+				<select id="multiply_cv_input_attenuverter" class="knobs pointy">
+					<option value=""></option>
+					<option value="min">min</option>
+					<option value="max">max</option>
+					<option value="7:00">7:00</option>
+					<option value="7:30">7:30</option>
+					<option value="8:00">8:00</option>
+					<option value="8:30">8:30</option>
+					<option value="9:00">9:00</option>
+					<option value="9:30">9:30</option>
+					<option value="10:00">10:00</option>
+					<option value="10:30">10:30</option>
+					<option value="11:00">11:00</option>
+					<option value="11:30">11:30</option>
+					<option value="12:00">12:00</option>
+					<option value="12:30">12:30</option>
+					<option value="1:00">1:00</option>
+					<option value="1:30">2:30</option>
+					<option value="2:00">2:00</option>
+					<option value="2:30">2:30</option>
+					<option value="3:00">3:00</option>
+					<option value="3:30">3:30</option>
+					<option value="4:00">4:00</option>
+					<option value="4:30">4:30</option>
+					<option value="5:00">5:00</option>
+				</select>
+			</div>
+		</div>
+
+		<!-- ********* Slope ********* -->
+
+		<div class="item_category">
+			Slope
+		</div>
+		<div class="item knobs">
+			<div>
+				Cycle Illuminated Button
+			</div>
+			<div>
+				<select id="slope_cycle_illuminated_button" class="knobs pointy">
+					<option value="off">off</option>
+					<option value="on">on</option>
+				</select>
+			</div>
+		</div>
+		<div class="item knobs">
+			<div>
+				Rise Panel Control
+			</div>
+			<div>
+				<select id="slope_rise_panel_control" class="knobs pointy">
+					<option value=""></option>
+					<option value="min">min</option>
+					<option value="max">max</option>
+					<option value="7:00">7:00</option>
+					<option value="7:30">7:30</option>
+					<option value="8:00">8:00</option>
+					<option value="8:30">8:30</option>
+					<option value="9:00">9:00</option>
+					<option value="9:30">9:30</option>
+					<option value="10:00">10:00</option>
+					<option value="10:30">10:30</option>
+					<option value="11:00">11:00</option>
+					<option value="11:30">11:30</option>
+					<option value="12:00">12:00</option>
+					<option value="12:30">12:30</option>
+					<option value="1:00">1:00</option>
+					<option value="1:30">2:30</option>
+					<option value="2:00">2:00</option>
+					<option value="2:30">2:30</option>
+					<option value="3:00">3:00</option>
+					<option value="3:30">3:30</option>
+					<option value="4:00">4:00</option>
+					<option value="4:30">4:30</option>
+					<option value="5:00">5:00</option>
+				</select>
+			</div>
+		</div>
+		<div class="item knobs">
+			<div>
+				Fall Panel Control
+			</div>
+			<div>
+				<select id="slope_fall_panel_control" class="knobs pointy">
+					<option value=""></option>
+					<option value="min">min</option>
+					<option value="max">max</option>
+					<option value="7:00">7:00</option>
+					<option value="7:30">7:30</option>
+					<option value="8:00">8:00</option>
+					<option value="8:30">8:30</option>
+					<option value="9:00">9:00</option>
+					<option value="9:30">9:30</option>
+					<option value="10:00">10:00</option>
+					<option value="10:30">10:30</option>
+					<option value="11:00">11:00</option>
+					<option value="11:30">11:30</option>
+					<option value="12:00">12:00</option>
+					<option value="12:30">12:30</option>
+					<option value="1:00">1:00</option>
+					<option value="1:30">2:30</option>
+					<option value="2:00">2:00</option>
+					<option value="2:30">2:30</option>
+					<option value="3:00">3:00</option>
+					<option value="3:30">3:30</option>
+					<option value="4:00">4:00</option>
+					<option value="4:30">4:30</option>
+					<option value="5:00">5:00</option>
+				</select>
+			</div>
+		</div>
+		<div class="item knobs">
+			<div>
+				Vari-Response
+			</div>
+			<div>
+				<select id="slope_variresponse" class="knobs pointy">
+					<option value=""></option>
+					<option value="min">min</option>
+					<option value="max">max</option>
+					<option value="7:00">7:00</option>
+					<option value="7:30">7:30</option>
+					<option value="8:00">8:00</option>
+					<option value="8:30">8:30</option>
+					<option value="9:00">9:00</option>
+					<option value="9:30">9:30</option>
+					<option value="10:00">10:00</option>
+					<option value="10:30">10:30</option>
+					<option value="11:00">11:00</option>
+					<option value="11:30">11:30</option>
+					<option value="12:00">12:00</option>
+					<option value="12:30">12:30</option>
+					<option value="1:00">1:00</option>
+					<option value="1:30">2:30</option>
+					<option value="2:00">2:00</option>
+					<option value="2:30">2:30</option>
+					<option value="3:00">3:00</option>
+					<option value="3:30">3:30</option>
+					<option value="4:00">4:00</option>
+					<option value="4:30">4:30</option>
+					<option value="5:00">5:00</option>
+				</select>
+			</div>
+		</div>
+
+		<!-- ********* Contour ********* -->
+
+		<div class="item_category">
+			Contour
+		</div>
+		<div class="item knobs">
+			<div>
+				Onset Panel Control
+			</div>
+			<div>
+				<select id="countour_onset_panel_control" class="knobs pointy">
+					<option value=""></option>
+					<option value="min">min</option>
+					<option value="max">max</option>
+					<option value="7:00">7:00</option>
+					<option value="7:30">7:30</option>
+					<option value="8:00">8:00</option>
+					<option value="8:30">8:30</option>
+					<option value="9:00">9:00</option>
+					<option value="9:30">9:30</option>
+					<option value="10:00">10:00</option>
+					<option value="10:30">10:30</option>
+					<option value="11:00">11:00</option>
+					<option value="11:30">11:30</option>
+					<option value="12:00">12:00</option>
+					<option value="12:30">12:30</option>
+					<option value="1:00">1:00</option>
+					<option value="1:30">2:30</option>
+					<option value="2:00">2:00</option>
+					<option value="2:30">2:30</option>
+					<option value="3:00">3:00</option>
+					<option value="3:30">3:30</option>
+					<option value="4:00">4:00</option>
+					<option value="4:30">4:30</option>
+					<option value="5:00">5:00</option>
+				</select>
+			</div>
+		</div>
+		<div class="item knobs">
+			<div>
+				Sustain Panel Control
+			</div>
+			<div>
+				<select id="contour_sustain_panel_control" class="knobs pointy">
+					<option value=""></option>
+					<option value="min">min</option>
+					<option value="max">max</option>
+					<option value="7:00">7:00</option>
+					<option value="7:30">7:30</option>
+					<option value="8:00">8:00</option>
+					<option value="8:30">8:30</option>
+					<option value="9:00">9:00</option>
+					<option value="9:30">9:30</option>
+					<option value="10:00">10:00</option>
+					<option value="10:30">10:30</option>
+					<option value="11:00">11:00</option>
+					<option value="11:30">11:30</option>
+					<option value="12:00">12:00</option>
+					<option value="12:30">12:30</option>
+					<option value="1:00">1:00</option>
+					<option value="1:30">2:30</option>
+					<option value="2:00">2:00</option>
+					<option value="2:30">2:30</option>
+					<option value="3:00">3:00</option>
+					<option value="3:30">3:30</option>
+					<option value="4:00">4:00</option>
+					<option value="4:30">4:30</option>
+					<option value="5:00">5:00</option>
+				</select>
+			</div>
+		</div>
+		<div class="item knobs">
+			<div>
+				Decay Panel Control
+			</div>
+			<div>
+				<select id="contour_decay_panel_control" class="knobs pointy">
+					<option value=""></option>
+					<option value="min">min</option>
+					<option value="max">max</option>
+					<option value="7:00">7:00</option>
+					<option value="7:30">7:30</option>
+					<option value="8:00">8:00</option>
+					<option value="8:30">8:30</option>
+					<option value="9:00">9:00</option>
+					<option value="9:30">9:30</option>
+					<option value="10:00">10:00</option>
+					<option value="10:30">10:30</option>
+					<option value="11:00">11:00</option>
+					<option value="11:30">11:30</option>
+					<option value="12:00">12:00</option>
+					<option value="12:30">12:30</option>
+					<option value="1:00">1:00</option>
+					<option value="1:30">2:30</option>
+					<option value="2:00">2:00</option>
+					<option value="2:30">2:30</option>
+					<option value="3:00">3:00</option>
+					<option value="3:30">3:30</option>
+					<option value="4:00">4:00</option>
+					<option value="4:30">4:30</option>
+					<option value="5:00">5:00</option>
+				</select>
+			</div>
+		</div>
+		<div class="item knobs">
+			<div>
+				Vari-Response
+			</div>
+			<div>
+				<select id="contour_variresponse" class="knobs pointy">
+					<option value=""></option>
+					<option value="min">min</option>
+					<option value="max">max</option>
+					<option value="7:00">7:00</option>
+					<option value="7:30">7:30</option>
+					<option value="8:00">8:00</option>
+					<option value="8:30">8:30</option>
+					<option value="9:00">9:00</option>
+					<option value="9:30">9:30</option>
+					<option value="10:00">10:00</option>
+					<option value="10:30">10:30</option>
+					<option value="11:00">11:00</option>
+					<option value="11:30">11:30</option>
+					<option value="12:00">12:00</option>
+					<option value="12:30">12:30</option>
+					<option value="1:00">1:00</option>
+					<option value="1:30">2:30</option>
+					<option value="2:00">2:00</option>
+					<option value="2:30">2:30</option>
+					<option value="3:00">3:00</option>
+					<option value="3:30">3:30</option>
+					<option value="4:00">4:00</option>
+					<option value="4:30">4:30</option>
+					<option value="5:00">5:00</option>
+				</select>
+			</div>
+		</div>
+
+		<!-- ********* Balance ********* -->
+
+		<div class="item_category">
+			Balance
+		</div>
+		<div class="item knobs">
+			<div>
+				Attenuator
+			</div>
+			<div>
+				<select id="balance_attenuator" class="knobs pointy">
+					<option value=""></option>
+					<option value="min">min</option>
+					<option value="max">max</option>
+					<option value="7:00">7:00</option>
+					<option value="7:30">7:30</option>
+					<option value="8:00">8:00</option>
+					<option value="8:30">8:30</option>
+					<option value="9:00">9:00</option>
+					<option value="9:30">9:30</option>
+					<option value="10:00">10:00</option>
+					<option value="10:30">10:30</option>
+					<option value="11:00">11:00</option>
+					<option value="11:30">11:30</option>
+					<option value="12:00">12:00</option>
+					<option value="12:30">12:30</option>
+					<option value="1:00">1:00</option>
+					<option value="1:30">2:30</option>
+					<option value="2:00">2:00</option>
+					<option value="2:30">2:30</option>
+					<option value="3:00">3:00</option>
+					<option value="3:30">3:30</option>
+					<option value="4:00">4:00</option>
+					<option value="4:30">4:30</option>
+					<option value="5:00">5:00</option>
+				</select>
+			</div>
+		</div>
+
+		<!-- ********* Balance ********* -->
+
+		<div class="item_category">
+			Dynamics
+		</div>
+		<div class="item knobs">
+			<div>
+				Attenuator
+			</div>
+			<div>
+				<select id="dynamic_attenuator" class="knobs pointy">
+					<option value=""></option>
+					<option value="min">min</option>
+					<option value="max">max</option>
+					<option value="7:00">7:00</option>
+					<option value="7:30">7:30</option>
+					<option value="8:00">8:00</option>
+					<option value="8:30">8:30</option>
+					<option value="9:00">9:00</option>
+					<option value="9:30">9:30</option>
+					<option value="10:00">10:00</option>
+					<option value="10:30">10:30</option>
+					<option value="11:00">11:00</option>
+					<option value="11:30">11:30</option>
+					<option value="12:00">12:00</option>
+					<option value="12:30">12:30</option>
+					<option value="1:00">1:00</option>
+					<option value="1:30">2:30</option>
+					<option value="2:00">2:00</option>
+					<option value="2:30">2:30</option>
+					<option value="3:00">3:00</option>
+					<option value="3:30">3:30</option>
+					<option value="4:00">4:00</option>
+					<option value="4:30">4:30</option>
+					<option value="5:00">5:00</option>
+				</select>
+			</div>
+		</div>
+
+	</section>
+
+	<!-- ***************************   Output Jacks   *************************** -->
+
+	<section>
+
+		<h2>
+			Output Jacks
+		</h2>
+
+		<!-- ********* MIDI B ********* -->
+
+		<div class="item_category">
+			MIDI B
+		</div>
+		<div class="item jacks" data-connections="1">
+			<div>
+				CV
+			</div>
+			<div id="midi_b_cv_container_0">
+				<select id="midi_b_cv_0" data-index="0" class="jacks">
+					<option value=""></option>
+					<option value="TEMPO Input">TEMPO Input</option>
+					<option value="Voltage MATH: Channel 1 Input">Voltage MATH: Channel 1 Input</option>
+					<option value="Voltage MATH: Channel 2 Input">Voltage MATH: Channel 2 Input</option>
+					<option value="Oscillator: 1/V OCTave Input">Oscillator: 1/V OCTave Input</option>
+					<option value="Oscillator: Linear FM Input">Oscillator: Linear FM Input</option>
+					<option value="Overtone: CV Input">Overtone: CV Input</option>
+					<option value="Multiply: CV Input">Multiply: CV Input</option>
+					<option value="Slope: Rise/Fall Time CV Input">Slope: Rise/Fall Time CV Input</option>
+					<option value="Slope: Trigger Input">Slope: Trigger Input</option>
+					<option value="Contour: Decay Time CV Input">Contour: Decay Time CV Input</option>
+					<option value="Contour: Gate Input">Contour: Gate Input</option>
+					<option value="Balance: Channel External Input">Balance: Channel External Input</option>
+					<option value="Balance: CV Input">Balance: CV Input</option>
+					<option value="Dynamics CV Input">Dynamics CV Input</option>
+				</select>
+			</div>
+			<div id="midi_b_cv_plus" class="plus pointy">
+				+
+			</div>
+		</div>
+		<div class="item jacks" data-connections="1">
+			<div>
+				Gate
+			</div>
+			<div id="midi_b_gate_container_0">
+				<select id="midi_b_gate_0" data-index="0" class="jacks">
+					<option value=""></option>
+					<option value="TEMPO Input">TEMPO Input</option>
+					<option value="Voltage MATH: Channel 1 Input">Voltage MATH: Channel 1 Input</option>
+					<option value="Voltage MATH: Channel 2 Input">Voltage MATH: Channel 2 Input</option>
+					<option value="Oscillator: 1/V OCTave Input">Oscillator: 1/V OCTave Input</option>
+					<option value="Oscillator: Linear FM Input">Oscillator: Linear FM Input</option>
+					<option value="Overtone: CV Input">Overtone: CV Input</option>
+					<option value="Multiply: CV Input">Multiply: CV Input</option>
+					<option value="Slope: Rise/Fall Time CV Input">Slope: Rise/Fall Time CV Input</option>
+					<option value="Slope: Trigger Input">Slope: Trigger Input</option>
+					<option value="Contour: Decay Time CV Input">Contour: Decay Time CV Input</option>
+					<option value="Contour: Gate Input">Contour: Gate Input</option>
+					<option value="Balance: Channel External Input">Balance: Channel External Input</option>
+					<option value="Balance: CV Input">Balance: CV Input</option>
+					<option value="Dynamics CV Input">Dynamics CV Input</option>
+				</select>
+			</div>
+			<div id="midi_b_gate_plus" class="plus pointy">
+				+
+			</div>
+
+		</div>
+
+		<!-- ********* Clock ********* -->
+
+		<div class="item_category">
+			Clock
+		</div>
+		<div class="item jacks" data-connections="1">
+			<div>
+				Clock
+			</div>
+			<div id="clock_clock_container_0">
+				<select id="clock_clock_0" data-index="0" class="jacks">
+					<option value=""></option>
+					<option value="TEMPO Input">TEMPO Input</option>
+					<option value="Voltage MATH: Channel 1 Input">Voltage MATH: Channel 1 Input</option>
+					<option value="Voltage MATH: Channel 2 Input">Voltage MATH: Channel 2 Input</option>
+					<option value="Oscillator: 1/V OCTave Input">Oscillator: 1/V OCTave Input</option>
+					<option value="Oscillator: Linear FM Input">Oscillator: Linear FM Input</option>
+					<option value="Overtone: CV Input">Overtone: CV Input</option>
+					<option value="Multiply: CV Input">Multiply: CV Input</option>
+					<option value="Slope: Rise/Fall Time CV Input">Slope: Rise/Fall Time CV Input</option>
+					<option value="Slope: Trigger Input">Slope: Trigger Input</option>
+					<option value="Contour: Decay Time CV Input">Contour: Decay Time CV Input</option>
+					<option value="Contour: Gate Input">Contour: Gate Input</option>
+					<option value="Balance: Channel External Input">Balance: Channel External Input</option>
+					<option value="Balance: CV Input">Balance: CV Input</option>
+					<option value="Dynamics CV Input">Dynamics CV Input</option>
+				</select>
+			</div>
+			<div id="clock_clock_plus" class="plus pointy">
+				+
+			</div>
+		</div>
+		<div class="item jacks" data-connections="1">
+			<div>
+				Stepped Random
+			</div>
+			<div id="clock_stepped_random_container_0">
+				<select id="clock_stepped_random_0" data-index="0" class="jacks">
+					<option value=""></option>
+					<option value="TEMPO Input">TEMPO Input</option>
+					<option value="Voltage MATH: Channel 1 Input">Voltage MATH: Channel 1 Input</option>
+					<option value="Voltage MATH: Channel 2 Input">Voltage MATH: Channel 2 Input</option>
+					<option value="Oscillator: 1/V OCTave Input">Oscillator: 1/V OCTave Input</option>
+					<option value="Oscillator: Linear FM Input">Oscillator: Linear FM Input</option>
+					<option value="Overtone: CV Input">Overtone: CV Input</option>
+					<option value="Multiply: CV Input">Multiply: CV Input</option>
+					<option value="Slope: Rise/Fall Time CV Input">Slope: Rise/Fall Time CV Input</option>
+					<option value="Slope: Trigger Input">Slope: Trigger Input</option>
+					<option value="Contour: Decay Time CV Input">Contour: Decay Time CV Input</option>
+					<option value="Contour: Gate Input">Contour: Gate Input</option>
+					<option value="Balance: Channel External Input">Balance: Channel External Input</option>
+					<option value="Balance: CV Input">Balance: CV Input</option>
+					<option value="Dynamics CV Input">Dynamics CV Input</option>
+				</select>
+			</div>
+			<div id="clock_stepped_random_plus" class="plus pointy">
+				+
+			</div>
+		</div>
+
+		<!-- ********* Voltage MATH ********* -->
+
+		<div class="item_category">
+			Voltage MATH
+		</div>
+		<div class="item jacks" data-connections="1">
+			<div>
+				Channel 1
+			</div>
+			<div id="voltage_math_channel_one_container_0">
+				<select id="voltage_math_channel_one_0" data-index="0" class="jacks">
+					<option value=""></option>
+					<option value="TEMPO Input">TEMPO Input</option>
+					<option value="Voltage MATH: Channel 1 Input">Voltage MATH: Channel 1 Input</option>
+					<option value="Voltage MATH: Channel 2 Input">Voltage MATH: Channel 2 Input</option>
+					<option value="Oscillator: 1/V OCTave Input">Oscillator: 1/V OCTave Input</option>
+					<option value="Oscillator: Linear FM Input">Oscillator: Linear FM Input</option>
+					<option value="Overtone: CV Input">Overtone: CV Input</option>
+					<option value="Multiply: CV Input">Multiply: CV Input</option>
+					<option value="Slope: Rise/Fall Time CV Input">Slope: Rise/Fall Time CV Input</option>
+					<option value="Slope: Trigger Input">Slope: Trigger Input</option>
+					<option value="Contour: Decay Time CV Input">Contour: Decay Time CV Input</option>
+					<option value="Contour: Gate Input">Contour: Gate Input</option>
+					<option value="Balance: Channel External Input">Balance: Channel External Input</option>
+					<option value="Balance: CV Input">Balance: CV Input</option>
+					<option value="Dynamics CV Input">Dynamics CV Input</option>
+				</select>
+			</div>
+			<div id="voltage_math_channel_one_plus" class="plus pointy">
+				+
+			</div>
+		</div>
+		<div class="item jacks" data-connections="1">
+			<div>
+				Channel 2
+			</div>
+			<div id="voltage_math_channel_two_container_0">
+				<select id="voltage_math_channel_two_0" data-index="0" class="jacks">
+					<option value=""></option>
+					<option value="TEMPO Input">TEMPO Input</option>
+					<option value="Voltage MATH: Channel 1 Input">Voltage MATH: Channel 1 Input</option>
+					<option value="Voltage MATH: Channel 2 Input">Voltage MATH: Channel 2 Input</option>
+					<option value="Oscillator: 1/V OCTave Input">Oscillator: 1/V OCTave Input</option>
+					<option value="Oscillator: Linear FM Input">Oscillator: Linear FM Input</option>
+					<option value="Overtone: CV Input">Overtone: CV Input</option>
+					<option value="Multiply: CV Input">Multiply: CV Input</option>
+					<option value="Slope: Rise/Fall Time CV Input">Slope: Rise/Fall Time CV Input</option>
+					<option value="Slope: Trigger Input">Slope: Trigger Input</option>
+					<option value="Contour: Decay Time CV Input">Contour: Decay Time CV Input</option>
+					<option value="Contour: Gate Input">Contour: Gate Input</option>
+					<option value="Balance: Channel External Input">Balance: Channel External Input</option>
+					<option value="Balance: CV Input">Balance: CV Input</option>
+					<option value="Dynamics CV Input">Dynamics CV Input</option>
+				</select>
+			</div>
+			<div id="voltage_math_channel_two_plus" class="plus pointy">
+				+
+			</div>
+		</div>
+
+		<!-- ********* Oscillator ********* -->
+
+		<div class="item_category">
+			Oscillator
+		</div>
+		<div class="item jacks" data-connections="1">
+			<div>
+				Triangle Wave
+			</div>
+			<div id="oscillator_triangle_wave_container_0">
+				<select id="oscillator_triangle_wave_0" data-index="0" class="jacks">
+					<option value=""></option>
+					<option value="TEMPO Input">TEMPO Input</option>
+					<option value="Voltage MATH: Channel 1 Input">Voltage MATH: Channel 1 Input</option>
+					<option value="Voltage MATH: Channel 2 Input">Voltage MATH: Channel 2 Input</option>
+					<option value="Oscillator: 1/V OCTave Input">Oscillator: 1/V OCTave Input</option>
+					<option value="Oscillator: Linear FM Input">Oscillator: Linear FM Input</option>
+					<option value="Overtone: CV Input">Overtone: CV Input</option>
+					<option value="Multiply: CV Input">Multiply: CV Input</option>
+					<option value="Slope: Rise/Fall Time CV Input">Slope: Rise/Fall Time CV Input</option>
+					<option value="Slope: Trigger Input">Slope: Trigger Input</option>
+					<option value="Contour: Decay Time CV Input">Contour: Decay Time CV Input</option>
+					<option value="Contour: Gate Input">Contour: Gate Input</option>
+					<option value="Balance: Channel External Input">Balance: Channel External Input</option>
+					<option value="Balance: CV Input">Balance: CV Input</option>
+					<option value="Dynamics CV Input">Dynamics CV Input</option>
+				</select>
+			</div>
+			<div id="oscillator_triangle_wave_plus" class="plus pointy">
+				+
+			</div>
+		</div>
+		<div class="item jacks" data-connections="1">
+			<div>
+				Square Wave
+			</div>
+			<div id="oscillator_square_wave_container_0">
+				<select id="oscillator_square_wave_0" data-index="0" class="jacks">
+					<option value=""></option>
+					<option value="TEMPO Input">TEMPO Input</option>
+					<option value="Voltage MATH: Channel 1 Input">Voltage MATH: Channel 1 Input</option>
+					<option value="Voltage MATH: Channel 2 Input">Voltage MATH: Channel 2 Input</option>
+					<option value="Oscillator: 1/V OCTave Input">Oscillator: 1/V OCTave Input</option>
+					<option value="Oscillator: Linear FM Input">Oscillator: Linear FM Input</option>
+					<option value="Overtone: CV Input">Overtone: CV Input</option>
+					<option value="Multiply: CV Input">Multiply: CV Input</option>
+					<option value="Slope: Rise/Fall Time CV Input">Slope: Rise/Fall Time CV Input</option>
+					<option value="Slope: Trigger Input">Slope: Trigger Input</option>
+					<option value="Contour: Decay Time CV Input">Contour: Decay Time CV Input</option>
+					<option value="Contour: Gate Input">Contour: Gate Input</option>
+					<option value="Balance: Channel External Input">Balance: Channel External Input</option>
+					<option value="Balance: CV Input">Balance: CV Input</option>
+					<option value="Dynamics CV Input">Dynamics CV Input</option>
+				</select>
+			</div>
+			<div id="oscillator_square_wave_plus" class="plus pointy">
+				+
+			</div>
+		</div>
+
+		<!-- ********* Slope ********* -->
+
+		<div class="item_category">
+			Slope
+		</div>
+		<div class="item jacks" data-connections="1">
+			<div>
+				EOC Gate
+			</div>
+			<div id="slope_eoc_gate_container_0">
+				<select id="slope_eoc_gate_0" data-index="0" class="jacks">
+					<option value=""></option>
+					<option value="TEMPO Input">TEMPO Input</option>
+					<option value="Voltage MATH: Channel 1 Input">Voltage MATH: Channel 1 Input</option>
+					<option value="Voltage MATH: Channel 2 Input">Voltage MATH: Channel 2 Input</option>
+					<option value="Oscillator: 1/V OCTave Input">Oscillator: 1/V OCTave Input</option>
+					<option value="Oscillator: Linear FM Input">Oscillator: Linear FM Input</option>
+					<option value="Overtone: CV Input">Overtone: CV Input</option>
+					<option value="Multiply: CV Input">Multiply: CV Input</option>
+					<option value="Slope: Rise/Fall Time CV Input">Slope: Rise/Fall Time CV Input</option>
+					<option value="Slope: Trigger Input">Slope: Trigger Input</option>
+					<option value="Contour: Decay Time CV Input">Contour: Decay Time CV Input</option>
+					<option value="Contour: Gate Input">Contour: Gate Input</option>
+					<option value="Balance: Channel External Input">Balance: Channel External Input</option>
+					<option value="Balance: CV Input">Balance: CV Input</option>
+					<option value="Dynamics CV Input">Dynamics CV Input</option>
+				</select>
+			</div>
+			<div id="slope_eoc_gate_plus" class="plus pointy">
+				+
+			</div>
+		</div>
+		<div class="item jacks" data-connections="1">
+			<div>
+				CV
+			</div>
+			<div id="slope_cv_container_0">
+				<select id="slope_cv_0" data-index="0" class="jacks">
+					<option value=""></option>
+					<option value="TEMPO Input">TEMPO Input</option>
+					<option value="Voltage MATH: Channel 1 Input">Voltage MATH: Channel 1 Input</option>
+					<option value="Voltage MATH: Channel 2 Input">Voltage MATH: Channel 2 Input</option>
+					<option value="Oscillator: 1/V OCTave Input">Oscillator: 1/V OCTave Input</option>
+					<option value="Oscillator: Linear FM Input">Oscillator: Linear FM Input</option>
+					<option value="Overtone: CV Input">Overtone: CV Input</option>
+					<option value="Multiply: CV Input">Multiply: CV Input</option>
+					<option value="Slope: Rise/Fall Time CV Input">Slope: Rise/Fall Time CV Input</option>
+					<option value="Slope: Trigger Input">Slope: Trigger Input</option>
+					<option value="Contour: Decay Time CV Input">Contour: Decay Time CV Input</option>
+					<option value="Contour: Gate Input">Contour: Gate Input</option>
+					<option value="Balance: Channel External Input">Balance: Channel External Input</option>
+					<option value="Balance: CV Input">Balance: CV Input</option>
+					<option value="Dynamics CV Input">Dynamics CV Input</option>
+				</select>
+			</div>
+			<div id="slope_cv_plus" class="plus pointy">
+				+
+			</div>
+		</div>
+
+		<!-- ********* Contour ********* -->
+
+		<div class="item_category">
+			Contour
+		</div>
+		<div class="item jacks" data-connections="1">
+			<div>
+				EON
+			</div>
+			<div id="contour_eon_container_0">
+				<select id="contour_eon_0" data-index="0" class="jacks">
+					<option value=""></option>
+					<option value="TEMPO Input">TEMPO Input</option>
+					<option value="Voltage MATH: Channel 1 Input">Voltage MATH: Channel 1 Input</option>
+					<option value="Voltage MATH: Channel 2 Input">Voltage MATH: Channel 2 Input</option>
+					<option value="Oscillator: 1/V OCTave Input">Oscillator: 1/V OCTave Input</option>
+					<option value="Oscillator: Linear FM Input">Oscillator: Linear FM Input</option>
+					<option value="Overtone: CV Input">Overtone: CV Input</option>
+					<option value="Multiply: CV Input">Multiply: CV Input</option>
+					<option value="Slope: Rise/Fall Time CV Input">Slope: Rise/Fall Time CV Input</option>
+					<option value="Slope: Trigger Input">Slope: Trigger Input</option>
+					<option value="Contour: Decay Time CV Input">Contour: Decay Time CV Input</option>
+					<option value="Contour: Gate Input">Contour: Gate Input</option>
+					<option value="Balance: Channel External Input">Balance: Channel External Input</option>
+					<option value="Balance: CV Input">Balance: CV Input</option>
+					<option value="Dynamics CV Input">Dynamics CV Input</option>
+				</select>
+			</div>
+			<div id="contour_eon_plus" class="plus pointy">
+				+
+			</div>
+		</div>
+		<div class="item jacks" data-connections="1">
+			<div>
+				CV
+			</div>
+			<div id="contour_cv_container_0">
+				<select id="contour_cv_0" data-index="0" class="jacks">
+					<option value=""></option>
+					<option value="TEMPO Input">TEMPO Input</option>
+					<option value="Voltage MATH: Channel 1 Input">Voltage MATH: Channel 1 Input</option>
+					<option value="Voltage MATH: Channel 2 Input">Voltage MATH: Channel 2 Input</option>
+					<option value="Oscillator: 1/V OCTave Input">Oscillator: 1/V OCTave Input</option>
+					<option value="Oscillator: Linear FM Input">Oscillator: Linear FM Input</option>
+					<option value="Overtone: CV Input">Overtone: CV Input</option>
+					<option value="Multiply: CV Input">Multiply: CV Input</option>
+					<option value="Slope: Rise/Fall Time CV Input">Slope: Rise/Fall Time CV Input</option>
+					<option value="Slope: Trigger Input">Slope: Trigger Input</option>
+					<option value="Contour: Decay Time CV Input">Contour: Decay Time CV Input</option>
+					<option value="Contour: Gate Input">Contour: Gate Input</option>
+					<option value="Balance: Channel External Input">Balance: Channel External Input</option>
+					<option value="Balance: CV Input">Balance: CV Input</option>
+					<option value="Dynamics CV Input">Dynamics CV Input</option>
+				</select>
+			</div>
+			<div id="contour_cv_plus" class="plus pointy">
+				+
+			</div>
+		</div>
+
+		<!-- ********* Dynamics ********* -->
+
+		<div class="item_category">
+			Dynamics
+		</div>
+		<div class="item jacks" data-connections="1">
+			<div>
+				Dynamics
+			</div>
+			<div id="dynamics_dynamics_container_0">
+				<select id="dynamics_dynamics_0" data-index="0" class="jacks">
+					<option value=""></option>
+					<option value="TEMPO Input">TEMPO Input</option>
+					<option value="Voltage MATH: Channel 1 Input">Voltage MATH: Channel 1 Input</option>
+					<option value="Voltage MATH: Channel 2 Input">Voltage MATH: Channel 2 Input</option>
+					<option value="Oscillator: 1/V OCTave Input">Oscillator: 1/V OCTave Input</option>
+					<option value="Oscillator: Linear FM Input">Oscillator: Linear FM Input</option>
+					<option value="Overtone: CV Input">Overtone: CV Input</option>
+					<option value="Multiply: CV Input">Multiply: CV Input</option>
+					<option value="Slope: Rise/Fall Time CV Input">Slope: Rise/Fall Time CV Input</option>
+					<option value="Slope: Trigger Input">Slope: Trigger Input</option>
+					<option value="Contour: Decay Time CV Input">Contour: Decay Time CV Input</option>
+					<option value="Contour: Gate Input">Contour: Gate Input</option>
+					<option value="Balance: Channel External Input">Balance: Channel External Input</option>
+					<option value="Balance: CV Input">Balance: CV Input</option>
+					<option value="Dynamics CV Input">Dynamics CV Input</option>
+				</select>
+			</div>
+			<div id="dynamics_dynamics_plus" class="plus pointy">
+				+
+			</div>
+		</div>
+
+	</section>
+
+</main>
+
+</html>
