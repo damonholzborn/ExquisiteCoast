@@ -2,17 +2,20 @@ var headerArea;
 var menuButton;
 var firstRun = true;
 
-var hasRun = localStorage.hasRun;
-if (hasRun === undefined) {
-	localStorage.setItem('hasRun', JSON.stringify(true));
+var hasVisited = localStorage.hasVisited;
+if (hasVisited === undefined) {
+	localStorage.setItem('hasVisited', JSON.stringify(true));
 }
 else {
 	firstRun = false;
 }
 
+var arrow1;
+var arrow2;
 var patchNameField;
 var authorField;
 var patchNotesField;
+var shareButton;
 var clockSpeedField;
 var clockSpeedTypeField;
 var midiBLFOSpeedField;
@@ -44,9 +47,13 @@ window.onload = function() {
 
 	// ********* Get Elements *********
 
+	arrow1 = document.getElementById('arrow1');
+	arrow2 = document.getElementById('arrow2');
+
 	patchNameField = document.getElementById('patch_name');
 	authorField = document.getElementById('author');
 	patchNotesField = document.getElementById('patch_notes');
+	this.shareButton = document.getElementById('share_button');
 
 	clockSpeedField = document.getElementById('clock_speed');
 	clockSpeedTypeField = document.getElementById('clock_speed_type');
@@ -72,21 +79,57 @@ window.onload = function() {
 
 	// ********* First Run or Load Patch *********
 
-	if (firstRun) {
+	var savedWorkingPatchName;
+	var sharedPatchCode = window.location.search.replace('?patch=', '');
+
+	if (firstRun && !sharedPatchCode) {
 		setTimeout(function() {
 			menuButton.click();
 		}, 1200);
 		makeNewPatch('Untitled 1');
 	}
 	else {
-		var savedWorkingPatchName = localStorage['workingPatchName'];
+
+		if (sharedPatchCode !== '') {
+			var sharedPatchUncompressed = LZString.decompressFromEncodedURIComponent(sharedPatchCode);
+			var sharedPatchObject = JSON.parse(sharedPatchUncompressed);
+
+			savedWorkingPatchName = sharedPatchObject.patchName;
+			var cancelLoad = false;
+			while (Object.keys(localStorage).indexOf(savedWorkingPatchName) !== -1 && !cancelLoad) {
+				var newPatchName = prompt('You already have a patch named ' + savedWorkingPatchName + '. Enter a new name for the shared patch.', savedWorkingPatchName);
+				if (newPatchName === null) {
+					cancelLoad = true;
+				}
+				else if (newPatchName !== '') {
+					savedWorkingPatchName = newPatchName;
+				}
+			}
+
+			if (!cancelLoad) {
+				sharedPatchObject.patchName = savedWorkingPatchName;
+				localStorage.setItem('workingPatchName', savedWorkingPatchName);
+				localStorage.setItem(savedWorkingPatchName, JSON.stringify(sharedPatchObject));
+				history.pushState(sharedPatchCode, '', '/');
+			}
+			else {
+				savedWorkingPatchName = localStorage['workingPatchName'];
+				history.pushState(sharedPatchCode, '', '/');
+			}
+
+		}
+		else {
+			savedWorkingPatchName = localStorage['workingPatchName'];
+		}
+
 		if (savedWorkingPatchName) {
 			workingPatch = JSON.parse(localStorage[savedWorkingPatchName]);
 
 			var allLocalStorage = Object.keys(localStorage);
+			allLocalStorage.sort();
 			for (var i = 0; i < allLocalStorage.length; i++) {
 				var name = allLocalStorage[i];
-				if (name !== 'hasRun' && name !== 'workingAuthor' && name !== 'workingPatchName') {
+				if (name !== 'hasVisited' && name !== 'workingAuthor' && name !== 'workingPatchName') {
 					addPatchNameToSelect(name, false);
 				}
 			}
@@ -104,8 +147,8 @@ window.onload = function() {
 		var value = patchNameField.value;
 
 		if (value === 'New Patch') {
-			var newPatchName = prompt("Enter a name for the new patch.");
-			if (newPatchName == null || newPatchName == "") {
+			var newPatchName = prompt('Enter a name for the new patch.');
+			if (newPatchName === null || newPatchName === '') {
 				patchNameField.value = workingPatch.patchName;
 			}
 			else {
@@ -113,8 +156,8 @@ window.onload = function() {
 			}
 		}
 		else if (value === 'Save As...') {
-			var newPatchName = prompt("Enter a new name for the patch copy.");
-			if (newPatchName == null || newPatchName == "") {
+			var newPatchName = prompt('Enter a new name for the patch copy.', workingPatch.patchName);
+			if (newPatchName === null || newPatchName === '') {
 				patchNameField.value = workingPatch.patchName;
 			}
 			else {
@@ -122,8 +165,8 @@ window.onload = function() {
 			}
 		}
 		else if (value === 'Rename') {
-			var newPatchName = prompt("Enter a new name for your patch.");
-			if (newPatchName == null || newPatchName == "") {
+			var newPatchName = prompt('Enter a new name for your patch.', workingPatch.patchName);
+			if (newPatchName === null || newPatchName === '') {
 				patchNameField.value = workingPatch.patchName;
 			}
 			else {
@@ -135,13 +178,13 @@ window.onload = function() {
 			}
 		}
 		else if (value === 'Delete') {
-			var confirmation = confirm("Press OK to delete the currently select patch. THIS CANNOT BE UNDONE!");
+			var confirmation = confirm('Press OK to delete the currently select patch. THIS CANNOT BE UNDONE!');
 			if (confirmation == true) {
 				localStorage.removeItem(workingPatch.patchName);
 				var allLocalStorage = Object.keys(localStorage);
 				for (var i = 0; i < allLocalStorage.length; i++) {
 					var name = allLocalStorage[i];
-					if (name !== 'hasRun' && name !== 'workingAuthor' && name !== 'workingPatchName') {
+					if (name !== 'hasVisited' && name !== 'workingAuthor' && name !== 'workingPatchName') {
 						localStorage.setItem('workingPatchName', name);
 						break;
 					}
@@ -172,6 +215,14 @@ window.onload = function() {
 		savePatch();
 	});
 
+	shareButton.addEventListener('touch', function() { sharePatch() });
+	shareButton.addEventListener('click', function() { sharePatch() });
+	function sharePatch() {
+		var workingPatchCompressed = LZString.compressToEncodedURIComponent(JSON.stringify(workingPatch));
+		console.log(LZString.decompressFromEncodedURIComponent(workingPatchCompressed));
+		var copyPatchURL = prompt('Copy the link below to share.', 'http://exquisitecoast.rustle.works/?patch=' + workingPatchCompressed);
+	}
+
 	clockSpeedField.addEventListener('keyup', function() { saveClock(clockSpeedField, true) });
 	clockSpeedTypeField.addEventListener('change', function() { saveClock(clockSpeedTypeField) });;
 	midiBLFOSpeedField.addEventListener('keyup', function() { saveClock(midiBLFOSpeedField, true) });;
@@ -193,7 +244,7 @@ window.onload = function() {
 		field.addEventListener('click', function() { newJackConnection(key) });
 	}
 
-
+	rotatePeriod();
 }
 
 // ***************************   Functions   ***************************
@@ -370,4 +421,16 @@ function addPatchNameToSelect(name, selected) {
 		option.selected = true;
 	}
 	patchNameField.add(option);
+}
+
+function rotateArrows() {
+	arrow1.style.transform = 'rotate(' + ((Math.random() * 100) - 50) + 'deg)';
+	arrow2.style.transform = 'rotate(' + ((Math.random() * 100) + 300) + 'deg)';
+}
+
+function rotatePeriod() {
+	setTimeout(function() {
+		rotateArrows();
+		rotatePeriod();
+	}, (Math.random() * 10000) + 15000);
 }

@@ -4,16 +4,17 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<!-- <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-	<link rel="manifest" href="/manifest.json">
+	<link rel="manifest" href="/site.webmanifest">
 	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-	<meta name="msapplication-TileColor" content="#2b5797">
-	<meta name="theme-color" content="#ffffff"> -->
+	<meta name="msapplication-TileColor" content="#ffc40d">
+	<meta name="theme-color" content="#ffffff">
 
 	<title>Exquisite Coast</title>
 
+	<script src="/lz-string.js"></script>
 	<script src="/exquisitecoast.js"></script>
 	<link rel="stylesheet" type="text/css" href="/style.css">
 
@@ -38,9 +39,47 @@
 	<div id="welcome_message">
 
 		<span id="welcome_text">
-			<p>Welcome to <i>Exquisite Coast</i>, a shared patch game for the Make Noise 0-Coast created by Damon Holzborn and John O'Brien.</p>
+			<p>Welcome to <i>Exquisite Coast</i>, a shared patch game for the Make Noise 0-Coast created by Damon Holzborn and John O'Brien. We've developed a tight set of technical constraints as an artistic challenge and to encourage a deep exploration of the instrument. These guidelines are designed to foster creativity as well as provide a useful method to get to know your 0-Coast better. Of course you are free to make up your own rules for yourself and your collaborators. If you feel a different process would work better for you, by all means go for it!</p>
 
-			<p>Happy Bleeping!</p>
+			<h2>How to Play the Exquisite Coast Shared Patch Game</h2>
+
+			<h3>Process</h3>
+
+			<ol>
+				<li>Create a patch and record a performance using only the 0-Coast (the Prompt).</li>
+				<li>Document the state of your 0-Coast at the end of the Prompt recording.</li>
+				<li>Share your Prompt for others to use (the Response).</li>
+			</ol>
+
+			<h3>Process</h3>
+
+			<ul>
+				<li>All sound and control comes from the 0-Coast — no outside MIDI or CV.</li>
+				<li>The only outside modules allowed are passive mults (this minor exception makes sense for those who don't have any stacking cables).</li>
+				<li>MIDI B CV and Gate should be set to LFO mode.</li>
+				<li>Re-patching while performing either the Prompt or the Response is not allowed; all interaction is through the knobs and buttons.</li>
+				<li>Clock and MIDI B tempo settings should not be modified during performance.</li>
+				<li>The knob positions notated in the patch chart should reflect the state of the patch at the end of the Prompt recording. The Response Author should use the knob positions as they explore the patch, but a Response recording need not start at those positions.</li>
+				<li>Linear editing (splicing) of the recordings is acceptable, but not multi-tracking.</li>
+				<li>Only mastering-type plug-ins (reverb, dynamic processing, EQ, etc.) are to be used on the recordings (i.e. no distortion, delay, flanger, etc.).</li>
+				<li>A good place to share Prompt patches and recordings is the Lines forum [link to come].</li>
+				<li>If you share your recordings on platforms like SoundCloud or YouTube, consider adding [exquisitecoast-prompt] or [exquisitecoast-response] at the end of the title so others can find your recordings and share the link to the patch in the description (and of course give credit to the original author when posting a Response).</li>
+				<li>If you share a patch on social media, consider using the hashtag #exquisitecoast.</li>
+				<li>If you are comfortable with doing so, it would be helpful to include contact info (email, website, social media, etc.) in the Author Info section so others can properly credit you in their response (or tell you how great your patch is!). </li>
+			</ul>
+
+			<h2>How to Play the Exquisite Coast Shared Patch Game</h2>
+
+			<ul>
+				<li>Notate your patch using the interface below.</li>
+				<li>Click the <b>Get Share Link</b> button to view the URL so that you can copy it.</li>
+				<li>Paste that link into an email to share with a friend, post on social media, or share with the Lines community [link to come].</li>
+			</ul>
+
+			<p><i>Note that no information is stored on a server, all data is saved to your browser. This means that your work will only be available in the browser that you used to create it. You might want to save the links to any important patches somewhere else for safekeeping.</i></p>
+
+			<p>Happy bleeping! We look forward to seeing and hearing what you do with <i>Exquisite Coast</i>!</p>
+
 		</span>
 		<span id="contact_info">
 			<p>Damon Holzborn<br>
@@ -117,7 +156,7 @@
 				</div>
 				<div id="share_area">
 					<div id="share_button" class="pointy">
-						Share Patch
+						Get Share Link
 					</div>
 				</div>
 			</div>
@@ -299,8 +338,10 @@
 			<div>
 				<select id="overtone_panel_control" class="knobs pointy">
 					<option value=""></option>
-					<option value="min">min</option>
-					<option value="max">max</option>
+					<option value="odd">odd</option>
+					<option value="¡¡">¡¡</option>
+					<option value="even">even</option>
+					<option value="!!">max</option>
 					<option value="7:00">7:00</option>
 					<option value="7:30">7:30</option>
 					<option value="8:00">8:00</option>
