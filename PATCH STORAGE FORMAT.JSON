@@ -1,0 +1,43 @@
+{
+	"patchName":"U3",
+	"author":"Damon Holzborn",
+	"patch_notes":"the third coolest patch ever",
+	"clock_speed_type":"bpm",
+	"clock_speed":"110",
+	"midi_b_speed":"3",
+	"midi_b_speed_type":"seconds",
+	"knobs": {
+		"slope_cycle_illuminated_button":"on",
+		"voltage_math_channel_attenuverter":"7:00",
+		"oscillator_pitch_panel_control":"8:00",
+		"oscillator_linear_fm_input_attenuator":"9:00",
+		"overtone_panel_control":"10:00",
+		"overtone_cv_input_attenuator":"11:00",
+		"multiply_panel_control":"12:00",
+		"multiply_cv_input_attenuverter":"12:30",
+		"slope_rise_panel_control":"1:00",
+		"slope_fall_panel_control":"2:00",
+		"slope_variresponse":"3:00",
+		"countour_onset_panel_control":"4:00",
+		"contour_sustain_panel_control":"5:00",
+		"contour_decay_panel_control":"7:30",
+		"contour_variresponse":"8:30",
+		"balance_attenuator":"9:30",
+		"dynamic_attenuator":"10:30"
+	},
+	"jacks": {
+		"midi_b_cv":["TEMPO Input"],
+		"midi_b_gate":["Voltage MATH: Channel 1 Input"],
+		"clock_clock":["Voltage MATH: Channel 2 Input"],
+		"clock_stepped_random":["Oscillator: 1/V OCTave Input"],
+		"voltage_math_channel_one":["Oscillator: Linear FM Input"],
+		"voltage_math_channel_two":["Overtone: CV Input"],
+		"oscillator_triangle_wave":["Multiply: CV Input"],
+		"oscillator_square_wave":["Slope: Rise/Fall Time CV Input"],
+		"slope_eoc_gate":["Contour: Decay Time CV Input"],
+		"slope_cv":["Balance: Channel External Input"],
+		"contour_eon":["Balance: CV Input"],
+		"contour_cv":["Dynamics CV Input"],
+		"dynamics_dynamics":["TEMPO Input"]
+	}
+}

@@ -1,14 +1,5 @@
 var headerArea;
 var menuButton;
-var firstRun = true;
-
-var hasVisited = localStorage.hasVisited;
-if (hasVisited === undefined) {
-	localStorage.setItem('hasVisited', JSON.stringify(true));
-}
-else {
-	firstRun = false;
-}
 
 var arrow1;
 var arrow2;
@@ -24,6 +15,13 @@ var knobFields = {};
 var jackFields = {};
 var plusButtons = {};
 var workingPatch = {};
+
+var knobValues = ['', 'min', 'max', '7:00', '7:30', '8:00', '8:30', '9:00', '9:30', '10:00', '10:30', '11:00', '11:30', '12:00', '12:30', '1:00', '1:30', '2:00', '2:30', '3:00', '3:30', '4:00', '4:30', '5:00', 'on', 'off', 'odd', '¡¡', 'even', '!!'];
+var jackDestinations = ['', 'TEMPO Input', 'Voltage MATH: Channel 1 Input', 'Voltage MATH: Channel 2 Input', 'Oscillator: 1/V OCTave Input', 'Oscillator: Linear FM Input', 'Overtone: CV Input', 'Multiply: CV Input', 'Slope: Rise/Fall Time CV Input', 'Slope: Trigger Input', 'Contour: Decay Time CV Input', 'Contour: Gate Input', 'Balance: Channel External Input', 'Balance: CV Input', 'Dynamics CV Input'];
+var knobLabels = ['slope_cycle_illuminated_button', 'voltage_math_channel_attenuverter', 'oscillator_pitch_panel_control', 'oscillator_linear_fm_input_attenuator', 'overtone_panel_control', 'overtone_cv_input_attenuator', 'multiply_panel_control', 'multiply_cv_input_attenuverter', 'slope_rise_panel_control', 'slope_fall_panel_control', 'slope_variresponse', 'countour_onset_panel_control', 'contour_sustain_panel_control', 'contour_decay_panel_control', 'contour_variresponse', 'balance_attenuator', 'dynamic_attenuator'];
+var jackLabels = ['midi_b_cv', 'midi_b_gate', 'clock_clock', 'clock_stepped_random', 'voltage_math_channel_one', 'voltage_math_channel_two', 'oscillator_triangle_wave', 'oscillator_square_wave', 'slope_eoc_gate', 'slope_cv', 'contour_eon', 'contour_cv', 'dynamics_dynamics'];
+var alphabet = 'abcdefghijklmnopqrstuvwxyz';
+
 
 window.onload = function() {
 
@@ -80,65 +78,40 @@ window.onload = function() {
 	// ********* First Run or Load Patch *********
 
 	var savedWorkingPatchName;
-	var sharedPatchCode = window.location.search.replace('?patch=', '');
 
-	if (firstRun && !sharedPatchCode) {
-		setTimeout(function() {
-			menuButton.click();
-		}, 1200);
-		makeNewPatch('Untitled 1');
+	var sharedPatchCode = window.location.search.replace('?patch=', '');
+	var sharedPatchUncompressed = LZString.decompressFromEncodedURIComponent(sharedPatchCode);
+	var sharedPatchUncompressedObject;
+	try {
+		sharedPatchUncompressedObject = JSON.parse(sharedPatchUncompressed);
+	} catch (error) {
+		alert('The patch appears to be invalid. Please check the URL and try again');
+	}
+
+	if (sharedPatchUncompressedObject) {
+		savedWorkingPatchName = loadSharedPatch(sharedPatchCode, sharedPatchUncompressedObject);
+	}
+
+	if (!savedWorkingPatchName)  {
+		savedWorkingPatchName = localStorage['workingPatchName'];
+	}
+
+	if (savedWorkingPatchName) {
+		workingPatch = JSON.parse(localStorage[savedWorkingPatchName]);
+
+		var allLocalStorage = Object.keys(localStorage);
+		allLocalStorage.sort();
+		for (var i = 0; i < allLocalStorage.length; i++) {
+			var name = allLocalStorage[i];
+			if (name !== 'workingAuthor' && name !== 'workingPatchName') {
+				addPatchNameToSelect(name, false);
+			}
+		}
+
+		loadSavedPatch();
 	}
 	else {
-
-		if (sharedPatchCode !== '') {
-			var sharedPatchUncompressed = LZString.decompressFromEncodedURIComponent(sharedPatchCode);
-			var sharedPatchObject = JSON.parse(sharedPatchUncompressed);
-
-			savedWorkingPatchName = sharedPatchObject.patchName;
-			var cancelLoad = false;
-			while (Object.keys(localStorage).indexOf(savedWorkingPatchName) !== -1 && !cancelLoad) {
-				var newPatchName = prompt('You already have a patch named ' + savedWorkingPatchName + '. Enter a new name for the shared patch.', savedWorkingPatchName);
-				if (newPatchName === null) {
-					cancelLoad = true;
-				}
-				else if (newPatchName !== '') {
-					savedWorkingPatchName = newPatchName;
-				}
-			}
-
-			if (!cancelLoad) {
-				sharedPatchObject.patchName = savedWorkingPatchName;
-				localStorage.setItem('workingPatchName', savedWorkingPatchName);
-				localStorage.setItem(savedWorkingPatchName, JSON.stringify(sharedPatchObject));
-				history.pushState(sharedPatchCode, '', '/');
-			}
-			else {
-				savedWorkingPatchName = localStorage['workingPatchName'];
-				history.pushState(sharedPatchCode, '', '/');
-			}
-
-		}
-		else {
-			savedWorkingPatchName = localStorage['workingPatchName'];
-		}
-
-		if (savedWorkingPatchName) {
-			workingPatch = JSON.parse(localStorage[savedWorkingPatchName]);
-
-			var allLocalStorage = Object.keys(localStorage);
-			allLocalStorage.sort();
-			for (var i = 0; i < allLocalStorage.length; i++) {
-				var name = allLocalStorage[i];
-				if (name !== 'hasVisited' && name !== 'workingAuthor' && name !== 'workingPatchName') {
-					addPatchNameToSelect(name, false);
-				}
-			}
-
-			loadSavedPatch();
-		}
-		else {
-			makeNewPatch('Untitled 1');
-		}
+		makeNewPatch('Untitled 1');
 	}
 
 	// ********* Event Listenters *********
@@ -147,8 +120,21 @@ window.onload = function() {
 		var value = patchNameField.value;
 
 		if (value === 'New Patch') {
-			var newPatchName = prompt('Enter a name for the new patch.');
-			if (newPatchName === null || newPatchName === '') {
+			var newPatchName = '';
+			var foundDuplicate = false;
+			var message = 'Enter a name for the new patch';
+
+			while (newPatchName === '' || foundDuplicate) {
+				newPatchName = prompt(message);
+				if (newPatchName === '') {
+					message = 'Patch name cannot be blank. Enter a name for the new patch or press Cancel to abort.';
+				}
+				else {
+					foundDuplicate = Object.keys(localStorage).indexOf(newPatchName) !== -1;
+					message = 'There is already a patch named ' + newPatchName + '. Enter a new name for the new patch or press Cancel to abort.';
+				}
+			}
+			if (newPatchName === null) {
 				patchNameField.value = workingPatch.patchName;
 			}
 			else {
@@ -156,8 +142,23 @@ window.onload = function() {
 			}
 		}
 		else if (value === 'Save As...') {
-			var newPatchName = prompt('Enter a new name for the patch copy.', workingPatch.patchName);
-			if (newPatchName === null || newPatchName === '') {
+			var newPatchName = '';
+			var defaultName = workingPatch.patchName + ' copy';
+			var foundDuplicate = false;
+			var message = 'Enter a name for the patch copy';
+
+			while (newPatchName === '' || foundDuplicate) {
+				newPatchName = prompt(message, defaultName);
+				if (newPatchName === '') {
+					message = 'Patch name cannot be blank. Enter a name for the patch copy or press Cancel to abort.';
+				}
+				else {
+					foundDuplicate = Object.keys(localStorage).indexOf(newPatchName) !== -1;
+					message = 'There is already a patch named ' + newPatchName + '. Enter a new name for the patch copy or press Cancel to abort.';
+					defaultName = newPatchName;
+				}
+			}
+			if (newPatchName === null) {
 				patchNameField.value = workingPatch.patchName;
 			}
 			else {
@@ -165,8 +166,23 @@ window.onload = function() {
 			}
 		}
 		else if (value === 'Rename') {
-			var newPatchName = prompt('Enter a new name for your patch.', workingPatch.patchName);
-			if (newPatchName === null || newPatchName === '') {
+			var newPatchName = '';
+			var defaultName = workingPatch.patchName;
+			var foundDuplicate = false;
+			var message = 'Enter a new name for the patch.';
+
+			while (newPatchName === '' || foundDuplicate) {
+				newPatchName = prompt(message, defaultName);
+				if (newPatchName === '') {
+					message = 'Patch name cannot be blank. Enter a new name for the patch or press Cancel to abort.';
+				}
+				else {
+					foundDuplicate = Object.keys(localStorage).indexOf(newPatchName) !== -1;
+					message = 'There is already a patch named ' + newPatchName + '. Enter a new name for the patch or press Cancel to abort.';
+					defaultName = newPatchName;
+				}
+			}
+			if (newPatchName === null) {
 				patchNameField.value = workingPatch.patchName;
 			}
 			else {
@@ -178,16 +194,21 @@ window.onload = function() {
 			}
 		}
 		else if (value === 'Delete') {
-			var confirmation = confirm('Press OK to delete the currently select patch. THIS CANNOT BE UNDONE!');
+			var confirmation = confirm('Press OK to delete ' + workingPatch.patchName + '. THIS CANNOT BE UNDONE!');
 			if (confirmation == true) {
 				localStorage.removeItem(workingPatch.patchName);
 				var allLocalStorage = Object.keys(localStorage);
+				var foundAPatch = false;
 				for (var i = 0; i < allLocalStorage.length; i++) {
 					var name = allLocalStorage[i];
-					if (name !== 'hasVisited' && name !== 'workingAuthor' && name !== 'workingPatchName') {
+					if (name !== 'workingAuthor' && name !== 'workingPatchName') {
 						localStorage.setItem('workingPatchName', name);
+						foundAPatch = true;
 						break;
 					}
+				}
+				if (!foundAPatch) {
+					makeNewPatch('Untitled 1');
 				}
 				location.reload();
 			}
@@ -217,11 +238,6 @@ window.onload = function() {
 
 	shareButton.addEventListener('touch', function() { sharePatch() });
 	shareButton.addEventListener('click', function() { sharePatch() });
-	function sharePatch() {
-		var workingPatchCompressed = LZString.compressToEncodedURIComponent(JSON.stringify(workingPatch));
-		console.log(LZString.decompressFromEncodedURIComponent(workingPatchCompressed));
-		var copyPatchURL = prompt('Copy the link below to share.', 'http://exquisitecoast.rustle.works/?patch=' + workingPatchCompressed);
-	}
 
 	clockSpeedField.addEventListener('keyup', function() { saveClock(clockSpeedField, true) });
 	clockSpeedTypeField.addEventListener('change', function() { saveClock(clockSpeedTypeField) });;
@@ -279,14 +295,21 @@ function saveJack(field) {
 	var connectionNumber = field.id.replace(/.*_/, '');
 
 	if (workingPatch.jacks[jackName]) {
-		workingPatch.jacks[jackName][connectionNumber] = field.value;
+		if (field.value !== '') {
+			workingPatch.jacks[jackName][connectionNumber] = field.value;
+		}
+		else {
+			workingPatch.jacks[jackName].splice(connectionNumber, 1);
+		}
 	}
 	else {
 		workingPatch.jacks[jackName] = [field.value]
 	}
 
 	if (parseInt(connectionNumber) === 0) {
-		changeActive(field);
+		if ((field.value === '' && !workingPatch.jacks[jackName].length) || field.value !== '') {
+			changeActive(field);
+		}
 	}
 
 	savePatch();
@@ -368,6 +391,124 @@ function makeNewPatch(name, shouldcopy) {
 	}
 }
 
+// ********* Patch Sharing *********
+
+function sharePatch() {
+	var minifiedObject = {
+		'a': workingPatch.patchName,
+	};
+	if (workingPatch.author) {
+		minifiedObject.b = workingPatch.author;
+	}
+	if (workingPatch.patch_notes) {
+		minifiedObject.c = workingPatch.patch_notes;
+	}
+	if (workingPatch.clock_speed) {
+		minifiedObject.d = workingPatch.clock_speed;
+	}
+	if (workingPatch.clock_speed_type) {
+		minifiedObject.e = workingPatch.clock_speed_type;
+	}
+	if (workingPatch.midi_b_speed) {
+		minifiedObject.f = workingPatch.midi_b_speed;
+	}
+	if (workingPatch.midi_b_speed_type) {
+		minifiedObject.g = workingPatch.midi_b_speed_type;
+	}
+
+	minifiedObject.h = {};
+	var knobs = workingPatch.knobs;
+	for (var key in knobs) {
+		minifiedObject.h[knobLabels.indexOf(key)] = knobValues.indexOf(knobs[key]);
+	}
+
+	minifiedObject.i = {};
+	var jacks = workingPatch.jacks;
+	for (var key in jacks) {
+		var connections = jacks[key];
+		var minifiedConnections = [];
+		for (var i = 0; i < connections.length; i++) {
+			minifiedConnections.push(jackDestinations.indexOf(connections[i]))
+		}
+		minifiedObject.i[jackLabels.indexOf(key)] = minifiedConnections;
+	}
+
+	var minifiedPatchCompressed = LZString.compressToEncodedURIComponent(JSON.stringify(minifiedObject));
+	var copyPatchURL = prompt('Copy the link below to share.', 'http://exquisitecoast.localhost:8888/?patch=' + minifiedPatchCompressed);
+}
+
+function loadSharedPatch(sharedpatchcode, sharedpatchobject) {
+	var unMinifiedObject;
+
+	if (sharedpatchobject.patchName) {
+		unMinifiedObject = sharedpatchobject;
+	}
+	else {
+		unMinifiedObject = {
+			"patchName": sharedpatchobject.a,
+		}
+		if (sharedpatchobject.b) {
+			unMinifiedObject.author = sharedpatchobject.b;
+		}
+		if (sharedpatchobject.c) {
+			unMinifiedObject.patch_notes = sharedpatchobject.c;
+		}
+		if (sharedpatchobject.d) {
+			unMinifiedObject.clock_speed = sharedpatchobject.d;
+		}
+		if (sharedpatchobject.e) {
+			unMinifiedObject.clock_speed_type = sharedpatchobject.e;
+		}
+		if (sharedpatchobject.f) {
+			unMinifiedObject.midi_b_speed = sharedpatchobject.f;
+		}
+		if (sharedpatchobject.g) {
+			unMinifiedObject.midi_b_speed_type = sharedpatchobject.g;
+		}
+
+		unMinifiedObject.knobs = {};
+		var knobs = sharedpatchobject.h;
+		for (var key in knobs) {
+			unMinifiedObject.knobs[knobLabels[key]] = knobValues[knobs[key]];
+		}
+
+		unMinifiedObject.jacks = {};
+		var jacks = sharedpatchobject.i;
+		for (var key in jacks) {
+			var connections = jacks[key];
+			var unMinifiedConnections = [];
+			for (var i = 0; i < connections.length; i++) {
+				unMinifiedConnections.push(jackDestinations[connections[i]])
+			}
+			unMinifiedObject.jacks[jackLabels[key]] = unMinifiedConnections;
+		}
+	}
+
+	var savedWorkingPatchName = unMinifiedObject.patchName;
+	var cancelLoad = false;
+	while (Object.keys(localStorage).indexOf(savedWorkingPatchName) !== -1 && !cancelLoad) {
+		var newPatchName = prompt('You already have a patch named ' + savedWorkingPatchName + '. Please enter a new name for the shared patch.', savedWorkingPatchName);
+		if (newPatchName === null) {
+			cancelLoad = true;
+		}
+		else if (newPatchName !== '') {
+			savedWorkingPatchName = newPatchName;
+		}
+	}
+
+	if (!cancelLoad) {
+		unMinifiedObject.patchName = savedWorkingPatchName;
+		localStorage.setItem('workingPatchName', savedWorkingPatchName);
+		localStorage.setItem(savedWorkingPatchName, JSON.stringify(unMinifiedObject));
+	}
+	else {
+		savedWorkingPatchName = undefined;
+	}
+
+	history.pushState(sharedpatchcode, '', '/');
+	return savedWorkingPatchName
+}
+
 // ********* Interface Manipulation *********
 
 function changeActive(field) {
@@ -393,7 +534,7 @@ function newJackConnection(id) {
 
 	var div1 = document.createElement('div');
 	var div2 = document.createElement('div');
-	div2.innerHTML = '<div></div><div id="' + jackContainerID + '"><select id="' + jackSelectID + '" class="jacks"><option value="na"></option><option value="TEMPO Input">TEMPO Input</option><option value="Voltage MATH: Channel 1 Input">Voltage MATH: Channel 1 Input</option><option value="Voltage MATH: Channel 2 Input">Voltage MATH: Channel 2 Input</option><option value="Oscillator: 1/V OCTave Input">Oscillator: 1/V OCTave Input</option><option value="Oscillator: Linear FM Input">Oscillator: Linear FM Input</option><option value="Overtone: CV Input">Overtone: CV Input</option><option value="Multiply: CV Input">Multiply: CV Input</option><option value="Slope: Rise/Fall Time CV Input">Slope: Rise/Fall Time CV Input</option><option value="Slope: Trigger Input">Slope: Trigger Input</option><option value="Contour: Decay Time CV Input">Contour: Decay Time CV Input</option><option value="Contour: Gate Input">Contour: Gate Input</option><option value="Balance: Channel External Input">Balance: Channel External Input</option><option value="Balance: CV Input">Balance: CV Input</option><option value="Dynamics CV Input">Dynamics CV Input</option></select></div><div></div>';
+	div2.innerHTML = '<div></div><div id="' + jackContainerID + '"><select id="' + jackSelectID + '" class="jacks"><option value=""></option><option value="TEMPO Input">TEMPO Input</option><option value="Voltage MATH: Channel 1 Input">Voltage MATH: Channel 1 Input</option><option value="Voltage MATH: Channel 2 Input">Voltage MATH: Channel 2 Input</option><option value="Oscillator: 1/V OCTave Input">Oscillator: 1/V OCTave Input</option><option value="Oscillator: Linear FM Input">Oscillator: Linear FM Input</option><option value="Overtone: CV Input">Overtone: CV Input</option><option value="Multiply: CV Input">Multiply: CV Input</option><option value="Slope: Rise/Fall Time CV Input">Slope: Rise/Fall Time CV Input</option><option value="Slope: Trigger Input">Slope: Trigger Input</option><option value="Contour: Decay Time CV Input">Contour: Decay Time CV Input</option><option value="Contour: Gate Input">Contour: Gate Input</option><option value="Balance: Channel External Input">Balance: Channel External Input</option><option value="Balance: CV Input">Balance: CV Input</option><option value="Dynamics CV Input">Dynamics CV Input</option></select></div><div></div>';
 	var div3 = document.createElement('div');
 
 
