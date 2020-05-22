@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1,user-scalable=0"/>
 
 	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -38,8 +39,8 @@
 
 	<div id="welcome_message">
 
-		<span id="welcome_text">
-			<p>Welcome to <i>Exquisite Coast</i>, a shared patch game for the Make Noise 0-Coast created by Damon Holzborn and John O'Brien. We've developed a tight set of technical constraints as an artistic challenge and to encourage a deep exploration of the instrument. These guidelines are designed to foster creativity as well as provide a useful method to get to know your 0-Coast better. Of course you are free to make up your own rules for yourself and your collaborators. If you feel a different process would work better for you, by all means go for it!</p>
+		<div id="welcome_text">
+			<p>Welcome to <i>Exquisite Coast</i>, a shared patch game for the Make Noise 0-Coast created by Damon Holzborn and John O'Brien. <a href="https://en.wikipedia.org/wiki/Exquisite_corpse" target="_blank">Exquisite Corpse</a> is a collaborative image or text game, developed by the Surrealists, where a text or drawing is created either by some set rule or by only revealing the end of what the previous person contributed. In this spirit, <i>Exquisite Coast</i> uses a tight set of technical constraints as an artistic challenge that encourage a deep exploration of the instrument. These guidelines are designed to foster creativity, provide a useful method to get to know your 0-Coast better, and engage with a wider community of music makers. Of course you are free to make up your own rules for yourself and your collaborators. If you feel a different process would work better for you, by all means go for it!</p>
 
 			<h2>How to Play the Exquisite Coast Shared Patch Game</h2>
 
@@ -63,7 +64,7 @@
 				<li>Linear editing (splicing) of the recordings is acceptable, but not multi-tracking.</li>
 				<li>Only mastering-type plug-ins (reverb, dynamic processing, EQ, etc.) are to be used on the recordings (i.e. no distortion, delay, flanger, etc.).</li>
 				<li>A good place to share Prompt patches and recordings is the Lines forum [link to come].</li>
-				<li>If you share your recordings on platforms like SoundCloud or YouTube, consider adding [exquisitecoast-prompt] or [exquisitecoast-response] at the end of the title so others can find your recordings and share the link to the patch in the description (and of course give credit to the original author when posting a Response).</li>
+				<li>If you share your recordings on platforms like SoundCloud or YouTube, consider adding [exquisitecoast-prompt] or [exquisitecoast-response] at the end of the title so others can find your recordings and include the link to the patch in your description (and of course give credit to the original author when posting a Response).</li>
 				<li>If you share a patch on social media, consider using the hashtag #exquisitecoast.</li>
 				<li>If you are comfortable with doing so, it would be helpful to include contact info (email, website, social media, etc.) in the Author Info section so others can properly credit you in their response (or tell you how great your patch is!). </li>
 			</ul>
@@ -73,15 +74,23 @@
 			<ul>
 				<li>Notate your patch using the interface below.</li>
 				<li>Click the <b>Get Share Link</b> button to view the URL so that you can copy it.</li>
-				<li>Paste that link into an email to share with a friend, post on social media, or share with the Lines community [link to come].</li>
+				<li>Paste that link into an email to send to a friend, post on social media, or share with the Lines community [link to come].</li>
 			</ul>
 
-			<p><i>Note that no information is stored on a server, all data is saved to your browser. This means that your work will only be available in the browser that you used to create it. You might want to save the links to any important patches somewhere else for safekeeping.</i></p>
+			<h2>Some Notes About this Web App</h2>
+
+			<ul>
+				<li>No information is stored on a server, all data is saved to your browser. This means that your work will only be available in the browser that you used to create the patch. You might want to save the links to any important patches somewhere else for safekeeping.</li>
+				<li>Your patch is automatically saved as you work so any patches you work are will be waiting for you when you return (with the same browser).</li>
+				<li>Exquisite Coast is still in beta, so please bear with us as we work out any kinks. If you run into any issues, please <a href="mailto: ec@rustleworks.com">let us know</a>. Be sure to include as much detail as you can in your message &mdash; browser, device, OS version, what you were doing, etc.</li>
+			</ul>
 
 			<p>Happy bleeping! We look forward to seeing and hearing what you do with <i>Exquisite Coast</i>!</p>
 
-		</span>
-		<span id="contact_info">
+		</div>
+		<div id="contact_info">
+			<p><a href="mailto: ec@rustleworks.com">ec@rustleworks.com</a></p>
+
 			<p>Damon Holzborn<br>
 			<a href="http://damonholzborn.com" target="_blank">damonholzborn.com</a><br>
 			<a href="http://rustleworks.com" target="_blank">rustleworks.com</a><br>
@@ -91,7 +100,8 @@
 			<p>John O'Brien<br>
 			<a href="http://johnmobrien.com" target="_blank">johnmobrien.com</a><br>
 			<a href="https://www.newmusicusa.org/profile/jmob77/" target="_blank">Profile at New Music USA</a><br>
-		</span>
+			</p>
+		</div>
 	</div>
 </header>
 
@@ -152,10 +162,9 @@
 
 			<div class="item patch_info active">
 				<div>
-
 				</div>
 				<div id="share_area">
-					<div id="share_button" class="pointy">
+					<div id="get_share_link" class="pointy">
 						Get Share Link
 					</div>
 				</div>
@@ -226,7 +235,7 @@
 			</div>
 			<div>
 				<select id="voltage_math_channel_attenuverter" class="knobs pointy">
-					<option value=""></option>
+					<option value=""> </option>
 					<option value="min">min</option>
 					<option value="max">max</option>
 					<option value="7:00">7:00</option>
@@ -265,7 +274,7 @@
 			</div>
 			<div>
 				<select id="oscillator_pitch_panel_control" class="knobs pointy">
-					<option value=""></option>
+					<option value=""> </option>
 					<option value="min">min</option>
 					<option value="max">max</option>
 					<option value="7:00">7:00</option>
@@ -298,7 +307,7 @@
 			</div>
 			<div>
 				<select id="oscillator_linear_fm_input_attenuator" class="knobs pointy">
-					<option value=""></option>
+					<option value=""> </option>
 					<option value="min">min</option>
 					<option value="max">max</option>
 					<option value="7:00">7:00</option>
@@ -337,9 +346,9 @@
 			</div>
 			<div>
 				<select id="overtone_panel_control" class="knobs pointy">
-					<option value=""></option>
+					<option value=""> </option>
 					<option value="odd">odd</option>
-					<option value="¡¡">¡¡</option>
+					<option value="&iexcl;&iexcl;">&iexcl;&iexcl;</option>
 					<option value="even">even</option>
 					<option value="!!">!!</option>
 					<option value="7:00">7:00</option>
@@ -372,7 +381,7 @@
 			</div>
 			<div>
 				<select id="overtone_cv_input_attenuator" class="knobs pointy">
-					<option value=""></option>
+					<option value=""> </option>
 					<option value="min">min</option>
 					<option value="max">max</option>
 					<option value="7:00">7:00</option>
@@ -411,7 +420,7 @@
 			</div>
 			<div>
 				<select id="multiply_panel_control" class="knobs pointy">
-					<option value=""></option>
+					<option value=""> </option>
 					<option value="min">min</option>
 					<option value="max">max</option>
 					<option value="7:00">7:00</option>
@@ -444,7 +453,7 @@
 			</div>
 			<div>
 				<select id="multiply_cv_input_attenuverter" class="knobs pointy">
-					<option value=""></option>
+					<option value=""> </option>
 					<option value="min">min</option>
 					<option value="max">max</option>
 					<option value="7:00">7:00</option>
@@ -494,7 +503,7 @@
 			</div>
 			<div>
 				<select id="slope_rise_panel_control" class="knobs pointy">
-					<option value=""></option>
+					<option value=""> </option>
 					<option value="min">min</option>
 					<option value="max">max</option>
 					<option value="7:00">7:00</option>
@@ -527,7 +536,7 @@
 			</div>
 			<div>
 				<select id="slope_fall_panel_control" class="knobs pointy">
-					<option value=""></option>
+					<option value=""> </option>
 					<option value="min">min</option>
 					<option value="max">max</option>
 					<option value="7:00">7:00</option>
@@ -560,7 +569,7 @@
 			</div>
 			<div>
 				<select id="slope_variresponse" class="knobs pointy">
-					<option value=""></option>
+					<option value=""> </option>
 					<option value="min">min</option>
 					<option value="max">max</option>
 					<option value="7:00">7:00</option>
@@ -599,7 +608,7 @@
 			</div>
 			<div>
 				<select id="countour_onset_panel_control" class="knobs pointy">
-					<option value=""></option>
+					<option value=""> </option>
 					<option value="min">min</option>
 					<option value="max">max</option>
 					<option value="7:00">7:00</option>
@@ -632,7 +641,7 @@
 			</div>
 			<div>
 				<select id="contour_sustain_panel_control" class="knobs pointy">
-					<option value=""></option>
+					<option value=""> </option>
 					<option value="min">min</option>
 					<option value="max">max</option>
 					<option value="7:00">7:00</option>
@@ -665,7 +674,7 @@
 			</div>
 			<div>
 				<select id="contour_decay_panel_control" class="knobs pointy">
-					<option value=""></option>
+					<option value=""> </option>
 					<option value="min">min</option>
 					<option value="max">max</option>
 					<option value="7:00">7:00</option>
@@ -698,7 +707,7 @@
 			</div>
 			<div>
 				<select id="contour_variresponse" class="knobs pointy">
-					<option value=""></option>
+					<option value=""> </option>
 					<option value="min">min</option>
 					<option value="max">max</option>
 					<option value="7:00">7:00</option>
@@ -737,7 +746,7 @@
 			</div>
 			<div>
 				<select id="balance_attenuator" class="knobs pointy">
-					<option value=""></option>
+					<option value=""> </option>
 					<option value="min">min</option>
 					<option value="max">max</option>
 					<option value="7:00">7:00</option>
@@ -776,7 +785,7 @@
 			</div>
 			<div>
 				<select id="dynamic_attenuator" class="knobs pointy">
-					<option value=""></option>
+					<option value=""> </option>
 					<option value="min">min</option>
 					<option value="max">max</option>
 					<option value="7:00">7:00</option>
@@ -825,7 +834,7 @@
 			</div>
 			<div id="midi_b_cv_container_0">
 				<select id="midi_b_cv_0" data-index="0" class="jacks">
-					<option value=""></option>
+					<option value=""> </option>
 					<option value="TEMPO Input">TEMPO Input</option>
 					<option value="Voltage MATH: Channel 1 Input">Voltage MATH: Channel 1 Input</option>
 					<option value="Voltage MATH: Channel 2 Input">Voltage MATH: Channel 2 Input</option>
@@ -852,7 +861,7 @@
 			</div>
 			<div id="midi_b_gate_container_0">
 				<select id="midi_b_gate_0" data-index="0" class="jacks">
-					<option value=""></option>
+					<option value=""> </option>
 					<option value="TEMPO Input">TEMPO Input</option>
 					<option value="Voltage MATH: Channel 1 Input">Voltage MATH: Channel 1 Input</option>
 					<option value="Voltage MATH: Channel 2 Input">Voltage MATH: Channel 2 Input</option>
@@ -886,7 +895,7 @@
 			</div>
 			<div id="clock_clock_container_0">
 				<select id="clock_clock_0" data-index="0" class="jacks">
-					<option value=""></option>
+					<option value=""> </option>
 					<option value="TEMPO Input">TEMPO Input</option>
 					<option value="Voltage MATH: Channel 1 Input">Voltage MATH: Channel 1 Input</option>
 					<option value="Voltage MATH: Channel 2 Input">Voltage MATH: Channel 2 Input</option>
@@ -913,7 +922,7 @@
 			</div>
 			<div id="clock_stepped_random_container_0">
 				<select id="clock_stepped_random_0" data-index="0" class="jacks">
-					<option value=""></option>
+					<option value=""> </option>
 					<option value="TEMPO Input">TEMPO Input</option>
 					<option value="Voltage MATH: Channel 1 Input">Voltage MATH: Channel 1 Input</option>
 					<option value="Voltage MATH: Channel 2 Input">Voltage MATH: Channel 2 Input</option>
@@ -946,7 +955,7 @@
 			</div>
 			<div id="voltage_math_channel_one_container_0">
 				<select id="voltage_math_channel_one_0" data-index="0" class="jacks">
-					<option value=""></option>
+					<option value=""> </option>
 					<option value="TEMPO Input">TEMPO Input</option>
 					<option value="Voltage MATH: Channel 1 Input">Voltage MATH: Channel 1 Input</option>
 					<option value="Voltage MATH: Channel 2 Input">Voltage MATH: Channel 2 Input</option>
@@ -973,7 +982,7 @@
 			</div>
 			<div id="voltage_math_channel_two_container_0">
 				<select id="voltage_math_channel_two_0" data-index="0" class="jacks">
-					<option value=""></option>
+					<option value=""> </option>
 					<option value="TEMPO Input">TEMPO Input</option>
 					<option value="Voltage MATH: Channel 1 Input">Voltage MATH: Channel 1 Input</option>
 					<option value="Voltage MATH: Channel 2 Input">Voltage MATH: Channel 2 Input</option>
@@ -1006,7 +1015,7 @@
 			</div>
 			<div id="oscillator_triangle_wave_container_0">
 				<select id="oscillator_triangle_wave_0" data-index="0" class="jacks">
-					<option value=""></option>
+					<option value=""> </option>
 					<option value="TEMPO Input">TEMPO Input</option>
 					<option value="Voltage MATH: Channel 1 Input">Voltage MATH: Channel 1 Input</option>
 					<option value="Voltage MATH: Channel 2 Input">Voltage MATH: Channel 2 Input</option>
@@ -1033,7 +1042,7 @@
 			</div>
 			<div id="oscillator_square_wave_container_0">
 				<select id="oscillator_square_wave_0" data-index="0" class="jacks">
-					<option value=""></option>
+					<option value=""> </option>
 					<option value="TEMPO Input">TEMPO Input</option>
 					<option value="Voltage MATH: Channel 1 Input">Voltage MATH: Channel 1 Input</option>
 					<option value="Voltage MATH: Channel 2 Input">Voltage MATH: Channel 2 Input</option>
@@ -1066,7 +1075,7 @@
 			</div>
 			<div id="slope_eoc_gate_container_0">
 				<select id="slope_eoc_gate_0" data-index="0" class="jacks">
-					<option value=""></option>
+					<option value=""> </option>
 					<option value="TEMPO Input">TEMPO Input</option>
 					<option value="Voltage MATH: Channel 1 Input">Voltage MATH: Channel 1 Input</option>
 					<option value="Voltage MATH: Channel 2 Input">Voltage MATH: Channel 2 Input</option>
@@ -1093,7 +1102,7 @@
 			</div>
 			<div id="slope_cv_container_0">
 				<select id="slope_cv_0" data-index="0" class="jacks">
-					<option value=""></option>
+					<option value=""> </option>
 					<option value="TEMPO Input">TEMPO Input</option>
 					<option value="Voltage MATH: Channel 1 Input">Voltage MATH: Channel 1 Input</option>
 					<option value="Voltage MATH: Channel 2 Input">Voltage MATH: Channel 2 Input</option>
@@ -1126,7 +1135,7 @@
 			</div>
 			<div id="contour_eon_container_0">
 				<select id="contour_eon_0" data-index="0" class="jacks">
-					<option value=""></option>
+					<option value=""> </option>
 					<option value="TEMPO Input">TEMPO Input</option>
 					<option value="Voltage MATH: Channel 1 Input">Voltage MATH: Channel 1 Input</option>
 					<option value="Voltage MATH: Channel 2 Input">Voltage MATH: Channel 2 Input</option>
@@ -1153,7 +1162,7 @@
 			</div>
 			<div id="contour_cv_container_0">
 				<select id="contour_cv_0" data-index="0" class="jacks">
-					<option value=""></option>
+					<option value=""> </option>
 					<option value="TEMPO Input">TEMPO Input</option>
 					<option value="Voltage MATH: Channel 1 Input">Voltage MATH: Channel 1 Input</option>
 					<option value="Voltage MATH: Channel 2 Input">Voltage MATH: Channel 2 Input</option>
@@ -1186,7 +1195,7 @@
 			</div>
 			<div id="dynamics_dynamics_container_0">
 				<select id="dynamics_dynamics_0" data-index="0" class="jacks">
-					<option value=""></option>
+					<option value=""> </option>
 					<option value="TEMPO Input">TEMPO Input</option>
 					<option value="Voltage MATH: Channel 1 Input">Voltage MATH: Channel 1 Input</option>
 					<option value="Voltage MATH: Channel 2 Input">Voltage MATH: Channel 2 Input</option>

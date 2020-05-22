@@ -51,7 +51,7 @@ window.onload = function() {
 	patchNameField = document.getElementById('patch_name');
 	authorField = document.getElementById('author');
 	patchNotesField = document.getElementById('patch_notes');
-	this.shareButton = document.getElementById('share_button');
+	shareButton = document.getElementById('get_share_link');
 
 	clockSpeedField = document.getElementById('clock_speed');
 	clockSpeedTypeField = document.getElementById('clock_speed_type');
@@ -434,7 +434,7 @@ function sharePatch() {
 	}
 
 	var minifiedPatchCompressed = LZString.compressToEncodedURIComponent(JSON.stringify(minifiedObject));
-	var copyPatchURL = prompt('Copy the link below to share.', 'http://exquisitecoast.localhost:8888/?patch=' + minifiedPatchCompressed);
+	var copyPatchURL = prompt('Your patch is encoded in the URL below. To share your patch, copy the link (make sure to get the whole thing). You can then paste the URL in an email to send to a friend, share at the Exquisite Coast thread on llllllll.co, or post on social media.', 'http://exquisitecoast.localhost:8888/?patch=' + minifiedPatchCompressed);
 }
 
 function loadSharedPatch(sharedpatchcode, sharedpatchobject) {

@@ -36,15 +36,12 @@ html, body {
 	margin: 0;
 }
 
-a {
-	color: var(--blue);
+html, body, div, textarea, select, main, section, h1, h2 {
+	box-sizing: border-box;
 }
 
-main {
-	padding: 24px 8px;
-	display: grid;
-	grid-column-gap: 24px;
-	grid-template-columns: min-content auto;
+a {
+	color: var(--blue);
 }
 
 header {
@@ -54,7 +51,7 @@ header {
 	height: var(--headerheight);
 	overflow: hidden;
 	display: grid;
-	grid-template-columns: min-content auto 30px;
+	grid-template-columns: min-content auto 20px;
 	grid-template-rows: var(--headerheight) auto;
 	transition: height var(--headertransition);
 }
@@ -63,10 +60,18 @@ header.open {
 	height: auto;
 }
 
+main {
+	padding: 24px 8px;
+	display: grid;
+	grid-column-gap: 24px;
+	grid-template-columns: min-content auto;
+}
+
 a {
 	text-decoration: none;
 	color: var(--gold);
 }
+
 h1 {
 
 	display: inline-block;
@@ -133,24 +138,23 @@ h3 {
 }
 
 
-#share_button, .plus {
-	font-size: 1.35em;
+#get_share_link, .plus {
+	font-size: 1.1em;
 	padding: 0.5px 0px 0;
 	margin-left: 8px;
 }
 
-#share_button {
+#get_share_link {
 	padding: 6px 24px;
 	margin-left: 0px;
 	border: 1px solid var(--white);
 	border-radius: 6px;
 	text-align: center;
-	/* width: 300px; */
 }
 
 #share_area {
 	width: 350px;
-	text-align: center;
+	/* text-align: center; */
 }
 
 input.clocks, input.patch_info, textarea {
@@ -159,7 +163,7 @@ input.clocks, input.patch_info, textarea {
 	font-family: inherit;
 	font-size: inherit;
 	padding: 2px 6px;
-	width: 60px;
+	width: 40px;
 	border: 1px solid var(--white);
 	border-radius: 6px;
 }
@@ -174,7 +178,7 @@ select.patch_info {
 
 textarea {
 	padding-top: 4px;
-	height: 2.6em;
+	height: 2.9em;
 }
 
 .item_category {
@@ -197,7 +201,7 @@ textarea {
 }
 
 .item.clocks {
-	grid-template-columns: 134px min-content auto;
+	grid-template-columns: 124px min-content auto;
 }
 
 .item.knobs {
@@ -254,7 +258,6 @@ select.jacks {
 @media only screen and (max-width: 1700px) {
 
 
-
 }
 
 @media only screen and (max-width: 1166px) {
@@ -262,11 +265,6 @@ select.jacks {
 	main {
 		grid-template-columns: auto;
 	}
-
-}
-
-@media only screen and (max-width: 767px) {
-
 
 }
 
@@ -278,33 +276,64 @@ select.jacks {
 	}
 
 	#welcome_text {
-		width: calc(100% - 325px);
+		width: calc(100% - 340px);
 		max-width: 850px;
 		float: left;
 	}
 
 	#contact_info {
-		width: 300px;
-		padding-left: 20px;
+		width: 340px;
+		padding-left: 30px;
 		/* padding-right: 10px; */
 		float: right;
 	}
 }
 
+@media only screen and (max-width: 630px) {
 
-@media only screen and (max-width: 450px) {
-
-	html, body {
-		font-size: 18px;
-	}
-
-	#welcome_message {
-		font-size: 1em;
+	header {
+		padding: 16px 12px 3px;
 	}
 
 	h1 {
-		font-size: 1.1em;
+		font-size: 1.4em;
 	}
+
+	#menu_button {
+		text-align: right;
+	}
+
+	.item.patch_info, .item.knobs, .item.jacks {
+		grid-template-columns: 100%;
+	}
+
+	 .patch_info, .jacks {
+	}
+
+	#share_area {
+		max-width: 100%;
+		text-align: left;
+	}
+
+	select.clocks {
+		width: 92px;
+	}
+
+	select.jacks, select.patch_info, textarea.patch_info {
+		width: 80%;
+	}
+
+	.item {
+		padding-left: 18px;
+	}
+
+}
+
+
+
+@media only screen and (max-width: 450px) {
+
+
   }
 
 
