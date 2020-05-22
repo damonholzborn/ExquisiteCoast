@@ -434,7 +434,7 @@ function sharePatch() {
 	}
 
 	var minifiedPatchCompressed = LZString.compressToEncodedURIComponent(JSON.stringify(minifiedObject));
-	var copyPatchURL = prompt('Your patch is encoded in the URL below. To share your patch, copy the link (make sure to get the whole thing). You can then paste the URL in an email to send to a friend, share at the Exquisite Coast thread on llllllll.co, or post on social media.', 'http://exquisitecoast.localhost:8888/?patch=' + minifiedPatchCompressed);
+	var copyPatchURL = prompt('Your patch is encoded in the URL below. To share your patch, copy the link (make sure to get the whole thing). You can then paste the URL in an email to send to a friend, share at the Exquisite Coast thread on llllllll.co, or post on social media.', 'http://ec.rustle.works/?patch=' + minifiedPatchCompressed);
 }
 
 function loadSharedPatch(sharedpatchcode, sharedpatchobject) {
