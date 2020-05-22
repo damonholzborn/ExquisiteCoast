@@ -40,6 +40,11 @@ html, body, div, textarea, select, main, section, h1, h2 {
 	box-sizing: border-box;
 }
 
+div, section {
+	max-width: 100%;
+}
+
+
 a {
 	color: var(--blue);
 }
@@ -62,9 +67,15 @@ header.open {
 
 main {
 	padding: 24px 8px;
+	margin: 0;
+	padding: 0;
 	display: grid;
 	grid-column-gap: 24px;
 	grid-template-columns: min-content auto;
+}
+
+section {
+	padding: 12px 8px;
 }
 
 a {
@@ -209,7 +220,7 @@ textarea {
 }
 
 .item.jacks {
-	grid-template-columns: 190px max-content max-content;
+	grid-template-columns: 190px 0px max-content max-content;
 }
 
 .item.jacks.addtional {
@@ -303,11 +314,16 @@ select.jacks {
 		text-align: right;
 	}
 
-	.item.patch_info, .item.knobs, .item.jacks {
+	.item.patch_info, .item.knobs, .item.clocks {
 		grid-template-columns: 100%;
 	}
 
-	 .patch_info, .jacks {
+	.item.jacks {
+		grid-template-columns: calc(100% - 30px) 30px;
+	}
+
+	.item.jacks.addtional {
+		/* grid-template-columns: 90px max-content max-content; */
 	}
 
 	#share_area {
@@ -319,8 +335,12 @@ select.jacks {
 		width: 92px;
 	}
 
-	select.jacks, select.patch_info, textarea.patch_info {
+	select.patch_info, textarea.patch_info {
 		width: 80%;
+	}
+
+	select.jacks {
+		width: 100%;
 	}
 
 	.item {
@@ -337,10 +357,18 @@ select.jacks {
   }
 
 
-@media only screen and (max-width: 360px) {
+@media only screen and (max-width: 368px) {
 
 	html, body {
 		font-size: 14px;
+	}
+
+	.item.patch_info, .item.knobs, .item.clocks {
+		grid-template-columns: calc(100% - 54px);
+	}
+
+	.item.jacks {
+		grid-template-columns: calc(100% - 94px) 30px;
 	}
 
 }

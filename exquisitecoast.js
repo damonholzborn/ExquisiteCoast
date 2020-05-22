@@ -112,6 +112,9 @@ window.onload = function() {
 	}
 	else {
 		makeNewPatch('Untitled 1');
+		setTimeout(function() {
+			menuButton.click();
+		}, 1100);
 	}
 
 	// ********* Event Listenters *********
@@ -376,8 +379,6 @@ function makeNewPatch(name, shouldcopy) {
 		}
 	}
 
-	workingPatch.clock_speed_type = 'bpm';
-	workingPatch.midi_b_speed_type = 'bpm';
 	workingPatch.knobs = {'slope_cycle_illuminated_button': 'off'};
 	workingPatch.jacks = {};
 
@@ -534,7 +535,7 @@ function newJackConnection(id) {
 
 	var div1 = document.createElement('div');
 	var div2 = document.createElement('div');
-	div2.innerHTML = '<div></div><div id="' + jackContainerID + '"><select id="' + jackSelectID + '" class="jacks"><option value=""></option><option value="TEMPO Input">TEMPO Input</option><option value="Voltage MATH: Channel 1 Input">Voltage MATH: Channel 1 Input</option><option value="Voltage MATH: Channel 2 Input">Voltage MATH: Channel 2 Input</option><option value="Oscillator: 1/V OCTave Input">Oscillator: 1/V OCTave Input</option><option value="Oscillator: Linear FM Input">Oscillator: Linear FM Input</option><option value="Overtone: CV Input">Overtone: CV Input</option><option value="Multiply: CV Input">Multiply: CV Input</option><option value="Slope: Rise/Fall Time CV Input">Slope: Rise/Fall Time CV Input</option><option value="Slope: Trigger Input">Slope: Trigger Input</option><option value="Contour: Decay Time CV Input">Contour: Decay Time CV Input</option><option value="Contour: Gate Input">Contour: Gate Input</option><option value="Balance: Channel External Input">Balance: Channel External Input</option><option value="Balance: CV Input">Balance: CV Input</option><option value="Dynamics CV Input">Dynamics CV Input</option></select></div><div></div>';
+	div2.innerHTML = '<div></div><div></div><div id="' + jackContainerID + '"><select id="' + jackSelectID + '" class="jacks"><option value=""></option><option value="TEMPO Input">TEMPO Input</option><option value="Voltage MATH: Channel 1 Input">Voltage MATH: Channel 1 Input</option><option value="Voltage MATH: Channel 2 Input">Voltage MATH: Channel 2 Input</option><option value="Oscillator: 1/V OCTave Input">Oscillator: 1/V OCTave Input</option><option value="Oscillator: Linear FM Input">Oscillator: Linear FM Input</option><option value="Overtone: CV Input">Overtone: CV Input</option><option value="Multiply: CV Input">Multiply: CV Input</option><option value="Slope: Rise/Fall Time CV Input">Slope: Rise/Fall Time CV Input</option><option value="Slope: Trigger Input">Slope: Trigger Input</option><option value="Contour: Decay Time CV Input">Contour: Decay Time CV Input</option><option value="Contour: Gate Input">Contour: Gate Input</option><option value="Balance: Channel External Input">Balance: Channel External Input</option><option value="Balance: CV Input">Balance: CV Input</option><option value="Dynamics CV Input">Dynamics CV Input</option></select></div><div></div>';
 	var div3 = document.createElement('div');
 
 
