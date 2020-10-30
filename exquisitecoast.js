@@ -54,7 +54,7 @@ var jackDestinations = ['', 'TEMPO Input', 'Voltage MATH: Channel 1 Input', 'Vol
 var jackLabels = ['midi_b_cv', 'midi_b_gate', 'clock_clock', 'clock_stepped_random', 'voltage_math_channel_one', 'voltage_math_channel_two', 'oscillator_triangle_wave', 'oscillator_square_wave', 'slope_eoc_gate', 'slope_cv', 'contour_eon', 'contour_cv', 'dynamics_dynamics'];
 var alphabet = 'abcdefghijklmnopqrstuvwxyz';
 
-var droneDestinations = ['Rack: Oscillator: Exponential FM Input', 'Rack: Oscillator: Linear FM Input', 'Rack: LFO: FM Input', 'Rack: Filter: FM Input', 'Rack: Attenuator Input 1', 'Rack: Attenuator Input 2', 'Rack: Attenuator Input 3', 'Rack: Audio Out']
+var droneDestinations = ['Rack: Oscillator: Exponential FM Input', 'Rack: Oscillator: Linear FM Input', 'Rack: LFO: FM Input', 'Rack: Filter: Audio Input', 'Rack: Filter: FM Input', 'Rack: Attenuator Input 1', 'Rack: Attenuator Input 2', 'Rack: Attenuator Input 3', 'Rack: Audio Out']
 
 window.onload = function() {
 
