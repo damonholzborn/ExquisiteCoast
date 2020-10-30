@@ -16,12 +16,45 @@ var jackFields = {};
 var plusButtons = {};
 var workingPatch = {};
 
+console.log(window.location.href);
+
+/*
+
+//
+
+'Rack: Oscillator',
+'Rack: LFO',
+'Rack: Filter',
+'Rack: Keyboard CV',
+'Rack: Attenuator: Output 1',
+'Rack: Attenuator: Output 2',
+'Rack: Attenuator: Output 3'
+
+
+
+//
+'Rack: Oscillator: Linear FM Input',
+'Rack: Oscillator: Exponential FM Input',
+
+'Rack: LFO: FM Input',
+
+'Rack: Filter: FM Input',
+
+'Rack: Attenuator Input 1',
+'Rack: Attenuator Output 2',
+'Rack: Attenuator Output 3'
+
+'Rack: Audio Out',
+*/
+
 var knobValues = ['', 'min', 'max', '7:00', '7:30', '8:00', '8:30', '9:00', '9:30', '10:00', '10:30', '11:00', '11:30', '12:00', '12:30', '1:00', '1:30', '2:00', '2:30', '3:00', '3:30', '4:00', '4:30', '5:00', 'on', 'off', 'odd', '¡¡', 'even', '!!'];
-var jackDestinations = ['', 'TEMPO Input', 'Voltage MATH: Channel 1 Input', 'Voltage MATH: Channel 2 Input', 'Oscillator: 1/V OCTave Input', 'Oscillator: Linear FM Input', 'Overtone: CV Input', 'Multiply: CV Input', 'Slope: Rise/Fall Time CV Input', 'Slope: Trigger Input', 'Contour: Decay Time CV Input', 'Contour: Gate Input', 'Balance: Channel External Input', 'Balance: CV Input', 'Dynamics CV Input'];
 var knobLabels = ['slope_cycle_illuminated_button', 'voltage_math_channel_attenuverter', 'oscillator_pitch_panel_control', 'oscillator_linear_fm_input_attenuator', 'overtone_panel_control', 'overtone_cv_input_attenuator', 'multiply_panel_control', 'multiply_cv_input_attenuverter', 'slope_rise_panel_control', 'slope_fall_panel_control', 'slope_variresponse', 'countour_onset_panel_control', 'contour_sustain_panel_control', 'contour_decay_panel_control', 'contour_variresponse', 'balance_attenuator', 'dynamic_attenuator'];
+
+var jackDestinations = ['', 'TEMPO Input', 'Voltage MATH: Channel 1 Input', 'Voltage MATH: Channel 2 Input', 'Oscillator: 1/V OCTave Input', 'Oscillator: Linear FM Input', 'Overtone: CV Input', 'Multiply: CV Input', 'Slope: Rise/Fall Time CV Input', 'Slope: Trigger Input', 'Contour: Decay Time CV Input', 'Contour: Gate Input', 'Balance: Channel External Input', 'Balance: CV Input', 'Dynamics CV Input'];
 var jackLabels = ['midi_b_cv', 'midi_b_gate', 'clock_clock', 'clock_stepped_random', 'voltage_math_channel_one', 'voltage_math_channel_two', 'oscillator_triangle_wave', 'oscillator_square_wave', 'slope_eoc_gate', 'slope_cv', 'contour_eon', 'contour_cv', 'dynamics_dynamics'];
 var alphabet = 'abcdefghijklmnopqrstuvwxyz';
 
+var droneDestinations = ['Rack: Oscillator: Exponential FM Input', 'Rack: Oscillator: Linear FM Input', 'Rack: LFO: FM Input', 'Rack: Filter: FM Input', 'Rack: Attenuator Input 1', 'Rack: Attenuator Input 2', 'Rack: Attenuator Input 3', 'Rack: Audio Out']
 
 window.onload = function() {
 
@@ -40,6 +73,18 @@ window.onload = function() {
 		else {
 			menuButton.classList.remove('open');
 			headerArea.style.height = 'var(--headerheight)';
+		}
+	}
+
+	// ********* Insert Output Jack Pulldown Menus *********
+
+	var jackSelects = document.getElementsByClassName("jacks");
+
+	for (var i = 0; i < jackSelects.length; i++) {
+		var jackSelect = jackSelects[i];
+
+		if (jackSelect.tagName === 'SELECT') {
+			insertJackOptions(jackSelect);
 		}
 	}
 
@@ -435,7 +480,7 @@ function sharePatch() {
 	}
 
 	var minifiedPatchCompressed = LZString.compressToEncodedURIComponent(JSON.stringify(minifiedObject));
-	var copyPatchURL = prompt('Your patch is encoded in the URL below. To share your patch, copy the link (make sure to get the whole thing). You can then paste the URL in an email to send to a friend, share at the Exquisite Coast thread on llllllll.co, or post on social media.', 'http://ec.rustle.works/?patch=' + minifiedPatchCompressed);
+	var copyPatchURL = prompt('Your patch is encoded in the URL below. To share your patch, copy the link (make sure to get the whole thing). You can then paste the URL in an email to send to a friend, share at the Exquisite Coast thread on llllllll.co, or post on social media.', window.location.href + '?patch=' + minifiedPatchCompressed);
 }
 
 function loadSharedPatch(sharedpatchcode, sharedpatchobject) {
@@ -506,11 +551,29 @@ function loadSharedPatch(sharedpatchcode, sharedpatchobject) {
 		savedWorkingPatchName = undefined;
 	}
 
-	history.pushState(sharedpatchcode, '', '/');
+	history.pushState(sharedpatchcode, '', window.location.pathname);
 	return savedWorkingPatchName
 }
 
 // ********* Interface Manipulation *********
+
+function insertJackOptions(jackselect) {
+	for (var j = 0; j < jackDestinations.length; j++) {
+		var jackOption = document.createElement('option');
+		jackOption.value = jackDestinations[j];
+		jackOption.text = jackDestinations[j];
+		jackselect.appendChild(jackOption);
+	}
+
+	if (window.location.href.indexOf('/drone.html') !== -1) {
+		for (var j = 0; j < droneDestinations.length; j++) {
+			var jackOption = document.createElement('option');
+			jackOption.value = droneDestinations[j];
+			jackOption.text = droneDestinations[j];
+			jackselect.appendChild(jackOption);
+		}
+	}
+}
 
 function changeActive(field) {
 	var grandparentDiv = field.parentNode.parentNode;
@@ -525,32 +588,35 @@ function changeActive(field) {
 function newJackConnection(id) {
 	var jackName = id.replace('_plus', '')
 
-	var grandparentDiv = document.getElementById(id).parentNode;
-	var numberOfConnections = parseInt(grandparentDiv.dataset.connections);
+	if (jackName) {
+		var grandparentDiv = document.getElementById(id).parentNode;
+		var numberOfConnections = parseInt(grandparentDiv.dataset.connections);
 
-	grandparentDiv.dataset.connections = numberOfConnections + 1;
+		grandparentDiv.dataset.connections = numberOfConnections + 1;
 
-	var jackContainerID = jackName + '_container' + numberOfConnections;
-	var jackSelectID = jackName +'_' + numberOfConnections;
+		var jackContainerID = jackName + '_container' + numberOfConnections;
+		var jackSelectID = jackName +'_' + numberOfConnections;
 
-	var div1 = document.createElement('div');
-	var div2 = document.createElement('div');
-	div2.innerHTML = '<div></div><div></div><div id="' + jackContainerID + '"><select id="' + jackSelectID + '" class="jacks"><option value=""></option><option value="TEMPO Input">TEMPO Input</option><option value="Voltage MATH: Channel 1 Input">Voltage MATH: Channel 1 Input</option><option value="Voltage MATH: Channel 2 Input">Voltage MATH: Channel 2 Input</option><option value="Oscillator: 1/V OCTave Input">Oscillator: 1/V OCTave Input</option><option value="Oscillator: Linear FM Input">Oscillator: Linear FM Input</option><option value="Overtone: CV Input">Overtone: CV Input</option><option value="Multiply: CV Input">Multiply: CV Input</option><option value="Slope: Rise/Fall Time CV Input">Slope: Rise/Fall Time CV Input</option><option value="Slope: Trigger Input">Slope: Trigger Input</option><option value="Contour: Decay Time CV Input">Contour: Decay Time CV Input</option><option value="Contour: Gate Input">Contour: Gate Input</option><option value="Balance: Channel External Input">Balance: Channel External Input</option><option value="Balance: CV Input">Balance: CV Input</option><option value="Dynamics CV Input">Dynamics CV Input</option></select></div><div></div>';
-	var div3 = document.createElement('div');
+		var div1 = document.createElement('div');
+		var div2 = document.createElement('div');
+		div2.innerHTML = '<div></div><div></div><div id="' + jackContainerID + '"><select id="' + jackSelectID + '" class="jacks"></select></div><div></div>';
+		var div3 = document.createElement('div');
 
 
-	while (div1.firstChild) {
-		grandparentDiv.appendChild(div1.firstChild);
+		while (div1.firstChild) {
+			grandparentDiv.appendChild(div1.firstChild);
+		}
+		while (div2.firstChild) {
+			grandparentDiv.appendChild(div2.firstChild);
+		}
+		while (div3.firstChild) {
+			grandparentDiv.appendChild(div3.firstChild);
+		}
+
+		const field = document.getElementById(jackSelectID);
+		insertJackOptions(field);
+		field.addEventListener('change', function() { saveJack(field, 'jacks') });
 	}
-	while (div2.firstChild) {
-		grandparentDiv.appendChild(div2.firstChild);
-	}
-	while (div3.firstChild) {
-		grandparentDiv.appendChild(div3.firstChild);
-	}
-
-	const field = document.getElementById(jackSelectID);
-	field.addEventListener('change', function() { saveJack(field, 'jacks') });
 
 }
 

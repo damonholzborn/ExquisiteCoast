@@ -26,10 +26,7 @@
 html, body {
 	background-color: var(--bg-color);
 	color: var(--white);
-	font-family:  Helvetica, Arial, sans-serif;
-	font-family:  'Courier New', Courier, monospace;
-
-
+	font-family: 'Courier New', Courier, monospace;
 	font-weight: normal;
 	font-size: 18px;
 	box-sizing: border-box;
