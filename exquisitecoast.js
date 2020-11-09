@@ -45,14 +45,21 @@ var workingPatch = {};
 'Rack: Audio Out',
 */
 
-var knobValues = ['', 'min', 'max', '7:00', '7:30', '8:00', '8:30', '9:00', '9:30', '10:00', '10:30', '11:00', '11:30', '12:00', '12:30', '1:00', '1:30', '2:00', '2:30', '3:00', '3:30', '4:00', '4:30', '5:00', 'on', 'off', 'odd', '¡¡', 'even', '!!'];
-var knobLabels = ['slope_cycle_illuminated_button', 'voltage_math_channel_attenuverter', 'oscillator_pitch_panel_control', 'oscillator_linear_fm_input_attenuator', 'overtone_panel_control', 'overtone_cv_input_attenuator', 'multiply_panel_control', 'multiply_cv_input_attenuverter', 'slope_rise_panel_control', 'slope_fall_panel_control', 'slope_variresponse', 'countour_onset_panel_control', 'contour_sustain_panel_control', 'contour_decay_panel_control', 'contour_variresponse', 'balance_attenuator', 'dynamic_attenuator'];
-
-var jackDestinations = ['', 'TEMPO Input', 'Voltage MATH: Channel 1 Input', 'Voltage MATH: Channel 2 Input', 'Oscillator: 1/V OCTave Input', 'Oscillator: Linear FM Input', 'Overtone: CV Input', 'Multiply: CV Input', 'Slope: Rise/Fall Time CV Input', 'Slope: Trigger Input', 'Contour: Decay Time CV Input', 'Contour: Gate Input', 'Balance: Channel External Input', 'Balance: CV Input', 'Dynamics CV Input'];
-var jackLabels = ['midi_b_cv', 'midi_b_gate', 'clock_clock', 'clock_stepped_random', 'voltage_math_channel_one', 'voltage_math_channel_two', 'oscillator_triangle_wave', 'oscillator_square_wave', 'slope_eoc_gate', 'slope_cv', 'contour_eon', 'contour_cv', 'dynamics_dynamics'];
 var alphabet = 'abcdefghijklmnopqrstuvwxyz';
 
-var droneDestinations = ['Rack: Oscillator: Exponential FM Input', 'Rack: Oscillator: Linear FM Input', 'Rack: Filter: Audio Input', 'Rack: Filter: FM Input', 'Rack: LFO: FM Input', 'Rack: Envelope Generator: Gate Input', 'Rack: Envelope Generator: Trigger Input', 'Rack: VCA: CV Input', 'Rack: Attenuator Input 1', 'Rack: Attenuator Input 2', 'Rack: Attenuator Input 3']
+var knobValues = ['', 'min', 'max', '7:00', '7:30', '8:00', '8:30', '9:00', '9:30', '10:00', '10:30', '11:00', '11:30', '12:00', '12:30', '1:00', '1:30', '2:00', '2:30', '3:00', '3:30', '4:00', '4:30', '5:00', 'on', 'off', 'odd', '¡¡', 'even', '!!'];
+
+var knobLabels = ['slope_cycle_illuminated_button', 'voltage_math_channel_attenuverter', 'oscillator_pitch_panel_control', 'oscillator_linear_fm_input_attenuator', 'overtone_panel_control', 'overtone_cv_input_attenuator', 'multiply_panel_control', 'multiply_cv_input_attenuverter', 'slope_rise_panel_control', 'slope_fall_panel_control', 'slope_variresponse', 'countour_onset_panel_control', 'contour_sustain_panel_control', 'contour_decay_panel_control', 'contour_variresponse', 'balance_attenuator', 'dynamic_attenuator'];
+
+var jackLabels = ['midi_b_cv', 'midi_b_gate', 'clock_clock', 'clock_stepped_random', 'voltage_math_channel_one', 'voltage_math_channel_two', 'oscillator_triangle_wave', 'oscillator_square_wave', 'slope_eoc_gate', 'slope_cv', 'contour_eon', 'contour_cv', 'dynamics_dynamics', 'rack_oscillator', 'rack_filter', 'rack_lfo', 'rack_envelope_generator', 'rack_keyboard_cv', 'rack_keyboard_gate', 'rack_attenuator_one', 'rack_attenuator_two', 'rack_attenuator_three']; // includes drone labels
+
+var jackDestinations = ['', 'TEMPO Input', 'Voltage MATH: Channel 1 Input', 'Voltage MATH: Channel 2 Input', 'Oscillator: 1/V OCTave Input', 'Oscillator: Linear FM Input', 'Overtone: CV Input', 'Multiply: CV Input', 'Slope: Rise/Fall Time CV Input', 'Slope: Trigger Input', 'Contour: Decay Time CV Input', 'Contour: Gate Input', 'Balance: Channel External Input', 'Balance: CV Input', 'Dynamics CV Input'];
+
+var droneDestinations = ['Rack: Oscillator: Exponential FM Input', 'Rack: Oscillator: Linear FM Input', 'Rack: Filter: Audio Input', 'Rack: Filter: FM Input', 'Rack: LFO: FM Input', 'Rack: Envelope Generator: Gate Input', 'Rack: Envelope Generator: Trigger Input', 'Rack: VCA: CV Input', 'Rack: Attenuator Input 1', 'Rack: Attenuator Input 2', 'Rack: Attenuator Input 3'];
+
+var combinedDestinationsForSharing = ['', 'TEMPO Input', 'Voltage MATH: Channel 1 Input', 'Voltage MATH: Channel 2 Input', 'Oscillator: 1/V OCTave Input', 'Oscillator: Linear FM Input', 'Overtone: CV Input', 'Multiply: CV Input', 'Slope: Rise/Fall Time CV Input', 'Slope: Trigger Input', 'Contour: Decay Time CV Input', 'Contour: Gate Input', 'Balance: Channel External Input', 'Balance: CV Input', 'Dynamics CV Input', 'Rack: Oscillator: Exponential FM Input', 'Rack: Oscillator: Linear FM Input', 'Rack: Filter: Audio Input', 'Rack: Filter: FM Input', 'Rack: LFO: FM Input', 'Rack: Envelope Generator: Gate Input', 'Rack: Envelope Generator: Trigger Input', 'Rack: VCA: CV Input', 'Rack: Attenuator Input 1', 'Rack: Attenuator Input 2', 'Rack: Attenuator Input 3'];
+
+
 
 window.onload = function() {
 
@@ -368,6 +375,7 @@ function savePatch() {
 }
 
 function loadSavedPatch() {
+
 	patchNameField.value = workingPatch.patchName;
 	if (workingPatch.author) {
 		authorField.value = workingPatch.author;
@@ -472,7 +480,7 @@ function sharePatch() {
 		var connections = jacks[key];
 		var minifiedConnections = [];
 		for (var i = 0; i < connections.length; i++) {
-			minifiedConnections.push(jackDestinations.indexOf(connections[i]))
+			minifiedConnections.push(combinedDestinationsForSharing.indexOf(connections[i]))
 		}
 		minifiedObject.i[jackLabels.indexOf(key)] = minifiedConnections;
 	}
@@ -522,7 +530,7 @@ function loadSharedPatch(sharedpatchcode, sharedpatchobject) {
 			var connections = jacks[key];
 			var unMinifiedConnections = [];
 			for (var i = 0; i < connections.length; i++) {
-				unMinifiedConnections.push(jackDestinations[connections[i]])
+				unMinifiedConnections.push(combinedDestinationsForSharing[connections[i]])
 			}
 			unMinifiedObject.jacks[jackLabels[key]] = unMinifiedConnections;
 		}
@@ -586,7 +594,7 @@ function changeActive(field) {
 function newJackConnection(id) {
 	var jackName = id.replace('_plus', '');
 
-	if (!document.getElementById(id)) {
+	if (!document.getElementById(id) && window.location.href.indexOf('/drone.html') === -1) {
 		window.location.replace(window.location.href + 'drone.html')
 	}
 	else if (jackName) {
