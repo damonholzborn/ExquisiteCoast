@@ -267,6 +267,10 @@ select.jacks {
 	user-select: none;
 }
 
+.footnotes {
+	font-size: 0.88em;
+}
+
 /* ********* Media Queries ********* */
 
 
