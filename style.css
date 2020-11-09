@@ -186,7 +186,14 @@ select.patch_info {
 
 textarea {
 	padding-top: 4px;
-	height: 2.9em;
+}
+
+#author {
+	height: 3.9em;
+}
+
+#patch_notes {
+	height: 6.9em;
 }
 
 .item_category {

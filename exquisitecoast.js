@@ -16,8 +16,6 @@ var jackFields = {};
 var plusButtons = {};
 var workingPatch = {};
 
-console.log(window.location.href);
-
 /*
 
 //
@@ -54,7 +52,7 @@ var jackDestinations = ['', 'TEMPO Input', 'Voltage MATH: Channel 1 Input', 'Vol
 var jackLabels = ['midi_b_cv', 'midi_b_gate', 'clock_clock', 'clock_stepped_random', 'voltage_math_channel_one', 'voltage_math_channel_two', 'oscillator_triangle_wave', 'oscillator_square_wave', 'slope_eoc_gate', 'slope_cv', 'contour_eon', 'contour_cv', 'dynamics_dynamics'];
 var alphabet = 'abcdefghijklmnopqrstuvwxyz';
 
-var droneDestinations = ['Rack: Oscillator: Exponential FM Input', 'Rack: Oscillator: Linear FM Input', 'Rack: LFO: FM Input', 'Rack: Filter: Audio Input', 'Rack: Filter: FM Input', 'Rack: Attenuator Input 1', 'Rack: Attenuator Input 2', 'Rack: Attenuator Input 3', 'Rack: Audio Out']
+var droneDestinations = ['Rack: Oscillator: Exponential FM Input', 'Rack: Oscillator: Linear FM Input', 'Rack: Filter: Audio Input', 'Rack: Filter: FM Input', 'Rack: LFO: FM Input', 'Rack: Envelope Generator: Gate Input', 'Rack: Envelope Generator: Trigger Input', 'Rack: VCA: CV Input', 'Rack: Attenuator Input 1', 'Rack: Attenuator Input 2', 'Rack: Attenuator Input 3']
 
 window.onload = function() {
 
@@ -586,9 +584,12 @@ function changeActive(field) {
 }
 
 function newJackConnection(id) {
-	var jackName = id.replace('_plus', '')
+	var jackName = id.replace('_plus', '');
 
-	if (jackName) {
+	if (!document.getElementById(id)) {
+		window.location.replace(window.location.href + 'drone.html')
+	}
+	else if (jackName) {
 		var grandparentDiv = document.getElementById(id).parentNode;
 		var numberOfConnections = parseInt(grandparentDiv.dataset.connections);
 
