@@ -103,8 +103,10 @@ window.onload = function() {
 
 	clockSpeedField = document.getElementById('clock_speed');
 	clockSpeedTypeField = document.getElementById('clock_speed_type');
+	clockSpeedMultiplierField = document.getElementById('clock_speed_multiplier');
 	midiBLFOSpeedField = document.getElementById('midi_b_speed');
 	midiBLFOSpeedTypeField = document.getElementById('midi_b_speed_type');
+	midiBLFOSpeedMultiplierField = document.getElementById('midi_b_multiplier');
 
 	var allSelects = document.getElementsByTagName('select');
 	for (var i = 0; i < allSelects.length; i++) {
@@ -291,9 +293,11 @@ window.onload = function() {
 	shareButton.addEventListener('click', function() { sharePatch() });
 
 	clockSpeedField.addEventListener('keyup', function() { saveClock(clockSpeedField, true) });
-	clockSpeedTypeField.addEventListener('change', function() { saveClock(clockSpeedTypeField) });;
+	clockSpeedTypeField.addEventListener('change', function() { saveClock(clockSpeedTypeField, false, clockSpeedMultiplierField) });
+	clockSpeedMultiplierField.addEventListener('change', function() { saveClock(clockSpeedMultiplierField, false) });
 	midiBLFOSpeedField.addEventListener('keyup', function() { saveClock(midiBLFOSpeedField, true) });;
-	midiBLFOSpeedTypeField.addEventListener('change', function() { saveClock(midiBLFOSpeedTypeField) });;
+	midiBLFOSpeedTypeField.addEventListener('change', function() { saveClock(midiBLFOSpeedTypeField, false, midiBLFOSpeedMultiplierField) });
+	midiBLFOSpeedMultiplierField.addEventListener('change', function() { saveClock(midiBLFOSpeedMultiplierField, false) });
 
 	for (const key in knobFields) {
 		const field = knobFields[key];
@@ -319,12 +323,25 @@ window.onload = function() {
 
 // ********* Saving Fields to workingPatch *********
 
-function saveClock(field, changeactive) {
+function saveClock(field, changeactive, mulitiplierfield) {
 	workingPatch[field.id] = field.value;
+
 	if (changeactive) {
 		changeActive(field);
 	}
+	if (mulitiplierfield) {
+		toggleMultiplierFieldVisibility(field, mulitiplierfield);
+	}
 	savePatch();
+}
+
+function toggleMultiplierFieldVisibility(field, mulitiplierfield) {
+	if (field.value === 'bpm') {
+		mulitiplierfield.classList.remove('hidden')
+	}
+	else {
+		mulitiplierfield.classList.add('hidden')
+	}
 }
 
 function saveKnob(field) {
@@ -387,11 +404,20 @@ function loadSavedPatch() {
 		changeActive(clockSpeedField);
 	}
 	clockSpeedTypeField.value = workingPatch.clock_speed_type;
+	toggleMultiplierFieldVisibility(clockSpeedTypeField, clockSpeedMultiplierField)
+	if (workingPatch.clock_speed_multiplier) {
+		clockSpeedMultiplierField.value = workingPatch.clock_speed_multiplier;
+	}
+
 	if (workingPatch.midi_b_speed) {
 		midiBLFOSpeedField.value = workingPatch.midi_b_speed;
 		changeActive(midiBLFOSpeedField);
 	}
 	midiBLFOSpeedTypeField.value = workingPatch.midi_b_speed_type;
+	toggleMultiplierFieldVisibility(midiBLFOSpeedTypeField, midiBLFOSpeedMultiplierField)
+	if (workingPatch.midi_b_multiplier) {
+		midiBLFOSpeedMultiplierField.value = workingPatch.midi_b_multiplier;
+	}
 
 	for (const key in workingPatch.knobs) {
 		knobFields[key].value = workingPatch.knobs[key];
@@ -458,12 +484,14 @@ function sharePatch() {
 	}
 	if (workingPatch.clock_speed_type) {
 		minifiedObject.e = workingPatch.clock_speed_type;
+		minifiedObject.j = workingPatch.clock_speed_multiplier;
 	}
 	if (workingPatch.midi_b_speed) {
 		minifiedObject.f = workingPatch.midi_b_speed;
 	}
 	if (workingPatch.midi_b_speed_type) {
 		minifiedObject.g = workingPatch.midi_b_speed_type;
+		minifiedObject.k = workingPatch.midi_b_multiplier;
 	}
 
 	minifiedObject.h = {};
@@ -508,12 +536,16 @@ function loadSharedPatch(sharedpatchcode, sharedpatchobject) {
 		}
 		if (sharedpatchobject.e) {
 			unMinifiedObject.clock_speed_type = sharedpatchobject.e;
+			toggleMultiplierFieldVisibility(clockSpeedTypeField, clockSpeedMultiplierField)
+			unMinifiedObject.clock_speed_multiplier = sharedpatchobject.j;
 		}
 		if (sharedpatchobject.f) {
 			unMinifiedObject.midi_b_speed = sharedpatchobject.f;
 		}
 		if (sharedpatchobject.g) {
 			unMinifiedObject.midi_b_speed_type = sharedpatchobject.g;
+			toggleMultiplierFieldVisibility(midiBLFOSpeedTypeField, midiBLFOSpeedMultiplierField)
+			unMinifiedObject.midi_b_multiplier = sharedpatchobject.k;
 		}
 
 		unMinifiedObject.knobs = {};

@@ -173,15 +173,18 @@ input.clocks, input.patch_info, textarea {
 	padding: 2px 6px;
 	width: 40px;
 	border: 1px solid var(--white);
-	border-radius: 6px;
+	border-radius: 0;
 }
 
 input.patch_info, textarea {
 	width: 340px;
 }
 
+select {
+	border-radius: 0;
+}
 select.patch_info {
-	width: 354px;
+	width: 340px;
 }
 
 textarea {
@@ -216,7 +219,8 @@ textarea {
 }
 
 .item.clocks {
-	grid-template-columns: 124px min-content auto;
+	grid-template-columns: 130px min-content 110px 104px;
+	grid-column-gap: 4px;
 }
 
 .item.knobs {
@@ -237,7 +241,6 @@ textarea {
 }
 
 
-
 select {
 	background-color: var(--bg-color);
 	color: var(--white);
@@ -251,7 +254,11 @@ select {
 }
 
 select.clocks {
-	width: 106px;
+	width: 109px;
+}
+
+select.multiplier {
+	width: 44px
 }
 
 select.knobs {
@@ -271,6 +278,9 @@ select.jacks {
 	font-size: 0.88em;
 }
 
+.hidden {
+	visibility: hidden;
+}
 /* ********* Media Queries ********* */
 
 
