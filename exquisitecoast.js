@@ -443,6 +443,8 @@ function loadSavedPatch() {
 function makeNewPatch(name, shouldcopy) {
 	if (!shouldcopy) {
 		workingPatch = {}
+		workingPatch.knobs = {'slope_cycle_illuminated_button': 'off'};
+		workingPatch.jacks = {};
 	}
 	workingPatch.patchName = name;
 
@@ -453,9 +455,6 @@ function makeNewPatch(name, shouldcopy) {
 			authorField.value = savedAuthor
 		}
 	}
-
-	workingPatch.knobs = {'slope_cycle_illuminated_button': 'off'};
-	workingPatch.jacks = {};
 
 	localStorage.setItem('workingPatchName', name);
 	localStorage.setItem(workingPatch.patchName, JSON.stringify(workingPatch));
