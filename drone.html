@@ -20,6 +20,9 @@
 
 	<title>Exquisite Coast</title>
 
+	<script>
+		var drone = true;
+	</script>
 	<script src="/lz-string.min.js"></script>
 	<script src="/exquisitecoast.js?rack20201122.2"></script>
 	<link rel="stylesheet" type="text/css" href="/style.css">
@@ -82,8 +85,8 @@
 			<h2>Some Notes About this Web App</h2>
 
 			<ul>
-				<li>Your patch information is not stored on a server, all data is saved to your browser. This means that your work will only be available in the browser that you used to create the patch. You might want to save the links to any important patches somewhere else for safekeeping.</li>
-				<li>Your patch is automatically saved as you work so any patches you've worked on will be waiting for you when you return (with the same browser).</li>
+				<li>No information is stored on a server, all data is saved to your browser. This means that your work will only be available in the browser that you used to create the patch. You might want to save the links to any important patches somewhere else for safekeeping.</li>
+				<li>Your patch is automatically saved as you work so any patches you work are will be waiting for you when you return (with the same browser).</li>
 				<li>Exquisite Coast is still in beta, so please bear with us as we work out any kinks. If you run into any issues, please <a href="mailto: ec@rustle.works">let us know</a>. Be sure to include as much detail as you can in your message &mdash; browser, device, OS version, what you were doing, etc.</li>
 			</ul>
 
@@ -173,6 +176,7 @@
 			</div>
 
 		</section>
+
 
 	<!-- ***************************   Clock Speeds   *************************** -->
 
@@ -1050,7 +1054,215 @@
 			</div>
 		</div>
 
+
+		<!-- ********* Rack ********* -->
+
+		<h2>
+			Rack
+		</h2>
+
+		<div class="item_category">
+			Rack Signal Path
+		</div>
+
+		<div class="item jacks" data-connections="1">
+			<div>
+				Oscillator
+			</div>
+			<div></div>
+			<div id="rack_oscillator_container_0">
+				<select id="rack_oscillator_0" data-index="0" class="jacks"></select>
+			</div>
+			<div id="rack_oscillator_plus" class="plus pointy">
+				+
+			</div>
+		</div>
+		<div class="item jacks" data-connections="1">
+			<div>
+				Filter
+			</div>
+			<div></div>
+			<div id="rack_filter_container_0">
+				<select id="rack_filter_0" data-index="0" class="jacks"></select>
+			</div>
+			<div id="rack_filter_plus" class="plus pointy">
+				+
+			</div>
+		</div>
+		<div class="item jacks" data-connections="1">
+			<div>
+				VCA
+			</div>
+			<div></div>
+			<div id="rack_vca_container_0">
+				<select id="rack_vca_0" data-index="0" class="jacks"></select>
+			</div>
+			<div id="rack_vca_plus" class="plus pointy">
+				+
+			</div>
+		</div>
+		<div class="item jacks" data-connections="1">
+			<div>
+				LPG 1
+			</div>
+			<div></div>
+			<div id="rack_lpg1_container_0">
+				<select id="rack_lpg1_0" data-index="0" class="jacks"></select>
+			</div>
+			<div id="rack_lpg1_plus" class="plus pointy">
+				+
+			</div>
+		</div>
+		<div class="item jacks" data-connections="1">
+			<div>
+				LPG 2
+			</div>
+			<div></div>
+			<div id="rack_lpg2_container_0">
+				<select id="rack_lpg2_0" data-index="0" class="jacks"></select>
+			</div>
+			<div id="rack_lpg2_plus" class="plus pointy">
+				+
+			</div>
+		</div>
+
+		<div class="item_category">
+			Rack Modulation
+		</div>
+
+		<div class="item jacks" data-connections="1">
+			<div>
+				EG
+			</div>
+			<div></div>
+			<div id="rack_envelope_generator_container_0">
+				<select id="rack_envelope_generator_0" data-index="0" class="jacks"></select>
+			</div>
+			<div id="rack_envelope_generator_plus" class="plus pointy">
+				+
+			</div>
+		</div>
+		<div class="item jacks" data-connections="1">
+			<div>
+				LFO
+			</div>
+			<div></div>
+			<div id="rack_lfo_container_0">
+				<select id="rack_lfo_0" data-index="0" class="jacks"></select>
+			</div>
+			<div id="rack_lfo_plus" class="plus pointy">
+				+
+			</div>
+		</div>
+
+		<div class="item_category">
+			Rack Keyboard
+		</div>
+
+		<div class="item jacks" data-connections="1">
+			<div>
+				Keyboard CV
+			</div>
+			<div></div>
+			<div id="rack_keyboard_cv_container_0">
+				<select id="rack_keyboard_cv_0" data-index="0" class="jacks"></select>
+			</div>
+			<div id="rack_keyboard_cv_plus" class="plus pointy">
+				+
+			</div>
+		</div>
+		<div class="item jacks" data-connections="1">
+			<div>
+				Keyboard Gate
+			</div>
+			<div></div>
+			<div id="rack_keyboard_gate_container_0">
+				<select id="rack_keyboard_gate_0" data-index="0" class="jacks"></select>
+			</div>
+			<div id="rack_keyboard_gate_plus" class="plus pointy">
+				+
+			</div>
+		</div>
+
+		<div class="item_category">
+			Rack Voltage Math
+		</div>
+
+		<div class="item jacks" data-connections="1">
+			<div>
+				Attenuator 1
+			</div>
+			<div></div>
+			<div id="rack_attenuator_one_container_0">
+				<select id="rack_attenuator_one_0" data-index="0" class="jacks"></select>
+			</div>
+			<div id="rack_attenuator_one_plus" class="plus pointy">
+				+
+			</div>
+		</div>
+		<div class="item jacks" data-connections="1">
+			<div>
+				Attenuator 2
+			</div>
+			<div></div>
+			<div id="rack_attenuator_two_container_0">
+				<select id="rack_attenuator_two_0" data-index="0" class="jacks"></select>
+			</div>
+			<div id="rack_attenuator_two_plus" class="plus pointy">
+				+
+			</div>
+		</div>
+		<div class="item jacks" data-connections="1">
+			<div>
+				Attenuator 3
+			</div>
+			<div></div>
+			<div id="rack_attenuator_three_container_0">
+				<select id="rack_attenuator_three_0" data-index="0" class="jacks"></select>
+			</div>
+			<div id="rack_attenuator_three_plus" class="plus pointy">
+				+
+			</div>
+		</div>
+		<div class="item jacks" data-connections="1">
+			<div>
+				Attenuator 4
+			</div>
+			<div></div>
+			<div id="rack_attenuator_four_container_0">
+				<select id="rack_attenuator_four_0" data-index="0" class="jacks"></select>
+			</div>
+			<div id="rack_attenuator_four_plus" class="plus pointy">
+				+
+			</div>
+		</div>
+		<div class="item jacks" data-connections="1">
+			<div>
+				Attenuator 5
+			</div>
+			<div></div>
+			<div id="rack_attenuator_five_container_0">
+				<select id="rack_attenuator_five_0" data-index="0" class="jacks"></select>
+			</div>
+			<div id="rack_attenuator_five_plus" class="plus pointy">
+				+
+			</div>
+		</div>
+
+
+		<div class="footnotes">
+			<br>
+			<p>If using the <b>Envelope Generator</b> and the <b>VCA</b>, the <b>Envelope Generator</b> must be routed to the <b>VCA</b> in addition to anywhere else you want to send it.</p>
+
+			<p>If using the amount knob on <b>Filter: FM Input</b> with the <b>EG/LFO</b> switch, don’t forget to notate that as an attenuator.</p>
+
+			<p>The only valid source for <b>Envelope Generator: Gate Input</b> & <b>Envelope Generator: Trigger Input</b> is <b>Keyboard Gate</b>.</p>
+
+			<p><b>Envelope Generator: Gate Input</b> means <b>Sustain</b> on;<br><b>Envelope Generator: Trigger Input</b> means <b>Sustain</b> off.</p>
+		</div>
 	</section>
+
+
 
 </main>
 

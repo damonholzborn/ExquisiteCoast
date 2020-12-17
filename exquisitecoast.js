@@ -16,12 +16,19 @@ var jackFields = {};
 var plusButtons = {};
 var workingPatch = {};
 
-var knobValues = ['', 'min', 'max', '7:00', '7:30', '8:00', '8:30', '9:00', '9:30', '10:00', '10:30', '11:00', '11:30', '12:00', '12:30', '1:00', '1:30', '2:00', '2:30', '3:00', '3:30', '4:00', '4:30', '5:00', 'on', 'off', 'odd', '¡¡', 'even', '!!'];
-var jackDestinations = ['', 'TEMPO Input', 'Voltage MATH: Channel 1 Input', 'Voltage MATH: Channel 2 Input', 'Oscillator: 1/V OCTave Input', 'Oscillator: Linear FM Input', 'Overtone: CV Input', 'Multiply: CV Input', 'Slope: Rise/Fall Time CV Input', 'Slope: Trigger Input', 'Contour: Decay Time CV Input', 'Contour: Gate Input', 'Balance: Channel External Input', 'Balance: CV Input', 'Dynamics CV Input'];
-var knobLabels = ['slope_cycle_illuminated_button', 'voltage_math_channel_attenuverter', 'oscillator_pitch_panel_control', 'oscillator_linear_fm_input_attenuator', 'overtone_panel_control', 'overtone_cv_input_attenuator', 'multiply_panel_control', 'multiply_cv_input_attenuverter', 'slope_rise_panel_control', 'slope_fall_panel_control', 'slope_variresponse', 'countour_onset_panel_control', 'contour_sustain_panel_control', 'contour_decay_panel_control', 'contour_variresponse', 'balance_attenuator', 'dynamic_attenuator'];
-var jackLabels = ['midi_b_cv', 'midi_b_gate', 'clock_clock', 'clock_stepped_random', 'voltage_math_channel_one', 'voltage_math_channel_two', 'oscillator_triangle_wave', 'oscillator_square_wave', 'slope_eoc_gate', 'slope_cv', 'contour_eon', 'contour_cv', 'dynamics_dynamics'];
 var alphabet = 'abcdefghijklmnopqrstuvwxyz';
 
+var knobValues = ['', 'min', 'max', '7:00', '7:30', '8:00', '8:30', '9:00', '9:30', '10:00', '10:30', '11:00', '11:30', '12:00', '12:30', '1:00', '1:30', '2:00', '2:30', '3:00', '3:30', '4:00', '4:30', '5:00', 'on', 'off', 'odd', '¡¡', 'even', '!!'];
+
+var knobLabels = ['slope_cycle_illuminated_button', 'voltage_math_channel_attenuverter', 'oscillator_pitch_panel_control', 'oscillator_linear_fm_input_attenuator', 'overtone_panel_control', 'overtone_cv_input_attenuator', 'multiply_panel_control', 'multiply_cv_input_attenuverter', 'slope_rise_panel_control', 'slope_fall_panel_control', 'slope_variresponse', 'countour_onset_panel_control', 'contour_sustain_panel_control', 'contour_decay_panel_control', 'contour_variresponse', 'balance_attenuator', 'dynamic_attenuator'];
+
+var jackLabels = ['midi_b_cv', 'midi_b_gate', 'clock_clock', 'clock_stepped_random', 'voltage_math_channel_one', 'voltage_math_channel_two', 'oscillator_triangle_wave', 'oscillator_square_wave', 'slope_eoc_gate', 'slope_cv', 'contour_eon', 'contour_cv', 'dynamics_dynamics', 'rack_oscillator', 'rack_filter', 'rack_lfo', 'rack_envelope_generator', 'rack_keyboard_cv', 'rack_keyboard_gate', 'rack_attenuator_one', 'rack_attenuator_two', 'rack_attenuator_three', 'rack_attenuator_four', 'rack_attenuator_four', 'rack_vca', 'rack_lpg1', 'rack_lpg2']; // includes drone labels
+
+var jackDestinations = ['', 'TEMPO Input', 'Voltage MATH: Channel 1 Input', 'Voltage MATH: Channel 2 Input', 'Oscillator: 1/V OCTave Input', 'Oscillator: Linear FM Input', 'Overtone: CV Input', 'Multiply: CV Input', 'Slope: Rise/Fall Time CV Input', 'Slope: Trigger Input', 'Contour: Decay Time CV Input', 'Contour: Gate Input', 'Balance: Channel External Input', 'Balance: CV Input', 'Dynamics CV Input'];
+
+var droneDestinations = ['0-Coast Signal Out', 'Rack: Osc: Exponential FM Input', 'Rack: Osc: Linear FM Input', 'Rack: Filter: Audio Input', 'Rack: Filter: FM Input', 'Rack: VCA: Signal Input', 'Rack: VCA: CV Input', 'Rack: LPG 1: Signal Input', 'Rack: LPG 1: CV Input', 'Rack: LPG 2: Signal Input', 'Rack: LPG 2: CV Input', 'Rack: EG: Gate Input', 'Rack: EG: Trigger Input', 'Rack: LFO: FM Input', 'Rack: Attenuator Input 1', 'Rack: Attenuator Input 2', 'Rack: Attenuator Input 3', 'Rack: Attenuator Input 4', 'Rack: Attenuator Input 5', 'Rack: Signal Out'];
+
+var combinedDestinationsForSharing = ['', 'TEMPO Input', 'Voltage MATH: Channel 1 Input', 'Voltage MATH: Channel 2 Input', 'Oscillator: 1/V OCTave Input', 'Oscillator: Linear FM Input', 'Overtone: CV Input', 'Multiply: CV Input', 'Slope: Rise/Fall Time CV Input', 'Slope: Trigger Input', 'Contour: Decay Time CV Input', 'Contour: Gate Input', 'Balance: Channel External Input', 'Balance: CV Input', 'Dynamics CV Input', 'Rack: Osc: Exponential FM Input', 'Rack: Osc: Linear FM Input', 'Rack: Filter: Audio Input', 'Rack: Filter: FM Input', 'Rack: LFO: FM Input', 'Rack: EG: Gate Input', 'Rack: EG: Trigger Input', 'Rack: VCA: CV Input', 'Rack: Attenuator Input 1', 'Rack: Attenuator Input 2', 'Rack: Attenuator Input 3', 'Rack: Attenuator Input 4', 'Rack: Attenuator Input 5', 'Rack: VCA: Signal Input', '0-Coast Signal Out', 'Rack: Signal Out', 'Rack: LPG 1: Signal Input', 'Rack: LPG 1: CV Input', 'Rack: LPG 2: Signal Input', 'Rack: LPG 2: CV Input'];
 
 window.onload = function() {
 
@@ -43,6 +50,18 @@ window.onload = function() {
 		}
 	}
 
+	// ********* Insert Output Jack Pulldown Menus *********
+
+	var jackSelects = document.getElementsByClassName("jacks");
+
+	for (var i = 0; i < jackSelects.length; i++) {
+		var jackSelect = jackSelects[i];
+
+		if (jackSelect.tagName === 'SELECT') {
+			insertJackOptions(jackSelect);
+		}
+	}
+
 	// ********* Get Elements *********
 
 	arrow1 = document.getElementById('arrow1');
@@ -55,8 +74,10 @@ window.onload = function() {
 
 	clockSpeedField = document.getElementById('clock_speed');
 	clockSpeedTypeField = document.getElementById('clock_speed_type');
+	clockSpeedMultiplierField = document.getElementById('clock_speed_multiplier');
 	midiBLFOSpeedField = document.getElementById('midi_b_speed');
 	midiBLFOSpeedTypeField = document.getElementById('midi_b_speed_type');
+	midiBLFOSpeedMultiplierField = document.getElementById('midi_b_multiplier');
 
 	var allSelects = document.getElementsByTagName('select');
 	for (var i = 0; i < allSelects.length; i++) {
@@ -243,9 +264,11 @@ window.onload = function() {
 	shareButton.addEventListener('click', function() { sharePatch() });
 
 	clockSpeedField.addEventListener('keyup', function() { saveClock(clockSpeedField, true) });
-	clockSpeedTypeField.addEventListener('change', function() { saveClock(clockSpeedTypeField) });;
+	clockSpeedTypeField.addEventListener('change', function() { saveClock(clockSpeedTypeField, false, clockSpeedMultiplierField) });
+	clockSpeedMultiplierField.addEventListener('change', function() { saveClock(clockSpeedMultiplierField, false) });
 	midiBLFOSpeedField.addEventListener('keyup', function() { saveClock(midiBLFOSpeedField, true) });;
-	midiBLFOSpeedTypeField.addEventListener('change', function() { saveClock(midiBLFOSpeedTypeField) });;
+	midiBLFOSpeedTypeField.addEventListener('change', function() { saveClock(midiBLFOSpeedTypeField, false, midiBLFOSpeedMultiplierField) });
+	midiBLFOSpeedMultiplierField.addEventListener('change', function() { saveClock(midiBLFOSpeedMultiplierField, false) });
 
 	for (const key in knobFields) {
 		const field = knobFields[key];
@@ -271,12 +294,25 @@ window.onload = function() {
 
 // ********* Saving Fields to workingPatch *********
 
-function saveClock(field, changeactive) {
+function saveClock(field, changeactive, mulitiplierfield) {
 	workingPatch[field.id] = field.value;
+
 	if (changeactive) {
 		changeActive(field);
 	}
+	if (mulitiplierfield) {
+		toggleMultiplierFieldVisibility(field, mulitiplierfield);
+	}
 	savePatch();
+}
+
+function toggleMultiplierFieldVisibility(field, mulitiplierfield) {
+	if (field.value === 'bpm') {
+		mulitiplierfield.classList.remove('hidden')
+	}
+	else {
+		mulitiplierfield.classList.add('hidden')
+	}
 }
 
 function saveKnob(field) {
@@ -325,6 +361,7 @@ function savePatch() {
 }
 
 function loadSavedPatch() {
+
 	patchNameField.value = workingPatch.patchName;
 	if (workingPatch.author) {
 		authorField.value = workingPatch.author;
@@ -338,11 +375,20 @@ function loadSavedPatch() {
 		changeActive(clockSpeedField);
 	}
 	clockSpeedTypeField.value = workingPatch.clock_speed_type;
+	toggleMultiplierFieldVisibility(clockSpeedTypeField, clockSpeedMultiplierField)
+	if (workingPatch.clock_speed_multiplier) {
+		clockSpeedMultiplierField.value = workingPatch.clock_speed_multiplier;
+	}
+
 	if (workingPatch.midi_b_speed) {
 		midiBLFOSpeedField.value = workingPatch.midi_b_speed;
 		changeActive(midiBLFOSpeedField);
 	}
 	midiBLFOSpeedTypeField.value = workingPatch.midi_b_speed_type;
+	toggleMultiplierFieldVisibility(midiBLFOSpeedTypeField, midiBLFOSpeedMultiplierField)
+	if (workingPatch.midi_b_multiplier) {
+		midiBLFOSpeedMultiplierField.value = workingPatch.midi_b_multiplier;
+	}
 
 	for (const key in workingPatch.knobs) {
 		knobFields[key].value = workingPatch.knobs[key];
@@ -368,6 +414,8 @@ function loadSavedPatch() {
 function makeNewPatch(name, shouldcopy) {
 	if (!shouldcopy) {
 		workingPatch = {}
+		workingPatch.knobs = {'slope_cycle_illuminated_button': 'off'};
+		workingPatch.jacks = {};
 	}
 	workingPatch.patchName = name;
 
@@ -378,9 +426,6 @@ function makeNewPatch(name, shouldcopy) {
 			authorField.value = savedAuthor
 		}
 	}
-
-	workingPatch.knobs = {'slope_cycle_illuminated_button': 'off'};
-	workingPatch.jacks = {};
 
 	localStorage.setItem('workingPatchName', name);
 	localStorage.setItem(workingPatch.patchName, JSON.stringify(workingPatch));
@@ -409,12 +454,14 @@ function sharePatch() {
 	}
 	if (workingPatch.clock_speed_type) {
 		minifiedObject.e = workingPatch.clock_speed_type;
+		minifiedObject.j = workingPatch.clock_speed_multiplier;
 	}
 	if (workingPatch.midi_b_speed) {
 		minifiedObject.f = workingPatch.midi_b_speed;
 	}
 	if (workingPatch.midi_b_speed_type) {
 		minifiedObject.g = workingPatch.midi_b_speed_type;
+		minifiedObject.k = workingPatch.midi_b_multiplier;
 	}
 
 	minifiedObject.h = {};
@@ -429,13 +476,13 @@ function sharePatch() {
 		var connections = jacks[key];
 		var minifiedConnections = [];
 		for (var i = 0; i < connections.length; i++) {
-			minifiedConnections.push(jackDestinations.indexOf(connections[i]))
+			minifiedConnections.push(combinedDestinationsForSharing.indexOf(connections[i]))
 		}
 		minifiedObject.i[jackLabels.indexOf(key)] = minifiedConnections;
 	}
 
 	var minifiedPatchCompressed = LZString.compressToEncodedURIComponent(JSON.stringify(minifiedObject));
-	var copyPatchURL = prompt('Your patch is encoded in the URL below. To share your patch, copy the link (make sure to get the whole thing). You can then paste the URL in an email to send to a friend, share at the Exquisite Coast thread on llllllll.co, or post on social media.', 'http://ec.rustle.works/?patch=' + minifiedPatchCompressed);
+	var copyPatchURL = prompt('Your patch is encoded in the URL below. To share your patch, copy the link (make sure to get the whole thing). You can then paste the URL in an email to send to a friend, share at the Exquisite Coast thread on llllllll.co, or post on social media.', window.location.href + '?patch=' + minifiedPatchCompressed);
 }
 
 function loadSharedPatch(sharedpatchcode, sharedpatchobject) {
@@ -459,12 +506,16 @@ function loadSharedPatch(sharedpatchcode, sharedpatchobject) {
 		}
 		if (sharedpatchobject.e) {
 			unMinifiedObject.clock_speed_type = sharedpatchobject.e;
+			toggleMultiplierFieldVisibility(clockSpeedTypeField, clockSpeedMultiplierField)
+			unMinifiedObject.clock_speed_multiplier = sharedpatchobject.j;
 		}
 		if (sharedpatchobject.f) {
 			unMinifiedObject.midi_b_speed = sharedpatchobject.f;
 		}
 		if (sharedpatchobject.g) {
 			unMinifiedObject.midi_b_speed_type = sharedpatchobject.g;
+			toggleMultiplierFieldVisibility(midiBLFOSpeedTypeField, midiBLFOSpeedMultiplierField)
+			unMinifiedObject.midi_b_multiplier = sharedpatchobject.k;
 		}
 
 		unMinifiedObject.knobs = {};
@@ -479,7 +530,7 @@ function loadSharedPatch(sharedpatchcode, sharedpatchobject) {
 			var connections = jacks[key];
 			var unMinifiedConnections = [];
 			for (var i = 0; i < connections.length; i++) {
-				unMinifiedConnections.push(jackDestinations[connections[i]])
+				unMinifiedConnections.push(combinedDestinationsForSharing[connections[i]])
 			}
 			unMinifiedObject.jacks[jackLabels[key]] = unMinifiedConnections;
 		}
@@ -506,11 +557,29 @@ function loadSharedPatch(sharedpatchcode, sharedpatchobject) {
 		savedWorkingPatchName = undefined;
 	}
 
-	history.pushState(sharedpatchcode, '', '/');
+	history.pushState(sharedpatchcode, '', window.location.pathname);
 	return savedWorkingPatchName
 }
 
 // ********* Interface Manipulation *********
+
+function insertJackOptions(jackselect) {
+	for (var j = 0; j < jackDestinations.length; j++) {
+		var jackOption = document.createElement('option');
+		jackOption.value = jackDestinations[j];
+		jackOption.text = jackDestinations[j];
+		jackselect.appendChild(jackOption);
+	}
+
+	if (window.location.href.indexOf('/drone.html') !== -1) {
+		for (var j = 0; j < droneDestinations.length; j++) {
+			var jackOption = document.createElement('option');
+			jackOption.value = droneDestinations[j];
+			jackOption.text = droneDestinations[j];
+			jackselect.appendChild(jackOption);
+		}
+	}
+}
 
 function changeActive(field) {
 	var grandparentDiv = field.parentNode.parentNode;
@@ -523,34 +592,40 @@ function changeActive(field) {
 }
 
 function newJackConnection(id) {
-	var jackName = id.replace('_plus', '')
+	var jackName = id.replace('_plus', '');
 
-	var grandparentDiv = document.getElementById(id).parentNode;
-	var numberOfConnections = parseInt(grandparentDiv.dataset.connections);
-
-	grandparentDiv.dataset.connections = numberOfConnections + 1;
-
-	var jackContainerID = jackName + '_container' + numberOfConnections;
-	var jackSelectID = jackName +'_' + numberOfConnections;
-
-	var div1 = document.createElement('div');
-	var div2 = document.createElement('div');
-	div2.innerHTML = '<div></div><div></div><div id="' + jackContainerID + '"><select id="' + jackSelectID + '" class="jacks"><option value=""></option><option value="TEMPO Input">TEMPO Input</option><option value="Voltage MATH: Channel 1 Input">Voltage MATH: Channel 1 Input</option><option value="Voltage MATH: Channel 2 Input">Voltage MATH: Channel 2 Input</option><option value="Oscillator: 1/V OCTave Input">Oscillator: 1/V OCTave Input</option><option value="Oscillator: Linear FM Input">Oscillator: Linear FM Input</option><option value="Overtone: CV Input">Overtone: CV Input</option><option value="Multiply: CV Input">Multiply: CV Input</option><option value="Slope: Rise/Fall Time CV Input">Slope: Rise/Fall Time CV Input</option><option value="Slope: Trigger Input">Slope: Trigger Input</option><option value="Contour: Decay Time CV Input">Contour: Decay Time CV Input</option><option value="Contour: Gate Input">Contour: Gate Input</option><option value="Balance: Channel External Input">Balance: Channel External Input</option><option value="Balance: CV Input">Balance: CV Input</option><option value="Dynamics CV Input">Dynamics CV Input</option></select></div><div></div>';
-	var div3 = document.createElement('div');
-
-
-	while (div1.firstChild) {
-		grandparentDiv.appendChild(div1.firstChild);
+	if (!document.getElementById(id) && window.location.href.indexOf('/drone.html') === -1) {
+		window.location.replace(window.location.href + 'drone.html')
 	}
-	while (div2.firstChild) {
-		grandparentDiv.appendChild(div2.firstChild);
-	}
-	while (div3.firstChild) {
-		grandparentDiv.appendChild(div3.firstChild);
-	}
+	else if (jackName) {
+		var grandparentDiv = document.getElementById(id).parentNode;
+		var numberOfConnections = parseInt(grandparentDiv.dataset.connections);
 
-	const field = document.getElementById(jackSelectID);
-	field.addEventListener('change', function() { saveJack(field, 'jacks') });
+		grandparentDiv.dataset.connections = numberOfConnections + 1;
+
+		var jackContainerID = jackName + '_container' + numberOfConnections;
+		var jackSelectID = jackName +'_' + numberOfConnections;
+
+		var div1 = document.createElement('div');
+		var div2 = document.createElement('div');
+		div2.innerHTML = '<div></div><div></div><div id="' + jackContainerID + '"><select id="' + jackSelectID + '" class="jacks"></select></div><div></div>';
+		var div3 = document.createElement('div');
+
+
+		while (div1.firstChild) {
+			grandparentDiv.appendChild(div1.firstChild);
+		}
+		while (div2.firstChild) {
+			grandparentDiv.appendChild(div2.firstChild);
+		}
+		while (div3.firstChild) {
+			grandparentDiv.appendChild(div3.firstChild);
+		}
+
+		const field = document.getElementById(jackSelectID);
+		insertJackOptions(field);
+		field.addEventListener('change', function() { saveJack(field, 'jacks') });
+	}
 
 }
 

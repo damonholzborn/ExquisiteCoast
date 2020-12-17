@@ -26,10 +26,7 @@
 html, body {
 	background-color: var(--bg-color);
 	color: var(--white);
-	font-family:  Helvetica, Arial, sans-serif;
-	font-family:  'Courier New', Courier, monospace;
-
-
+	font-family: 'Courier New', Courier, monospace;
 	font-weight: normal;
 	font-size: 18px;
 	box-sizing: border-box;
@@ -176,20 +173,30 @@ input.clocks, input.patch_info, textarea {
 	padding: 2px 6px;
 	width: 40px;
 	border: 1px solid var(--white);
-	border-radius: 6px;
+	border-radius: 0;
 }
 
 input.patch_info, textarea {
 	width: 340px;
 }
 
+select {
+	border-radius: 0;
+}
 select.patch_info {
-	width: 354px;
+	width: 340px;
 }
 
 textarea {
 	padding-top: 4px;
-	height: 2.9em;
+}
+
+#author {
+	height: 3.9em;
+}
+
+#patch_notes {
+	height: 6.9em;
 }
 
 .item_category {
@@ -212,7 +219,8 @@ textarea {
 }
 
 .item.clocks {
-	grid-template-columns: 124px min-content auto;
+	grid-template-columns: 130px min-content 110px 104px;
+	grid-column-gap: 4px;
 }
 
 .item.knobs {
@@ -233,7 +241,6 @@ textarea {
 }
 
 
-
 select {
 	background-color: var(--bg-color);
 	color: var(--white);
@@ -247,7 +254,11 @@ select {
 }
 
 select.clocks {
-	width: 106px;
+	width: 109px;
+}
+
+select.multiplier {
+	width: 44px
 }
 
 select.knobs {
@@ -263,6 +274,13 @@ select.jacks {
 	user-select: none;
 }
 
+.footnotes {
+	font-size: 0.88em;
+}
+
+.hidden {
+	visibility: hidden;
+}
 /* ********* Media Queries ********* */
 
 
