@@ -16,35 +16,6 @@ var jackFields = {};
 var plusButtons = {};
 var workingPatch = {};
 
-/*
-
-//
-
-'Rack: Oscillator',
-'Rack: LFO',
-'Rack: Filter',
-'Rack: Keyboard CV',
-'Rack: Attenuator: Output 1',
-'Rack: Attenuator: Output 2',
-'Rack: Attenuator: Output 3'
-
-
-
-//
-'Rack: Oscillator: Linear FM Input',
-'Rack: Oscillator: Exponential FM Input',
-
-'Rack: LFO: FM Input',
-
-'Rack: Filter: FM Input',
-
-'Rack: Attenuator Input 1',
-'Rack: Attenuator Output 2',
-'Rack: Attenuator Output 3'
-
-'Rack: Audio Out',
-*/
-
 var alphabet = 'abcdefghijklmnopqrstuvwxyz';
 
 var knobValues = ['', 'min', 'max', '7:00', '7:30', '8:00', '8:30', '9:00', '9:30', '10:00', '10:30', '11:00', '11:30', '12:00', '12:30', '1:00', '1:30', '2:00', '2:30', '3:00', '3:30', '4:00', '4:30', '5:00', 'on', 'off', 'odd', '¡¡', 'even', '!!'];
