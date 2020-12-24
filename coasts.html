@@ -1,0 +1,2412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1,user-scalable=0"/>
+
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="manifest" href="/site.webmanifest">
+	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+	<meta name="msapplication-TileColor" content="#ffc40d">
+	<meta name="theme-color" content="#ffffff">
+
+	<meta property="og:title" content="Exquisite Coasts">
+	<meta property="og:description" content="A Shared Patch Game for the Make Noise 0-Coast & the Moog Werkstatt.">
+	<meta property="og:url" content="http://ec.rustle.works">
+	<meta property="og:image" content="http://ec.rustle.works/ogimage.png">
+
+	<title>Exquisite Coast</title>
+
+	<script src="lz-string.min.js"></script>
+	<script src="exquisitestringcodes.js"></script>
+	<script src="exquisitecoasts.js"></script>
+	<link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+<body>
+
+<header id="header">
+	<div>
+		<h1>Exquisite Coasts</h1>
+	</div>
+
+	<div id="arrows">
+		<div id="arrow1">→</div>
+		<div id="arrow2">←</div>
+		<!-- ← → ↑ ↓ -->
+	</div>
+
+	<div>
+		<h1 id="menu_button" class="pointy">?</h1>
+	</div>
+
+	<div id="welcome_message">
+
+		<div id="welcome_text">
+			<p>Welcome to <i>Exquisite Coast</i>, a shared patch game for the Make Noise 0-Coast created by Damon Holzborn and John O'Brien. <a href="https://en.wikipedia.org/wiki/Exquisite_corpse" target="_blank">Exquisite Corpse</a> is a collaborative image or text game, developed by the Surrealists, where a text or drawing is created either by some set rule or by only revealing the end of what the previous person contributed. In this spirit, <i>Exquisite Coast</i> uses a tight set of technical constraints as an artistic challenge that encourage a deep exploration of the instrument. These guidelines are designed to foster creativity, provide a useful method to get to know your 0-Coast, and engage with a wider community of music makers. Of course you are free to make up your own rules for yourself and your collaborators. If you feel a different process would work better for you, by all means go for it!</p>
+
+			<h3>Process</h3>
+
+			<ol>
+				<li>Create a patch and record a performance using only the 0-Coast (the Prompt).</li>
+				<li>Document the state of your 0-Coast at the end of the Prompt recording.</li>
+				<li>Share your Prompt for others to use (the Response).</li>
+			</ol>
+
+			<h3>Guidelines</h3>
+
+			<ul>
+				<li>All sound and control comes from the 0-Coast — no outside MIDI or CV.</li>
+				<li>The only outside modules allowed are passive mults (this minor exception makes sense for those who don't have any stacking cables).</li>
+				<li>MIDI B CV and Gate should be set to LFO mode.</li>
+				<li>Re-patching while performing either the Prompt or the Response is not allowed; all interaction is through the knobs and buttons.</li>
+				<li>The knob positions notated in the patch chart should reflect the state of the patch at the end of the Prompt recording. The Response Author should use the knob positions as they explore the patch, but a Response recording need not start at those positions.</li>
+				<li>Linear editing (splicing) of the recordings is acceptable, but not multi-tracking.</li>
+				<li>Only mastering-type plug-ins (reverb, dynamic processing, EQ, etc.) are to be used on the recordings (i.e. no distortion, delay, flanger, etc.).</li>
+				<li>A good place to share Prompt patches and recordings is the <a href="https://llllllll.co/t/exquisite-coast-a-shared-patch-game-for-the-make-noise-0-coast/32805" target="_blank">Lines forum</a>.</li>
+				<li>If you share your recordings on platforms like SoundCloud or YouTube, consider adding [exquisitecoast-prompt] or [exquisitecoast-response] at the end of the title so others can find your recordings. We'll keep any eye out for such tracks and add them to our <a href="https://soundcloud.com/damonholzborn/sets/exquisite-coast" target="_blank">SoundCloud playlist</a> (YouTube playlist to come soon). Don't forget to include a link to your patch in the track description (and of course give credit to the original author when posting a Response).</li>
+				<li>If you share a patch on social media, consider using the hashtag #exquisitecoast.</li>
+				<li>If you are comfortable with doing so, it would be helpful to include contact info (email, website, social media, etc.) in the Author Info section so others can properly credit you in their response (or tell you how great your patch is!). </li>
+			</ul>
+
+			<h3>How to Play the Exquisite Coast Shared Patch Game</h3>
+
+			<ul>
+				<li>Notate your patch using the interface below.</li>
+				<li>Click the <b>Get Share Link</b> button to view the URL so that you can copy it.</li>
+				<li>Paste that link into an email to send to a friend, post on social media, or share with the <a href="https://llllllll.co/t/exquisite-coast-a-shared-patch-game-for-the-make-noise-0-coast/32805" target="_blank">Lines community</a>.</li>
+			</ul>
+
+			<h3>Some Notes About this Web App</h3>
+
+			<ul>
+				<li>Your patch information is not stored on a server, all data is saved to your browser. This means that your work will only be available in the browser that you used to create the patch. You might want to save the links to any important patches somewhere else for safekeeping.</li>
+				<li>Your patch is automatically saved as you work so any patches you've worked on will be waiting for you when you return (with the same browser).</li>
+				<li>Exquisite Coast is still in beta, so please bear with us as we work out any kinks. If you run into any issues, please <a href="mailto: ec@rustle.works">let us know</a>. Be sure to include as much detail as you can in your message &mdash; browser, device, OS version, what you were doing, etc.</li>
+			</ul>
+
+			<p>Happy bleeping! We look forward to seeing and hearing what you do with <i>Exquisite Coast</i>!</p>
+
+		</div>
+		<div id="contact_info">
+			<p><a href="mailto: ec@rustle.works">ec@rustle.works</a></p>
+
+			<p>Damon Holzborn<br>
+			<a href="http://damonholzborn.com" target="_blank">damonholzborn.com</a><br>
+			<a href="http://rustleworks.com" target="_blank">rustleworks.com</a><br>
+			<a href="https://twitter.com/damonholzborn/" target="_blank">@damonholzborn</a> (Twitter)<br>
+			<a href="https://www.instagram.com/damonholzborn/" target="_blank">@damonholzborn</a> (Instagram)</p>
+
+			<p>John O'Brien<br>
+			<a href="http://johnmobrien.com" target="_blank">johnmobrien.com</a><br>
+			<a href="https://www.newmusicusa.org/profile/jmob77/" target="_blank">Profile at New Music USA</a><br>
+			</p>
+		</div>
+	</div>
+</header>
+
+<main>
+		<!-- ***************************   Patch Info   *************************** -->
+
+		<h2 id="patch_info_title">
+			Patch Info
+		</h2>
+
+		<section>
+
+			<section>
+
+				<!-- ********* Patch Name ********* -->
+
+				<div class="item patch_info active">
+					<div>
+						Patch Name
+					</div>
+					<div>
+						<select id="patch_name" class="patch_info">
+							<option value="New Patch">New Patch</option>
+							<option value="Save As...">Save As...</option>
+							<option value="Rename">Rename</option>
+							<option value="Delete">Delete</option>
+							<option value="---------">---------</option>
+						</select>
+					</div>
+				</div>
+
+				<!-- ********* Author Name ********* -->
+
+				<div class="item patch_info active">
+					<div>
+						Author Info
+					</div>
+					<div>
+						<textarea id="author" class="patch_info" placeholder="your name and/or contact info"></textarea>
+					</div>
+				</div>
+
+				<!-- ********* Patch Notes ********* -->
+
+				<div class="item patch_info active">
+					<div>
+						Patch Notes
+					</div>
+					<div>
+						<textarea id="patch_notes" class="patch_info" placeholder="anything additional you'd like to share"></textarea>
+					</div>
+				</div>
+
+
+				<!-- ********* Instruments ********* -->
+
+				<div class="item patch_info active">
+					<div>
+						Instruments
+					</div>
+					<div>
+						<input type="checkbox" id="instrument_checkbox_0coast">
+						<label for="instrument_checkbox_0coast">0-Coast</label>
+						<br>
+						<input type="checkbox" id="instrument_checkbox_werkstatt">
+						<label for="instrument_checkbox_werkstatt">Werkstatt</label>
+						<br>
+						<input type="checkbox" id="instrument_checkbox_passiverack">
+						<label for="instrument_checkbox_passiverack">Passive Rack</label>
+						<br>
+						<input type="checkbox" id="instrument_checkbox_externalcv">
+						<label for="instrument_checkbox_external_cv">External CV</label>
+					</div>
+				</div>
+
+				<!-- ********* Share Patch ********* -->
+
+				<div class="item patch_info active">
+					<div>
+					</div>
+					<div id="share_area">
+						<div id="get_share_link" class="pointy">
+							Get Share Link
+						</div>
+					</div>
+				</div>
+
+				<div id="no_instruments">
+					<i>No instruments selected. Choose one or more Instruments with the checkboxes above.</i>
+				</div>
+
+			</section>
+
+		</section>
+
+	<!-- ***************************   Instrument: 0-Coast   *************************** -->
+
+	<div id="instrument_0coast" class="collapse">
+
+		<h2>
+			0-Coast
+		</h2>
+
+		<section id="instrument_0coast_columns">
+
+			<section class="instrument_0coast">
+
+			<!-- ***************************   0-Coast Knobs   *************************** -->
+
+				<h3>
+					Knobs & Buttons
+				</h3>
+
+				<!-- ********* Voltage Math ********* -->
+
+				<div class="item_category">
+					Voltage Math
+				</div>
+
+				<div class="item knobs">
+					<div>
+						Channel Attenuverter
+					</div>
+					<div>
+						<select id="nocoast_voltage_math_channel_attenuverter" class="knobs pointy">
+							<option value=""> </option>
+							<option value="min">min</option>
+							<option value="max">max</option>
+							<option value="7:00">7:00</option>
+							<option value="7:30">7:30</option>
+							<option value="8:00">8:00</option>
+							<option value="8:30">8:30</option>
+							<option value="9:00">9:00</option>
+							<option value="9:30">9:30</option>
+							<option value="10:00">10:00</option>
+							<option value="10:30">10:30</option>
+							<option value="11:00">11:00</option>
+							<option value="11:30">11:30</option>
+							<option value="12:00">12:00</option>
+							<option value="12:30">12:30</option>
+							<option value="1:00">1:00</option>
+							<option value="1:30">1:30</option>
+							<option value="2:00">2:00</option>
+							<option value="2:30">2:30</option>
+							<option value="3:00">3:00</option>
+							<option value="3:30">3:30</option>
+							<option value="4:00">4:00</option>
+							<option value="4:30">4:30</option>
+							<option value="5:00">5:00</option>
+						</select>
+					</div>
+				</div>
+
+				<!-- ********* Oscillator ********* -->
+
+				<div class="item_category">
+					Oscillator
+				</div>
+				<div class="item knobs">
+					<div>
+						Pitch Panel Control
+					</div>
+					<div>
+						<select id="nocoast_oscillator_pitch_panel_control" class="knobs pointy">
+							<option value=""> </option>
+							<option value="min">min</option>
+							<option value="max">max</option>
+							<option value="7:00">7:00</option>
+							<option value="7:30">7:30</option>
+							<option value="8:00">8:00</option>
+							<option value="8:30">8:30</option>
+							<option value="9:00">9:00</option>
+							<option value="9:30">9:30</option>
+							<option value="10:00">10:00</option>
+							<option value="10:30">10:30</option>
+							<option value="11:00">11:00</option>
+							<option value="11:30">11:30</option>
+							<option value="12:00">12:00</option>
+							<option value="12:30">12:30</option>
+							<option value="1:00">1:00</option>
+							<option value="1:30">1:30</option>
+							<option value="2:00">2:00</option>
+							<option value="2:30">2:30</option>
+							<option value="3:00">3:00</option>
+							<option value="3:30">3:30</option>
+							<option value="4:00">4:00</option>
+							<option value="4:30">4:30</option>
+							<option value="5:00">5:00</option>
+						</select>
+					</div>
+				</div>
+				<div class="item knobs">
+					<div>
+						Linear FM Input Attenuator
+					</div>
+					<div>
+						<select id="nocoast_oscillator_linear_fm_input_attenuator" class="knobs pointy">
+							<option value=""> </option>
+							<option value="min">min</option>
+							<option value="max">max</option>
+							<option value="7:00">7:00</option>
+							<option value="7:30">7:30</option>
+							<option value="8:00">8:00</option>
+							<option value="8:30">8:30</option>
+							<option value="9:00">9:00</option>
+							<option value="9:30">9:30</option>
+							<option value="10:00">10:00</option>
+							<option value="10:30">10:30</option>
+							<option value="11:00">11:00</option>
+							<option value="11:30">11:30</option>
+							<option value="12:00">12:00</option>
+							<option value="12:30">12:30</option>
+							<option value="1:00">1:00</option>
+							<option value="1:30">1:30</option>
+							<option value="2:00">2:00</option>
+							<option value="2:30">2:30</option>
+							<option value="3:00">3:00</option>
+							<option value="3:30">3:30</option>
+							<option value="4:00">4:00</option>
+							<option value="4:30">4:30</option>
+							<option value="5:00">5:00</option>
+						</select>
+					</div>
+				</div>
+
+				<!-- ********* Overtone ********* -->
+
+				<div class="item_category">
+					Overtone
+				</div>
+				<div class="item knobs">
+					<div>
+						Panel Control
+					</div>
+					<div>
+						<select id="nocoast_overtone_panel_control" class="knobs pointy">
+							<option value=""> </option>
+							<option value="odd">odd</option>
+							<option value="&iexcl;&iexcl;">&iexcl;&iexcl;</option>
+							<option value="even">even</option>
+							<option value="!!">!!</option>
+							<option value="7:00">7:00</option>
+							<option value="7:30">7:30</option>
+							<option value="8:00">8:00</option>
+							<option value="8:30">8:30</option>
+							<option value="9:00">9:00</option>
+							<option value="9:30">9:30</option>
+							<option value="10:00">10:00</option>
+							<option value="10:30">10:30</option>
+							<option value="11:00">11:00</option>
+							<option value="11:30">11:30</option>
+							<option value="12:00">12:00</option>
+							<option value="12:30">12:30</option>
+							<option value="1:00">1:00</option>
+							<option value="1:30">1:30</option>
+							<option value="2:00">2:00</option>
+							<option value="2:30">2:30</option>
+							<option value="3:00">3:00</option>
+							<option value="3:30">3:30</option>
+							<option value="4:00">4:00</option>
+							<option value="4:30">4:30</option>
+							<option value="5:00">5:00</option>
+						</select>
+					</div>
+				</div>
+				<div class="item knobs">
+					<div>
+						CV Input Attenuator
+					</div>
+					<div>
+						<select id="nocoast_overtone_cv_input_attenuator" class="knobs pointy">
+							<option value=""> </option>
+							<option value="min">min</option>
+							<option value="max">max</option>
+							<option value="7:00">7:00</option>
+							<option value="7:30">7:30</option>
+							<option value="8:00">8:00</option>
+							<option value="8:30">8:30</option>
+							<option value="9:00">9:00</option>
+							<option value="9:30">9:30</option>
+							<option value="10:00">10:00</option>
+							<option value="10:30">10:30</option>
+							<option value="11:00">11:00</option>
+							<option value="11:30">11:30</option>
+							<option value="12:00">12:00</option>
+							<option value="12:30">12:30</option>
+							<option value="1:00">1:00</option>
+							<option value="1:30">1:30</option>
+							<option value="2:00">2:00</option>
+							<option value="2:30">2:30</option>
+							<option value="3:00">3:00</option>
+							<option value="3:30">3:30</option>
+							<option value="4:00">4:00</option>
+							<option value="4:30">4:30</option>
+							<option value="5:00">5:00</option>
+						</select>
+					</div>
+				</div>
+
+				<!-- ********* Multiply ********* -->
+
+				<div class="item_category">
+					Multiply
+				</div>
+				<div class="item knobs">
+					<div>
+						Panel Control
+					</div>
+					<div>
+						<select id="nocoast_multiply_panel_control" class="knobs pointy">
+							<option value=""> </option>
+							<option value="min">min</option>
+							<option value="max">max</option>
+							<option value="7:00">7:00</option>
+							<option value="7:30">7:30</option>
+							<option value="8:00">8:00</option>
+							<option value="8:30">8:30</option>
+							<option value="9:00">9:00</option>
+							<option value="9:30">9:30</option>
+							<option value="10:00">10:00</option>
+							<option value="10:30">10:30</option>
+							<option value="11:00">11:00</option>
+							<option value="11:30">11:30</option>
+							<option value="12:00">12:00</option>
+							<option value="12:30">12:30</option>
+							<option value="1:00">1:00</option>
+							<option value="1:30">1:30</option>
+							<option value="2:00">2:00</option>
+							<option value="2:30">2:30</option>
+							<option value="3:00">3:00</option>
+							<option value="3:30">3:30</option>
+							<option value="4:00">4:00</option>
+							<option value="4:30">4:30</option>
+							<option value="5:00">5:00</option>
+						</select>
+					</div>
+				</div>
+				<div class="item knobs">
+					<div>
+						CV Input Attenuverter
+					</div>
+					<div>
+						<select id="nocoast_multiply_cv_input_attenuverter" class="knobs pointy">
+							<option value=""> </option>
+							<option value="min">min</option>
+							<option value="max">max</option>
+							<option value="7:00">7:00</option>
+							<option value="7:30">7:30</option>
+							<option value="8:00">8:00</option>
+							<option value="8:30">8:30</option>
+							<option value="9:00">9:00</option>
+							<option value="9:30">9:30</option>
+							<option value="10:00">10:00</option>
+							<option value="10:30">10:30</option>
+							<option value="11:00">11:00</option>
+							<option value="11:30">11:30</option>
+							<option value="12:00">12:00</option>
+							<option value="12:30">12:30</option>
+							<option value="1:00">1:00</option>
+							<option value="1:30">1:30</option>
+							<option value="2:00">2:00</option>
+							<option value="2:30">2:30</option>
+							<option value="3:00">3:00</option>
+							<option value="3:30">3:30</option>
+							<option value="4:00">4:00</option>
+							<option value="4:30">4:30</option>
+							<option value="5:00">5:00</option>
+						</select>
+					</div>
+				</div>
+
+				<!-- ********* Slope ********* -->
+
+				<div class="item_category">
+					Slope
+				</div>
+				<div class="item knobs">
+					<div>
+						Cycle Illuminated Button
+					</div>
+					<div>
+						<select id="nocoast_slope_cycle_illuminated_button" class="knobs pointy">
+							<option value="off">off</option>
+							<option value="on">on</option>
+						</select>
+					</div>
+				</div>
+				<div class="item knobs">
+					<div>
+						Rise Panel Control
+					</div>
+					<div>
+						<select id="nocoast_slope_rise_panel_control" class="knobs pointy">
+							<option value=""> </option>
+							<option value="min">min</option>
+							<option value="max">max</option>
+							<option value="7:00">7:00</option>
+							<option value="7:30">7:30</option>
+							<option value="8:00">8:00</option>
+							<option value="8:30">8:30</option>
+							<option value="9:00">9:00</option>
+							<option value="9:30">9:30</option>
+							<option value="10:00">10:00</option>
+							<option value="10:30">10:30</option>
+							<option value="11:00">11:00</option>
+							<option value="11:30">11:30</option>
+							<option value="12:00">12:00</option>
+							<option value="12:30">12:30</option>
+							<option value="1:00">1:00</option>
+							<option value="1:30">1:30</option>
+							<option value="2:00">2:00</option>
+							<option value="2:30">2:30</option>
+							<option value="3:00">3:00</option>
+							<option value="3:30">3:30</option>
+							<option value="4:00">4:00</option>
+							<option value="4:30">4:30</option>
+							<option value="5:00">5:00</option>
+						</select>
+					</div>
+				</div>
+				<div class="item knobs">
+					<div>
+						Fall Panel Control
+					</div>
+					<div>
+						<select id="nocoast_slope_fall_panel_control" class="knobs pointy">
+							<option value=""> </option>
+							<option value="min">min</option>
+							<option value="max">max</option>
+							<option value="7:00">7:00</option>
+							<option value="7:30">7:30</option>
+							<option value="8:00">8:00</option>
+							<option value="8:30">8:30</option>
+							<option value="9:00">9:00</option>
+							<option value="9:30">9:30</option>
+							<option value="10:00">10:00</option>
+							<option value="10:30">10:30</option>
+							<option value="11:00">11:00</option>
+							<option value="11:30">11:30</option>
+							<option value="12:00">12:00</option>
+							<option value="12:30">12:30</option>
+							<option value="1:00">1:00</option>
+							<option value="1:30">1:30</option>
+							<option value="2:00">2:00</option>
+							<option value="2:30">2:30</option>
+							<option value="3:00">3:00</option>
+							<option value="3:30">3:30</option>
+							<option value="4:00">4:00</option>
+							<option value="4:30">4:30</option>
+							<option value="5:00">5:00</option>
+						</select>
+					</div>
+				</div>
+				<div class="item knobs">
+					<div>
+						Vari-Response
+					</div>
+					<div>
+						<select id="nocoast_slope_variresponse" class="knobs pointy">
+							<option value=""> </option>
+							<option value="min">min</option>
+							<option value="max">max</option>
+							<option value="7:00">7:00</option>
+							<option value="7:30">7:30</option>
+							<option value="8:00">8:00</option>
+							<option value="8:30">8:30</option>
+							<option value="9:00">9:00</option>
+							<option value="9:30">9:30</option>
+							<option value="10:00">10:00</option>
+							<option value="10:30">10:30</option>
+							<option value="11:00">11:00</option>
+							<option value="11:30">11:30</option>
+							<option value="12:00">12:00</option>
+							<option value="12:30">12:30</option>
+							<option value="1:00">1:00</option>
+							<option value="1:30">1:30</option>
+							<option value="2:00">2:00</option>
+							<option value="2:30">2:30</option>
+							<option value="3:00">3:00</option>
+							<option value="3:30">3:30</option>
+							<option value="4:00">4:00</option>
+							<option value="4:30">4:30</option>
+							<option value="5:00">5:00</option>
+						</select>
+					</div>
+				</div>
+
+				<!-- ********* Contour ********* -->
+
+				<div class="item_category">
+					Contour
+				</div>
+				<div class="item knobs">
+					<div>
+						Onset Panel Control
+					</div>
+					<div>
+						<select id="nocoast_countour_onset_panel_control" class="knobs pointy">
+							<option value=""> </option>
+							<option value="min">min</option>
+							<option value="max">max</option>
+							<option value="7:00">7:00</option>
+							<option value="7:30">7:30</option>
+							<option value="8:00">8:00</option>
+							<option value="8:30">8:30</option>
+							<option value="9:00">9:00</option>
+							<option value="9:30">9:30</option>
+							<option value="10:00">10:00</option>
+							<option value="10:30">10:30</option>
+							<option value="11:00">11:00</option>
+							<option value="11:30">11:30</option>
+							<option value="12:00">12:00</option>
+							<option value="12:30">12:30</option>
+							<option value="1:00">1:00</option>
+							<option value="1:30">1:30</option>
+							<option value="2:00">2:00</option>
+							<option value="2:30">2:30</option>
+							<option value="3:00">3:00</option>
+							<option value="3:30">3:30</option>
+							<option value="4:00">4:00</option>
+							<option value="4:30">4:30</option>
+							<option value="5:00">5:00</option>
+						</select>
+					</div>
+				</div>
+				<div class="item knobs">
+					<div>
+						Sustain Panel Control
+					</div>
+					<div>
+						<select id="nocoast_contour_sustain_panel_control" class="knobs pointy">
+							<option value=""> </option>
+							<option value="min">min</option>
+							<option value="max">max</option>
+							<option value="7:00">7:00</option>
+							<option value="7:30">7:30</option>
+							<option value="8:00">8:00</option>
+							<option value="8:30">8:30</option>
+							<option value="9:00">9:00</option>
+							<option value="9:30">9:30</option>
+							<option value="10:00">10:00</option>
+							<option value="10:30">10:30</option>
+							<option value="11:00">11:00</option>
+							<option value="11:30">11:30</option>
+							<option value="12:00">12:00</option>
+							<option value="12:30">12:30</option>
+							<option value="1:00">1:00</option>
+							<option value="1:30">1:30</option>
+							<option value="2:00">2:00</option>
+							<option value="2:30">2:30</option>
+							<option value="3:00">3:00</option>
+							<option value="3:30">3:30</option>
+							<option value="4:00">4:00</option>
+							<option value="4:30">4:30</option>
+							<option value="5:00">5:00</option>
+						</select>
+					</div>
+				</div>
+				<div class="item knobs">
+					<div>
+						Decay Panel Control
+					</div>
+					<div>
+						<select id="nocoast_contour_decay_panel_control" class="knobs pointy">
+							<option value=""> </option>
+							<option value="min">min</option>
+							<option value="max">max</option>
+							<option value="7:00">7:00</option>
+							<option value="7:30">7:30</option>
+							<option value="8:00">8:00</option>
+							<option value="8:30">8:30</option>
+							<option value="9:00">9:00</option>
+							<option value="9:30">9:30</option>
+							<option value="10:00">10:00</option>
+							<option value="10:30">10:30</option>
+							<option value="11:00">11:00</option>
+							<option value="11:30">11:30</option>
+							<option value="12:00">12:00</option>
+							<option value="12:30">12:30</option>
+							<option value="1:00">1:00</option>
+							<option value="1:30">1:30</option>
+							<option value="2:00">2:00</option>
+							<option value="2:30">2:30</option>
+							<option value="3:00">3:00</option>
+							<option value="3:30">3:30</option>
+							<option value="4:00">4:00</option>
+							<option value="4:30">4:30</option>
+							<option value="5:00">5:00</option>
+						</select>
+					</div>
+				</div>
+				<div class="item knobs">
+					<div>
+						Vari-Response
+					</div>
+					<div>
+						<select id="nocoast_contour_variresponse" class="knobs pointy">
+							<option value=""> </option>
+							<option value="min">min</option>
+							<option value="max">max</option>
+							<option value="7:00">7:00</option>
+							<option value="7:30">7:30</option>
+							<option value="8:00">8:00</option>
+							<option value="8:30">8:30</option>
+							<option value="9:00">9:00</option>
+							<option value="9:30">9:30</option>
+							<option value="10:00">10:00</option>
+							<option value="10:30">10:30</option>
+							<option value="11:00">11:00</option>
+							<option value="11:30">11:30</option>
+							<option value="12:00">12:00</option>
+							<option value="12:30">12:30</option>
+							<option value="1:00">1:00</option>
+							<option value="1:30">1:30</option>
+							<option value="2:00">2:00</option>
+							<option value="2:30">2:30</option>
+							<option value="3:00">3:00</option>
+							<option value="3:30">3:30</option>
+							<option value="4:00">4:00</option>
+							<option value="4:30">4:30</option>
+							<option value="5:00">5:00</option>
+						</select>
+					</div>
+				</div>
+
+				<!-- ********* Balance ********* -->
+
+				<div class="item_category">
+					Balance
+				</div>
+				<div class="item knobs">
+					<div>
+						Attenuator
+					</div>
+					<div>
+						<select id="nocoast_balance_attenuator" class="knobs pointy">
+							<option value=""> </option>
+							<option value="min">min</option>
+							<option value="max">max</option>
+							<option value="7:00">7:00</option>
+							<option value="7:30">7:30</option>
+							<option value="8:00">8:00</option>
+							<option value="8:30">8:30</option>
+							<option value="9:00">9:00</option>
+							<option value="9:30">9:30</option>
+							<option value="10:00">10:00</option>
+							<option value="10:30">10:30</option>
+							<option value="11:00">11:00</option>
+							<option value="11:30">11:30</option>
+							<option value="12:00">12:00</option>
+							<option value="12:30">12:30</option>
+							<option value="1:00">1:00</option>
+							<option value="1:30">1:30</option>
+							<option value="2:00">2:00</option>
+							<option value="2:30">2:30</option>
+							<option value="3:00">3:00</option>
+							<option value="3:30">3:30</option>
+							<option value="4:00">4:00</option>
+							<option value="4:30">4:30</option>
+							<option value="5:00">5:00</option>
+						</select>
+					</div>
+				</div>
+
+				<!-- ********* Balance ********* -->
+
+				<div class="item_category">
+					Dynamics
+				</div>
+				<div class="item knobs">
+					<div>
+						Attenuator
+					</div>
+					<div>
+						<select id="nocoast_dynamic_attenuator" class="knobs pointy">
+							<option value=""> </option>
+							<option value="min">min</option>
+							<option value="max">max</option>
+							<option value="7:00">7:00</option>
+							<option value="7:30">7:30</option>
+							<option value="8:00">8:00</option>
+							<option value="8:30">8:30</option>
+							<option value="9:00">9:00</option>
+							<option value="9:30">9:30</option>
+							<option value="10:00">10:00</option>
+							<option value="10:30">10:30</option>
+							<option value="11:00">11:00</option>
+							<option value="11:30">11:30</option>
+							<option value="12:00">12:00</option>
+							<option value="12:30">12:30</option>
+							<option value="1:00">1:00</option>
+							<option value="1:30">1:30</option>
+							<option value="2:00">2:00</option>
+							<option value="2:30">2:30</option>
+							<option value="3:00">3:00</option>
+							<option value="3:30">3:30</option>
+							<option value="4:00">4:00</option>
+							<option value="4:30">4:30</option>
+							<option value="5:00">5:00</option>
+						</select>
+					</div>
+				</div>
+
+			</section>
+
+			<!-- ***************************   0-Coast Output Jacks   *************************** -->
+
+			<section  class="instrument_0coast">
+
+				<h3>
+					Output Jacks
+				</h3>
+
+				<!-- ********* Clock ********* -->
+
+				<div class="item_category">
+					Clock
+				</div>
+				<div class="item jacks" data-connections="1">
+					<div>
+						Clock
+					</div>
+					<div></div>
+					<div id="nocoast_clock_clock_container_0">
+						<select id="nocoast_clock_clock_0" data-index="0" class="jacks"></select>
+					</div>
+					<div id="nocoast_clock_clock_plus" class="plus pointy">
+						+
+					</div>
+				</div>
+				<div class="item jacks" data-connections="1">
+					<div>
+						Stepped Random
+					</div>
+					<div></div>
+					<div id="nocoast_clock_stepped_random_container_0">
+						<select id="nocoast_clock_stepped_random_0" data-index="0" class="jacks"></select>
+					</div>
+					<div id="nocoast_clock_stepped_random_plus" class="plus pointy">
+						+
+					</div>
+				</div>
+
+				<!-- ********* MIDI B ********* -->
+
+				<div class="item_category">
+					MIDI B
+				</div>
+				<div class="item jacks" data-connections="1">
+					<div>
+						CV
+					</div>
+					<div></div>
+					<div id="nocoast_midi_b_cv_container_0">
+						<select id="nocoast_midi_b_cv_0" data-index="0" class="jacks"></select>
+					</div>
+					<div id="nocoast_midi_b_cv_plus" class="plus pointy">
+						+
+					</div>
+				</div>
+				<div class="item jacks" data-connections="1">
+					<div>
+						Gate
+					</div>
+					<div></div>
+					<div id="nocoast_midi_b_gate_container_0">
+						<select id="nocoast_midi_b_gate_0" data-index="0" class="jacks"></select>
+					</div>
+					<div id="nocoast_midi_b_gate_plus" class="plus pointy">
+						+
+					</div>
+
+				</div>
+
+				<!-- ********* Voltage MATH ********* -->
+
+				<div class="item_category">
+					Voltage MATH
+				</div>
+				<div class="item jacks" data-connections="1">
+					<div>
+						Channel 1
+					</div>
+					<div></div>
+					<div id="nocoast_voltage_math_channel_one_container_0">
+						<select id="nocoast_voltage_math_channel_one_0" data-index="0" class="jacks"></select>
+					</div>
+					<div id="nocoast_voltage_math_channel_one_plus" class="plus pointy">
+						+
+					</div>
+				</div>
+				<div class="item jacks" data-connections="1">
+					<div>
+						Channel 2
+					</div>
+					<div></div>
+					<div id="nocoast_voltage_math_channel_two_container_0">
+						<select id="nocoast_voltage_math_channel_two_0" data-index="0" class="jacks"></select>
+					</div>
+					<div id="nocoast_voltage_math_channel_two_plus" class="plus pointy">
+						+
+					</div>
+				</div>
+
+				<!-- ********* Oscillator ********* -->
+
+				<div class="item_category">
+					Oscillator
+				</div>
+				<div class="item jacks" data-connections="1">
+					<div>
+						Triangle Wave
+					</div>
+					<div></div>
+					<div id="nocoast_oscillator_triangle_wave_container_0">
+						<select id="nocoast_oscillator_triangle_wave_0" data-index="0" class="jacks"></select>
+					</div>
+					<div id="nocoast_oscillator_triangle_wave_plus" class="plus pointy">
+						+
+					</div>
+				</div>
+				<div class="item jacks" data-connections="1">
+					<div>
+						Square Wave
+					</div>
+					<div></div>
+					<div id="nocoast_oscillator_square_wave_container_0">
+						<select id="nocoast_oscillator_square_wave_0" data-index="0" class="jacks"></select>
+					</div>
+					<div id="nocoast_oscillator_square_wave_plus" class="plus pointy">
+						+
+					</div>
+				</div>
+
+				<!-- ********* Slope ********* -->
+
+				<div class="item_category">
+					Slope
+				</div>
+				<div class="item jacks" data-connections="1">
+					<div>
+						EOC Gate
+					</div>
+					<div></div>
+					<div id="nocoast_slope_eoc_gate_container_0">
+						<select id="nocoast_slope_eoc_gate_0" data-index="0" class="jacks"></select>
+					</div>
+					<div id="nocoast_slope_eoc_gate_plus" class="plus pointy">
+						+
+					</div>
+				</div>
+				<div class="item jacks" data-connections="1">
+					<div>
+						CV
+					</div>
+					<div></div>
+					<div id="nocoast_slope_cv_container_0">
+						<select id="nocoast_slope_cv_0" data-index="0" class="jacks"></select>
+					</div>
+					<div id="nocoast_slope_cv_plus" class="plus pointy">
+						+
+					</div>
+				</div>
+
+				<!-- ********* Contour ********* -->
+
+				<div class="item_category">
+					Contour
+				</div>
+				<div class="item jacks" data-connections="1">
+					<div>
+						EON
+					</div>
+					<div></div>
+					<div id="nocoast_contour_eon_container_0">
+						<select id="nocoast_contour_eon_0" data-index="0" class="jacks"></select>
+					</div>
+					<div id="nocoast_contour_eon_plus" class="plus pointy">
+						+
+					</div>
+				</div>
+				<div class="item jacks" data-connections="1">
+					<div>
+						CV
+					</div>
+					<div></div>
+					<div id="nocoast_contour_cv_container_0">
+						<select id="nocoast_contour_cv_0" data-index="0" class="jacks"></select>
+					</div>
+					<div id="nocoast_contour_cv_plus" class="plus pointy">
+						+
+					</div>
+				</div>
+
+				<!-- ********* Dynamics ********* -->
+
+				<div class="item_category">
+					Dynamics
+				</div>
+				<div class="item jacks" data-connections="1">
+					<div>
+						Dynamics
+					</div>
+					<div></div>
+					<div id="nocoast_dynamics_dynamics_container_0">
+						<select id="nocoast_dynamics_dynamics_0" data-index="0" class="jacks"></select>
+					</div>
+					<div id="nocoast_dynamics_dynamics_plus" class="plus pointy">
+						+
+					</div>
+				</div>
+				<div class="item jacks" data-connections="1">
+					<div>
+						Headphone/Line Out
+					</div>
+					<div></div>
+					<div id="nocoast_headphone_line_output_container_0">
+						<select id="nocoast_headphone_line_out_0" data-index="0" class="jacks"></select>
+					</div>
+					<div id="nocoast_headphone_line_output_plus" class="plus pointy">
+						+
+					</div>
+				</div>
+
+				<!-- ***************************   0-Coast Clock Speeds   *************************** -->
+
+				<h3>
+					Clock Speeds
+				</h3>
+
+				<!-- ********* Clock ********* -->
+
+				<div class="item clocks">
+					<div>
+						Clock/MIDI A LFO
+					</div>
+					<div>
+						<input id="nocoast_clock_speed" class="clocks">
+					</div>
+					<div class="clockgap">
+						<select id="nocoast_clock_speed_type" class="clocks" >
+							<option value=""></option>
+							<option value="bpm">bpm</option>
+							<option value="seconds">seconds</option>
+						</select>
+					</div>
+					<div class="clockgap">
+						<select id="nocoast_clock_speed_multiplier" class="clocks multiplier hidden">
+							<option value="1x" selected>1x</option>
+							<option value="2x">2x</option>
+							<option value="3x">3x</option>
+							<option value="4x">4x</option>
+							<option value="5x">5x</option>
+							<option value="6x">6x</option>
+							<option value="7x">7x</option>
+							<option value="8x">8x</option>
+						</select>
+					</div>
+				</div>
+
+				<!-- ********* MIDI B LFO ********* -->
+
+				<div class="item clocks">
+					<div>
+						MIDI B LFO
+					</div>
+					<div>
+						<input id="nocoast_midi_b_speed" class="clocks">
+					</div>
+					<div class="clockgap">
+						<select id="nocoast_midi_b_speed_type" class="clocks">
+							<option value=""></option>
+							<option value="bpm">bpm</option>
+							<option value="seconds">seconds</option>
+						</select>
+					</div>
+					<div class="clockgap">
+						<select id="nocoast_midi_b_multiplier" class="clocks multiplier hidden">
+							<option value="1x" selected>1x</option>
+							<option value="2x">2x</option>
+							<option value="3x">3x</option>
+							<option value="4x">4x</option>
+							<option value="5x">5x</option>
+							<option value="6x">6x</option>
+							<option value="7x">7x</option>
+							<option value="8x">8x</option>
+						</select>
+					</div>
+				</div>
+
+				<!-- ***************************   0-Coast MIDI A & B   *************************** -->
+
+				<h3>
+					MIDI A & B
+				</h3>
+
+				<div class="item_category">
+					MIDI A
+				</div>
+
+				<div class="item midi">
+					<div>
+						CV
+					</div>
+					<div>
+						<select id="nocoast_midi_input_a_cv" class="midi pointy">
+							<option value=""> </option>
+							<option value="Keyboard Note">Keyboard Note</option>
+							<option value="Keyboard Velocity">Keyboard Velocity</option>
+							<option value="Keyboard Gate">Keyboard Gate</option>
+							<option value="Sequencer Note">Sequencer Note</option>
+							<option value="Sequencer Velocity">Sequencer Velocity</option>
+							<option value="Sequencer Gate">Sequencer Gate</option>
+							<option value="Mod Wheel">Mod Wheel</option>
+							<option value="LFO">LFO</option>
+						</select>
+					</div>
+				</div>
+				<div class="item midi">
+					<div>
+						Gate
+					</div>
+					<div>
+						<select id="nocoast_midi_input_a_gate" class="midi pointy">
+							<option value=""> </option>
+							<option value="Keyboard Note">Keyboard Note</option>
+							<option value="Keyboard Velocity">Keyboard Velocity</option>
+							<option value="Keyboard Gate">Keyboard Gate</option>
+							<option value="Sequencer Note">Sequencer Note</option>
+							<option value="Sequencer Velocity">Sequencer Velocity</option>
+							<option value="Sequencer Gate">Sequencer Gate</option>
+							<option value="Mod Wheel">Mod Wheel</option>
+							<option value="LFO">LFO</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="item_category">
+					MIDI B
+				</div>
+
+				<div class="item midi">
+					<div>
+						CV
+					</div>
+					<div>
+						<select id="nocoast_midi_input_b_cv" class="midi pointy">
+							<option value=""> </option>
+							<option value="Keyboard Note">Keyboard Note</option>
+							<option value="Keyboard Velocity">Keyboard Velocity</option>
+							<option value="Keyboard Gate">Keyboard Gate</option>
+							<option value="Sequencer Note">Sequencer Note</option>
+							<option value="Sequencer Velocity">Sequencer Velocity</option>
+							<option value="Sequencer Gate">Sequencer Gate</option>
+							<option value="Mod Wheel">Mod Wheel</option>
+							<option value="LFO">LFO</option>
+						</select>
+					</div>
+				</div>
+				<div class="item midi">
+					<div>
+						Gate
+					</div>
+					<div>
+						<select id="nocoast_midi_input_b_gate" class="midi pointy">
+							<option value=""> </option>
+							<option value="Keyboard Note">Keyboard Note</option>
+							<option value="Keyboard Velocity">Keyboard Velocity</option>
+							<option value="Keyboard Gate">Keyboard Gate</option>
+							<option value="Sequencer Note">Sequencer Note</option>
+							<option value="Sequencer Velocity">Sequencer Velocity</option>
+							<option value="Sequencer Gate">Sequencer Gate</option>
+							<option value="Mod Wheel">Mod Wheel</option>
+							<option value="LFO">LFO</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="item_category">
+					Coast Express <span id="coast_express_help_toggle" class="pointy">(?)</span></a>
+				</div>
+				<div id="coast_express_help" class="item midi collapse">
+					<div>
+						Use the <a href="https://ce.rustle.works" target="_blank">Coast Express web app</a> to set the 0-Coast MIDI settings. Copy the share link and paste it here. <i>Note: Coast Express only works in Chrome, Opera, and Edge.</i>
+ 					</div>
+				</div>
+				<div class="item midi">
+					<div>
+						Share Link
+					</div>
+					<div>
+						<input type="text" id="coast_express_share_link" class="share_link">
+					</div>
+					<div>
+						<a href="https://ce.rustle.works" id="coast_express_link_anchor" target="_blank"><img src="externallink.png" id="coast_express_link" class="hidden"></a>
+					</div>
+				</div>
+
+			</section>
+
+		</section>
+
+	</div>
+
+	<!-- ***************************   Instrument: Werkstatt   *************************** -->
+
+	<div id="instrument_werkstatt" class="collapse">
+
+		<h2>
+			Werkstatt
+		</h2>
+
+		<section id="instrument_werkstatt_columns">
+
+			<!-- ***************************   Werkstatt Knobs   *************************** -->
+
+			<section class="instrument_werkstatt">
+
+				<h3>
+					Knobs & Buttons
+				</h3>
+
+				<!-- ********* VCO ********* -->
+
+				<div class="item_category">
+					VCO
+				</div>
+				<div class="item knobs">
+					<div>
+						Freq
+					</div>
+					<div>
+						<select id="werkstatt_vco_freq" class="knobs pointy">
+							<option value=""> </option>
+							<option value="min">min</option>
+							<option value="max">max</option>
+							<option value="7:00">7:00</option>
+							<option value="7:30">7:30</option>
+							<option value="8:00">8:00</option>
+							<option value="8:30">8:30</option>
+							<option value="9:00">9:00</option>
+							<option value="9:30">9:30</option>
+							<option value="10:00">10:00</option>
+							<option value="10:30">10:30</option>
+							<option value="11:00">11:00</option>
+							<option value="11:30">11:30</option>
+							<option value="12:00">12:00</option>
+							<option value="12:30">12:30</option>
+							<option value="1:00">1:00</option>
+							<option value="1:30">1:30</option>
+							<option value="2:00">2:00</option>
+							<option value="2:30">2:30</option>
+							<option value="3:00">3:00</option>
+							<option value="3:30">3:30</option>
+							<option value="4:00">4:00</option>
+							<option value="4:30">4:30</option>
+							<option value="5:00">5:00</option>
+						</select>
+					</div>
+				</div>
+				<div class="item knobs">
+					<div>
+						Wave
+					</div>
+					<div>
+						<select id="werkstatt_vco_wave" class="knobs pointy">
+							<option value=""> </option>
+							<option value="Pulse">Pulse</option>
+							<option value="Saw">Saw</option>
+						</select>
+					</div>
+				</div>
+				<div class="item knobs">
+					<div>
+						PWM
+					</div>
+					<div>
+						<select id="werkstatt_vco_pwm" class="knobs pointy">
+							<option value=""> </option>
+							<option value="min">min</option>
+							<option value="max">max</option>
+							<option value="7:00">7:00</option>
+							<option value="7:30">7:30</option>
+							<option value="8:00">8:00</option>
+							<option value="8:30">8:30</option>
+							<option value="9:00">9:00</option>
+							<option value="9:30">9:30</option>
+							<option value="10:00">10:00</option>
+							<option value="10:30">10:30</option>
+							<option value="11:00">11:00</option>
+							<option value="11:30">11:30</option>
+							<option value="12:00">12:00</option>
+							<option value="12:30">12:30</option>
+							<option value="1:00">1:00</option>
+							<option value="1:30">1:30</option>
+							<option value="2:00">2:00</option>
+							<option value="2:30">2:30</option>
+							<option value="3:00">3:00</option>
+							<option value="3:30">3:30</option>
+							<option value="4:00">4:00</option>
+							<option value="4:30">4:30</option>
+							<option value="5:00">5:00</option>
+						</select>
+					</div>
+				</div>
+
+				<!-- ********* VCF ********* -->
+
+				<div class="item_category">
+					VCF
+				</div>
+				<div class="item knobs">
+					<div>
+						Freq
+					</div>
+					<div>
+						<select id="werkstatt_vcf_cutoff" class="knobs pointy">
+							<option value=""> </option>
+							<option value="min">min</option>
+							<option value="max">max</option>
+							<option value="7:00">7:00</option>
+							<option value="7:30">7:30</option>
+							<option value="8:00">8:00</option>
+							<option value="8:30">8:30</option>
+							<option value="9:00">9:00</option>
+							<option value="9:30">9:30</option>
+							<option value="10:00">10:00</option>
+							<option value="10:30">10:30</option>
+							<option value="11:00">11:00</option>
+							<option value="11:30">11:30</option>
+							<option value="12:00">12:00</option>
+							<option value="12:30">12:30</option>
+							<option value="1:00">1:00</option>
+							<option value="1:30">1:30</option>
+							<option value="2:00">2:00</option>
+							<option value="2:30">2:30</option>
+							<option value="3:00">3:00</option>
+							<option value="3:30">3:30</option>
+							<option value="4:00">4:00</option>
+							<option value="4:30">4:30</option>
+							<option value="5:00">5:00</option>
+						</select>
+					</div>
+				</div>
+				<div class="item knobs">
+					<div>
+						Res
+					</div>
+					<div>
+						<select id="werkstatt_vco_res" class="knobs pointy">
+							<option value=""> </option>
+							<option value="min">min</option>
+							<option value="max">max</option>
+							<option value="7:00">7:00</option>
+							<option value="7:30">7:30</option>
+							<option value="8:00">8:00</option>
+							<option value="8:30">8:30</option>
+							<option value="9:00">9:00</option>
+							<option value="9:30">9:30</option>
+							<option value="10:00">10:00</option>
+							<option value="10:30">10:30</option>
+							<option value="11:00">11:00</option>
+							<option value="11:30">11:30</option>
+							<option value="12:00">12:00</option>
+							<option value="12:30">12:30</option>
+							<option value="1:00">1:00</option>
+							<option value="1:30">1:30</option>
+							<option value="2:00">2:00</option>
+							<option value="2:30">2:30</option>
+							<option value="3:00">3:00</option>
+							<option value="3:30">3:30</option>
+							<option value="4:00">4:00</option>
+							<option value="4:30">4:30</option>
+							<option value="5:00">5:00</option>
+						</select>
+					</div>
+				</div>
+
+				<!-- ********* VCF ********* -->
+
+				<div class="item_category">
+					VCA
+				</div>
+				<div class="item knobs">
+					<div>
+						Mode
+					</div>
+					<div>
+						<select id="werkstatt_vca_mode" class="knobs pointy">
+							<option value=""> </option>
+							<option value="On">On</option>
+							<option value="EG">EG</option>
+						</select>
+					</div>
+				</div>
+
+				<!-- ********* VCO Mod ********* -->
+
+				<div class="item_category">
+					VCO Mod
+				</div>
+				<div class="item knobs">
+					<div>
+						Mode
+					</div>
+					<div>
+						<select id="werkstatt_vco_mod_source" class="knobs pointy">
+							<option value=""> </option>
+							<option value="EG">EG</option>
+							<option value="LFO">LFO</option>
+						</select>
+					</div>
+				</div>
+				<div class="item knobs">
+					<div>
+						Amount
+					</div>
+					<div>
+						<select id="werkstatt_vco_mod_amount" class="knobs pointy">
+							<option value=""> </option>
+							<option value="min">min</option>
+							<option value="max">max</option>
+							<option value="7:00">7:00</option>
+							<option value="7:30">7:30</option>
+							<option value="8:00">8:00</option>
+							<option value="8:30">8:30</option>
+							<option value="9:00">9:00</option>
+							<option value="9:30">9:30</option>
+							<option value="10:00">10:00</option>
+							<option value="10:30">10:30</option>
+							<option value="11:00">11:00</option>
+							<option value="11:30">11:30</option>
+							<option value="12:00">12:00</option>
+							<option value="12:30">12:30</option>
+							<option value="1:00">1:00</option>
+							<option value="1:30">1:30</option>
+							<option value="2:00">2:00</option>
+							<option value="2:30">2:30</option>
+							<option value="3:00">3:00</option>
+							<option value="3:30">3:30</option>
+							<option value="4:00">4:00</option>
+							<option value="4:30">4:30</option>
+							<option value="5:00">5:00</option>
+						</select>
+					</div>
+				</div>
+				<div class="item knobs">
+					<div>
+						Dest
+					</div>
+					<div>
+						<select id="werkstatt_vco_mod_dest" class="knobs pointy">
+							<option value=""> </option>
+							<option value="PWM">PWM</option>
+							<option value="Freq">Freq</option>
+						</select>
+					</div>
+				</div>
+
+				<!-- ********* VCO Mod ********* -->
+
+				<div class="item_category">
+					VCF Mod
+				</div>
+				<div class="item knobs">
+					<div>
+						Mode
+					</div>
+					<div>
+						<select id="werkstatt_vcf_mod_source" class="knobs pointy">
+							<option value=""> </option>
+							<option value="EG">EG</option>
+							<option value="LFO">LFO</option>
+						</select>
+					</div>
+				</div>
+				<div class="item knobs">
+					<div>
+						Amount
+					</div>
+					<div>
+						<select id="werkstatt_vcf_mod_amount" class="knobs pointy">
+							<option value=""> </option>
+							<option value="min">min</option>
+							<option value="max">max</option>
+							<option value="7:00">7:00</option>
+							<option value="7:30">7:30</option>
+							<option value="8:00">8:00</option>
+							<option value="8:30">8:30</option>
+							<option value="9:00">9:00</option>
+							<option value="9:30">9:30</option>
+							<option value="10:00">10:00</option>
+							<option value="10:30">10:30</option>
+							<option value="11:00">11:00</option>
+							<option value="11:30">11:30</option>
+							<option value="12:00">12:00</option>
+							<option value="12:30">12:30</option>
+							<option value="1:00">1:00</option>
+							<option value="1:30">1:30</option>
+							<option value="2:00">2:00</option>
+							<option value="2:30">2:30</option>
+							<option value="3:00">3:00</option>
+							<option value="3:30">3:30</option>
+							<option value="4:00">4:00</option>
+							<option value="4:30">4:30</option>
+							<option value="5:00">5:00</option>
+						</select>
+					</div>
+				</div>
+				<div class="item knobs">
+					<div>
+						Dest
+					</div>
+					<div>
+						<select id="werkstatt_vcf_mod_dest" class="knobs pointy">
+							<option value=""> </option>
+							<option value="+">+</option>
+							<option value="-">-</option>
+						</select>
+					</div>
+				</div>
+
+				<!-- ********* LFO ********* -->
+
+				<div class="item_category">
+					LFO
+				</div>
+				<div class="item knobs">
+					<div>
+						Rate
+					</div>
+					<div>
+						<select id="werkstatt_lfo_rate" class="knobs pointy">
+							<option value=""> </option>
+							<option value="min">min</option>
+							<option value="max">max</option>
+							<option value="7:00">7:00</option>
+							<option value="7:30">7:30</option>
+							<option value="8:00">8:00</option>
+							<option value="8:30">8:30</option>
+							<option value="9:00">9:00</option>
+							<option value="9:30">9:30</option>
+							<option value="10:00">10:00</option>
+							<option value="10:30">10:30</option>
+							<option value="11:00">11:00</option>
+							<option value="11:30">11:30</option>
+							<option value="12:00">12:00</option>
+							<option value="12:30">12:30</option>
+							<option value="1:00">1:00</option>
+							<option value="1:30">1:30</option>
+							<option value="2:00">2:00</option>
+							<option value="2:30">2:30</option>
+							<option value="3:00">3:00</option>
+							<option value="3:30">3:30</option>
+							<option value="4:00">4:00</option>
+							<option value="4:30">4:30</option>
+							<option value="5:00">5:00</option>
+						</select>
+					</div>
+				</div>
+				<div class="item knobs">
+					<div>
+						Wave
+					</div>
+					<div>
+						<select id="werkstatt_lfo_wave" class="knobs pointy">
+							<option value=""> </option>
+							<option value="Square">Square</option>
+							<option value="Triangle">Triangle</option>
+						</select>
+					</div>
+				</div>
+
+				<!-- ********* Envelope ********* -->
+
+				<div class="item_category">
+					Envelope
+				</div>
+				<div class="item knobs">
+					<div>
+						Sustain
+					</div>
+					<div>
+						<select id="werkstatt_envelope_sustain" class="knobs pointy">
+							<option value=""> </option>
+							<option value="On">On</option>
+							<option value="Off">Off</option>
+						</select>
+					</div>
+				</div>
+				<div class="item knobs">
+					<div>
+						Attack
+					</div>
+					<div>
+						<select id="werkstatt_envelope_attack" class="knobs pointy">
+							<option value=""> </option>
+							<option value="min">min</option>
+							<option value="max">max</option>
+							<option value="7:00">7:00</option>
+							<option value="7:30">7:30</option>
+							<option value="8:00">8:00</option>
+							<option value="8:30">8:30</option>
+							<option value="9:00">9:00</option>
+							<option value="9:30">9:30</option>
+							<option value="10:00">10:00</option>
+							<option value="10:30">10:30</option>
+							<option value="11:00">11:00</option>
+							<option value="11:30">11:30</option>
+							<option value="12:00">12:00</option>
+							<option value="12:30">12:30</option>
+							<option value="1:00">1:00</option>
+							<option value="1:30">1:30</option>
+							<option value="2:00">2:00</option>
+							<option value="2:30">2:30</option>
+							<option value="3:00">3:00</option>
+							<option value="3:30">3:30</option>
+							<option value="4:00">4:00</option>
+							<option value="4:30">4:30</option>
+							<option value="5:00">5:00</option>
+						</select>
+					</div>
+				</div>
+				<div class="item knobs">
+					<div>
+						Rate
+					</div>
+					<div>
+						<select id="werkstatt_envelope_release" class="knobs pointy">
+							<option value=""> </option>
+							<option value="min">min</option>
+							<option value="max">max</option>
+							<option value="7:00">7:00</option>
+							<option value="7:30">7:30</option>
+							<option value="8:00">8:00</option>
+							<option value="8:30">8:30</option>
+							<option value="9:00">9:00</option>
+							<option value="9:30">9:30</option>
+							<option value="10:00">10:00</option>
+							<option value="10:30">10:30</option>
+							<option value="11:00">11:00</option>
+							<option value="11:30">11:30</option>
+							<option value="12:00">12:00</option>
+							<option value="12:30">12:30</option>
+							<option value="1:00">1:00</option>
+							<option value="1:30">1:30</option>
+							<option value="2:00">2:00</option>
+							<option value="2:30">2:30</option>
+							<option value="3:00">3:00</option>
+							<option value="3:30">3:30</option>
+							<option value="4:00">4:00</option>
+							<option value="4:30">4:30</option>
+							<option value="5:00">5:00</option>
+						</select>
+					</div>
+				</div>
+
+				<!-- ********* Keyboard ********* -->
+
+				<div class="item_category">
+					Keyboard
+				</div>
+				<div class="item knobs">
+					<div>
+						Glide
+					</div>
+					<div>
+						<select id="werkstatt_keyboard_glide" class="knobs pointy">
+							<option value=""> </option>
+							<option value="min">min</option>
+							<option value="max">max</option>
+							<option value="7:00">7:00</option>
+							<option value="7:30">7:30</option>
+							<option value="8:00">8:00</option>
+							<option value="8:30">8:30</option>
+							<option value="9:00">9:00</option>
+							<option value="9:30">9:30</option>
+							<option value="10:00">10:00</option>
+							<option value="10:30">10:30</option>
+							<option value="11:00">11:00</option>
+							<option value="11:30">11:30</option>
+							<option value="12:00">12:00</option>
+							<option value="12:30">12:30</option>
+							<option value="1:00">1:00</option>
+							<option value="1:30">1:30</option>
+							<option value="2:00">2:00</option>
+							<option value="2:30">2:30</option>
+							<option value="3:00">3:00</option>
+							<option value="3:30">3:30</option>
+							<option value="4:00">4:00</option>
+							<option value="4:30">4:30</option>
+							<option value="5:00">5:00</option>
+						</select>
+					</div>
+				</div>
+
+			</section>
+
+			<!-- ***************************   Werkstatt Output Jacks   *************************** -->
+
+			<section  class="instrument_werkstatt">
+
+				<h3>
+					Output Jacks
+				</h3>
+
+				<!-- ********* Keyboard ********* -->
+
+				<div class="item_category">
+					Keyboard
+				</div>
+				<div class="item jacks" data-connections="1">
+					<div>
+						KB CV Out
+					</div>
+					<div></div>
+					<div id="werkstatt_kb_cv_out_container_0">
+						<select id="werkstatt_kb_cv_out_0" data-index="0" class="jacks"></select>
+					</div>
+					<div id="werkstatt_kb_cv_out_plus" class="plus pointy">
+						+
+					</div>
+				</div>
+				<div class="item jacks" data-connections="1">
+					<div>
+						Gate Out
+					</div>
+					<div></div>
+					<div id="werkstatt_gate_out_container_0">
+						<select id="werkstatt_gate_out_0" data-index="0" class="jacks"></select>
+					</div>
+					<div id="werkstatt_gate_out_plus" class="plus pointy">
+						+
+					</div>
+				</div>
+
+				<!-- ********* Envelope ********* -->
+
+				<div class="item_category">
+					Envelope
+				</div>
+				<div class="item jacks" data-connections="1">
+					<div>
+						EG Out
+					</div>
+					<div></div>
+					<div id="werkstatt_eg_out_container_0">
+						<select id="werkstatt_eg_out_0" data-index="0" class="jacks"></select>
+					</div>
+					<div id="werkstatt_eg_out_plus" class="plus pointy">
+						+
+					</div>
+				</div>
+
+				<!-- ********* LFO ********* -->
+
+				<div class="item_category">
+					LFO
+				</div>
+				<div class="item jacks" data-connections="1">
+					<div>
+						LFO Out
+					</div>
+					<div></div>
+					<div id="werkstatt_lfo_out_container_0">
+						<select id="werkstatt_lfo_out_0" data-index="0" class="jacks"></select>
+					</div>
+					<div id="werkstatt_lfo_out_plus" class="plus pointy">
+						+
+					</div>
+				</div>
+
+				<!-- ********* VCF ********* -->
+
+				<div class="item_category">
+					VCF
+				</div>
+				<div class="item jacks" data-connections="1">
+					<div>
+						VCF Out
+					</div>
+					<div></div>
+					<div id="werkstatt_vcf_out_container_0">
+						<select id="werkstatt_vcf_out_0" data-index="0" class="jacks"></select>
+					</div>
+					<div id="werkstatt_vcf_out_plus" class="plus pointy">
+						+
+					</div>
+				</div>
+
+				<!-- ********* VCO ********* -->
+
+				<div class="item_category">
+					VCO
+				</div>
+				<div class="item jacks" data-connections="1">
+					<div>
+						VCO Out
+					</div>
+					<div></div>
+					<div id="werkstatt_vco_out_container_0">
+						<select id="werkstatt_vco_out_0" data-index="0" class="jacks"></select>
+					</div>
+					<div id="werkstatt_vco_out_plus" class="plus pointy">
+						+
+					</div>
+				</div>
+
+				<!-- ********* Out ********* -->
+
+				<div class="item_category">
+					Out
+				</div>
+				<div class="item jacks" data-connections="1">
+					<div>
+						Audio Out
+					</div>
+					<div></div>
+					<div id="werkstatt_audio_out_container_0">
+						<select id="werkstatt_audio_out_0" data-index="0" class="jacks"></select>
+					</div>
+					<div id="werkstatt_audio_out_plus" class="plus pointy">
+						+
+					</div>
+				</div>
+
+			</section>
+
+		</section>
+
+	</div>
+
+	<!-- ***************************   Instrument: Passive Rack   *************************** -->
+
+	<div id="instrument_passiverack" class="collapse">
+
+		<h2>
+			Passive Rack
+		</h2>
+
+		<section id="instrument_passiverack_columns">
+
+			<!-- ***************************   Rack Knobs   *************************** -->
+
+			<section class="instrument_passiverack">
+
+				<h3>
+					Knobs
+				</h3>
+
+				<div class="item_category">
+					Voltage Math
+				</div>
+
+				<div class="item knobs">
+					<div>
+						Attenuator 1
+					</div>
+					<div>
+						<select id="rack_voltage_math_attenuator_one" class="knobs pointy">
+							<option value=""> </option>
+							<option value="min">min</option>
+							<option value="max">max</option>
+							<option value="7:00">7:00</option>
+							<option value="7:30">7:30</option>
+							<option value="8:00">8:00</option>
+							<option value="8:30">8:30</option>
+							<option value="9:00">9:00</option>
+							<option value="9:30">9:30</option>
+							<option value="10:00">10:00</option>
+							<option value="10:30">10:30</option>
+							<option value="11:00">11:00</option>
+							<option value="11:30">11:30</option>
+							<option value="12:00">12:00</option>
+							<option value="12:30">12:30</option>
+							<option value="1:00">1:00</option>
+							<option value="1:30">1:30</option>
+							<option value="2:00">2:00</option>
+							<option value="2:30">2:30</option>
+							<option value="3:00">3:00</option>
+							<option value="3:30">3:30</option>
+							<option value="4:00">4:00</option>
+							<option value="4:30">4:30</option>
+							<option value="5:00">5:00</option>
+						</select>
+					</div>
+				</div>
+				<div class="item knobs">
+					<div>
+						Attenuator 2
+					</div>
+					<div>
+						<select id="rack_voltage_math_attenuator_two" class="knobs pointy">
+							<option value=""> </option>
+							<option value="min">min</option>
+							<option value="max">max</option>
+							<option value="7:00">7:00</option>
+							<option value="7:30">7:30</option>
+							<option value="8:00">8:00</option>
+							<option value="8:30">8:30</option>
+							<option value="9:00">9:00</option>
+							<option value="9:30">9:30</option>
+							<option value="10:00">10:00</option>
+							<option value="10:30">10:30</option>
+							<option value="11:00">11:00</option>
+							<option value="11:30">11:30</option>
+							<option value="12:00">12:00</option>
+							<option value="12:30">12:30</option>
+							<option value="1:00">1:00</option>
+							<option value="1:30">1:30</option>
+							<option value="2:00">2:00</option>
+							<option value="2:30">2:30</option>
+							<option value="3:00">3:00</option>
+							<option value="3:30">3:30</option>
+							<option value="4:00">4:00</option>
+							<option value="4:30">4:30</option>
+							<option value="5:00">5:00</option>
+						</select>
+					</div>
+				</div>
+				<div class="item knobs">
+					<div>
+						Attenuator 3
+					</div>
+					<div>
+						<select id="rack_voltage_math_attenuator_three" class="knobs pointy">
+							<option value=""> </option>
+							<option value="min">min</option>
+							<option value="max">max</option>
+							<option value="7:00">7:00</option>
+							<option value="7:30">7:30</option>
+							<option value="8:00">8:00</option>
+							<option value="8:30">8:30</option>
+							<option value="9:00">9:00</option>
+							<option value="9:30">9:30</option>
+							<option value="10:00">10:00</option>
+							<option value="10:30">10:30</option>
+							<option value="11:00">11:00</option>
+							<option value="11:30">11:30</option>
+							<option value="12:00">12:00</option>
+							<option value="12:30">12:30</option>
+							<option value="1:00">1:00</option>
+							<option value="1:30">1:30</option>
+							<option value="2:00">2:00</option>
+							<option value="2:30">2:30</option>
+							<option value="3:00">3:00</option>
+							<option value="3:30">3:30</option>
+							<option value="4:00">4:00</option>
+							<option value="4:30">4:30</option>
+							<option value="5:00">5:00</option>
+						</select>
+					</div>
+				</div>
+
+			</section>
+
+			<!-- ***************************   Rack Output Jacks   *************************** -->
+
+			<section class="instrument_passiverack">
+
+				<h3>
+					Output Jacks
+				</h3>
+
+
+				<div class="item_category">
+					Voltage Math
+				</div>
+
+				<div class="item jacks" data-connections="1">
+					<div>
+						Attenuator 1
+					</div>
+					<div></div>
+					<div id="rack_attenuator_one_container_0">
+						<select id="rack_attenuator_one_0" data-index="0" class="jacks"></select>
+					</div>
+					<div id="rack_attenuator_one_plus" class="plus pointy">
+						+
+					</div>
+				</div>
+				<div class="item jacks" data-connections="1">
+					<div>
+						Attenuator 2
+					</div>
+					<div></div>
+					<div id="rack_attenuator_two_container_0">
+						<select id="rack_attenuator_two_0" data-index="0" class="jacks"></select>
+					</div>
+					<div id="rack_attenuator_two_plus" class="plus pointy">
+						+
+					</div>
+				</div>
+				<div class="item jacks" data-connections="1">
+					<div>
+						Attenuator 3
+					</div>
+					<div></div>
+					<div id="rack_attenuator_three_container_0">
+						<select id="rack_attenuator_three_0" data-index="0" class="jacks"></select>
+					</div>
+					<div id="rack_attenuator_three_plus" class="plus pointy">
+						+
+					</div>
+				</div>
+
+				<div class="item_category">
+					Low Pass Gate
+				</div>
+
+				<div class="item jacks" data-connections="1">
+					<div>
+						LPG 1
+					</div>
+					<div></div>
+					<div id="rack_lpg1_container_0">
+						<select id="rack_lpg1_0" data-index="0" class="jacks"></select>
+					</div>
+					<div id="rack_lpg1_plus" class="plus pointy">
+						+
+					</div>
+				</div>
+				<div class="item jacks" data-connections="1">
+					<div>
+						LPG 2
+					</div>
+					<div></div>
+					<div id="rack_lpg2_container_0">
+						<select id="rack_lpg2_0" data-index="0" class="jacks"></select>
+					</div>
+					<div id="rack_lpg2_plus" class="plus pointy">
+						+
+					</div>
+				</div>
+
+				<div class="item_category">
+					Ring Modulator
+				</div>
+
+				<div class="item jacks" data-connections="1">
+					<div>
+						Out 1
+					</div>
+					<div></div>
+					<div id="rack_ring_mod_out_one_container_0">
+						<select id="rack_ring_mod_out_one_0" data-index="0" class="jacks"></select>
+					</div>
+					<div id="rack_ring_mod_out_one_plus" class="plus pointy">
+						+
+					</div>
+				</div>
+				<div class="item jacks" data-connections="1">
+					<div>
+						Out 2
+					</div>
+					<div></div>
+					<div id="rack_ring_mod_out_two_container_0">
+						<select id="rack_ring_mod_out_two_0" data-index="0" class="jacks"></select>
+					</div>
+					<div id="rack_ring_mod_out_two_plus" class="plus pointy">
+						+
+					</div>
+				</div>
+
+			</section>
+
+		</section>
+
+	</div>
+
+	<!-- ***************************   Instrument: External CV CV  *************************** -->
+
+	<div id="instrument_externalcv" class="collapse">
+
+		<h2>
+			External CV
+		</h2>
+
+		<section id="instrument_externalcv_columns">
+
+			<!-- ***************************   External CV Output Jacks   *************************** -->
+
+			<section class="instrument_externalcv">
+
+				<h3>
+					Output Jacks
+				</h3>
+
+				<div class="item_category">
+					CV 1
+				</div>
+
+				<div class="item jacks" data-connections="1">
+					<div>
+						Note
+					</div>
+					<div></div>
+					<div id="externalcv_note_one_container_0">
+						<select id="externalcv_note_one_0" data-index="0" class="jacks"></select>
+					</div>
+					<div id="externalcv_note_one_plus" class="plus pointy">
+						+
+					</div>
+				</div>
+				<div class="item jacks" data-connections="1">
+					<div>
+						Velocity
+					</div>
+					<div></div>
+					<div id="externalcv_velocity_one_container_0">
+						<select id="externalcv_velocity_one_0" data-index="0" class="jacks"></select>
+					</div>
+					<div id="externalcv_velocity_one_plus" class="plus pointy">
+						+
+					</div>
+				</div>
+				<div class="item jacks" data-connections="1">
+					<div>
+						Aftertouch
+					</div>
+					<div></div>
+					<div id="externalcv_aftertouch_one_container_0">
+						<select id="externalcv_aftertouch_one_0" data-index="0" class="jacks"></select>
+					</div>
+					<div id="externalcv_aftertouch_one_plus" class="plus pointy">
+						+
+					</div>
+				</div>
+				<div class="item jacks" data-connections="1">
+					<div>
+						Gate
+					</div>
+					<div></div>
+					<div id="externalcv_gate_one_container_0">
+						<select id="externalcv_gate_one_0" data-index="0" class="jacks"></select>
+					</div>
+					<div id="externalcv_gate_one_plus" class="plus pointy">
+						+
+					</div>
+				</div>
+				<div class="item jacks" data-connections="1">
+					<div>
+						Mod Wheel
+					</div>
+					<div></div>
+					<div id="externalcv_modwheel_one_container_0">
+						<select id="externalcv_modwheel_one_0" data-index="0" class="jacks"></select>
+					</div>
+					<div id="externalcv_modwheel_one_plus" class="plus pointy">
+						+
+					</div>
+				</div>
+				<div class="item jacks" data-connections="1">
+					<div>
+						Sync
+					</div>
+					<div></div>
+					<div id="externalcv_sync_one_container_0">
+						<select id="externalcv_sync_one_0" data-index="0" class="jacks"></select>
+					</div>
+					<div id="externalcv_sync_one_plus" class="plus pointy">
+						+
+					</div>
+				</div>
+
+				<div class="item_category">
+					CV 2
+				</div>
+
+				<div class="item jacks" data-connections="1">
+					<div>
+						Note
+					</div>
+					<div></div>
+					<div id="externalcv_note_two_container_0">
+						<select id="externalcv_note_two_0" data-index="0" class="jacks"></select>
+					</div>
+					<div id="externalcv_note_two_plus" class="plus pointy">
+						+
+					</div>
+				</div>
+				<div class="item jacks" data-connections="1">
+					<div>
+						Velocity
+					</div>
+					<div></div>
+					<div id="externalcv_velocity_two_container_0">
+						<select id="externalcv_velocity_two_0" data-index="0" class="jacks"></select>
+					</div>
+					<div id="externalcv_velocity_two_plus" class="plus pointy">
+						+
+					</div>
+				</div>
+				<div class="item jacks" data-connections="1">
+					<div>
+						Aftertouch
+					</div>
+					<div></div>
+					<div id="externalcv_aftertouch_two_container_0">
+						<select id="externalcv_aftertouch_two_0" data-index="0" class="jacks"></select>
+					</div>
+					<div id="externalcv_aftertouch_two_plus" class="plus pointy">
+						+
+					</div>
+				</div>
+				<div class="item jacks" data-connections="1">
+					<div>
+						Gate
+					</div>
+					<div></div>
+					<div id="externalcv_gate_two_container_0">
+						<select id="externalcv_gate_two_0" data-index="0" class="jacks"></select>
+					</div>
+					<div id="externalcv_gate_two_plus" class="plus pointy">
+						+
+					</div>
+				</div>
+				<div class="item jacks" data-connections="1">
+					<div>
+						Mod Wheel
+					</div>
+					<div></div>
+					<div id="externalcv_modwheel_two_container_0">
+						<select id="externalcv_modwheel_two_0" data-index="0" class="jacks"></select>
+					</div>
+					<div id="externalcv_modwheel_two_plus" class="plus pointy">
+						+
+					</div>
+				</div>
+				<div class="item jacks" data-connections="1">
+					<div>
+						Sync
+					</div>
+					<div></div>
+					<div id="externalcv_sync_two_container_0">
+						<select id="externalcv_sync_two_0" data-index="0" class="jacks"></select>
+					</div>
+					<div id="externalcv_sync_two_plus" class="plus pointy">
+						+
+					</div>
+				</div>
+
+				<div class="item_category">
+					CV 3
+				</div>
+
+				<div class="item jacks" data-connections="1">
+					<div>
+						Note
+					</div>
+					<div></div>
+					<div id="externalcv_note_three_container_0">
+						<select id="externalcv_note_three_0" data-index="0" class="jacks"></select>
+					</div>
+					<div id="externalcv_note_three_plus" class="plus pointy">
+						+
+					</div>
+				</div>
+				<div class="item jacks" data-connections="1">
+					<div>
+						Velocity
+					</div>
+					<div></div>
+					<div id="externalcv_velocity_three_container_0">
+						<select id="externalcv_velocity_three_0" data-index="0" class="jacks"></select>
+					</div>
+					<div id="externalcv_velocity_three_plus" class="plus pointy">
+						+
+					</div>
+				</div>
+				<div class="item jacks" data-connections="1">
+					<div>
+						Aftertouch
+					</div>
+					<div></div>
+					<div id="externalcv_aftertouch_three_container_0">
+						<select id="externalcv_aftertouch_three_0" data-index="0" class="jacks"></select>
+					</div>
+					<div id="externalcv_aftertouch_three_plus" class="plus pointy">
+						+
+					</div>
+				</div>
+				<div class="item jacks" data-connections="1">
+					<div>
+						Gate
+					</div>
+					<div></div>
+					<div id="externalcv_gate_three_container_0">
+						<select id="externalcv_gate_three_0" data-index="0" class="jacks"></select>
+					</div>
+					<div id="externalcv_gate_three_plus" class="plus pointy">
+						+
+					</div>
+				</div>
+				<div class="item jacks" data-connections="1">
+					<div>
+						Mod Wheel
+					</div>
+					<div></div>
+					<div id="externalcv_modwheel_three_container_0">
+						<select id="externalcv_modwheel_three_0" data-index="0" class="jacks"></select>
+					</div>
+					<div id="externalcv_modwheel_three_plus" class="plus pointy">
+						+
+					</div>
+				</div>
+				<div class="item jacks" data-connections="1">
+					<div>
+						Sync
+					</div>
+					<div></div>
+					<div id="externalcv_sync_three_container_0">
+						<select id="externalcv_sync_three_0" data-index="0" class="jacks"></select>
+					</div>
+					<div id="externalcv_sync_three_plus" class="plus pointy">
+						+
+					</div>
+				</div>
+
+				<div class="item_category">
+					CV 4
+				</div>
+
+				<div class="item jacks" data-connections="1">
+					<div>
+						Note
+					</div>
+					<div></div>
+					<div id="externalcv_note_four_container_0">
+						<select id="externalcv_note_four_0" data-index="0" class="jacks"></select>
+					</div>
+					<div id="externalcv_note_four_plus" class="plus pointy">
+						+
+					</div>
+				</div>
+				<div class="item jacks" data-connections="1">
+					<div>
+						Velocity
+					</div>
+					<div></div>
+					<div id="externalcv_velocity_four_container_0">
+						<select id="externalcv_velocity_four_0" data-index="0" class="jacks"></select>
+					</div>
+					<div id="externalcv_velocity_four_plus" class="plus pointy">
+						+
+					</div>
+				</div>
+				<div class="item jacks" data-connections="1">
+					<div>
+						Aftertouch
+					</div>
+					<div></div>
+					<div id="externalcv_aftertouch_four_container_0">
+						<select id="externalcv_aftertouch_four_0" data-index="0" class="jacks"></select>
+					</div>
+					<div id="externalcv_aftertouch_four_plus" class="plus pointy">
+						+
+					</div>
+				</div>
+				<div class="item jacks" data-connections="1">
+					<div>
+						Gate
+					</div>
+					<div></div>
+					<div id="externalcv_gate_four_container_0">
+						<select id="externalcv_gate_four_0" data-index="0" class="jacks"></select>
+					</div>
+					<div id="externalcv_gate_four_plus" class="plus pointy">
+						+
+					</div>
+				</div>
+				<div class="item jacks" data-connections="1">
+					<div>
+						Mod Wheel
+					</div>
+					<div></div>
+					<div id="externalcv_modwheel_four_container_0">
+						<select id="externalcv_modwheel_four_0" data-index="0" class="jacks"></select>
+					</div>
+					<div id="externalcv_modwheel_four_plus" class="plus pointy">
+						+
+					</div>
+				</div>
+				<div class="item jacks" data-connections="1">
+					<div>
+						Sync
+					</div>
+					<div></div>
+					<div id="externalcv_sync_four_container_0">
+						<select id="externalcv_sync_four_0" data-index="0" class="jacks"></select>
+					</div>
+					<div id="externalcv_sync_four_plus" class="plus pointy">
+						+
+					</div>
+				</div>
+
+			</section>
+
+		</section>
+
+	</div>
+
+</main>
+
+</html>

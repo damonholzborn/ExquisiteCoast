@@ -487,6 +487,8 @@ function sharePatch() {
 
 function loadSharedPatch(sharedpatchcode, sharedpatchobject) {
 	var unMinifiedObject;
+	console.log(sharedpatchcode);
+	console.log(sharedpatchobject);
 
 	if (sharedpatchobject.patchName) {
 		unMinifiedObject = sharedpatchobject;
@@ -557,6 +559,7 @@ function loadSharedPatch(sharedpatchcode, sharedpatchobject) {
 		savedWorkingPatchName = undefined;
 	}
 
+	console.log(unMinifiedObject);
 	history.pushState(sharedpatchcode, '', window.location.pathname);
 	return savedWorkingPatchName
 }

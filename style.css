@@ -26,7 +26,10 @@
 html, body {
 	background-color: var(--bg-color);
 	color: var(--white);
-	font-family: 'Courier New', Courier, monospace;
+	font-family:  Helvetica, Arial, sans-serif;
+	font-family:  'Courier New', Courier, monospace;
+
+
 	font-weight: normal;
 	font-size: 18px;
 	box-sizing: border-box;
@@ -66,13 +69,13 @@ main {
 	padding: 24px 8px;
 	margin: 0;
 	padding: 0;
-	display: grid;
+	/* display: grid;
 	grid-column-gap: 24px;
-	grid-template-columns: min-content auto;
+	grid-template-columns: min-content auto; */
 }
 
 section {
-	padding: 12px 8px;
+	padding: 6px 8px;
 }
 
 a {
@@ -133,18 +136,24 @@ h1 {
 
 h2 {
 	font-weight: normal;
-	color: var(--green);
-	font-size: 1.4em;
-	margin: 18px 0;
+	color: var(--orange);
+	font-size: 1.6em;
+	margin: 6px 18px;
+}
+h2:after {
+	content: '';
+	background: var(--orange);
+	width: 100%;
+	height: 1px;
+	display: block;
 }
 
 h3 {
 	font-weight: normal;
-	color: var(--orange);
-	font-size: 1.2em;
-	margin: 18px 0;
+	color: var(--green);
+	font-size: 1.4em;
+	margin: 16px 0;
 }
-
 
 #get_share_link, .plus {
 	font-size: 1.1em;
@@ -165,7 +174,11 @@ h3 {
 	/* text-align: center; */
 }
 
-input.clocks, input.patch_info, textarea {
+#patch_info_title {
+	margin-bottom: 34px;
+}
+
+input.clocks, input.patch_info, #coast_express_share_link, textarea {
 	color: var(--white);
 	background-color: var(--bg-color);
 	font-family: inherit;
@@ -173,30 +186,34 @@ input.clocks, input.patch_info, textarea {
 	padding: 2px 6px;
 	width: 40px;
 	border: 1px solid var(--white);
-	border-radius: 0;
+	border-radius: 6px;
 }
 
 input.patch_info, textarea {
-	width: 340px;
+	width: 354px;
 }
 
-select {
-	border-radius: 0;
-}
 select.patch_info {
-	width: 340px;
+	width: 354px;
+}
+
+#coast_express_share_link {
+	border-radius: 0;
+	width: 136px;
+	margin-top: -12px;
+}
+
+
+#author {
+	height: 5.4em;
+}
+#patch_notes {
+	height: 7.6em;
 }
 
 textarea {
 	padding-top: 4px;
-}
-
-#author {
-	height: 3.9em;
-}
-
-#patch_notes {
-	height: 6.9em;
+	height: 2.9em;
 }
 
 .item_category {
@@ -215,24 +232,71 @@ textarea {
 }
 
 .item.patch_info {
-	grid-template-columns: 134px min-content auto;
+	grid-template-columns: 134px 354px auto;
 }
 
-.item.clocks {
-	grid-template-columns: 130px min-content 110px 104px;
-	grid-column-gap: 4px;
+.instrument_0coast .item.knobs {
+	grid-template-columns: 296px auto;
 }
 
-.item.knobs {
-	grid-template-columns: 320px auto;
+.instrument_0coast .item.jacks {
+	grid-template-columns: 220px 0px max-content max-content;
 }
 
-.item.jacks {
-	grid-template-columns: 190px 0px max-content max-content;
+.instrument_werkstatt .item.knobs {
+	grid-template-columns: 106px auto;
+}
+
+.instrument_werkstatt .item.jacks {
+	grid-template-columns: 120px 0px max-content max-content;
+}
+
+.instrument_passiverack .item.knobs {
+	grid-template-columns: 156px auto;
+}
+
+.instrument_passiverack .item.jacks {
+	grid-template-columns: 180px 0px max-content max-content;
+}
+
+.instrument_externalcv .item.jacks {
+	grid-template-columns: 140px 0px max-content max-content;
 }
 
 .item.jacks.addtional {
 	grid-template-columns: 90px max-content max-content;
+}
+
+.item.clocks {
+	grid-template-columns: 196px min-content min-content auto;
+}
+
+.clockgap {
+	margin-left: 4px;
+}
+
+.item.midi {
+	grid-template-columns: 132px min-content auto;
+}
+
+#coast_express_help {
+	font-size: 0.9em;
+	opacity: 1;
+	grid-template-columns: auto;
+}
+
+#coast_express_help_toggle {
+	display: inline-block;
+}
+
+#coast_express_help_toggle.open {
+	transform: rotate(180deg);
+}
+
+#coast_express_link {
+	width: 21px;
+	height: auto;
+	margin-left: 12px;
 }
 
 .item div {
@@ -241,24 +305,21 @@ textarea {
 }
 
 
+
 select {
 	background-color: var(--bg-color);
 	color: var(--white);
 	border-color: var(--white);
 	font-family: inherit;
-	font-size: inherit;
+	font-size: 0.9em;
 	width: 77px;
 	padding: 2px 6px;
 	outline-color: var(--orange);
 	-webkit-appearance:none;
 }
 
-select.clocks {
-	width: 109px;
-}
-
 select.multiplier {
-	width: 44px
+	width: 36px;
 }
 
 select.knobs {
@@ -266,7 +327,15 @@ select.knobs {
 }
 
 select.jacks {
-	width: 364px;
+	width: 414px;
+}
+
+select.midi {
+	width: 188px;
+}
+
+select.clocks {
+	width: 106px;
 }
 
 .pointy {
@@ -274,19 +343,52 @@ select.jacks {
 	user-select: none;
 }
 
-.footnotes {
-	font-size: 0.88em;
-}
-
 .hidden {
 	visibility: hidden;
 }
+
+.collapse {
+	height: 0;
+	overflow: hidden;
+}
+
+#no_instruments {
+	color: var(--green);
+	margin-left: 32px;
+}
+
 /* ********* Media Queries ********* */
 
 
-@media only screen and (max-width: 1700px) {
+@media only screen and (min-width: 1200px) {
 
+	#patch_info_container {
+		display: grid;
+		grid-template-columns: 524px auto;
+	}
 
+	#get_share_link {
+		padding: 6px 24px;
+		margin-left: 0px;
+		border: 1px solid var(--white);
+		border-radius: 6px;
+		text-align: center;
+	}
+
+	#instrument_0coast_columns {
+		display: grid;
+		grid-template-columns: 464px auto;
+	}
+
+	#instrument_werkstatt_columns {
+		display: grid;
+		grid-template-columns: 344px auto;
+	}
+
+	#instrument_passiverack_columns {
+		display: grid;
+		grid-template-columns: 344px auto;
+	}
 }
 
 @media only screen and (max-width: 1166px) {
@@ -338,10 +440,6 @@ select.jacks {
 
 	.item.jacks {
 		grid-template-columns: calc(100% - 30px) 30px;
-	}
-
-	.item.jacks.addtional {
-		/* grid-template-columns: 90px max-content max-content; */
 	}
 
 	#share_area {
