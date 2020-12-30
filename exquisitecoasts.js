@@ -188,7 +188,7 @@ window.onload = function() {
 				var foundAPatch = false;
 				for (var i = 0; i < allLocalStorage.length; i++) {
 					var name = allLocalStorage[i];
-					if (name !== 'workingAuthor' && name !== 'workingPatchName') {
+					if (name !== 'workingAuthor' && name !== 'workingPatchName' && name !== 'legacyPatches') {
 						localStorage.setItem('workingPatchName', name);
 						foundAPatch = true;
 						break;
@@ -223,7 +223,7 @@ window.onload = function() {
 	// ********* Patch Notes *********
 
 	patchNotesField.addEventListener('keyup', function() {
-		workingPatch.patch_notes = patchNotesField.value;
+		workingPatch.patchNotes = patchNotesField.value;
 		savePatch();
 	});
 
@@ -234,53 +234,20 @@ window.onload = function() {
 
 	// ***************************   Selects: Jack, Knob, MIDI Input   ***************************
 
-	// var alphabet = "abcdefghijklmnopqrstuvwxyz";
-	// var count = 0;
-	// var stuff = ''
-	// while (count < 10) {
-	// 	for (let i = 0; i < alphabet.length; i++) {
-	// 		stuff += '~' + alphabet[i];
-	// 		if (count > -1) {
-	// 			stuff += count;
-	// 		}
-	// 		stuff += '\n'
-	// 	}
-	// 	count++;
-	// 	console.log(count);
-	// }
-	// console.log('sfad');
-	// console.log(stuff);
-
-	// var theWholeMaghila = ''
-
-	// var zeDestinations = '';
-	// var allDestinations = ['0-Coast', 'Werkstatt', 'Passive Rack', 'External CV', 'System'];
-	// allDestinations.forEach(instrument => {
-	// 	var instrumentDestinations = jackDestinations[instrument];
-	// 	for (var i = 0; i < instrumentDestinations.length; i++) {
-	// 		zeDestinations += '"' + instrument + ': ' + instrumentDestinations[i] + '"\n';
-	// 	}
-	// });
-	// console.log(zeDestinations);
-
 	var allSelects = document.getElementsByTagName('select');
 	for (var i = 0; i < allSelects.length; i++) {
 		var element = allSelects[i];
 
 		if (element.classList.contains('knobs')) {
 			knobFields[element.id] = document.getElementById(element.id);
-			// theWholeMaghila += ', ' +  element.id;
 		}
 		else if (element.classList.contains('jacks')) {
 			jackFields[element.id] = document.getElementById(element.id);
-			// theWholeMaghila += ', ' +  element.id;
 		}
 		else if (element.classList.contains('midi')) {
 			midiFields[element.id] = document.getElementById(element.id);
-			// theWholeMaghila += ', ' +  element.id;
 		}
 	}
-	// console.log(theWholeMaghila);
 
 	for (const key in knobFields) {
 		const field = knobFields[key];
@@ -310,17 +277,6 @@ window.onload = function() {
 		field.addEventListener('touch', function() { newJackConnection(key) });
 		field.addEventListener('click', function() { newJackConnection(key) });
 	}
-
-	// ***************************   Insert Output Jack Pulldown Menus   ***************************
-
-	// var jackSelects = document.getElementsByClassName("jacks");
-	// for (var i = 0; i < jackSelects.length; i++) {
-	// 	var jackSelect = jackSelects[i];
-
-	// 	if (jackSelect.tagName === 'SELECT') {
-	// 		insertJackDestinations(jackSelect);
-	// 	}
-	// }
 
 	// ***************************   Special Fields   ***************************
 
@@ -454,7 +410,7 @@ window.onload = function() {
 		allLocalStorage.sort();
 		for (var i = 0; i < allLocalStorage.length; i++) {
 			var name = allLocalStorage[i];
-			if (name !== 'workingAuthor' && name !== 'workingPatchName') {
+			if (name !== 'workingAuthor' && name !== 'workingPatchName' && name !== 'legacyPatches') {
 				addPatchNameToSelect(name, false);
 			}
 		}
@@ -478,81 +434,87 @@ function savePatch() {
 }
 
 function loadSavedPatch() {
-	patchNameField.value = workingPatch.patchName;
-	if (workingPatch.author) {
-		authorField.value = workingPatch.author;
-	}
-	if (workingPatch.patch_notes) {
-		patchNotesField.value = workingPatch.patch_notes;
-	}
+	if (workingPatch.version) {
+		patchNameField.value = workingPatch.patchName;
+		if (workingPatch.author) {
+			authorField.value = workingPatch.author;
+		}
+		if (workingPatch.patchNotes) {
+			patchNotesField.value = workingPatch.patchNotes;
+		}
 
-	if (workingPatch.instruments && workingPatch.instruments.indexOf('0-Coast') !== -1) {
-		instrument0CoastCheckbox.checked = true;
+		if (workingPatch.instruments && workingPatch.instruments.indexOf('0-Coast') !== -1) {
+			instrument0CoastCheckbox.checked = true;
+		}
+		else {
+			instrument0CoastCheckbox.checked = false;
+		}
+
+		if (workingPatch.instruments && workingPatch.instruments.indexOf('Werkstatt') !== -1) {
+			instrumentWerkstattCheckbox.checked = true;
+		}
+		else {
+			instrumentWerkstattCheckbox.checked = false;
+		}
+
+		if (workingPatch.instruments && workingPatch.instruments.indexOf('Passive Rack') !== -1) {
+			instrumentPassiveRackCheckbox.checked = true;
+		}
+		else {
+			instrumentPassiveRackCheckbox.checked = false;
+		}
+
+		if (workingPatch.instruments && workingPatch.instruments.indexOf('External CV') !== -1) {
+			instrumentExternalCVCheckbox.checked = true;
+		}
+		else {
+			instrumentExternalCVCheckbox.checked = false;
+		}
+
+
+		if (workingPatch.clockSpeeds) {
+			if (workingPatch.clockSpeeds.nocoast_clock_speed) {
+				clockSpeedField.value = workingPatch.clockSpeeds.nocoast_clock_speed;
+				changeActive(clockSpeedField);
+			}
+			clockSpeedTypeField.value = workingPatch.clockSpeeds.nocoast_clock_speed_type;
+			toggleMultiplierFieldVisibility(clockSpeedTypeField, clockSpeedMultiplierField)
+			if (workingPatch.clockSpeeds.nocoast_clock_speed_multiplier) {
+				clockSpeedMultiplierField.value = workingPatch.clockSpeeds.nocoast_clock_speed_multiplier;
+			}
+
+			if (workingPatch.clockSpeeds.nocoast_midi_b_speed) {
+				midiBLFOSpeedField.value = workingPatch.clockSpeeds.nocoast_midi_b_speed;
+				changeActive(midiBLFOSpeedField);
+			}
+			midiBLFOSpeedTypeField.value = workingPatch.clockSpeeds.nocoast_midi_b_speed_type;
+			toggleMultiplierFieldVisibility(midiBLFOSpeedTypeField, midiBLFOSpeedMultiplierField)
+			if (workingPatch.clockSpeeds.nocoast_midi_b_multiplier) {
+				midiBLFOSpeedMultiplierField.value = workingPatch.clockSpeeds.nocoast_midi_b_multiplier;
+			}
+		}
+
+		for (const key in workingPatch.knobs) {
+			knobFields[key].value = workingPatch.knobs[key];
+			changeActive(knobFields[key]);
+		}
+
+		for (const key in workingPatch.midiInput) {
+			if (key !== 'coastExpressLink') {
+				midiFields[key].value = workingPatch.midiInput[key];
+				changeActive(midiFields[key]);
+			}
+		}
+
+		collapseInstruments();
+		insertAllJackDestinations();
+		selectAllJacks();
+		insertCoastExpressShareLink();
 	}
 	else {
-		instrument0CoastCheckbox.checked = false;
+		convertOnePointOhPatch();
 	}
 
-	if (workingPatch.instruments && workingPatch.instruments.indexOf('Werkstatt') !== -1) {
-		instrumentWerkstattCheckbox.checked = true;
-	}
-	else {
-		instrumentWerkstattCheckbox.checked = false;
-	}
-
-	if (workingPatch.instruments && workingPatch.instruments.indexOf('Passive Rack') !== -1) {
-		instrumentPassiveRackCheckbox.checked = true;
-	}
-	else {
-		instrumentPassiveRackCheckbox.checked = false;
-	}
-
-	if (workingPatch.instruments && workingPatch.instruments.indexOf('External CV') !== -1) {
-		instrumentExternalCVCheckbox.checked = true;
-	}
-	else {
-		instrumentExternalCVCheckbox.checked = false;
-	}
-
-
-	if (workingPatch.clockSpeeds) {
-		if (workingPatch.clockSpeeds.nocoast_clock_speed) {
-			clockSpeedField.value = workingPatch.clockSpeeds.nocoast_clock_speed;
-			changeActive(clockSpeedField);
-		}
-		clockSpeedTypeField.value = workingPatch.clockSpeeds.nocoast_clock_speed_type;
-		toggleMultiplierFieldVisibility(clockSpeedTypeField, clockSpeedMultiplierField)
-		if (workingPatch.clockSpeeds.nocoast_clock_speed_multiplier) {
-			clockSpeedMultiplierField.value = workingPatch.clockSpeeds.nocoast_clock_speed_multiplier;
-		}
-
-		if (workingPatch.clockSpeeds.nocoast_midi_b_speed) {
-			midiBLFOSpeedField.value = workingPatch.clockSpeeds.nocoast_midi_b_speed;
-			changeActive(midiBLFOSpeedField);
-		}
-		midiBLFOSpeedTypeField.value = workingPatch.clockSpeeds.nocoast_midi_b_speed_type;
-		toggleMultiplierFieldVisibility(midiBLFOSpeedTypeField, midiBLFOSpeedMultiplierField)
-		if (workingPatch.clockSpeeds.nocoast_midi_b_multiplier) {
-			midiBLFOSpeedMultiplierField.value = workingPatch.clockSpeeds.nocoast_midi_b_multiplier;
-		}
-	}
-
-	for (const key in workingPatch.knobs) {
-		knobFields[key].value = workingPatch.knobs[key];
-		changeActive(knobFields[key]);
-	}
-
-	for (const key in workingPatch.midiInput) {
-		if (key !== 'coastExpressLink') {
-			midiFields[key].value = workingPatch.midiInput[key];
-			changeActive(midiFields[key]);
-		}
-	}
-
-	collapseInstruments();
-	insertAllJackDestinations();
-	selectAllJacks();
-	insertCoastExpressShareLink();
 }
 
 function selectAllJacks() {
@@ -587,12 +549,8 @@ function makeNewPatch(name, shouldcopy) {
 		}
 	}
 
-	// workingPatch.instruments = ['0-Coast'];
-	// instrument0CoastCheckbox.checked = true;
-	// collapseInstruments();
-
 	localStorage.setItem('workingPatchName', name);
-	localStorage.setItem(workingPatch.patchName, JSON.stringify(workingPatch));
+	savePatch();
 
 	addPatchNameToSelect('Untitled 1', true);
 
@@ -854,7 +812,6 @@ function insertCoastExpressShareLink() {
 	}
 }
 
-
 function sharePatch() {
 	var workingPatchString = JSON.stringify(workingPatch);
 	stringCodes.forEach(code => {
@@ -865,4 +822,84 @@ function sharePatch() {
 
 	var copyPatchURL = prompt('Your patch is encoded in the URL below. To share your patch, copy the link (make sure to get the whole thing). You can then paste the URL in an email to send to a friend, share at the Exquisite Coast thread on llllllll.co, or post on social media.', window.location.href + '?patch=' + workingPatchString);
 
+}
+
+// ***************************   Convert Legacy Patch   ***************************
+
+function convertOnePointOhPatch() {
+	if (!localStorage.getItem('legacyPatches')) {
+		var allPatches = [];
+		var allLocalStorage = Object.keys(localStorage);
+		for (var i = 0; i < allLocalStorage.length; i++) {
+			var name = allLocalStorage[i];
+			if (name !== 'workingAuthor' && name !== 'workingPatchName') {
+				allPatches.push(localStorage.getItem(name));
+			}
+		}
+		localStorage.setItem('legacyPatches', allPatches);
+	}
+
+	var tempWorkingPatch = { 'version': '2.0', 'instruments': ['0-Coast'] };
+
+	if (workingPatch.author) {
+		tempWorkingPatch.author = workingPatch.author;
+	}
+	if (workingPatch.patchName) {
+		tempWorkingPatch.patchName = workingPatch.patchName;
+	}
+	if (workingPatch.patch_notes) {
+		tempWorkingPatch.patchNotes = workingPatch.patch_notes;
+	}
+
+	var knobs = workingPatch.knobs;
+	if (knobs) {
+		tempWorkingPatch.knobs = {};
+		for (var key in knobs) {
+			tempWorkingPatch.knobs['nocoast_' + key] = knobs[key];
+		}
+	}
+
+	var jacks = workingPatch.jacks;
+	if (jacks) {
+		tempWorkingPatch.jacks = {};
+		for (var key in jacks) {
+			var indexOfDynamicsCVInput = jacks[key].indexOf('Dynamics CV Input');
+			if (indexOfDynamicsCVInput !== -1) {
+				jacks[key][indexOfDynamicsCVInput] = 'Dynamics: CV Input'
+			}
+			for (let i = 0; i < jacks[key].length; i++) {
+				jacks[key][i] = '0-Coast: ' + jacks[key][i];
+
+			}
+			tempWorkingPatch.jacks['nocoast_' + key] = jacks[key];
+		}
+	}
+
+	tempWorkingPatch.clockSpeeds = {}
+	if (workingPatch.clock_speed) {
+		tempWorkingPatch.clockSpeeds['nocoast_' + 'clock_speed'] = workingPatch.clock_speed;
+	}
+	if (workingPatch.clock_speed_multiplier) {
+		tempWorkingPatch.clockSpeeds['nocoast_' + 'clock_speed_multiplier'] = workingPatch.clock_speed_multiplier;
+	}
+	if (workingPatch.clock_speed_type) {
+		tempWorkingPatch.clockSpeeds['nocoast_' + 'clock_speed_type'] = workingPatch.clock_speed_type;
+	}
+	if (workingPatch.midi_b_speed) {
+		tempWorkingPatch.clockSpeeds['nocoast_' + 'midi_b_speed'] = workingPatch.midi_b_speed;
+	}
+	if (workingPatch.midi_b_multiplier) {
+		tempWorkingPatch.clockSpeeds['nocoast_' + 'midi_b_multiplier'] = workingPatch.midi_b_multiplier;
+	}
+	if (workingPatch.midi_b_speed_type) {
+		tempWorkingPatch.clockSpeeds['nocoast_' + 'midi_b_speed_type'] = workingPatch.midi_b_speed_type;
+	}
+
+	if (Object.keys(tempWorkingPatch.clockSpeeds).length === 0) {
+		delete tempWorkingPatch.clockSpeeds;
+	}
+
+	workingPatch = tempWorkingPatch;
+	savePatch();
+	location.reload();
 }
