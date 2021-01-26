@@ -247,6 +247,10 @@ textarea {
 	grid-template-columns: 106px auto;
 }
 
+.instrument_werkstatt .item.knobs > * > select {
+	width: 97px;
+}
+
 .instrument_werkstatt .item.jacks {
 	grid-template-columns: 120px 0px max-content max-content;
 }
@@ -257,6 +261,18 @@ textarea {
 
 .instrument_passiverack .item.jacks {
 	grid-template-columns: 180px 0px max-content max-content;
+}
+
+.instrument_expandedrack .item.knobs {
+	grid-template-columns: 116px auto;
+}
+
+.instrument_expandedrack .item.knobs > * > select {
+	width: 446px;
+}
+
+.instrument_expandedrack .item.jacks {
+	grid-template-columns: 40px 0px max-content max-content;
 }
 
 .instrument_externalcv .item.jacks {
@@ -388,6 +404,11 @@ select.clocks {
 	#instrument_passiverack_columns {
 		display: grid;
 		grid-template-columns: 344px auto;
+	}
+
+	#instrument_expandedrack_columns {
+		display: grid;
+		grid-template-columns: 644px auto;
 	}
 }
 

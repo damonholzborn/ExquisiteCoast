@@ -16,11 +16,13 @@ var midiBLFOSpeedMultiplierField;
 var instrument0CoastCheckbox;
 var instrumentWerkstattCheckbox;
 var instrumentPassiveRackCheckbox;
+var instrumentExpandedRackCheckbox;
 var instrumentExternalCVCheckbox;
 
 var instrument0Coast;
 var instrumentWerkstatt;
 var instrumentPassiveRack;
+var instrumentExpandedRack;
 var instrumentExternalCV;
 var noInstruments;
 
@@ -39,6 +41,7 @@ var jackDestinations = {
 	'Werkstatt': ['VCA CV In', 'VCF CV In', 'VCO Lin FM In', 'VCO Exp FM In', 'LFO FM In', 'Gate In', 'VCF Aud In'],
 	'Passive Rack': ['Attenuator 1: In', 'Attenuator 2: In', 'Attenuator 3: In', 'LPG 1: Signal In', 'LPG 1: CV In', 'LPG 2: Signal In', 'LPG 2: CV In', 'LPG 1: CV In', 'Ring Mod 1: Signal In', 'Ring Mod 1: Carrier In', 'Ring Mod 2: Signal In', 'Ring Mod 2: Carrier In'],
 	'External CV': ['Sync In'],
+	'Expanded Rack': ['Disting: Z', 'Disting: X', 'Disting: Y'],
 	'System': ['Audio Out']
 }
 
@@ -88,16 +91,20 @@ window.onload = function() {
 	instrument0CoastCheckbox = document.getElementById('instrument_checkbox_0coast');
 	instrumentWerkstattCheckbox = document.getElementById('instrument_checkbox_werkstatt');
 	instrumentPassiveRackCheckbox = document.getElementById('instrument_checkbox_passiverack');
+	instrumentExpandedRackCheckbox = document.getElementById('instrument_checkbox_expandedrack');
 	instrumentExternalCVCheckbox = document.getElementById('instrument_checkbox_externalcv');
 
 	instrument0CoastCheckbox.addEventListener('change', function() { saveInstrument(instrument0CoastCheckbox); collapseInstruments() });
 	instrumentWerkstattCheckbox.addEventListener('change', function() { saveInstrument(instrumentWerkstattCheckbox); collapseInstruments() });
 	instrumentPassiveRackCheckbox.addEventListener('change', function() { saveInstrument(instrumentPassiveRackCheckbox); collapseInstruments() });
+	instrumentExpandedRackCheckbox.addEventListener('change', function() { saveInstrument(instrumentExpandedRackCheckbox); collapseInstruments()
+	});
 	instrumentExternalCVCheckbox.addEventListener('change', function() { saveInstrument(instrumentExternalCVCheckbox); collapseInstruments() });
 
 	instrument0Coast = document.getElementById('instrument_0coast');
 	instrumentWerkstatt = document.getElementById('instrument_werkstatt');
 	instrumentPassiveRack = document.getElementById('instrument_passiverack');
+	instrumentExpandedRack = document.getElementById('instrument_expandedrack');
 	instrumentExternalCV = document.getElementById('instrument_externalcv');
 	noInstruments = document.getElementById('no_instruments');
 
@@ -188,7 +195,7 @@ window.onload = function() {
 				var foundAPatch = false;
 				for (var i = 0; i < allLocalStorage.length; i++) {
 					var name = allLocalStorage[i];
-					if (name !== 'workingAuthor' && name !== 'workingPatchName' && name !== 'legacyPatches') {
+					if (name !== 'workingAuthor' && name !== 'workingPatchName' && name !== 'legacyPatches' && name !== 'superTopSecretCode') {
 						localStorage.setItem('workingPatchName', name);
 						foundAPatch = true;
 						break;
@@ -367,7 +374,6 @@ window.onload = function() {
 		});
 		try {
 			sharedPatchUncompressedObject = JSON.parse(sharedPatchUncompressed);
-			console.log(sharedPatchUncompressedObject);
 		} catch (error) {
 			alert('The patch appears to be invalid. Please check the URL and try again');
 		}
@@ -410,7 +416,7 @@ window.onload = function() {
 		allLocalStorage.sort();
 		for (var i = 0; i < allLocalStorage.length; i++) {
 			var name = allLocalStorage[i];
-			if (name !== 'workingAuthor' && name !== 'workingPatchName' && name !== 'legacyPatches') {
+			if (name !== 'workingAuthor' && name !== 'workingPatchName' && name !== 'legacyPatches' && name !== 'superTopSecretCode') {
 				addPatchNameToSelect(name, false);
 			}
 		}
@@ -462,6 +468,15 @@ function loadSavedPatch() {
 		}
 		else {
 			instrumentPassiveRackCheckbox.checked = false;
+		}
+
+		if (localStorage.getItem('superTopSecretCode')) {
+			if (workingPatch.instruments && workingPatch.instruments.indexOf('Expanded Rack') !== -1) {
+				instrumentExpandedRackCheckbox.checked = true;
+			}
+			else {
+				instrumentExpandedRackCheckbox.checked = false;
+			}
 		}
 
 		if (workingPatch.instruments && workingPatch.instruments.indexOf('External CV') !== -1) {
@@ -517,13 +532,15 @@ function loadSavedPatch() {
 
 }
 
-function selectAllJacks() {
+function selectAllJacks(update) {
 	for (const key in workingPatch.jacks) {
 		var connections = workingPatch.jacks[key];
 		for (var i = 0; i < connections.length; i++) {
 			var jackSelect = jackFields[key + '_' + i];
 			if (!jackSelect) {
-				newJackConnection(key + '_plus');
+				if (!update) {
+					newJackConnection(key + '_plus');
+				}
 				jackSelect = document.getElementById(key + '_' + i)
 			}
 			jackSelect.value = connections[i];
@@ -576,6 +593,7 @@ function saveInstrument(field) {
 		'instrument_checkbox_0coast': '0-Coast',
 		'instrument_checkbox_werkstatt': 'Werkstatt',
 		'instrument_checkbox_passiverack': 'Passive Rack',
+		'instrument_checkbox_expandedrack': 'Expanded Rack',
 		'instrument_checkbox_externalcv': 'External CV'
 	}
 	if (!workingPatch.instruments) {
@@ -594,7 +612,7 @@ function saveInstrument(field) {
 	}
 
 	insertAllJackDestinations();
-	selectAllJacks();
+	selectAllJacks(true);
 	savePatch();
 }
 
@@ -702,6 +720,14 @@ function collapseInstruments() {
 		instrumentPassiveRack.classList.add('collapse');
 	}
 
+	if (instrumentExpandedRackCheckbox.checked) {
+		instrumentExpandedRack.classList.remove('collapse');
+		instrumentsSelected = true;
+	}
+	else {
+		instrumentExpandedRack.classList.add('collapse');
+	}
+
 	if (instrumentExternalCVCheckbox.checked) {
 		instrumentExternalCV.classList.remove('collapse');
 		instrumentsSelected = true;
@@ -740,6 +766,7 @@ function insertJackDestinations(jackselect) {
 	if (workingPatch.instruments) {
 		allDestinations.unshift(...workingPatch.instruments);
 	}
+
 	allDestinations.forEach(instrument => {
 		var instrumentDestinations = jackDestinations[instrument];
 		for (var i = 0; i < instrumentDestinations.length; i++) {
@@ -749,7 +776,6 @@ function insertJackDestinations(jackselect) {
 			jackselect.appendChild(jackOption);
 		}
 	});
-
 }
 
 function changeActive(field) {
@@ -765,9 +791,6 @@ function changeActive(field) {
 function newJackConnection(id) {
 	var jackName = id.replace('_plus', '');
 
-	// if (!document.getElementById(id) && window.location.href.indexOf('/drone.html') === -1) {
-	// 	window.location.replace(window.location.href + 'drone.html')
-	// }
 	if (jackName) {
 		var grandparentDiv = document.getElementById(id).parentNode;
 		var numberOfConnections = parseInt(grandparentDiv.dataset.connections);
@@ -820,8 +843,7 @@ function sharePatch() {
 	});
 	workingPatchString = LZString.compressToEncodedURIComponent(workingPatchString);
 
-	var copyPatchURL = prompt('Your patch is encoded in the URL below. To share your patch, copy the link (make sure to get the whole thing). You can then paste the URL in an email to send to a friend, share at the Exquisite Coast thread on llllllll.co, or post on social media.', window.location.href + '?patch=' + workingPatchString);
-
+	prompt('Your patch is encoded in the URL below. To share your patch, copy the link (make sure to get the whole thing). You can then paste the URL in an email to send to a friend, share at the Exquisite Coast thread on llllllll.co, or post on social media.', window.location.href + '?patch=' + workingPatchString);
 }
 
 // ***************************   Convert Legacy Patch   ***************************
@@ -832,7 +854,7 @@ function convertOnePointOhPatch() {
 		var allLocalStorage = Object.keys(localStorage);
 		for (var i = 0; i < allLocalStorage.length; i++) {
 			var name = allLocalStorage[i];
-			if (name !== 'workingAuthor' && name !== 'workingPatchName') {
+			if (name !== 'workingAuthor' && name !== 'workingPatchName' && name !== 'legacyPatches' && name !== 'superTopSecretCode') {
 				allPatches.push(localStorage.getItem(name));
 			}
 		}

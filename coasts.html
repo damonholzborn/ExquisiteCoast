@@ -2,14 +2,13 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8" />
-	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1,user-scalable=0"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1,user-scalable=0" />
 
-	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-	<link rel="manifest" href="/site.webmanifest">
-	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+	<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+	<link rel="manifest" href="site.webmanifest">
+	<link rel="mask-icon" href="safari-pinned-tab.svg" color="#5bbad5">
 	<meta name="msapplication-TileColor" content="#ffc40d">
 	<meta name="theme-color" content="#ffffff">
 
@@ -18,12 +17,12 @@
 	<meta property="og:url" content="http://ec.rustle.works">
 	<meta property="og:image" content="http://ec.rustle.works/ogimage.png">
 
-	<title>Exquisite Coast</title>
+	<title>Exquisite Coasts</title>
 
-	<script src="lz-string.min.js"></script>
-	<script src="exquisitestringcodes.js"></script>
-	<script src="exquisitecoasts.js"></script>
-	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="lz-string.js?v=2.5"></script>
+	<script src="exquisitestringcodes.js?v=2.5"></script>
+	<script src="exquisitecoasts.js?v=2.5"></script>
+	<link rel="stylesheet" type="text/css" href="style.css?v=2.5">
 
 </head>
 <body>
@@ -36,7 +35,6 @@
 	<div id="arrows">
 		<div id="arrow1">→</div>
 		<div id="arrow2">←</div>
-		<!-- ← → ↑ ↓ -->
 	</div>
 
 	<div>
@@ -174,6 +172,9 @@
 						<br>
 						<input type="checkbox" id="instrument_checkbox_passiverack">
 						<label for="instrument_checkbox_passiverack">Passive Rack</label>
+						<br>
+						<input type="checkbox" id="instrument_checkbox_expandedrack">
+						<label for="instrument_checkbox_expandedrack">Expanded Rack</label>
 						<br>
 						<input type="checkbox" id="instrument_checkbox_externalcv">
 						<label for="instrument_checkbox_external_cv">External CV</label>
@@ -1097,109 +1098,111 @@
 
 				<!-- ***************************   0-Coast MIDI A & B   *************************** -->
 
-				<h3>
-					MIDI A & B
-				</h3>
+				<div class="collapse">
+					<h3>
+						MIDI A & B
+					</h3>
 
-				<div class="item_category">
-					MIDI A
-				</div>
+					<div class="item_category ">
+						MIDI A
+					</div>
 
-				<div class="item midi">
-					<div>
-						CV
+					<div class="item midi">
+						<div>
+							CV
+						</div>
+						<div>
+							<select id="nocoast_midi_input_a_cv" class="midi pointy">
+								<option value=""> </option>
+								<option value="Keyboard Note">Keyboard Note</option>
+								<option value="Keyboard Velocity">Keyboard Velocity</option>
+								<option value="Keyboard Gate">Keyboard Gate</option>
+								<option value="Sequencer Note">Sequencer Note</option>
+								<option value="Sequencer Velocity">Sequencer Velocity</option>
+								<option value="Sequencer Gate">Sequencer Gate</option>
+								<option value="Mod Wheel">Mod Wheel</option>
+								<option value="LFO">LFO</option>
+							</select>
+						</div>
 					</div>
-					<div>
-						<select id="nocoast_midi_input_a_cv" class="midi pointy">
-							<option value=""> </option>
-							<option value="Keyboard Note">Keyboard Note</option>
-							<option value="Keyboard Velocity">Keyboard Velocity</option>
-							<option value="Keyboard Gate">Keyboard Gate</option>
-							<option value="Sequencer Note">Sequencer Note</option>
-							<option value="Sequencer Velocity">Sequencer Velocity</option>
-							<option value="Sequencer Gate">Sequencer Gate</option>
-							<option value="Mod Wheel">Mod Wheel</option>
-							<option value="LFO">LFO</option>
-						</select>
+					<div class="item midi">
+						<div>
+							Gate
+						</div>
+						<div>
+							<select id="nocoast_midi_input_a_gate" class="midi pointy">
+								<option value=""> </option>
+								<option value="Keyboard Note">Keyboard Note</option>
+								<option value="Keyboard Velocity">Keyboard Velocity</option>
+								<option value="Keyboard Gate">Keyboard Gate</option>
+								<option value="Sequencer Note">Sequencer Note</option>
+								<option value="Sequencer Velocity">Sequencer Velocity</option>
+								<option value="Sequencer Gate">Sequencer Gate</option>
+								<option value="Mod Wheel">Mod Wheel</option>
+								<option value="LFO">LFO</option>
+							</select>
+						</div>
 					</div>
-				</div>
-				<div class="item midi">
-					<div>
-						Gate
-					</div>
-					<div>
-						<select id="nocoast_midi_input_a_gate" class="midi pointy">
-							<option value=""> </option>
-							<option value="Keyboard Note">Keyboard Note</option>
-							<option value="Keyboard Velocity">Keyboard Velocity</option>
-							<option value="Keyboard Gate">Keyboard Gate</option>
-							<option value="Sequencer Note">Sequencer Note</option>
-							<option value="Sequencer Velocity">Sequencer Velocity</option>
-							<option value="Sequencer Gate">Sequencer Gate</option>
-							<option value="Mod Wheel">Mod Wheel</option>
-							<option value="LFO">LFO</option>
-						</select>
-					</div>
-				</div>
 
-				<div class="item_category">
-					MIDI B
-				</div>
+					<div class="item_category">
+						MIDI B
+					</div>
 
-				<div class="item midi">
-					<div>
-						CV
+					<div class="item midi">
+						<div>
+							CV
+						</div>
+						<div>
+							<select id="nocoast_midi_input_b_cv" class="midi pointy">
+								<option value=""> </option>
+								<option value="Keyboard Note">Keyboard Note</option>
+								<option value="Keyboard Velocity">Keyboard Velocity</option>
+								<option value="Keyboard Gate">Keyboard Gate</option>
+								<option value="Sequencer Note">Sequencer Note</option>
+								<option value="Sequencer Velocity">Sequencer Velocity</option>
+								<option value="Sequencer Gate">Sequencer Gate</option>
+								<option value="Mod Wheel">Mod Wheel</option>
+								<option value="LFO">LFO</option>
+							</select>
+						</div>
 					</div>
-					<div>
-						<select id="nocoast_midi_input_b_cv" class="midi pointy">
-							<option value=""> </option>
-							<option value="Keyboard Note">Keyboard Note</option>
-							<option value="Keyboard Velocity">Keyboard Velocity</option>
-							<option value="Keyboard Gate">Keyboard Gate</option>
-							<option value="Sequencer Note">Sequencer Note</option>
-							<option value="Sequencer Velocity">Sequencer Velocity</option>
-							<option value="Sequencer Gate">Sequencer Gate</option>
-							<option value="Mod Wheel">Mod Wheel</option>
-							<option value="LFO">LFO</option>
-						</select>
+					<div class="item midi">
+						<div>
+							Gate
+						</div>
+						<div>
+							<select id="nocoast_midi_input_b_gate" class="midi pointy">
+								<option value=""> </option>
+								<option value="Keyboard Note">Keyboard Note</option>
+								<option value="Keyboard Velocity">Keyboard Velocity</option>
+								<option value="Keyboard Gate">Keyboard Gate</option>
+								<option value="Sequencer Note">Sequencer Note</option>
+								<option value="Sequencer Velocity">Sequencer Velocity</option>
+								<option value="Sequencer Gate">Sequencer Gate</option>
+								<option value="Mod Wheel">Mod Wheel</option>
+								<option value="LFO">LFO</option>
+							</select>
+						</div>
 					</div>
-				</div>
-				<div class="item midi">
-					<div>
-						Gate
-					</div>
-					<div>
-						<select id="nocoast_midi_input_b_gate" class="midi pointy">
-							<option value=""> </option>
-							<option value="Keyboard Note">Keyboard Note</option>
-							<option value="Keyboard Velocity">Keyboard Velocity</option>
-							<option value="Keyboard Gate">Keyboard Gate</option>
-							<option value="Sequencer Note">Sequencer Note</option>
-							<option value="Sequencer Velocity">Sequencer Velocity</option>
-							<option value="Sequencer Gate">Sequencer Gate</option>
-							<option value="Mod Wheel">Mod Wheel</option>
-							<option value="LFO">LFO</option>
-						</select>
-					</div>
-				</div>
 
-				<div class="item_category">
-					Coast Express <span id="coast_express_help_toggle" class="pointy">(?)</span></a>
-				</div>
-				<div id="coast_express_help" class="item midi collapse">
-					<div>
-						Use the <a href="https://ce.rustle.works" target="_blank">Coast Express web app</a> to set the 0-Coast MIDI settings. Copy the share link and paste it here. <i>Note: Coast Express only works in Chrome, Opera, and Edge.</i>
- 					</div>
-				</div>
-				<div class="item midi">
-					<div>
-						Share Link
+					<div class="item_category">
+						Coast Express <span id="coast_express_help_toggle" class="pointy">(?)</span></a>
 					</div>
-					<div>
-						<input type="text" id="coast_express_share_link" class="share_link">
+					<div id="coast_express_help" class="item midi collapse">
+						<div>
+							Use the <a href="https://ce.rustle.works" target="_blank">Coast Express web app</a> to set the 0-Coast MIDI settings. Copy the share link and paste it here. <i>Note: Coast Express only works in Chrome, Opera, and Edge.</i>
+						</div>
 					</div>
-					<div>
-						<a href="https://ce.rustle.works" id="coast_express_link_anchor" target="_blank"><img src="externallink.png" id="coast_express_link" class="hidden"></a>
+					<div class="item midi">
+						<div>
+							Share Link
+						</div>
+						<div>
+							<input type="text" id="coast_express_share_link" class="share_link">
+						</div>
+						<div>
+							<a href="https://ce.rustle.works" id="coast_express_link_anchor" target="_blank"><img src="externallink.png" id="coast_express_link" class="hidden"></a>
+						</div>
 					</div>
 				</div>
 
@@ -1464,7 +1467,7 @@
 					</div>
 				</div>
 
-				<!-- ********* VCO Mod ********* -->
+				<!-- ********* VCF Mod ********* -->
 
 				<div class="item_category">
 					VCF Mod
@@ -1516,10 +1519,10 @@
 				</div>
 				<div class="item knobs">
 					<div>
-						Dest
+						Polarity
 					</div>
 					<div>
-						<select id="werkstatt_vcf_mod_dest" class="knobs pointy">
+						<select id="werkstatt_vcf_mod_polarity" class="knobs pointy">
 							<option value=""> </option>
 							<option value="+">+</option>
 							<option value="-">-</option>
@@ -1630,10 +1633,10 @@
 				</div>
 				<div class="item knobs">
 					<div>
-						Rate
+						Decay
 					</div>
 					<div>
-						<select id="werkstatt_envelope_release" class="knobs pointy">
+						<select id="werkstatt_envelope_decay" class="knobs pointy">
 							<option value=""> </option>
 							<option value="min">min</option>
 							<option value="max">max</option>
@@ -2074,6 +2077,202 @@
 		</section>
 
 	</div>
+
+	<!-- ***************************   Instrument: Expanded Rack   *************************** -->
+
+	<div id="instrument_expandedrack" class="collapse">
+
+		<h2>
+			Expanded Rack
+		</h2>
+
+		<section id="instrument_expandedrack_columns">
+
+			<section class="instrument_expandedrack">
+
+				<!-- ***************************   Rack Output Jacks   *************************** -->
+
+				<h3>
+					Settings
+				</h3>
+
+				<div class="item_category">
+					Disting
+				</div>
+
+				<div class="item knobs">
+					<div>
+						Algorithm
+					</div>
+					<div>
+						<select id="disting_algorithm" class="knobs pointy">
+							<option value=""> </option>
+							<option value="A-1">A-1 Precision Adder</option>
+							<option value="A-2">A-2 Four Quadrant Multiplier</option>
+							<option value="A-3">A-3 Full-wave Rectifier</option>
+							<option value="A-4">A-4 Minimum/maximum</option>
+							<option value="A-5">A-5 Linear/Exponential Converter</option>
+							<option value="A-6">A-6 Quantizer</option>
+							<option value="A-7">A-7 Comparator</option>
+							<option value="A-8">A-8 Dual Waveshaper</option>
+							<option value="B-1">B-1 Sample and Hold</option>
+							<option value="B-2">B-2 Slew Rate Limiter</option>
+							<option value="B-3">B-3 Pitch and Envelope Tracker</option>
+							<option value="B-4">B-4 Clockable Delay/Echo</option>
+							<option value="B-5">B-5 LFO</option>
+							<option value="B-6">B-6 Clockable LFO</option>
+							<option value="B-7">B-7 VCO with linear FM</option>
+							<option value="B-8">B-8 VCO with waveshaping</option>
+							<option value="C-1">C-1 Precision Adder (fractional offsets)</option>
+							<option value="C-2">C-2 Voltage Controlled Delay Line</option>
+							<option value="C-3">C-3 Clockable Ping Pong Delay (Z feedback)</option>
+							<option value="C-4">C-4 Clockable Ping Pong Delay (Z input pan)</option>
+							<option value="C-5">C-5 Resonator</option>
+							<option value="C-6">C-6 Vocoder</option>
+							<option value="C-7">C-7 Phaser</option>
+							<option value="C-8">C-8 Bit Crusher</option>
+							<option value="D-1">D-1 DJ Filter</option>
+							<option value="D-2">D-2 Tape Delay</option>
+							<option value="D-3">D-3 Waveform Animator</option>
+							<option value="D-4">D-4 State Variable Filter</option>
+							<option value="D-5">D-5 LP/HP Filter</option>
+							<option value="D-6">D-6 LP/BP Filter</option>
+							<option value="D-7">D-7 BP/HP Filter</option>
+							<option value="D-8">D-8 BP/Notch Filter</option>
+							<option value="E-1">E-1 AR Envelope</option>
+							<option value="E-2">E-2 AR Envelope & VCA</option>
+							<option value="E-3">E-3 Dual AR Envelope</option>
+							<option value="E-4">E-4 Stereo Compressor</option>
+							<option value="E-5">E-5 Side-chain Compressor</option>
+							<option value="E-6">E-6 Mono Compressor</option>
+							<option value="F-1">F-1 Clockable AD Envelope (with mute)</option>
+							<option value="F-2">F-2 Clockable AD Envelope (with gate)</option>
+							<option value="F-3">F-3 Clockable AD Envelope (with trigger)</option>
+							<option value="F-4">F-4 Clockable AD Envelope & VCA</option>
+							<option value="F-5">F-5 Shift Register Random CVs</option>
+							<option value="F-6">F-6 Shift Register Random Quantized CVs</option>
+							<option value="F-7">F-7 Shift Register Random Triggers</option>
+							<option value="F-8">F-8 Shift Register Random Dual Triggers</option>
+							<option value="G-6">G-6 Clock</option>
+							<option value="G-7">G-7 MIDI/CV</option>
+							<option value="H-1">H-1 Crossfade/Pan</option>
+							<option value="H-2">H-2 Dual Sample and Hold</option>
+							<option value="H-3">H-3 Dual Quantizer (Z scale)</option>
+							<option value="H-4">H-4 Dual Quantizer</option>
+							<option value="H-5">H-5 Dual Euclidean Patterns</option>
+							<option value="H-6">H-6 Dual Delayed Pulse Generator</option>
+							<option value="H-7">H-7 Noise</option>
+							<option value="H-8">H-8 Quantizer 2</option>
+							<option value="I-1">I-1 Audio Playback</option>
+							<option value="I-2">I-2 Clocked Audio Playback</option>
+							<option value="I-3">I-3 Audio Playback with V/Oct</option>
+							<option value="I-4">I-4 Audio Playback with Z Speed</option>
+							<option value="I-5">I-5 Audio Playback with Reverse</option>
+							<option value="I-6">I-6 Audio Playback with Scrub</option>
+							<option value="I-7">I-7 Dual Audio Playback</option>
+							<option value="I-8">I-8 Dual Audio Playback with Z Speed</option>
+							<option value="J-2">J-2 Multisample 2 Audio Playback</option>
+							<option value="J-4">J-4 Audio Playback with End CV</option>
+							<option value="J-6">J-6 Multisample Audio Playback</option>
+							<option value="J-8">J-8 Audio Playback with Crossfade</option>
+							<option value="K-1">K-1 Wavetable VCO</option>
+							<option value="K-2">K-2 Clockable Wavetable LFO</option>
+							<option value="K-3">K-3 Wavetable Waveshaper</option>
+							<option value="K-4">K-4 Clockable Wavetable Envelope</option>
+							<option value="K-5">K-5 Programmable Quantizer</option>
+							<option value="K-6">K-6 Clockable SD Delay</option>
+							<option value="K-7">K-7 Stereo Clockable SD Delay</option>
+							<option value="K-8">K-8 Stereo Clockable SD Delay (Z clock)</option>
+							<option value="L-1">L-1 Stereo Reverb</option>
+							<option value="L-2">L-2 Mono-to-Stereo Reverb</option>
+							<option value="L-3">L-3 Dual Reverb</option>
+							<option value="L-4">L-4 Dual Vowel Filter</option>
+							<option value="L-5">L-5 Stereo Chorus</option>
+							<option value="L-6">L-6 Mono Chorus</option>
+							<option value="L-7">L-7 Mixer</option>
+							<option value="L-8">L-8 Gate</option>
+							<option value="M-1">M-1 Delayed LFO</option>
+							<option value="M-2">M-2 Scaled LFO</option>
+							<option value="M-3">M-3 Logic</option>
+							<option value="M-4">M-4 Half-wave Rectifier</option>
+							<option value="M-5">M-5 Stereo Filter</option>
+							<option value="M-6">M-6 Stereo Tape Delay</option>
+							<option value="M-7">M-7 Granular Pitch Shifter</option>
+							<option value="M-8">M-8 Chaos</option>
+							<option value="N-1">N-1 Switch</option>
+							<option value="N-2">N-2 Rotary</option>
+							<option value="N-5">N-5 Pulsar VCO</option>
+							<option value="N-8">N-8 Clockable SD Ping Pong</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="item_category">
+					Reverb
+				</div>
+
+				<div class="item knobs">
+					<div>
+						Plugin
+					</div>
+					<div>
+						<select id="reverb_plugin" class="knobs pointy">
+							<option value=""> </option>
+							<option value="Aaltoverb">Aaltoverb</option>
+							<option value="ADverb2">ADverb2</option>
+							<option value="Eos 2">Eos 2</option>
+							<option value="Ratshack Reverb 3">Ratshack Reverb 3</option>
+							<option value="TAL Reverb 4">TAL Reverb 4</option>
+							<option value="Things Texture">Things Texture</option>
+							<option value="ValhallaSupermassive">ValhallaSupermassive</option>
+						</select>
+					</div>
+				</div>
+
+			</section>
+
+			<section class="instrument_expandedrack">
+
+				<h3>
+					Output Jacks
+				</h3>
+
+
+				<div class="item_category">
+					Disting
+				</div>
+
+				<div class="item jacks" data-connections="1">
+					<div>
+						A
+					</div>
+					<div></div>
+					<div id="expandedrack_disting_a_container_0">
+						<select id="expandedrack_disting_a_0" data-index="0" class="jacks"></select>
+					</div>
+					<div id="expandedrack_disting_a_plus" class="plus pointy">
+						+
+					</div>
+				</div>
+				<div class="item jacks" data-connections="1">
+					<div>
+						B
+					</div>
+					<div></div>
+					<div id="expandedrack_disting_b_container_0">
+						<select id="expandedrack_disting_b_0" data-index="0" class="jacks"></select>
+					</div>
+					<div id="expandedrack_disting_b_plus" class="plus pointy">
+						+
+					</div>
+				</div>
+
+			</section>
+
+		</section>
+
+	</div>
+
 
 	<!-- ***************************   Instrument: External CV CV  *************************** -->
 
