@@ -255,25 +255,27 @@ textarea {
 	grid-template-columns: 120px 0px max-content max-content;
 }
 
-.instrument_passiverack .item.knobs {
-	grid-template-columns: 156px auto;
+.instrument_expandedrack_settings .item.knobs {
+	grid-template-columns: 122px auto;
 }
 
-.instrument_passiverack .item.jacks {
-	grid-template-columns: 180px 0px max-content max-content;
+.instrument_expandedrack_settings .item.knobs > * > select {
+	width: 434px;
+}
+
+.instrument_expandedrack_settings .item.knobs.reverb > * > select {
+	width: 224px;
 }
 
 .instrument_expandedrack .item.knobs {
-	grid-template-columns: 116px auto;
-}
-
-.instrument_expandedrack .item.knobs > * > select {
-	width: 446px;
+	grid-template-columns: 146px auto;
 }
 
 .instrument_expandedrack .item.jacks {
-	grid-template-columns: 40px 0px max-content max-content;
+	grid-template-columns: 168px 0px max-content max-content;
 }
+
+
 
 .instrument_externalcv .item.jacks {
 	grid-template-columns: 140px 0px max-content max-content;
@@ -319,8 +321,6 @@ textarea {
 	margin-bottom: 12px;
 	display: inline-block;
 }
-
-
 
 select {
 	background-color: var(--bg-color);
@@ -408,7 +408,7 @@ select.clocks {
 
 	#instrument_expandedrack_columns {
 		display: grid;
-		grid-template-columns: 644px auto;
+		grid-template-columns: 284px auto;
 	}
 }
 

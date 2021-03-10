@@ -15,13 +15,11 @@ var midiBLFOSpeedMultiplierField;
 
 var instrument0CoastCheckbox;
 var instrumentWerkstattCheckbox;
-var instrumentPassiveRackCheckbox;
 var instrumentExpandedRackCheckbox;
 var instrumentExternalCVCheckbox;
 
 var instrument0Coast;
 var instrumentWerkstatt;
-var instrumentPassiveRack;
 var instrumentExpandedRack;
 var instrumentExternalCV;
 var noInstruments;
@@ -41,9 +39,8 @@ var superTopSecretCode = localStorage.getItem('superTopSecretCode');
 var jackDestinations = {
 	'0-Coast': ['TEMPO Input', 'Voltage MATH: Channel 1 Input', 'Voltage MATH: Channel 2 Input', 'Oscillator: 1/V OCTave Input', 'Oscillator: Linear FM Input', 'Overtone: CV Input', 'Multiply: CV Input', 'Slope: Rise/Fall Time CV Input', 'Slope: Trigger Input', 'Contour: Decay Time CV Input', 'Contour: Gate Input', 'Balance: Channel External Input', 'Balance: CV Input', 'Dynamics: CV Input'],
 	'Werkstatt': ['VCA CV In', 'VCF CV In', 'VCO Lin FM In', 'VCO Exp FM In', 'LFO FM In', 'Gate In', 'VCF Aud In'],
-	'Passive Rack': ['Attenuator 1: In', 'Attenuator 2: In', 'Attenuator 3: In', 'LPG 1: Signal In', 'LPG 1: CV In', 'LPG 2: Signal In', 'LPG 2: CV In', 'LPG 1: CV In', 'Ring Mod 1: Signal In', 'Ring Mod 1: Carrier In', 'Ring Mod 2: Signal In', 'Ring Mod 2: Carrier In'],
+	'Expanded Rack': ['Attenuator 1: In', 'Attenuator 2: In', 'Attenuator 3: In', 'Att-Off 1: In', 'LPG 1: Signal In', 'LPG 1: CV In', 'LPG 2: Signal In', 'LPG 2: CV In', 'Sample & Hold: Signal In', 'Sample & Hold: S&H', 'Sample & Hold: T&H', 'Disting: Z', 'Disting: X', 'Disting: Y', 'TP8: Top Left', 'TP8: Top Right', 'TP8: Top Diamond', 'TP8: Middle Left', 'TP8: Middle Right', 'TP8: Bottom Diamond', 'TP8: Bottom Left', 'TP8: Bottom Right'],
 	'External CV': ['Sync In'],
-	'Expanded Rack': ['Disting: Z', 'Disting: X', 'Disting: Y'],
 	'System': ['Audio Out']
 }
 
@@ -96,20 +93,16 @@ window.onload = function() {
 
 	instrument0CoastCheckbox = document.getElementById('instrument_checkbox_0coast');
 	instrumentWerkstattCheckbox = document.getElementById('instrument_checkbox_werkstatt');
-	instrumentPassiveRackCheckbox = document.getElementById('instrument_checkbox_passiverack');
 	instrumentExpandedRackCheckbox = document.getElementById('instrument_checkbox_expandedrack');
 	instrumentExternalCVCheckbox = document.getElementById('instrument_checkbox_externalcv');
 
 	instrument0CoastCheckbox.addEventListener('change', function() { saveInstrument(instrument0CoastCheckbox); collapseInstruments() });
 	instrumentWerkstattCheckbox.addEventListener('change', function() { saveInstrument(instrumentWerkstattCheckbox); collapseInstruments() });
-	instrumentPassiveRackCheckbox.addEventListener('change', function() { saveInstrument(instrumentPassiveRackCheckbox); collapseInstruments() });
-	instrumentExpandedRackCheckbox.addEventListener('change', function() { saveInstrument(instrumentExpandedRackCheckbox); collapseInstruments()
-	});
+	instrumentExpandedRackCheckbox.addEventListener('change', function() { saveInstrument(instrumentExpandedRackCheckbox); collapseInstruments() });
 	instrumentExternalCVCheckbox.addEventListener('change', function() { saveInstrument(instrumentExternalCVCheckbox); collapseInstruments() });
 
 	instrument0Coast = document.getElementById('instrument_0coast');
 	instrumentWerkstatt = document.getElementById('instrument_werkstatt');
-	instrumentPassiveRack = document.getElementById('instrument_passiverack');
 	instrumentExpandedRack = document.getElementById('instrument_expandedrack');
 	instrumentExternalCV = document.getElementById('instrument_externalcv');
 	noInstruments = document.getElementById('no_instruments');
@@ -478,13 +471,6 @@ function loadSavedPatch() {
 		}
 
 		if (superTopSecretCode) {
-			if (workingPatch.instruments && workingPatch.instruments.indexOf('Passive Rack') !== -1) {
-				instrumentPassiveRackCheckbox.checked = true;
-			}
-			else {
-				instrumentPassiveRackCheckbox.checked = false;
-			}
-
 			if (workingPatch.instruments && workingPatch.instruments.indexOf('Expanded Rack') !== -1) {
 				instrumentExpandedRackCheckbox.checked = true;
 			}
@@ -604,7 +590,6 @@ function saveInstrument(field) {
 	var instrumentGuide = {
 		'instrument_checkbox_0coast': '0-Coast',
 		'instrument_checkbox_werkstatt': 'Werkstatt',
-		'instrument_checkbox_passiverack': 'Passive Rack',
 		'instrument_checkbox_expandedrack': 'Expanded Rack',
 		'instrument_checkbox_externalcv': 'External CV'
 	}
@@ -722,14 +707,6 @@ function collapseInstruments() {
 	}
 	else {
 		instrumentWerkstatt.classList.add('collapse');
-	}
-
-	if (instrumentPassiveRackCheckbox.checked) {
-		instrumentPassiveRack.classList.remove('collapse');
-		instrumentsSelected = true;
-	}
-	else {
-		instrumentPassiveRack.classList.add('collapse');
 	}
 
 	if (instrumentExpandedRackCheckbox.checked) {
