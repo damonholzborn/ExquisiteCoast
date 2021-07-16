@@ -14,11 +14,13 @@ var midiBLFOSpeedTypeField;
 var midiBLFOSpeedMultiplierField;
 
 var instrument0CoastCheckbox;
+var instrumentStregaCheckbox;
 var instrumentWerkstattCheckbox;
 var instrumentExpandedRackCheckbox;
 var instrumentExternalCVCheckbox;
 
 var instrument0Coast;
+var instrumentStrega;
 var instrumentWerkstatt;
 var instrumentExpandedRack;
 var instrumentExternalCV;
@@ -38,6 +40,7 @@ var superTopSecretCode = localStorage.getItem('superTopSecretCode');
 
 var jackDestinations = {
 	'0-Coast': ['TEMPO Input', 'Voltage MATH: Channel 1 Input', 'Voltage MATH: Channel 2 Input', 'Oscillator: 1/V OCTave Input', 'Oscillator: Linear FM Input', 'Overtone: CV Input', 'Multiply: CV Input', 'Slope: Rise/Fall Time CV Input', 'Slope: Trigger Input', 'Contour: Decay Time CV Input', 'Contour: Gate Input', 'Balance: Channel External Input', 'Balance: CV Input', 'Dynamics: CV Input'],
+	'Strega': ['External: Substance In', 'Activation: CV In', 'Tonic: Tonic Modulation Interference Input', 'Tones: CV In', 'Tones: 1V/ Octave', 'Time/Filter: Time Modulation Input', 'Time/Filter: Time CV In', 'Time/Filter: Time Unity CV In', 'Time/Filter: Decay CV In', 'Time/Filter: Absorb CV In', 'Time/Filter: Blend CV In', 'Time/Filter: Filter CV In', 'Agitation Generator: Begin and End In', 'Agitation Generator: Speed CV In'],
 	'Werkstatt': ['VCA CV In', 'VCF CV In', 'VCO Lin FM In', 'VCO Exp FM In', 'LFO FM In', 'Gate In', 'VCF Aud In'],
 	'Expanded Rack': ['Filter: Audio In', 'Filter: Freq CV', 'Filter: Freq CV (attenuated)', 'Attenuator 1: In', 'Attenuator 2: In', 'Attenuator 3: In', 'Att-Off 1: In', 'LPG 1: Signal In', 'LPG 1: CV In', 'LPG 2: Signal In', 'LPG 2: CV In', 'Sample & Hold: Signal In', 'Sample & Hold: S&H', 'Sample & Hold: T&H', 'Piezo: Audio In', 'Disting: Z', 'Disting: X', 'Disting: Y', 'Disting 2: Z', 'Disting 2: X', 'Disting 2: Y', 'TP8: Top Left', 'TP8: Top Right', 'TP8: Top Diamond', 'TP8: Middle Left', 'TP8: Middle Right', 'TP8: Bottom Diamond', 'TP8: Bottom Left', 'TP8: Bottom Right'],
 	'External CV': ['Sync In'],
@@ -92,16 +95,19 @@ window.onload = function() {
 	shareButton = document.getElementById('get_share_link');
 
 	instrument0CoastCheckbox = document.getElementById('instrument_checkbox_0coast');
+	instrumentStregaCheckbox = document.getElementById('instrument_checkbox_strega');
 	instrumentWerkstattCheckbox = document.getElementById('instrument_checkbox_werkstatt');
 	instrumentExpandedRackCheckbox = document.getElementById('instrument_checkbox_expandedrack');
 	instrumentExternalCVCheckbox = document.getElementById('instrument_checkbox_externalcv');
 
 	instrument0CoastCheckbox.addEventListener('change', function() { saveInstrument(instrument0CoastCheckbox); collapseInstruments() });
+	instrumentStregaCheckbox.addEventListener('change', function() { saveInstrument(instrumentStregaCheckbox); collapseInstruments() });
 	instrumentWerkstattCheckbox.addEventListener('change', function() { saveInstrument(instrumentWerkstattCheckbox); collapseInstruments() });
 	instrumentExpandedRackCheckbox.addEventListener('change', function() { saveInstrument(instrumentExpandedRackCheckbox); collapseInstruments() });
 	instrumentExternalCVCheckbox.addEventListener('change', function() { saveInstrument(instrumentExternalCVCheckbox); collapseInstruments() });
 
 	instrument0Coast = document.getElementById('instrument_0coast');
+	instrumentStrega = document.getElementById('instrument_strega');
 	instrumentWerkstatt = document.getElementById('instrument_werkstatt');
 	instrumentExpandedRack = document.getElementById('instrument_expandedrack');
 	instrumentExternalCV = document.getElementById('instrument_externalcv');
@@ -463,6 +469,13 @@ function loadSavedPatch() {
 			instrument0CoastCheckbox.checked = false;
 		}
 
+		if (workingPatch.instruments && workingPatch.instruments.indexOf('Strega') !== -1) {
+			instrumentStregaCheckbox.checked = true;
+		}
+		else {
+			instrumentStregaCheckbox.checked = false;
+		}
+
 		if (workingPatch.instruments && workingPatch.instruments.indexOf('Werkstatt') !== -1) {
 			instrumentWerkstattCheckbox.checked = true;
 		}
@@ -589,6 +602,7 @@ function addPatchNameToSelect(name, selected) {
 function saveInstrument(field) {
 	var instrumentGuide = {
 		'instrument_checkbox_0coast': '0-Coast',
+		'instrument_checkbox_strega': 'Strega',
 		'instrument_checkbox_werkstatt': 'Werkstatt',
 		'instrument_checkbox_expandedrack': 'Expanded Rack',
 		'instrument_checkbox_externalcv': 'External CV'
@@ -699,6 +713,14 @@ function collapseInstruments() {
 	}
 	else {
 		instrument0Coast.classList.add('collapse');
+	}
+
+	if (instrumentStregaCheckbox.checked) {
+		instrumentStrega.classList.remove('collapse');
+		instrumentsSelected = true;
+	}
+	else {
+		instrumentStrega.classList.add('collapse');
 	}
 
 	if (instrumentWerkstattCheckbox.checked) {

@@ -19,10 +19,10 @@
 
 	<title>Exquisite Coasts</title>
 
-	<script src="lz-string.js?v=2.9"></script>
-	<script src="exquisitestringcodes.js?v=2.9"></script>
-	<script src="exquisitecoasts.js?v=2.9"></script>
-	<link rel="stylesheet" type="text/css" href="style.css?v=2.9">
+	<script src="lz-string.js?v=2.10"></script>
+	<script src="exquisitestringcodes.js?v=2.10"></script>
+	<script src="exquisitecoasts.js?v=2.10"></script>
+	<link rel="stylesheet" type="text/css" href="style.css?v=2.10">
 
 </head>
 <body>
@@ -49,15 +49,15 @@
 			<h3>Process</h3>
 
 			<ol>
-				<li>Create a patch and record a performance using only the 0-Coast (the Prompt).</li>
-				<li>Document the state of your 0-Coast at the end of the Prompt recording.</li>
+				<li>Create a patch and record a performance using only the the 0-Coast, Strega, and/or Werkstatt (the Prompt).</li>
+				<li>Document the state of your synthesizer(s) at the end of the Prompt recording.</li>
 				<li>Share your Prompt for others to use (the Response).</li>
 			</ol>
 
 			<h3>Guidelines</h3>
 
 			<ul>
-				<li>All sound and control comes from the 0-Coast — no outside MIDI or CV.</li>
+				<li>All sound and control comes from the synthesizers you've select here — no outside MIDI or CV.</li>
 				<li>The only outside modules allowed are passive mults (this minor exception makes sense for those who don't have any stacking cables).</li>
 				<li>MIDI B CV and Gate should be set to LFO mode.</li>
 				<li>Re-patching while performing either the Prompt or the Response is not allowed; all interaction is through the knobs and buttons.</li>
@@ -70,7 +70,7 @@
 				<li>If you are comfortable with doing so, it would be helpful to include contact info (email, website, social media, etc.) in the Author Info section so others can properly credit you in their response (or tell you how great your patch is!). </li>
 			</ul>
 
-			<h3>How to Play the Exquisite Coast Shared Patch Game</h3>
+			<h3>How to Play the Exquisite Coasts Shared Patch Game</h3>
 
 			<ul>
 				<li>Notate your patch using the interface below.</li>
@@ -83,10 +83,10 @@
 			<ul>
 				<li>Your patch information is not stored on a server, all data is saved to your browser. This means that your work will only be available in the browser that you used to create the patch. You might want to save the links to any important patches somewhere else for safekeeping.</li>
 				<li>Your patch is automatically saved as you work so any patches you've worked on will be waiting for you when you return (with the same browser).</li>
-				<li>Exquisite Coast is still in beta, so please bear with us as we work out any kinks. If you run into any issues, please <a href="mailto: ec@rustle.works">let us know</a>. Be sure to include as much detail as you can in your message &mdash; browser, device, OS version, what you were doing, etc.</li>
+				<li>If you run into any issues, please <a href="mailto: ec@rustle.works">let us know</a>. Be sure to include as much detail as you can in your message &mdash; browser, device, OS version, what you were doing, etc.</li>
 			</ul>
 
-			<p>Happy bleeping! We look forward to seeing and hearing what you do with <i>Exquisite Coast</i>!</p>
+			<p>Happy bleeping! We look forward to seeing and hearing what you do with <i>Exquisite Coasts</i>!</p>
 
 		</div>
 		<div id="contact_info">
@@ -166,6 +166,9 @@
 					<div>
 						<input type="checkbox" id="instrument_checkbox_0coast">
 						<label for="instrument_checkbox_0coast">0-Coast</label>
+						<br>
+						<input type="checkbox" id="instrument_checkbox_strega">
+						<label for="instrument_checkbox_strega">Strega</label>
 						<br>
 						<input type="checkbox" id="instrument_checkbox_werkstatt">
 						<label for="instrument_checkbox_werkstatt">Werkstatt</label>
@@ -1211,6 +1214,915 @@
 
 	</div>
 
+
+	<!-- ***************************   Instrument:Strega   *************************** -->
+
+	<div id="instrument_strega" class="collapse">
+
+		<h2>
+			Strega
+		</h2>
+
+		<section id="instrument_strega_columns">
+
+			<section class="instrument_strega">
+
+			<!-- ***************************   Strega Knobs   *************************** -->
+
+				<h3>
+					Knobs
+				</h3>
+
+				<!-- ********* External ********* -->
+
+				<div class="item_category">
+					External
+				</div>
+
+				<div class="item knobs">
+					<div>
+						Strength Control
+					</div>
+					<div>
+						<select id="strega_external_strength_control" class="knobs pointy">
+							<option value=""> </option>
+							<option value="min">min</option>
+							<option value="max">max</option>
+							<option value="7:00">7:00</option>
+							<option value="7:30">7:30</option>
+							<option value="8:00">8:00</option>
+							<option value="8:30">8:30</option>
+							<option value="9:00">9:00</option>
+							<option value="9:30">9:30</option>
+							<option value="10:00">10:00</option>
+							<option value="10:30">10:30</option>
+							<option value="11:00">11:00</option>
+							<option value="11:30">11:30</option>
+							<option value="12:00">12:00</option>
+							<option value="12:30">12:30</option>
+							<option value="1:00">1:00</option>
+							<option value="1:30">1:30</option>
+							<option value="2:00">2:00</option>
+							<option value="2:30">2:30</option>
+							<option value="3:00">3:00</option>
+							<option value="3:30">3:30</option>
+							<option value="4:00">4:00</option>
+							<option value="4:30">4:30</option>
+							<option value="5:00">5:00</option>
+						</select>
+					</div>
+				</div>
+				<div class="item knobs">
+					<div>
+						Constant Control
+					</div>
+					<div>
+						<select id="strega_external_constant_control" class="knobs pointy">
+							<option value=""> </option>
+							<option value="min">min</option>
+							<option value="max">max</option>
+							<option value="7:00">7:00</option>
+							<option value="7:30">7:30</option>
+							<option value="8:00">8:00</option>
+							<option value="8:30">8:30</option>
+							<option value="9:00">9:00</option>
+							<option value="9:30">9:30</option>
+							<option value="10:00">10:00</option>
+							<option value="10:30">10:30</option>
+							<option value="11:00">11:00</option>
+							<option value="11:30">11:30</option>
+							<option value="12:00">12:00</option>
+							<option value="12:30">12:30</option>
+							<option value="1:00">1:00</option>
+							<option value="1:30">1:30</option>
+							<option value="2:00">2:00</option>
+							<option value="2:30">2:30</option>
+							<option value="3:00">3:00</option>
+							<option value="3:30">3:30</option>
+							<option value="4:00">4:00</option>
+							<option value="4:30">4:30</option>
+							<option value="5:00">5:00</option>
+						</select>
+					</div>
+				</div>
+
+				<!-- ********* Activation ********* -->
+
+				<div class="item_category">
+					Activation
+				</div>
+
+				<div class="item knobs">
+					<div>
+						Interference Control
+					</div>
+					<div>
+						<select id="strega_activation_interference_control" class="knobs pointy">
+							<option value=""> </option>
+							<option value="min">min</option>
+							<option value="max">max</option>
+							<option value="7:00">7:00</option>
+							<option value="7:30">7:30</option>
+							<option value="8:00">8:00</option>
+							<option value="8:30">8:30</option>
+							<option value="9:00">9:00</option>
+							<option value="9:30">9:30</option>
+							<option value="10:00">10:00</option>
+							<option value="10:30">10:30</option>
+							<option value="11:00">11:00</option>
+							<option value="11:30">11:30</option>
+							<option value="12:00">12:00</option>
+							<option value="12:30">12:30</option>
+							<option value="1:00">1:00</option>
+							<option value="1:30">1:30</option>
+							<option value="2:00">2:00</option>
+							<option value="2:30">2:30</option>
+							<option value="3:00">3:00</option>
+							<option value="3:30">3:30</option>
+							<option value="4:00">4:00</option>
+							<option value="4:30">4:30</option>
+							<option value="5:00">5:00</option>
+						</select>
+					</div>
+				</div>
+				<div class="item knobs">
+					<div>
+						Constant Control
+					</div>
+					<div>
+						<select id="strega_activation_constant_control" class="knobs pointy">
+							<option value=""> </option>
+							<option value="min">min</option>
+							<option value="max">max</option>
+							<option value="7:00">7:00</option>
+							<option value="7:30">7:30</option>
+							<option value="8:00">8:00</option>
+							<option value="8:30">8:30</option>
+							<option value="9:00">9:00</option>
+							<option value="9:30">9:30</option>
+							<option value="10:00">10:00</option>
+							<option value="10:30">10:30</option>
+							<option value="11:00">11:00</option>
+							<option value="11:30">11:30</option>
+							<option value="12:00">12:00</option>
+							<option value="12:30">12:30</option>
+							<option value="1:00">1:00</option>
+							<option value="1:30">1:30</option>
+							<option value="2:00">2:00</option>
+							<option value="2:30">2:30</option>
+							<option value="3:00">3:00</option>
+							<option value="3:30">3:30</option>
+							<option value="4:00">4:00</option>
+							<option value="4:30">4:30</option>
+							<option value="5:00">5:00</option>
+						</select>
+					</div>
+				</div>
+				<div class="item knobs">
+					<div>
+						CV Attenuvertor
+					</div>
+					<div>
+						<select id="strega_activation_cv_attenuvertor" class="knobs pointy">
+							<option value=""> </option>
+							<option value="min">min</option>
+							<option value="max">max</option>
+							<option value="7:00">7:00</option>
+							<option value="7:30">7:30</option>
+							<option value="8:00">8:00</option>
+							<option value="8:30">8:30</option>
+							<option value="9:00">9:00</option>
+							<option value="9:30">9:30</option>
+							<option value="10:00">10:00</option>
+							<option value="10:30">10:30</option>
+							<option value="11:00">11:00</option>
+							<option value="11:30">11:30</option>
+							<option value="12:00">12:00</option>
+							<option value="12:30">12:30</option>
+							<option value="1:00">1:00</option>
+							<option value="1:30">1:30</option>
+							<option value="2:00">2:00</option>
+							<option value="2:30">2:30</option>
+							<option value="3:00">3:00</option>
+							<option value="3:30">3:30</option>
+							<option value="4:00">4:00</option>
+							<option value="4:30">4:30</option>
+							<option value="5:00">5:00</option>
+						</select>
+					</div>
+				</div>
+
+				<!-- ********* Tonic ********* -->
+
+				<div class="item_category">
+					Tonic
+				</div>
+
+				<div class="item knobs">
+					<div>
+						Modulation Interference Combo Control
+					</div>
+					<div>
+						<select id="strega_tonic_modulation_interference_combo_control" class="knobs pointy">
+							<option value=""> </option>
+							<option value="min">min</option>
+							<option value="max">max</option>
+							<option value="7:00">7:00</option>
+							<option value="7:30">7:30</option>
+							<option value="8:00">8:00</option>
+							<option value="8:30">8:30</option>
+							<option value="9:00">9:00</option>
+							<option value="9:30">9:30</option>
+							<option value="10:00">10:00</option>
+							<option value="10:30">10:30</option>
+							<option value="11:00">11:00</option>
+							<option value="11:30">11:30</option>
+							<option value="12:00">12:00</option>
+							<option value="12:30">12:30</option>
+							<option value="1:00">1:00</option>
+							<option value="1:30">1:30</option>
+							<option value="2:00">2:00</option>
+							<option value="2:30">2:30</option>
+							<option value="3:00">3:00</option>
+							<option value="3:30">3:30</option>
+							<option value="4:00">4:00</option>
+							<option value="4:30">4:30</option>
+							<option value="5:00">5:00</option>
+						</select>
+					</div>
+				</div>
+				<div class="item knobs">
+					<div>
+						Course Control
+					</div>
+					<div>
+						<select id="strega_tonic_course_control" class="knobs pointy">
+							<option value=""> </option>
+							<option value="min">min</option>
+							<option value="max">max</option>
+							<option value="7:00">7:00</option>
+							<option value="7:30">7:30</option>
+							<option value="8:00">8:00</option>
+							<option value="8:30">8:30</option>
+							<option value="9:00">9:00</option>
+							<option value="9:30">9:30</option>
+							<option value="10:00">10:00</option>
+							<option value="10:30">10:30</option>
+							<option value="11:00">11:00</option>
+							<option value="11:30">11:30</option>
+							<option value="12:00">12:00</option>
+							<option value="12:30">12:30</option>
+							<option value="1:00">1:00</option>
+							<option value="1:30">1:30</option>
+							<option value="2:00">2:00</option>
+							<option value="2:30">2:30</option>
+							<option value="3:00">3:00</option>
+							<option value="3:30">3:30</option>
+							<option value="4:00">4:00</option>
+							<option value="4:30">4:30</option>
+							<option value="5:00">5:00</option>
+						</select>
+					</div>
+				</div>
+
+				<!-- ********* Tones ********* -->
+
+				<div class="item_category">
+					Tones
+				</div>
+
+				<div class="item knobs">
+					<div>
+						Tones Control
+					</div>
+					<div>
+						<select id="strega_tones_control" class="knobs pointy">
+							<option value=""> </option>
+							<option value="min">min</option>
+							<option value="max">max</option>
+							<option value="7:00">7:00</option>
+							<option value="7:30">7:30</option>
+							<option value="8:00">8:00</option>
+							<option value="8:30">8:30</option>
+							<option value="9:00">9:00</option>
+							<option value="9:30">9:30</option>
+							<option value="10:00">10:00</option>
+							<option value="10:30">10:30</option>
+							<option value="11:00">11:00</option>
+							<option value="11:30">11:30</option>
+							<option value="12:00">12:00</option>
+							<option value="12:30">12:30</option>
+							<option value="1:00">1:00</option>
+							<option value="1:30">1:30</option>
+							<option value="2:00">2:00</option>
+							<option value="2:30">2:30</option>
+							<option value="3:00">3:00</option>
+							<option value="3:30">3:30</option>
+							<option value="4:00">4:00</option>
+							<option value="4:30">4:30</option>
+							<option value="5:00">5:00</option>
+						</select>
+					</div>
+				</div>
+				<div class="item knobs">
+					<div>
+						CV Attenuvertor
+					</div>
+					<div>
+						<select id="strega_tones_cv_attenuvertor" class="knobs pointy">
+							<option value=""> </option>
+							<option value="min">min</option>
+							<option value="max">max</option>
+							<option value="7:00">7:00</option>
+							<option value="7:30">7:30</option>
+							<option value="8:00">8:00</option>
+							<option value="8:30">8:30</option>
+							<option value="9:00">9:00</option>
+							<option value="9:30">9:30</option>
+							<option value="10:00">10:00</option>
+							<option value="10:30">10:30</option>
+							<option value="11:00">11:00</option>
+							<option value="11:30">11:30</option>
+							<option value="12:00">12:00</option>
+							<option value="12:30">12:30</option>
+							<option value="1:00">1:00</option>
+							<option value="1:30">1:30</option>
+							<option value="2:00">2:00</option>
+							<option value="2:30">2:30</option>
+							<option value="3:00">3:00</option>
+							<option value="3:30">3:30</option>
+							<option value="4:00">4:00</option>
+							<option value="4:30">4:30</option>
+							<option value="5:00">5:00</option>
+						</select>
+					</div>
+				</div>
+
+				<!-- ********* Time/Filter Experiment ********* -->
+
+				<div class="item_category">
+					Time/Filter Experiment
+				</div>
+
+				<div class="item knobs">
+					<div>
+						Time Course
+					</div>
+					<div>
+						<select id="strega_timefilter_time_course" class="knobs pointy">
+							<option value=""> </option>
+							<option value="min">min</option>
+							<option value="max">max</option>
+							<option value="7:00">7:00</option>
+							<option value="7:30">7:30</option>
+							<option value="8:00">8:00</option>
+							<option value="8:30">8:30</option>
+							<option value="9:00">9:00</option>
+							<option value="9:30">9:30</option>
+							<option value="10:00">10:00</option>
+							<option value="10:30">10:30</option>
+							<option value="11:00">11:00</option>
+							<option value="11:30">11:30</option>
+							<option value="12:00">12:00</option>
+							<option value="12:30">12:30</option>
+							<option value="1:00">1:00</option>
+							<option value="1:30">1:30</option>
+							<option value="2:00">2:00</option>
+							<option value="2:30">2:30</option>
+							<option value="3:00">3:00</option>
+							<option value="3:30">3:30</option>
+							<option value="4:00">4:00</option>
+							<option value="4:30">4:30</option>
+							<option value="5:00">5:00</option>
+						</select>
+					</div>
+				</div>
+				<div class="item knobs">
+					<div>
+						Time Modulation Combo Control
+					</div>
+					<div>
+						<select id="strega_timefilter_time_modulation_combo_control" class="knobs pointy">
+							<option value=""> </option>
+							<option value="min">min</option>
+							<option value="max">max</option>
+							<option value="7:00">7:00</option>
+							<option value="7:30">7:30</option>
+							<option value="8:00">8:00</option>
+							<option value="8:30">8:30</option>
+							<option value="9:00">9:00</option>
+							<option value="9:30">9:30</option>
+							<option value="10:00">10:00</option>
+							<option value="10:30">10:30</option>
+							<option value="11:00">11:00</option>
+							<option value="11:30">11:30</option>
+							<option value="12:00">12:00</option>
+							<option value="12:30">12:30</option>
+							<option value="1:00">1:00</option>
+							<option value="1:30">1:30</option>
+							<option value="2:00">2:00</option>
+							<option value="2:30">2:30</option>
+							<option value="3:00">3:00</option>
+							<option value="3:30">3:30</option>
+							<option value="4:00">4:00</option>
+							<option value="4:30">4:30</option>
+							<option value="5:00">5:00</option>
+						</select>
+					</div>
+				</div>
+				<div class="item knobs">
+					<div>
+						Time CV Attenuvertor
+					</div>
+					<div>
+						<select id="strega_timefilter_time_cv_attenuvertor" class="knobs pointy">
+							<option value=""> </option>
+							<option value="min">min</option>
+							<option value="max">max</option>
+							<option value="7:00">7:00</option>
+							<option value="7:30">7:30</option>
+							<option value="8:00">8:00</option>
+							<option value="8:30">8:30</option>
+							<option value="9:00">9:00</option>
+							<option value="9:30">9:30</option>
+							<option value="10:00">10:00</option>
+							<option value="10:30">10:30</option>
+							<option value="11:00">11:00</option>
+							<option value="11:30">11:30</option>
+							<option value="12:00">12:00</option>
+							<option value="12:30">12:30</option>
+							<option value="1:00">1:00</option>
+							<option value="1:30">1:30</option>
+							<option value="2:00">2:00</option>
+							<option value="2:30">2:30</option>
+							<option value="3:00">3:00</option>
+							<option value="3:30">3:30</option>
+							<option value="4:00">4:00</option>
+							<option value="4:30">4:30</option>
+							<option value="5:00">5:00</option>
+						</select>
+					</div>
+				</div>
+				<div class="item knobs">
+					<div>
+						Decay
+					</div>
+					<div>
+						<select id="strega_timefilter_decay" class="knobs pointy">
+							<option value=""> </option>
+							<option value="min">min</option>
+							<option value="max">max</option>
+							<option value="7:00">7:00</option>
+							<option value="7:30">7:30</option>
+							<option value="8:00">8:00</option>
+							<option value="8:30">8:30</option>
+							<option value="9:00">9:00</option>
+							<option value="9:30">9:30</option>
+							<option value="10:00">10:00</option>
+							<option value="10:30">10:30</option>
+							<option value="11:00">11:00</option>
+							<option value="11:30">11:30</option>
+							<option value="12:00">12:00</option>
+							<option value="12:30">12:30</option>
+							<option value="1:00">1:00</option>
+							<option value="1:30">1:30</option>
+							<option value="2:00">2:00</option>
+							<option value="2:30">2:30</option>
+							<option value="3:00">3:00</option>
+							<option value="3:30">3:30</option>
+							<option value="4:00">4:00</option>
+							<option value="4:30">4:30</option>
+							<option value="5:00">5:00</option>
+						</select>
+					</div>
+				</div>
+				<div class="item knobs">
+					<div>
+						Decay CV Attenuvertor
+					</div>
+					<div>
+						<select id="strega_timefilter_decay_cv_attenuvertor" class="knobs pointy">
+							<option value=""> </option>
+							<option value="min">min</option>
+							<option value="max">max</option>
+							<option value="7:00">7:00</option>
+							<option value="7:30">7:30</option>
+							<option value="8:00">8:00</option>
+							<option value="8:30">8:30</option>
+							<option value="9:00">9:00</option>
+							<option value="9:30">9:30</option>
+							<option value="10:00">10:00</option>
+							<option value="10:30">10:30</option>
+							<option value="11:00">11:00</option>
+							<option value="11:30">11:30</option>
+							<option value="12:00">12:00</option>
+							<option value="12:30">12:30</option>
+							<option value="1:00">1:00</option>
+							<option value="1:30">1:30</option>
+							<option value="2:00">2:00</option>
+							<option value="2:30">2:30</option>
+							<option value="3:00">3:00</option>
+							<option value="3:30">3:30</option>
+							<option value="4:00">4:00</option>
+							<option value="4:30">4:30</option>
+							<option value="5:00">5:00</option>
+						</select>
+					</div>
+				</div>
+				<div class="item knobs">
+					<div>
+						Absorb Combo Control
+					</div>
+					<div>
+						<select id="strega_timefilter_absorb_combo_control" class="knobs pointy">
+							<option value=""> </option>
+							<option value="min">min</option>
+							<option value="max">max</option>
+							<option value="7:00">7:00</option>
+							<option value="7:30">7:30</option>
+							<option value="8:00">8:00</option>
+							<option value="8:30">8:30</option>
+							<option value="9:00">9:00</option>
+							<option value="9:30">9:30</option>
+							<option value="10:00">10:00</option>
+							<option value="10:30">10:30</option>
+							<option value="11:00">11:00</option>
+							<option value="11:30">11:30</option>
+							<option value="12:00">12:00</option>
+							<option value="12:30">12:30</option>
+							<option value="1:00">1:00</option>
+							<option value="1:30">1:30</option>
+							<option value="2:00">2:00</option>
+							<option value="2:30">2:30</option>
+							<option value="3:00">3:00</option>
+							<option value="3:30">3:30</option>
+							<option value="4:00">4:00</option>
+							<option value="4:30">4:30</option>
+							<option value="5:00">5:00</option>
+						</select>
+					</div>
+				</div>
+				<div class="item knobs">
+					<div>
+						Filter
+					</div>
+					<div>
+						<select id="strega_timefilter_filter" class="knobs pointy">
+							<option value=""> </option>
+							<option value="min">min</option>
+							<option value="max">max</option>
+							<option value="7:00">7:00</option>
+							<option value="7:30">7:30</option>
+							<option value="8:00">8:00</option>
+							<option value="8:30">8:30</option>
+							<option value="9:00">9:00</option>
+							<option value="9:30">9:30</option>
+							<option value="10:00">10:00</option>
+							<option value="10:30">10:30</option>
+							<option value="11:00">11:00</option>
+							<option value="11:30">11:30</option>
+							<option value="12:00">12:00</option>
+							<option value="12:30">12:30</option>
+							<option value="1:00">1:00</option>
+							<option value="1:30">1:30</option>
+							<option value="2:00">2:00</option>
+							<option value="2:30">2:30</option>
+							<option value="3:00">3:00</option>
+							<option value="3:30">3:30</option>
+							<option value="4:00">4:00</option>
+							<option value="4:30">4:30</option>
+							<option value="5:00">5:00</option>
+						</select>
+					</div>
+				</div>
+				<div class="item knobs">
+					<div>
+						Filter CV Attenuvertor
+					</div>
+					<div>
+						<select id="strega_timefilter_filter_cv_attenuvertor" class="knobs pointy">
+							<option value=""> </option>
+							<option value="min">min</option>
+							<option value="max">max</option>
+							<option value="7:00">7:00</option>
+							<option value="7:30">7:30</option>
+							<option value="8:00">8:00</option>
+							<option value="8:30">8:30</option>
+							<option value="9:00">9:00</option>
+							<option value="9:30">9:30</option>
+							<option value="10:00">10:00</option>
+							<option value="10:30">10:30</option>
+							<option value="11:00">11:00</option>
+							<option value="11:30">11:30</option>
+							<option value="12:00">12:00</option>
+							<option value="12:30">12:30</option>
+							<option value="1:00">1:00</option>
+							<option value="1:30">1:30</option>
+							<option value="2:00">2:00</option>
+							<option value="2:30">2:30</option>
+							<option value="3:00">3:00</option>
+							<option value="3:30">3:30</option>
+							<option value="4:00">4:00</option>
+							<option value="4:30">4:30</option>
+							<option value="5:00">5:00</option>
+						</select>
+					</div>
+				</div>
+				<div class="item knobs">
+					<div>
+						Blend Combo Control
+					</div>
+					<div>
+						<select id="strega_timefilter_blend_combo_control" class="knobs pointy">
+							<option value=""> </option>
+							<option value="min">min</option>
+							<option value="max">max</option>
+							<option value="7:00">7:00</option>
+							<option value="7:30">7:30</option>
+							<option value="8:00">8:00</option>
+							<option value="8:30">8:30</option>
+							<option value="9:00">9:00</option>
+							<option value="9:30">9:30</option>
+							<option value="10:00">10:00</option>
+							<option value="10:30">10:30</option>
+							<option value="11:00">11:00</option>
+							<option value="11:30">11:30</option>
+							<option value="12:00">12:00</option>
+							<option value="12:30">12:30</option>
+							<option value="1:00">1:00</option>
+							<option value="1:30">1:30</option>
+							<option value="2:00">2:00</option>
+							<option value="2:30">2:30</option>
+							<option value="3:00">3:00</option>
+							<option value="3:30">3:30</option>
+							<option value="4:00">4:00</option>
+							<option value="4:30">4:30</option>
+							<option value="5:00">5:00</option>
+						</select>
+					</div>
+				</div>
+
+				<!-- ********* Agitation Generator ********* -->
+
+				<div class="item_category">
+					Agitation Generator
+				</div>
+
+				<div class="item knobs">
+					<div>
+						Speed
+					</div>
+					<div>
+						<select id="strega_agitationgenerator_speed" class="knobs pointy">
+							<option value=""> </option>
+							<option value="min">min</option>
+							<option value="max">max</option>
+							<option value="7:00">7:00</option>
+							<option value="7:30">7:30</option>
+							<option value="8:00">8:00</option>
+							<option value="8:30">8:30</option>
+							<option value="9:00">9:00</option>
+							<option value="9:30">9:30</option>
+							<option value="10:00">10:00</option>
+							<option value="10:30">10:30</option>
+							<option value="11:00">11:00</option>
+							<option value="11:30">11:30</option>
+							<option value="12:00">12:00</option>
+							<option value="12:30">12:30</option>
+							<option value="1:00">1:00</option>
+							<option value="1:30">1:30</option>
+							<option value="2:00">2:00</option>
+							<option value="2:30">2:30</option>
+							<option value="3:00">3:00</option>
+							<option value="3:30">3:30</option>
+							<option value="4:00">4:00</option>
+							<option value="4:30">4:30</option>
+							<option value="5:00">5:00</option>
+						</select>
+					</div>
+				</div>
+				<div class="item knobs">
+					<div>
+						Angle
+					</div>
+					<div>
+						<select id="strega_agitationgenerator_angle" class="knobs pointy">
+							<option value=""> </option>
+							<option value="min">min</option>
+							<option value="max">max</option>
+							<option value="7:00">7:00</option>
+							<option value="7:30">7:30</option>
+							<option value="8:00">8:00</option>
+							<option value="8:30">8:30</option>
+							<option value="9:00">9:00</option>
+							<option value="9:30">9:30</option>
+							<option value="10:00">10:00</option>
+							<option value="10:30">10:30</option>
+							<option value="11:00">11:00</option>
+							<option value="11:30">11:30</option>
+							<option value="12:00">12:00</option>
+							<option value="12:30">12:30</option>
+							<option value="1:00">1:00</option>
+							<option value="1:30">1:30</option>
+							<option value="2:00">2:00</option>
+							<option value="2:30">2:30</option>
+							<option value="3:00">3:00</option>
+							<option value="3:30">3:30</option>
+							<option value="4:00">4:00</option>
+							<option value="4:30">4:30</option>
+							<option value="5:00">5:00</option>
+						</select>
+					</div>
+				</div>
+
+				<!-- ********* Output ********* -->
+
+				<div class="item_category">
+					Output
+				</div>
+
+				<div class="item knobs">
+					<div>
+						Level Control
+					</div>
+					<div>
+						<select id="strega_output_level_control" class="knobs pointy">
+							<option value=""> </option>
+							<option value="min">min</option>
+							<option value="max">max</option>
+							<option value="7:00">7:00</option>
+							<option value="7:30">7:30</option>
+							<option value="8:00">8:00</option>
+							<option value="8:30">8:30</option>
+							<option value="9:00">9:00</option>
+							<option value="9:30">9:30</option>
+							<option value="10:00">10:00</option>
+							<option value="10:30">10:30</option>
+							<option value="11:00">11:00</option>
+							<option value="11:30">11:30</option>
+							<option value="12:00">12:00</option>
+							<option value="12:30">12:30</option>
+							<option value="1:00">1:00</option>
+							<option value="1:30">1:30</option>
+							<option value="2:00">2:00</option>
+							<option value="2:30">2:30</option>
+							<option value="3:00">3:00</option>
+							<option value="3:30">3:30</option>
+							<option value="4:00">4:00</option>
+							<option value="4:30">4:30</option>
+							<option value="5:00">5:00</option>
+						</select>
+					</div>
+				</div>
+
+			</section>
+
+			<!-- ***************************   Strega Output Jacks   *************************** -->
+
+			<section class="instrument_strega">
+
+				<h3>
+					Output Jacks
+				</h3>
+
+				<!-- ********* External ********* -->
+
+				<div class="item_category">
+					External
+				</div>
+
+				<div class="item jacks" data-connections="1">
+					<div>
+						Strength Out
+					</div>
+					<div></div>
+					<div id="strega_external_strength_out_container_0">
+						<select id="strega_external_strength_out_0" data-index="0" class="jacks"></select>
+					</div>
+					<div id="strega_external_strength_out_plus" class="plus pointy">
+						+
+					</div>
+				</div>
+				<div class="item jacks" data-connections="1">
+					<div>
+						CV 1
+					</div>
+					<div></div>
+					<div id="strega_external_cv_one_container_0">
+						<select id="strega_external_cv_one_0" data-index="0" class="jacks"></select>
+					</div>
+					<div id="strega_external_cv_one_plus" class="plus pointy">
+						+
+					</div>
+				</div>
+
+				<!-- ********* Time/Filter ********* -->
+
+				<div class="item_category">
+					Time/Filter
+				</div>
+
+				<div class="item jacks" data-connections="1">
+					<div>
+						CV 2
+					</div>
+					<div></div>
+					<div id="strega_timefilter_cv_two_container_0">
+						<select id="strega_timefilter_cv_two_0" data-index="0" class="jacks"></select>
+					</div>
+					<div id="strega_timefilter_cv_two_plus" class="plus pointy">
+						+
+					</div>
+				</div>
+
+				<!-- ********* Tones ********* -->
+
+				<div class="item_category">
+					Tones
+				</div>
+
+				<div class="item jacks" data-connections="1">
+					<div>
+						Core Output
+					</div>
+					<div></div>
+					<div id="strega_tones_core_output_container_0">
+						<select id="strega_tones_core_output_0" data-index="0" class="jacks"></select>
+					</div>
+					<div id="strega_tones_core_output_plus" class="plus pointy">
+						+
+					</div>
+				</div>
+				<div class="item jacks" data-connections="1">
+					<div>
+						Sub Harmonics Output
+					</div>
+					<div></div>
+					<div id="strega_tones_sub_harmonics_output_container_0">
+						<select id="strega_tones_sub_harmonics_output_0" data-index="0" class="jacks"></select>
+					</div>
+					<div id="strega_tones_sub_harmonics_output_plus" class="plus pointy">
+						+
+					</div>
+				</div>
+
+				<!-- ********* Agitation Generator ********* -->
+
+				<div class="item_category">
+					Agitation Generator
+				</div>
+
+				<div class="item jacks" data-connections="1">
+					<div>
+						Agitation Function Out
+					</div>
+					<div></div>
+					<div id="strega_agitationgenerator_function_out_container_0">
+						<select id="strega_agitationgenerator_function_out_0" data-index="0" class="jacks"></select>
+					</div>
+					<div id="strega_agitationgenerator_function_out_plus" class="plus pointy">
+						+
+					</div>
+				</div>
+
+				<!-- ********* Output ********* -->
+
+				<div class="item_category">
+					Output
+				</div>
+
+				<div class="item jacks" data-connections="1">
+					<div>
+						Modular Level
+					</div>
+					<div></div>
+					<div id="strega_output_modular_level_container_0">
+						<select id="strega_output_modular_level_0" data-index="0" class="jacks"></select>
+					</div>
+					<div id="strega_output_modular_level_plus" class="plus pointy">
+						+
+					</div>
+				</div>
+				<div class="item jacks" data-connections="1">
+					<div>
+						Line/Headphone
+					</div>
+					<div></div>
+					<div id="strega_output_line_headphone_container_0">
+						<select id="strega_output_line_headphone_0" data-index="0" class="jacks"></select>
+					</div>
+					<div id="strega_output_line_headphone_plus" class="plus pointy">
+						+
+					</div>
+				</div>
+
+			</section>
+
+		</section>
+
+	</div>
+
+
 	<!-- ***************************   Instrument: Werkstatt   *************************** -->
 
 	<div id="instrument_werkstatt" class="collapse">
@@ -1410,7 +2322,7 @@
 				</div>
 				<div class="item knobs">
 					<div>
-						Mode
+						Source
 					</div>
 					<div>
 						<select id="werkstatt_vco_mod_source" class="knobs pointy">
@@ -1473,7 +2385,7 @@
 				</div>
 				<div class="item knobs">
 					<div>
-						Mode
+						Source
 					</div>
 					<div>
 						<select id="werkstatt_vcf_mod_source" class="knobs pointy">
