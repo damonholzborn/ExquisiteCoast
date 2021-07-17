@@ -251,6 +251,18 @@ textarea {
 	grid-template-columns: 264px 0px max-content max-content;
 }
 
+.instrument_dfam .item.knobs {
+	grid-template-columns: 266px auto;
+}
+
+.instrument_dfam .item.jacks {
+	grid-template-columns: 116px 0px max-content max-content;
+}
+
+.instrument_dfam .item.knobs > * > select {
+	width: 103px;
+}
+
 .instrument_werkstatt .item.knobs {
 	grid-template-columns: 106px auto;
 }
@@ -409,6 +421,11 @@ select.clocks {
 	#instrument_strega_columns {
 		display: grid;
 		grid-template-columns: 434px auto;
+	}
+
+	#instrument_dfam_columns {
+		display: grid;
+		grid-template-columns: 441px auto;
 	}
 
 	#instrument_werkstatt_columns {

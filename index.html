@@ -19,10 +19,10 @@
 
 	<title>Exquisite Coasts</title>
 
-	<script src="lz-string.js?v=2.10"></script>
-	<script src="exquisitestringcodes.js?v=2.10"></script>
-	<script src="exquisitecoasts.js?v=2.10"></script>
-	<link rel="stylesheet" type="text/css" href="style.css?v=2.10">
+	<script src="lz-string.js?v=2.11"></script>
+	<script src="exquisitestringcodes.js?v=2.11"></script>
+	<script src="exquisitecoasts.js?v=2.11"></script>
+	<link rel="stylesheet" type="text/css" href="style.css?v=2.11">
 
 </head>
 <body>
@@ -44,12 +44,16 @@
 	<div id="welcome_message">
 
 		<div id="welcome_text">
-			<p>Welcome to <i>Exquisite Coast</i>, a shared patch game for the Make Noise 0-Coast created by Damon Holzborn and John O'Brien. <a href="https://en.wikipedia.org/wiki/Exquisite_corpse" target="_blank">Exquisite Corpse</a> is a collaborative image or text game, developed by the Surrealists, where a text or drawing is created either by some set rule or by only revealing the end of what the previous person contributed. In this spirit, <i>Exquisite Coast</i> uses a tight set of technical constraints as an artistic challenge that encourage a deep exploration of the instrument. These guidelines are designed to foster creativity, provide a useful method to get to know your 0-Coast, and engage with a wider community of music makers. Of course you are free to make up your own rules for yourself and your collaborators. If you feel a different process would work better for you, by all means go for it!</p>
+			<p>Welcome to <i>Exquisite Coasts</i>, a shared patch game created by Damon Holzborn and John O'Brien. In the spring of 2020, as the Covid-19 lockdown got under way, we started talking about ways to collaborate remotely after realizing that we both owned a Make Noise 0-Coast semi-modular synthesizer. By sharing patches—the state of the synthesizer, including the positions of the knobs and how the signals are routed from one part of the synthesizer to another—we created pairs of solo pieces that shared a common configuration.</p>
+
+			<p>The name is borrowed from <a href="https://en.wikipedia.org/wiki/Exquisite_corpse" target="_blank">Exquisite Corpse</a>, a collaborative image or text game developed by the Surrealists, where a work is created either by using some set rule that all of the participants have to follow, or by revealing to the next participant only one part of what the previous person contributed. In this spirit, <i>Exquisite Coasts</i> uses a tight set of technical constraints as an artistic challenge that encourages a deep exploration of the instrument. These guidelines are designed to foster creativity, provide a useful method to get to know your synthesizer, and engage with a wider community of music makers.</p>
+
+			<p>Since <i>Exquisite Coasts</i> was first published, the game has expanded to include additional synthesizers from which to choose. Now, in addition to the 0-Coast, you may also play it with the Make Noise Strega, the Moog DFAM, and/or the Moog Werkstatt. You can follow the spirit of the original and use just one of these synthesizers at a time, or you can play an expanded version of the game by including more than one. Of course, you are also free to make up your own rules for yourself and your collaborators. If you feel a modified process would work better for you, by all means go for it!</p>
 
 			<h3>Process</h3>
 
 			<ol>
-				<li>Create a patch and record a performance using only the the 0-Coast, Strega, and/or Werkstatt (the Prompt).</li>
+				<li>Create a patch and record a performance using only the the 0-Coast, Strega, DFAM, and/or Werkstatt (the Prompt).</li>
 				<li>Document the state of your synthesizer(s) at the end of the Prompt recording.</li>
 				<li>Share your Prompt for others to use (the Response).</li>
 			</ol>
@@ -165,13 +169,16 @@
 					</div>
 					<div>
 						<input type="checkbox" id="instrument_checkbox_0coast">
-						<label for="instrument_checkbox_0coast">0-Coast</label>
+						<label for="instrument_checkbox_0coast">Make Noise 0-Coast</label>
 						<br>
 						<input type="checkbox" id="instrument_checkbox_strega">
-						<label for="instrument_checkbox_strega">Strega</label>
+						<label for="instrument_checkbox_strega">Make Noise Strega</label>
+						<br>
+						<input type="checkbox" id="instrument_checkbox_dfam">
+						<label for="instrument_checkbox_dfam">Moog DFAM</label>
 						<br>
 						<input type="checkbox" id="instrument_checkbox_werkstatt">
-						<label for="instrument_checkbox_werkstatt">Werkstatt</label>
+						<label for="instrument_checkbox_werkstatt">Moog Werkstatt</label>
 						<br>
 						<span id="secretcheckboxes" class="supertopsecret">
 							<input type="checkbox" id="instrument_checkbox_expandedrack">
@@ -1024,10 +1031,10 @@
 						Headphone/Line Out
 					</div>
 					<div></div>
-					<div id="nocoast_headphone_line_output_container_0">
+					<div id="nocoast_headphone_line_out_container_0">
 						<select id="nocoast_headphone_line_out_0" data-index="0" class="jacks"></select>
 					</div>
-					<div id="nocoast_headphone_line_output_plus" class="plus pointy">
+					<div id="nocoast_headphone_line_out_plus" class="plus pointy">
 						+
 					</div>
 				</div>
@@ -2122,6 +2129,1362 @@
 
 	</div>
 
+	<!-- ***************************   Instrument: Werkstatt   *************************** -->
+
+	<div id="instrument_dfam" class="collapse">
+
+		<h2>
+			DFAM
+		</h2>
+
+		<section id="instrument_dfam_columns">
+
+			<!-- ***************************   DFAM Knobs   *************************** -->
+
+			<section class="instrument_dfam">
+
+				<h3>
+					Knobs & Switches
+				</h3>
+
+				<!-- ********* Oscillators ********* -->
+
+				<div class="item_category">
+					Oscillators
+				</div>
+
+				<div class="item knobs">
+					<div>
+						VCO Decay
+					</div>
+					<div>
+						<select id="dfam_vco_decay" class="knobs pointy">
+							<option value=""> </option>
+							<option value="min">min</option>
+							<option value="max">max</option>
+							<option value="7:00">7:00</option>
+							<option value="7:30">7:30</option>
+							<option value="8:00">8:00</option>
+							<option value="8:30">8:30</option>
+							<option value="9:00">9:00</option>
+							<option value="9:30">9:30</option>
+							<option value="10:00">10:00</option>
+							<option value="10:30">10:30</option>
+							<option value="11:00">11:00</option>
+							<option value="11:30">11:30</option>
+							<option value="12:00">12:00</option>
+							<option value="12:30">12:30</option>
+							<option value="1:00">1:00</option>
+							<option value="1:30">1:30</option>
+							<option value="2:00">2:00</option>
+							<option value="2:30">2:30</option>
+							<option value="3:00">3:00</option>
+							<option value="3:30">3:30</option>
+							<option value="4:00">4:00</option>
+							<option value="4:30">4:30</option>
+							<option value="5:00">5:00</option>
+						</select>
+					</div>
+				</div>
+				<div class="item knobs">
+					<div>
+						Seq Pitch Mod
+					</div>
+					<div>
+						<select id="dfam_seq_pitch_mod" class="knobs pointy">
+							<option value=""> </option>
+							<option value="min">VCO 1&2</option>
+							<option value="max">off</option>
+							<option value="7:00">VCO 2</option>
+						</select>
+					</div>
+				</div>
+				<div class="item knobs">
+					<div>
+						1&#11106;2 FM Amount
+					</div>
+					<div>
+						<select id="dfam_1-2_fm_amount" class="knobs pointy">
+							<option value=""> </option>
+							<option value="min">min</option>
+							<option value="max">max</option>
+							<option value="7:00">7:00</option>
+							<option value="7:30">7:30</option>
+							<option value="8:00">8:00</option>
+							<option value="8:30">8:30</option>
+							<option value="9:00">9:00</option>
+							<option value="9:30">9:30</option>
+							<option value="10:00">10:00</option>
+							<option value="10:30">10:30</option>
+							<option value="11:00">11:00</option>
+							<option value="11:30">11:30</option>
+							<option value="12:00">12:00</option>
+							<option value="12:30">12:30</option>
+							<option value="1:00">1:00</option>
+							<option value="1:30">1:30</option>
+							<option value="2:00">2:00</option>
+							<option value="2:30">2:30</option>
+							<option value="3:00">3:00</option>
+							<option value="3:30">3:30</option>
+							<option value="4:00">4:00</option>
+							<option value="4:30">4:30</option>
+							<option value="5:00">5:00</option>
+						</select>
+					</div>
+				</div>
+				<div class="item knobs">
+					<div>
+						Hard Sync
+					</div>
+					<div>
+						<select id="dfam_hard_sync" class="knobs pointy">
+							<option value=""> </option>
+							<option value="min">on</option>
+							<option value="max">off</option>
+						</select>
+					</div>
+				</div>
+				<div class="item knobs">
+					<div>
+						VCO 1 EG Amount
+					</div>
+					<div>
+						<select id="dfam_vco_1_eg_amount" class="knobs pointy">
+							<option value=""> </option>
+							<option value="min">min</option>
+							<option value="max">max</option>
+							<option value="7:00">7:00</option>
+							<option value="7:30">7:30</option>
+							<option value="8:00">8:00</option>
+							<option value="8:30">8:30</option>
+							<option value="9:00">9:00</option>
+							<option value="9:30">9:30</option>
+							<option value="10:00">10:00</option>
+							<option value="10:30">10:30</option>
+							<option value="11:00">11:00</option>
+							<option value="11:30">11:30</option>
+							<option value="12:00">12:00</option>
+							<option value="12:30">12:30</option>
+							<option value="1:00">1:00</option>
+							<option value="1:30">1:30</option>
+							<option value="2:00">2:00</option>
+							<option value="2:30">2:30</option>
+							<option value="3:00">3:00</option>
+							<option value="3:30">3:30</option>
+							<option value="4:00">4:00</option>
+							<option value="4:30">4:30</option>
+							<option value="5:00">5:00</option>
+						</select>
+					</div>
+				</div>
+				<div class="item knobs">
+					<div>
+						VCO 1 Frequency
+					</div>
+					<div>
+						<select id="dfam_vco_1_frequency" class="knobs pointy">
+							<option value=""> </option>
+							<option value="min">min</option>
+							<option value="max">max</option>
+							<option value="7:00">7:00</option>
+							<option value="7:30">7:30</option>
+							<option value="8:00">8:00</option>
+							<option value="8:30">8:30</option>
+							<option value="9:00">9:00</option>
+							<option value="9:30">9:30</option>
+							<option value="10:00">10:00</option>
+							<option value="10:30">10:30</option>
+							<option value="11:00">11:00</option>
+							<option value="11:30">11:30</option>
+							<option value="12:00">12:00</option>
+							<option value="12:30">12:30</option>
+							<option value="1:00">1:00</option>
+							<option value="1:30">1:30</option>
+							<option value="2:00">2:00</option>
+							<option value="2:30">2:30</option>
+							<option value="3:00">3:00</option>
+							<option value="3:30">3:30</option>
+							<option value="4:00">4:00</option>
+							<option value="4:30">4:30</option>
+							<option value="5:00">5:00</option>
+						</select>
+					</div>
+				</div>
+				<div class="item knobs">
+					<div>
+						VCO 1 Wave
+					</div>
+					<div>
+						<select id="dfam_vco_1_wave" class="knobs pointy">
+							<option value=""> </option>
+							<option value="min">square</option>
+							<option value="max">triangle</option>
+						</select>
+					</div>
+				</div>
+				<div class="item knobs">
+					<div>
+						VCO 2 EG Amount
+					</div>
+					<div>
+						<select id="dfam_vco_2_eg_amount" class="knobs pointy">
+							<option value=""> </option>
+							<option value="min">min</option>
+							<option value="max">max</option>
+							<option value="7:00">7:00</option>
+							<option value="7:30">7:30</option>
+							<option value="8:00">8:00</option>
+							<option value="8:30">8:30</option>
+							<option value="9:00">9:00</option>
+							<option value="9:30">9:30</option>
+							<option value="10:00">10:00</option>
+							<option value="10:30">10:30</option>
+							<option value="11:00">11:00</option>
+							<option value="11:30">11:30</option>
+							<option value="12:00">12:00</option>
+							<option value="12:30">12:30</option>
+							<option value="1:00">1:00</option>
+							<option value="1:30">1:30</option>
+							<option value="2:00">2:00</option>
+							<option value="2:30">2:30</option>
+							<option value="3:00">3:00</option>
+							<option value="3:30">3:30</option>
+							<option value="4:00">4:00</option>
+							<option value="4:30">4:30</option>
+							<option value="5:00">5:00</option>
+						</select>
+					</div>
+				</div>
+				<div class="item knobs">
+					<div>
+						VCO 2 Frequency
+					</div>
+					<div>
+						<select id="dfam_vco_2_frequency" class="knobs pointy">
+							<option value=""> </option>
+							<option value="min">min</option>
+							<option value="max">max</option>
+							<option value="7:00">7:00</option>
+							<option value="7:30">7:30</option>
+							<option value="8:00">8:00</option>
+							<option value="8:30">8:30</option>
+							<option value="9:00">9:00</option>
+							<option value="9:30">9:30</option>
+							<option value="10:00">10:00</option>
+							<option value="10:30">10:30</option>
+							<option value="11:00">11:00</option>
+							<option value="11:30">11:30</option>
+							<option value="12:00">12:00</option>
+							<option value="12:30">12:30</option>
+							<option value="1:00">1:00</option>
+							<option value="1:30">1:30</option>
+							<option value="2:00">2:00</option>
+							<option value="2:30">2:30</option>
+							<option value="3:00">3:00</option>
+							<option value="3:30">3:30</option>
+							<option value="4:00">4:00</option>
+							<option value="4:30">4:30</option>
+							<option value="5:00">5:00</option>
+						</select>
+					</div>
+				</div>
+				<div class="item knobs">
+					<div>
+						VCO 2 Wave
+					</div>
+					<div>
+						<select id="dfam_vco_2_wave" class="knobs pointy">
+							<option value=""> </option>
+							<option value="min">square</option>
+							<option value="max">triangle</option>
+						</select>
+					</div>
+				</div>
+
+				<!-- ********* Mixer ********* -->
+
+				<div class="item_category">
+					Mixer
+				</div>
+
+				<div class="item knobs">
+					<div>
+						VCO 1 Level
+					</div>
+					<div>
+						<select id="dfam_vco_1_level" class="knobs pointy">
+							<option value=""> </option>
+							<option value="min">min</option>
+							<option value="max">max</option>
+							<option value="7:00">7:00</option>
+							<option value="7:30">7:30</option>
+							<option value="8:00">8:00</option>
+							<option value="8:30">8:30</option>
+							<option value="9:00">9:00</option>
+							<option value="9:30">9:30</option>
+							<option value="10:00">10:00</option>
+							<option value="10:30">10:30</option>
+							<option value="11:00">11:00</option>
+							<option value="11:30">11:30</option>
+							<option value="12:00">12:00</option>
+							<option value="12:30">12:30</option>
+							<option value="1:00">1:00</option>
+							<option value="1:30">1:30</option>
+							<option value="2:00">2:00</option>
+							<option value="2:30">2:30</option>
+							<option value="3:00">3:00</option>
+							<option value="3:30">3:30</option>
+							<option value="4:00">4:00</option>
+							<option value="4:30">4:30</option>
+							<option value="5:00">5:00</option>
+						</select>
+					</div>
+				</div>
+				<div class="item knobs">
+					<div>
+						Noise/Ext Level
+					</div>
+					<div>
+						<select id="dfam_noise_ext_level" class="knobs pointy">
+							<option value=""> </option>
+							<option value="min">min</option>
+							<option value="max">max</option>
+							<option value="7:00">7:00</option>
+							<option value="7:30">7:30</option>
+							<option value="8:00">8:00</option>
+							<option value="8:30">8:30</option>
+							<option value="9:00">9:00</option>
+							<option value="9:30">9:30</option>
+							<option value="10:00">10:00</option>
+							<option value="10:30">10:30</option>
+							<option value="11:00">11:00</option>
+							<option value="11:30">11:30</option>
+							<option value="12:00">12:00</option>
+							<option value="12:30">12:30</option>
+							<option value="1:00">1:00</option>
+							<option value="1:30">1:30</option>
+							<option value="2:00">2:00</option>
+							<option value="2:30">2:30</option>
+							<option value="3:00">3:00</option>
+							<option value="3:30">3:30</option>
+							<option value="4:00">4:00</option>
+							<option value="4:30">4:30</option>
+							<option value="5:00">5:00</option>
+						</select>
+					</div>
+				</div>
+				<div class="item knobs">
+					<div>
+						VCO 2 Level
+					</div>
+					<div>
+						<select id="dfam_vco_2_level" class="knobs pointy">
+							<option value=""> </option>
+							<option value="min">min</option>
+							<option value="max">max</option>
+							<option value="7:00">7:00</option>
+							<option value="7:30">7:30</option>
+							<option value="8:00">8:00</option>
+							<option value="8:30">8:30</option>
+							<option value="9:00">9:00</option>
+							<option value="9:30">9:30</option>
+							<option value="10:00">10:00</option>
+							<option value="10:30">10:30</option>
+							<option value="11:00">11:00</option>
+							<option value="11:30">11:30</option>
+							<option value="12:00">12:00</option>
+							<option value="12:30">12:30</option>
+							<option value="1:00">1:00</option>
+							<option value="1:30">1:30</option>
+							<option value="2:00">2:00</option>
+							<option value="2:30">2:30</option>
+							<option value="3:00">3:00</option>
+							<option value="3:30">3:30</option>
+							<option value="4:00">4:00</option>
+							<option value="4:30">4:30</option>
+							<option value="5:00">5:00</option>
+						</select>
+					</div>
+				</div>
+
+				<!-- ********* Filter ********* -->
+
+				<div class="item_category">
+					Filter
+				</div>
+
+				<div class="item knobs">
+					<div>
+						Mode
+					</div>
+					<div>
+						<select id="dfam_mode" class="knobs pointy">
+							<option value=""> </option>
+							<option value="min">low pass</option>
+							<option value="max">high pass</option>
+						</select>
+					</div>
+				</div>
+				<div class="item knobs">
+					<div>
+						Cutoff
+					</div>
+					<div>
+						<select id="dfam_cutoff" class="knobs pointy">
+							<option value=""> </option>
+							<option value="min">min</option>
+							<option value="max">max</option>
+							<option value="7:00">7:00</option>
+							<option value="7:30">7:30</option>
+							<option value="8:00">8:00</option>
+							<option value="8:30">8:30</option>
+							<option value="9:00">9:00</option>
+							<option value="9:30">9:30</option>
+							<option value="10:00">10:00</option>
+							<option value="10:30">10:30</option>
+							<option value="11:00">11:00</option>
+							<option value="11:30">11:30</option>
+							<option value="12:00">12:00</option>
+							<option value="12:30">12:30</option>
+							<option value="1:00">1:00</option>
+							<option value="1:30">1:30</option>
+							<option value="2:00">2:00</option>
+							<option value="2:30">2:30</option>
+							<option value="3:00">3:00</option>
+							<option value="3:30">3:30</option>
+							<option value="4:00">4:00</option>
+							<option value="4:30">4:30</option>
+							<option value="5:00">5:00</option>
+						</select>
+					</div>
+				</div>
+				<div class="item knobs">
+					<div>
+						Resonance
+					</div>
+					<div>
+						<select id="dfam_resonance" class="knobs pointy">
+							<option value=""> </option>
+							<option value="min">min</option>
+							<option value="max">max</option>
+							<option value="7:00">7:00</option>
+							<option value="7:30">7:30</option>
+							<option value="8:00">8:00</option>
+							<option value="8:30">8:30</option>
+							<option value="9:00">9:00</option>
+							<option value="9:30">9:30</option>
+							<option value="10:00">10:00</option>
+							<option value="10:30">10:30</option>
+							<option value="11:00">11:00</option>
+							<option value="11:30">11:30</option>
+							<option value="12:00">12:00</option>
+							<option value="12:30">12:30</option>
+							<option value="1:00">1:00</option>
+							<option value="1:30">1:30</option>
+							<option value="2:00">2:00</option>
+							<option value="2:30">2:30</option>
+							<option value="3:00">3:00</option>
+							<option value="3:30">3:30</option>
+							<option value="4:00">4:00</option>
+							<option value="4:30">4:30</option>
+							<option value="5:00">5:00</option>
+						</select>
+					</div>
+				</div>
+				<div class="item knobs">
+					<div>
+						VCF Decay
+					</div>
+					<div>
+						<select id="dfam_vcf_decay" class="knobs pointy">
+							<option value=""> </option>
+							<option value="min">min</option>
+							<option value="max">max</option>
+							<option value="7:00">7:00</option>
+							<option value="7:30">7:30</option>
+							<option value="8:00">8:00</option>
+							<option value="8:30">8:30</option>
+							<option value="9:00">9:00</option>
+							<option value="9:30">9:30</option>
+							<option value="10:00">10:00</option>
+							<option value="10:30">10:30</option>
+							<option value="11:00">11:00</option>
+							<option value="11:30">11:30</option>
+							<option value="12:00">12:00</option>
+							<option value="12:30">12:30</option>
+							<option value="1:00">1:00</option>
+							<option value="1:30">1:30</option>
+							<option value="2:00">2:00</option>
+							<option value="2:30">2:30</option>
+							<option value="3:00">3:00</option>
+							<option value="3:30">3:30</option>
+							<option value="4:00">4:00</option>
+							<option value="4:30">4:30</option>
+							<option value="5:00">5:00</option>
+						</select>
+					</div>
+				</div>
+				<div class="item knobs">
+					<div>
+						VCF EG Amount
+					</div>
+					<div>
+						<select id="dfam_vcf_eg_amount" class="knobs pointy">
+							<option value=""> </option>
+							<option value="min">min</option>
+							<option value="max">max</option>
+							<option value="7:00">7:00</option>
+							<option value="7:30">7:30</option>
+							<option value="8:00">8:00</option>
+							<option value="8:30">8:30</option>
+							<option value="9:00">9:00</option>
+							<option value="9:30">9:30</option>
+							<option value="10:00">10:00</option>
+							<option value="10:30">10:30</option>
+							<option value="11:00">11:00</option>
+							<option value="11:30">11:30</option>
+							<option value="12:00">12:00</option>
+							<option value="12:30">12:30</option>
+							<option value="1:00">1:00</option>
+							<option value="1:30">1:30</option>
+							<option value="2:00">2:00</option>
+							<option value="2:30">2:30</option>
+							<option value="3:00">3:00</option>
+							<option value="3:30">3:30</option>
+							<option value="4:00">4:00</option>
+							<option value="4:30">4:30</option>
+							<option value="5:00">5:00</option>
+						</select>
+					</div>
+				</div>
+				<div class="item knobs">
+					<div>
+						Noise/VCF Mod
+					</div>
+					<div>
+						<select id="dfam_noise_vcf_mod" class="knobs pointy">
+							<option value=""> </option>
+							<option value="min">min</option>
+							<option value="max">max</option>
+							<option value="7:00">7:00</option>
+							<option value="7:30">7:30</option>
+							<option value="8:00">8:00</option>
+							<option value="8:30">8:30</option>
+							<option value="9:00">9:00</option>
+							<option value="9:30">9:30</option>
+							<option value="10:00">10:00</option>
+							<option value="10:30">10:30</option>
+							<option value="11:00">11:00</option>
+							<option value="11:30">11:30</option>
+							<option value="12:00">12:00</option>
+							<option value="12:30">12:30</option>
+							<option value="1:00">1:00</option>
+							<option value="1:30">1:30</option>
+							<option value="2:00">2:00</option>
+							<option value="2:30">2:30</option>
+							<option value="3:00">3:00</option>
+							<option value="3:30">3:30</option>
+							<option value="4:00">4:00</option>
+							<option value="4:30">4:30</option>
+							<option value="5:00">5:00</option>
+						</select>
+					</div>
+				</div>
+
+				<!-- ********* VCA/EG ********* -->
+
+				<div class="item_category">
+					VCA/EG
+				</div>
+
+				<div class="item knobs">
+					<div>
+						VCA EG
+					</div>
+					<div>
+						<select id="dfam_vca_eg" class="knobs pointy">
+							<option value=""> </option>
+							<option value="min">fast</option>
+							<option value="max">slow</option>
+						</select>
+					</div>
+				</div>
+				<div class="item knobs">
+					<div>
+						VCA Decay
+					</div>
+					<div>
+						<select id="dfam_vca_decay" class="knobs pointy">
+							<option value=""> </option>
+							<option value="min">min</option>
+							<option value="max">max</option>
+							<option value="7:00">7:00</option>
+							<option value="7:30">7:30</option>
+							<option value="8:00">8:00</option>
+							<option value="8:30">8:30</option>
+							<option value="9:00">9:00</option>
+							<option value="9:30">9:30</option>
+							<option value="10:00">10:00</option>
+							<option value="10:30">10:30</option>
+							<option value="11:00">11:00</option>
+							<option value="11:30">11:30</option>
+							<option value="12:00">12:00</option>
+							<option value="12:30">12:30</option>
+							<option value="1:00">1:00</option>
+							<option value="1:30">1:30</option>
+							<option value="2:00">2:00</option>
+							<option value="2:30">2:30</option>
+							<option value="3:00">3:00</option>
+							<option value="3:30">3:30</option>
+							<option value="4:00">4:00</option>
+							<option value="4:30">4:30</option>
+							<option value="5:00">5:00</option>
+						</select>
+					</div>
+				</div>
+				<div class="item knobs">
+					<div>
+						Volume
+					</div>
+					<div>
+						<select id="dfam_volume" class="knobs pointy">
+							<option value=""> </option>
+							<option value="min">min</option>
+							<option value="max">max</option>
+							<option value="7:00">7:00</option>
+							<option value="7:30">7:30</option>
+							<option value="8:00">8:00</option>
+							<option value="8:30">8:30</option>
+							<option value="9:00">9:00</option>
+							<option value="9:30">9:30</option>
+							<option value="10:00">10:00</option>
+							<option value="10:30">10:30</option>
+							<option value="11:00">11:00</option>
+							<option value="11:30">11:30</option>
+							<option value="12:00">12:00</option>
+							<option value="12:30">12:30</option>
+							<option value="1:00">1:00</option>
+							<option value="1:30">1:30</option>
+							<option value="2:00">2:00</option>
+							<option value="2:30">2:30</option>
+							<option value="3:00">3:00</option>
+							<option value="3:30">3:30</option>
+							<option value="4:00">4:00</option>
+							<option value="4:30">4:30</option>
+							<option value="5:00">5:00</option>
+						</select>
+					</div>
+				</div>
+
+				<!-- ********* Sequencer ********* -->
+
+				<div class="item_category">
+					Sequencer
+				</div>
+
+				<div class="item knobs">
+					<div>
+						Tempo
+					</div>
+					<div>
+						<select id="dfam_sequencer_tempo" class="knobs pointy">
+							<option value=""> </option>
+							<option value="min">min</option>
+							<option value="max">max</option>
+							<option value="7:00">7:00</option>
+							<option value="7:30">7:30</option>
+							<option value="8:00">8:00</option>
+							<option value="8:30">8:30</option>
+							<option value="9:00">9:00</option>
+							<option value="9:30">9:30</option>
+							<option value="10:00">10:00</option>
+							<option value="10:30">10:30</option>
+							<option value="11:00">11:00</option>
+							<option value="11:30">11:30</option>
+							<option value="12:00">12:00</option>
+							<option value="12:30">12:30</option>
+							<option value="1:00">1:00</option>
+							<option value="1:30">1:30</option>
+							<option value="2:00">2:00</option>
+							<option value="2:30">2:30</option>
+							<option value="3:00">3:00</option>
+							<option value="3:30">3:30</option>
+							<option value="4:00">4:00</option>
+							<option value="4:30">4:30</option>
+							<option value="5:00">5:00</option>
+						</select>
+					</div>
+				</div>
+				<div class="item knobs">
+					<div>
+						Pitch Step 1
+					</div>
+					<div>
+						<select id="dfam_sequencer_pitch_step_1" class="knobs pointy">
+							<option value=""> </option>
+							<option value="min">min</option>
+							<option value="max">max</option>
+							<option value="7:00">7:00</option>
+							<option value="7:30">7:30</option>
+							<option value="8:00">8:00</option>
+							<option value="8:30">8:30</option>
+							<option value="9:00">9:00</option>
+							<option value="9:30">9:30</option>
+							<option value="10:00">10:00</option>
+							<option value="10:30">10:30</option>
+							<option value="11:00">11:00</option>
+							<option value="11:30">11:30</option>
+							<option value="12:00">12:00</option>
+							<option value="12:30">12:30</option>
+							<option value="1:00">1:00</option>
+							<option value="1:30">1:30</option>
+							<option value="2:00">2:00</option>
+							<option value="2:30">2:30</option>
+							<option value="3:00">3:00</option>
+							<option value="3:30">3:30</option>
+							<option value="4:00">4:00</option>
+							<option value="4:30">4:30</option>
+							<option value="5:00">5:00</option>
+						</select>
+					</div>
+				</div>
+				<div class="item knobs">
+					<div>
+						Pitch Step 2
+					</div>
+					<div>
+						<select id="dfam_sequencer_pitch_step_2" class="knobs pointy">
+							<option value=""> </option>
+							<option value="min">min</option>
+							<option value="max">max</option>
+							<option value="7:00">7:00</option>
+							<option value="7:30">7:30</option>
+							<option value="8:00">8:00</option>
+							<option value="8:30">8:30</option>
+							<option value="9:00">9:00</option>
+							<option value="9:30">9:30</option>
+							<option value="10:00">10:00</option>
+							<option value="10:30">10:30</option>
+							<option value="11:00">11:00</option>
+							<option value="11:30">11:30</option>
+							<option value="12:00">12:00</option>
+							<option value="12:30">12:30</option>
+							<option value="1:00">1:00</option>
+							<option value="1:30">1:30</option>
+							<option value="2:00">2:00</option>
+							<option value="2:30">2:30</option>
+							<option value="3:00">3:00</option>
+							<option value="3:30">3:30</option>
+							<option value="4:00">4:00</option>
+							<option value="4:30">4:30</option>
+							<option value="5:00">5:00</option>
+						</select>
+					</div>
+				</div>
+				<div class="item knobs">
+					<div>
+						Pitch Step 3
+					</div>
+					<div>
+						<select id="dfam_sequencer_pitch_step_3" class="knobs pointy">
+							<option value=""> </option>
+							<option value="min">min</option>
+							<option value="max">max</option>
+							<option value="7:00">7:00</option>
+							<option value="7:30">7:30</option>
+							<option value="8:00">8:00</option>
+							<option value="8:30">8:30</option>
+							<option value="9:00">9:00</option>
+							<option value="9:30">9:30</option>
+							<option value="10:00">10:00</option>
+							<option value="10:30">10:30</option>
+							<option value="11:00">11:00</option>
+							<option value="11:30">11:30</option>
+							<option value="12:00">12:00</option>
+							<option value="12:30">12:30</option>
+							<option value="1:00">1:00</option>
+							<option value="1:30">1:30</option>
+							<option value="2:00">2:00</option>
+							<option value="2:30">2:30</option>
+							<option value="3:00">3:00</option>
+							<option value="3:30">3:30</option>
+							<option value="4:00">4:00</option>
+							<option value="4:30">4:30</option>
+							<option value="5:00">5:00</option>
+						</select>
+					</div>
+				</div>
+				<div class="item knobs">
+					<div>
+						Pitch Step 4
+					</div>
+					<div>
+						<select id="dfam_sequencer_pitch_step_4" class="knobs pointy">
+							<option value=""> </option>
+							<option value="min">min</option>
+							<option value="max">max</option>
+							<option value="7:00">7:00</option>
+							<option value="7:30">7:30</option>
+							<option value="8:00">8:00</option>
+							<option value="8:30">8:30</option>
+							<option value="9:00">9:00</option>
+							<option value="9:30">9:30</option>
+							<option value="10:00">10:00</option>
+							<option value="10:30">10:30</option>
+							<option value="11:00">11:00</option>
+							<option value="11:30">11:30</option>
+							<option value="12:00">12:00</option>
+							<option value="12:30">12:30</option>
+							<option value="1:00">1:00</option>
+							<option value="1:30">1:30</option>
+							<option value="2:00">2:00</option>
+							<option value="2:30">2:30</option>
+							<option value="3:00">3:00</option>
+							<option value="3:30">3:30</option>
+							<option value="4:00">4:00</option>
+							<option value="4:30">4:30</option>
+							<option value="5:00">5:00</option>
+						</select>
+					</div>
+				</div>
+				<div class="item knobs">
+					<div>
+						Pitch Step 5
+					</div>
+					<div>
+						<select id="dfam_sequencer_pitch_step_5" class="knobs pointy">
+							<option value=""> </option>
+							<option value="min">min</option>
+							<option value="max">max</option>
+							<option value="7:00">7:00</option>
+							<option value="7:30">7:30</option>
+							<option value="8:00">8:00</option>
+							<option value="8:30">8:30</option>
+							<option value="9:00">9:00</option>
+							<option value="9:30">9:30</option>
+							<option value="10:00">10:00</option>
+							<option value="10:30">10:30</option>
+							<option value="11:00">11:00</option>
+							<option value="11:30">11:30</option>
+							<option value="12:00">12:00</option>
+							<option value="12:30">12:30</option>
+							<option value="1:00">1:00</option>
+							<option value="1:30">1:30</option>
+							<option value="2:00">2:00</option>
+							<option value="2:30">2:30</option>
+							<option value="3:00">3:00</option>
+							<option value="3:30">3:30</option>
+							<option value="4:00">4:00</option>
+							<option value="4:30">4:30</option>
+							<option value="5:00">5:00</option>
+						</select>
+					</div>
+				</div>
+				<div class="item knobs">
+					<div>
+						Pitch Step 6
+					</div>
+					<div>
+						<select id="dfam_sequencer_pitch_step_6" class="knobs pointy">
+							<option value=""> </option>
+							<option value="min">min</option>
+							<option value="max">max</option>
+							<option value="7:00">7:00</option>
+							<option value="7:30">7:30</option>
+							<option value="8:00">8:00</option>
+							<option value="8:30">8:30</option>
+							<option value="9:00">9:00</option>
+							<option value="9:30">9:30</option>
+							<option value="10:00">10:00</option>
+							<option value="10:30">10:30</option>
+							<option value="11:00">11:00</option>
+							<option value="11:30">11:30</option>
+							<option value="12:00">12:00</option>
+							<option value="12:30">12:30</option>
+							<option value="1:00">1:00</option>
+							<option value="1:30">1:30</option>
+							<option value="2:00">2:00</option>
+							<option value="2:30">2:30</option>
+							<option value="3:00">3:00</option>
+							<option value="3:30">3:30</option>
+							<option value="4:00">4:00</option>
+							<option value="4:30">4:30</option>
+							<option value="5:00">5:00</option>
+						</select>
+					</div>
+				</div>
+				<div class="item knobs">
+					<div>
+						Pitch Step 7
+					</div>
+					<div>
+						<select id="dfam_sequencer_pitch_step_7" class="knobs pointy">
+							<option value=""> </option>
+							<option value="min">min</option>
+							<option value="max">max</option>
+							<option value="7:00">7:00</option>
+							<option value="7:30">7:30</option>
+							<option value="8:00">8:00</option>
+							<option value="8:30">8:30</option>
+							<option value="9:00">9:00</option>
+							<option value="9:30">9:30</option>
+							<option value="10:00">10:00</option>
+							<option value="10:30">10:30</option>
+							<option value="11:00">11:00</option>
+							<option value="11:30">11:30</option>
+							<option value="12:00">12:00</option>
+							<option value="12:30">12:30</option>
+							<option value="1:00">1:00</option>
+							<option value="1:30">1:30</option>
+							<option value="2:00">2:00</option>
+							<option value="2:30">2:30</option>
+							<option value="3:00">3:00</option>
+							<option value="3:30">3:30</option>
+							<option value="4:00">4:00</option>
+							<option value="4:30">4:30</option>
+							<option value="5:00">5:00</option>
+						</select>
+					</div>
+				</div>
+				<div class="item knobs">
+					<div>
+						Pitch Step 8
+					</div>
+					<div>
+						<select id="dfam_sequencer_pitch_step_8" class="knobs pointy">
+							<option value=""> </option>
+							<option value="min">min</option>
+							<option value="max">max</option>
+							<option value="7:00">7:00</option>
+							<option value="7:30">7:30</option>
+							<option value="8:00">8:00</option>
+							<option value="8:30">8:30</option>
+							<option value="9:00">9:00</option>
+							<option value="9:30">9:30</option>
+							<option value="10:00">10:00</option>
+							<option value="10:30">10:30</option>
+							<option value="11:00">11:00</option>
+							<option value="11:30">11:30</option>
+							<option value="12:00">12:00</option>
+							<option value="12:30">12:30</option>
+							<option value="1:00">1:00</option>
+							<option value="1:30">1:30</option>
+							<option value="2:00">2:00</option>
+							<option value="2:30">2:30</option>
+							<option value="3:00">3:00</option>
+							<option value="3:30">3:30</option>
+							<option value="4:00">4:00</option>
+							<option value="4:30">4:30</option>
+							<option value="5:00">5:00</option>
+						</select>
+					</div>
+				</div>
+				<div class="item knobs">
+					<div>
+						Velocity Step 1
+					</div>
+					<div>
+						<select id="dfam_sequencer_velocity_step_1" class="knobs pointy">
+							<option value=""> </option>
+							<option value="min">min</option>
+							<option value="max">max</option>
+							<option value="7:00">7:00</option>
+							<option value="7:30">7:30</option>
+							<option value="8:00">8:00</option>
+							<option value="8:30">8:30</option>
+							<option value="9:00">9:00</option>
+							<option value="9:30">9:30</option>
+							<option value="10:00">10:00</option>
+							<option value="10:30">10:30</option>
+							<option value="11:00">11:00</option>
+							<option value="11:30">11:30</option>
+							<option value="12:00">12:00</option>
+							<option value="12:30">12:30</option>
+							<option value="1:00">1:00</option>
+							<option value="1:30">1:30</option>
+							<option value="2:00">2:00</option>
+							<option value="2:30">2:30</option>
+							<option value="3:00">3:00</option>
+							<option value="3:30">3:30</option>
+							<option value="4:00">4:00</option>
+							<option value="4:30">4:30</option>
+							<option value="5:00">5:00</option>
+						</select>
+					</div>
+				</div>
+				<div class="item knobs">
+					<div>
+						Velocity Step 2
+					</div>
+					<div>
+						<select id="dfam_sequencer_velocity_step_2" class="knobs pointy">
+							<option value=""> </option>
+							<option value="min">min</option>
+							<option value="max">max</option>
+							<option value="7:00">7:00</option>
+							<option value="7:30">7:30</option>
+							<option value="8:00">8:00</option>
+							<option value="8:30">8:30</option>
+							<option value="9:00">9:00</option>
+							<option value="9:30">9:30</option>
+							<option value="10:00">10:00</option>
+							<option value="10:30">10:30</option>
+							<option value="11:00">11:00</option>
+							<option value="11:30">11:30</option>
+							<option value="12:00">12:00</option>
+							<option value="12:30">12:30</option>
+							<option value="1:00">1:00</option>
+							<option value="1:30">1:30</option>
+							<option value="2:00">2:00</option>
+							<option value="2:30">2:30</option>
+							<option value="3:00">3:00</option>
+							<option value="3:30">3:30</option>
+							<option value="4:00">4:00</option>
+							<option value="4:30">4:30</option>
+							<option value="5:00">5:00</option>
+						</select>
+					</div>
+				</div>
+				<div class="item knobs">
+					<div>
+						Velocity Step 3
+					</div>
+					<div>
+						<select id="dfam_sequencer_velocity_step_3" class="knobs pointy">
+							<option value=""> </option>
+							<option value="min">min</option>
+							<option value="max">max</option>
+							<option value="7:00">7:00</option>
+							<option value="7:30">7:30</option>
+							<option value="8:00">8:00</option>
+							<option value="8:30">8:30</option>
+							<option value="9:00">9:00</option>
+							<option value="9:30">9:30</option>
+							<option value="10:00">10:00</option>
+							<option value="10:30">10:30</option>
+							<option value="11:00">11:00</option>
+							<option value="11:30">11:30</option>
+							<option value="12:00">12:00</option>
+							<option value="12:30">12:30</option>
+							<option value="1:00">1:00</option>
+							<option value="1:30">1:30</option>
+							<option value="2:00">2:00</option>
+							<option value="2:30">2:30</option>
+							<option value="3:00">3:00</option>
+							<option value="3:30">3:30</option>
+							<option value="4:00">4:00</option>
+							<option value="4:30">4:30</option>
+							<option value="5:00">5:00</option>
+						</select>
+					</div>
+				</div>
+				<div class="item knobs">
+					<div>
+						Velocity Step 4
+					</div>
+					<div>
+						<select id="dfam_sequencer_velocity_step_4" class="knobs pointy">
+							<option value=""> </option>
+							<option value="min">min</option>
+							<option value="max">max</option>
+							<option value="7:00">7:00</option>
+							<option value="7:30">7:30</option>
+							<option value="8:00">8:00</option>
+							<option value="8:30">8:30</option>
+							<option value="9:00">9:00</option>
+							<option value="9:30">9:30</option>
+							<option value="10:00">10:00</option>
+							<option value="10:30">10:30</option>
+							<option value="11:00">11:00</option>
+							<option value="11:30">11:30</option>
+							<option value="12:00">12:00</option>
+							<option value="12:30">12:30</option>
+							<option value="1:00">1:00</option>
+							<option value="1:30">1:30</option>
+							<option value="2:00">2:00</option>
+							<option value="2:30">2:30</option>
+							<option value="3:00">3:00</option>
+							<option value="3:30">3:30</option>
+							<option value="4:00">4:00</option>
+							<option value="4:30">4:30</option>
+							<option value="5:00">5:00</option>
+						</select>
+					</div>
+				</div>
+				<div class="item knobs">
+					<div>
+						Velocity Step 5
+					</div>
+					<div>
+						<select id="dfam_sequencer_velocity_step_5" class="knobs pointy">
+							<option value=""> </option>
+							<option value="min">min</option>
+							<option value="max">max</option>
+							<option value="7:00">7:00</option>
+							<option value="7:30">7:30</option>
+							<option value="8:00">8:00</option>
+							<option value="8:30">8:30</option>
+							<option value="9:00">9:00</option>
+							<option value="9:30">9:30</option>
+							<option value="10:00">10:00</option>
+							<option value="10:30">10:30</option>
+							<option value="11:00">11:00</option>
+							<option value="11:30">11:30</option>
+							<option value="12:00">12:00</option>
+							<option value="12:30">12:30</option>
+							<option value="1:00">1:00</option>
+							<option value="1:30">1:30</option>
+							<option value="2:00">2:00</option>
+							<option value="2:30">2:30</option>
+							<option value="3:00">3:00</option>
+							<option value="3:30">3:30</option>
+							<option value="4:00">4:00</option>
+							<option value="4:30">4:30</option>
+							<option value="5:00">5:00</option>
+						</select>
+					</div>
+				</div>
+				<div class="item knobs">
+					<div>
+						Velocity Step 6
+					</div>
+					<div>
+						<select id="dfam_sequencer_velocity_step_6" class="knobs pointy">
+							<option value=""> </option>
+							<option value="min">min</option>
+							<option value="max">max</option>
+							<option value="7:00">7:00</option>
+							<option value="7:30">7:30</option>
+							<option value="8:00">8:00</option>
+							<option value="8:30">8:30</option>
+							<option value="9:00">9:00</option>
+							<option value="9:30">9:30</option>
+							<option value="10:00">10:00</option>
+							<option value="10:30">10:30</option>
+							<option value="11:00">11:00</option>
+							<option value="11:30">11:30</option>
+							<option value="12:00">12:00</option>
+							<option value="12:30">12:30</option>
+							<option value="1:00">1:00</option>
+							<option value="1:30">1:30</option>
+							<option value="2:00">2:00</option>
+							<option value="2:30">2:30</option>
+							<option value="3:00">3:00</option>
+							<option value="3:30">3:30</option>
+							<option value="4:00">4:00</option>
+							<option value="4:30">4:30</option>
+							<option value="5:00">5:00</option>
+						</select>
+					</div>
+				</div>
+				<div class="item knobs">
+					<div>
+						Velocity Step 7
+					</div>
+					<div>
+						<select id="dfam_sequencer_velocity_step_7" class="knobs pointy">
+							<option value=""> </option>
+							<option value="min">min</option>
+							<option value="max">max</option>
+							<option value="7:00">7:00</option>
+							<option value="7:30">7:30</option>
+							<option value="8:00">8:00</option>
+							<option value="8:30">8:30</option>
+							<option value="9:00">9:00</option>
+							<option value="9:30">9:30</option>
+							<option value="10:00">10:00</option>
+							<option value="10:30">10:30</option>
+							<option value="11:00">11:00</option>
+							<option value="11:30">11:30</option>
+							<option value="12:00">12:00</option>
+							<option value="12:30">12:30</option>
+							<option value="1:00">1:00</option>
+							<option value="1:30">1:30</option>
+							<option value="2:00">2:00</option>
+							<option value="2:30">2:30</option>
+							<option value="3:00">3:00</option>
+							<option value="3:30">3:30</option>
+							<option value="4:00">4:00</option>
+							<option value="4:30">4:30</option>
+							<option value="5:00">5:00</option>
+						</select>
+					</div>
+				</div>
+				<div class="item knobs">
+					<div>
+						Velocity Step 8
+					</div>
+					<div>
+						<select id="dfam_sequencer_velocity_step_8" class="knobs pointy">
+							<option value=""> </option>
+							<option value="min">min</option>
+							<option value="max">max</option>
+							<option value="7:00">7:00</option>
+							<option value="7:30">7:30</option>
+							<option value="8:00">8:00</option>
+							<option value="8:30">8:30</option>
+							<option value="9:00">9:00</option>
+							<option value="9:30">9:30</option>
+							<option value="10:00">10:00</option>
+							<option value="10:30">10:30</option>
+							<option value="11:00">11:00</option>
+							<option value="11:30">11:30</option>
+							<option value="12:00">12:00</option>
+							<option value="12:30">12:30</option>
+							<option value="1:00">1:00</option>
+							<option value="1:30">1:30</option>
+							<option value="2:00">2:00</option>
+							<option value="2:30">2:30</option>
+							<option value="3:00">3:00</option>
+							<option value="3:30">3:30</option>
+							<option value="4:00">4:00</option>
+							<option value="4:30">4:30</option>
+							<option value="5:00">5:00</option>
+						</select>
+					</div>
+				</div>
+
+			</section>
+
+			<!-- ***************************   DFAM Output Jacks   *************************** -->
+
+			<section  class="instrument_dfam">
+
+				<h3>
+					Output Jacks
+				</h3>
+
+				<!-- ********* VCA ********* -->
+
+				<div class="item_category">
+					VCA/EG
+				</div>
+				<div class="item jacks" data-connections="1">
+					<div>
+						VCA
+					</div>
+					<div></div>
+					<div id="dfam_vcaeg_vca_container_0">
+						<select id="dfam_vcaeg_vca_0" data-index="0" class="jacks"></select>
+					</div>
+					<div id="dfam_vcaeg_vca_plus" class="plus pointy">
+						+
+					</div>
+				</div>
+				<div class="item jacks" data-connections="1">
+					<div>
+						VCA EG
+					</div>
+					<div></div>
+					<div id="dfam_vcaeg_vcaeg_container_0">
+						<select id="dfam_vcaeg_vcaeg_0" data-index="0" class="jacks"></select>
+					</div>
+					<div id="dfam_vcaeg_vcaeg_plus" class="plus pointy">
+						+
+					</div>
+				</div>
+				<div class="item jacks" data-connections="1">
+					<div>
+						VCF EG
+					</div>
+					<div></div>
+					<div id="dfam_vcaeg_vcfeg_container_0">
+						<select id="dfam_vcaeg_vcfeg_0" data-index="0" class="jacks"></select>
+					</div>
+					<div id="dfam_vcaeg_vcfeg_plus" class="plus pointy">
+						+
+					</div>
+				</div>
+				<div class="item jacks" data-connections="1">
+					<div>
+						VCO EG
+					</div>
+					<div></div>
+					<div id="dfam_vcaeg_vcoeg_container_0">
+						<select id="dfam_vcaeg_vcoeg_0" data-index="0" class="jacks"></select>
+					</div>
+					<div id="dfam_vcaeg_vcoeg_plus" class="plus pointy">
+						+
+					</div>
+				</div>
+
+				<!-- ********* Oscillators ********* -->
+
+				<div class="item_category">
+					VCO 1
+				</div>
+				<div class="item jacks" data-connections="1">
+					<div>
+						VCO 1
+					</div>
+					<div></div>
+					<div id="dfam_oscillators_vco_one_container_0">
+						<select id="dfam_voscillators_vco_one_0" data-index="0" class="jacks"></select>
+					</div>
+					<div id="dfam_oscillators_vco_one_plus" class="plus pointy">
+						+
+					</div>
+				</div>
+				<div class="item jacks" data-connections="1">
+					<div>
+						VCO 2
+					</div>
+					<div></div>
+					<div id="dfam_oscillators_vco_two_container_0">
+						<select id="dfam_voscillators_vco_two_0" data-index="0" class="jacks"></select>
+					</div>
+					<div id="dfam_oscillators_vco_two_plus" class="plus pointy">
+						+
+					</div>
+				</div>
+
+				<!-- ********* Sequencer ********* -->
+
+				<div class="item_category">
+					Sequencer
+				</div>
+				<div class="item jacks" data-connections="1">
+					<div>
+						Trigger
+					</div>
+					<div></div>
+					<div id="dfam_sequencer_trigger_container_0">
+						<select id="dfam_sequencer_trigger_0" data-index="0" class="jacks"></select>
+					</div>
+					<div id="dfam_sequencer_trigger_plus" class="plus pointy">
+						+
+					</div>
+				</div>
+				<div class="item jacks" data-connections="1">
+					<div>
+						Velocity
+					</div>
+					<div></div>
+					<div id="dfam_sequencer_velocity_container_0">
+						<select id="dfam_sequencer_velocity_0" data-index="0" class="jacks"></select>
+					</div>
+					<div id="dfam_sequencer_velocity_plus" class="plus pointy">
+						+
+					</div>
+				</div>
+				<div class="item jacks" data-connections="1">
+					<div>
+						Pitch
+					</div>
+					<div></div>
+					<div id="dfam_sequencer_pitch_container_0">
+						<select id="dfam_sequencer_pitch_0" data-index="0" class="jacks"></select>
+					</div>
+					<div id="dfam_sequencer_pitch_plus" class="plus pointy">
+						+
+					</div>
+				</div>
+
+			</section>
+
+		</section>
+
+	</div>
 
 	<!-- ***************************   Instrument: Werkstatt   *************************** -->
 
