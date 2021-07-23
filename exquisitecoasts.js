@@ -15,14 +15,20 @@ var midiBLFOSpeedMultiplierField;
 
 var instrument0CoastCheckbox;
 var instrumentStregaCheckbox;
+var instrument0CTRLCheckbox;
+var instrumentMother32Checkbox;
 var instrumentDFAMCheckbox;
+var instrumentSubharmoniconCheckbox;
 var instrumentWerkstattCheckbox;
 var instrumentExpandedRackCheckbox;
 var instrumentExternalCVCheckbox;
 
 var instrument0Coast;
 var instrumentStrega;
+var instrument0CTRL;
+var instrumentMother32;
 var instrumentDFAM;
+var instrumentSubharmonicon;
 var instrumentWerkstatt;
 var instrumentExpandedRack;
 var instrumentExternalCV;
@@ -43,7 +49,10 @@ var superTopSecretCode = localStorage.getItem('superTopSecretCode');
 var jackDestinations = {
 	'0-Coast': ['TEMPO Input', 'Voltage MATH: Channel 1 Input', 'Voltage MATH: Channel 2 Input', 'Oscillator: 1/V OCTave Input', 'Oscillator: Linear FM Input', 'Overtone: CV Input', 'Multiply: CV Input', 'Slope: Rise/Fall Time CV Input', 'Slope: Trigger Input', 'Contour: Decay Time CV Input', 'Contour: Gate Input', 'Balance: Channel External Input', 'Balance: CV Input', 'Dynamics: CV Input'],
 	'Strega': ['External: Substance In', 'Activation: CV In', 'Tonic: Tonic Modulation Interference Input', 'Tones: CV In', 'Tones: 1V/ Octave', 'Time/Filter: Time Modulation Input', 'Time/Filter: Time CV In', 'Time/Filter: Time Unity CV In', 'Time/Filter: Decay CV In', 'Time/Filter: Absorb CV In', 'Time/Filter: Blend CV In', 'Time/Filter: Filter CV In', 'Agitation Generator: Begin and End In', 'Agitation Generator: Speed CV In'],
+	'0-CTRL': ['Clock Input', 'Dynamic Reset Input', 'Stop Input', 'Direction Input', 'Strength CV Input', 'Time CV Input'],
+	'Mother 32': ['Ext. Audio', 'Mix CV', 'VCA CV', 'VCF Cutoff', 'VCF Res.', 'VCO 1V/Oct', 'CVO Lin FM'],
 	'DFAM': ['Trigger', 'VCA CV', 'Velocity', 'VCA Decay', 'Ext Audio', 'VCF Decay', 'Noise Level', 'VCO Decay', 'VCF Mod', 'VCO 1 CV', 'VCO 2 CV', '1⭢2 FM Amount', 'Tempo', 'Run/Stop', 'Adv/Clock'],
+	'Subharmonicon': ['VCO 1', 'VCO 1 Sub', 'VCO 1 PWM', 'VCA', 'VCO 2', 'VCO 2 Sub', 'VCO 2 PWM', 'Cutoff', 'Play', 'Reset', 'Trigger', 'Rhythm 1', 'Rhythm 2', 'Rhythm 3', 'Rhythm 4', 'Clock'],
 	'Werkstatt': ['VCA CV In', 'VCF CV In', 'VCO Lin FM In', 'VCO Exp FM In', 'LFO FM In', 'Gate In', 'VCF Aud In'],
 	'Expanded Rack': ['Filter: Audio In', 'Filter: Freq CV', 'Filter: Freq CV (attenuated)', 'Attenuator 1: In', 'Attenuator 2: In', 'Attenuator 3: In', 'Att-Off 1: In', 'LPG 1: Signal In', 'LPG 1: CV In', 'LPG 2: Signal In', 'LPG 2: CV In', 'Sample & Hold: Signal In', 'Sample & Hold: S&H', 'Sample & Hold: T&H', 'Piezo: Audio In', 'Disting: Z', 'Disting: X', 'Disting: Y', 'Disting 2: Z', 'Disting 2: X', 'Disting 2: Y', 'TP8: Top Left', 'TP8: Top Right', 'TP8: Top Diamond', 'TP8: Middle Left', 'TP8: Middle Right', 'TP8: Bottom Diamond', 'TP8: Bottom Left', 'TP8: Bottom Right'],
 	'External CV': ['Sync In'],
@@ -52,407 +61,424 @@ var jackDestinations = {
 
 window.onload = function() {
 
-	if (superTopSecretCode) {
-		document.getElementById('secretcheckboxes').classList.remove('supertopsecret');
+	if (screen.width < 768 && window.innerHeight > window.innerWidth) {
+		alert("Please rotate your phone. Exqusite Coast only displays well on phones when in landscape mode.");
+  }
+
+	if (location.href.indexOf('localhost') === -1 && location.protocol !== 'https:' && localStorage.getItem('workingPatchName') === null) {
+		location.replace(`https:${location.href.substring(location.protocol.length)}`);
 	}
-
-	// ***************************   Header   ***************************
-
-	// ********* Menu *********
-
-	var headerArea = document.getElementById('header');
-	var menuButton = document.getElementById('menu_button');
-	menuButton.addEventListener('touch', openMenu);
-	menuButton.addEventListener('click', openMenu);
-	function openMenu(event) {
-		event.preventDefault()
-		if (!menuButton.classList.contains('open')) {
-			menuButton.classList.add('open');
-			headerArea.style.height = (document.getElementById('welcome_message').clientHeight + 130) + 'px';
+	else {
+		if (superTopSecretCode) {
+			document.getElementById('secretcheckboxes').classList.remove('supertopsecret');
 		}
-		else {
-			menuButton.classList.remove('open');
-			headerArea.style.height = 'var(--headerheight)';
-		}
-	}
 
-	// ********* Arrows *********
+		// ***************************   Header   ***************************
 
-	var arrow1 = document.getElementById('arrow1');
-	var arrow2 = document.getElementById('arrow2');
+		// ********* Menu *********
 
-	function rotateArrows() {
-		setTimeout(function() {
-			arrow1.style.transform = 'rotate(' + ((Math.random() * 100) - 50) + 'deg)';
-			arrow2.style.transform = 'rotate(' + ((Math.random() * 100) + 300) + 'deg)';
-			rotateArrows();
-		}, (Math.random() * 10000) + 15000);
-	}
-	rotateArrows();
-
-	// ***************************   Patch Info   ***************************
-
-	patchNameField = document.getElementById('patch_name');
-	authorField = document.getElementById('author');
-	patchNotesField = document.getElementById('patch_notes');
-	shareButton = document.getElementById('get_share_link');
-
-	instrument0CoastCheckbox = document.getElementById('instrument_checkbox_0coast');
-	instrumentStregaCheckbox = document.getElementById('instrument_checkbox_strega');
-	instrumentDFAMCheckbox = document.getElementById('instrument_checkbox_dfam');
-	instrumentWerkstattCheckbox = document.getElementById('instrument_checkbox_werkstatt');
-	instrumentExpandedRackCheckbox = document.getElementById('instrument_checkbox_expandedrack');
-	instrumentExternalCVCheckbox = document.getElementById('instrument_checkbox_externalcv');
-
-	instrument0CoastCheckbox.addEventListener('change', function() { saveInstrument(instrument0CoastCheckbox); collapseInstruments() });
-	instrumentStregaCheckbox.addEventListener('change', function() { saveInstrument(instrumentStregaCheckbox); collapseInstruments() });
-	instrumentDFAMCheckbox.addEventListener('change', function() { saveInstrument(instrumentDFAMCheckbox); collapseInstruments() });
-	instrumentWerkstattCheckbox.addEventListener('change', function() { saveInstrument(instrumentWerkstattCheckbox); collapseInstruments() });
-	instrumentExpandedRackCheckbox.addEventListener('change', function() { saveInstrument(instrumentExpandedRackCheckbox); collapseInstruments() });
-	instrumentExternalCVCheckbox.addEventListener('change', function() { saveInstrument(instrumentExternalCVCheckbox); collapseInstruments() });
-
-	instrument0Coast = document.getElementById('instrument_0coast');
-	instrumentStrega = document.getElementById('instrument_strega');
-	instrumentDFAM = document.getElementById('instrument_dfam');
-	instrumentWerkstatt = document.getElementById('instrument_werkstatt');
-	instrumentExpandedRack = document.getElementById('instrument_expandedrack');
-	instrumentExternalCV = document.getElementById('instrument_externalcv');
-	noInstruments = document.getElementById('no_instruments');
-
-	// ********* Patch Name Menu *********
-
-	patchNameField.addEventListener('change', function() {
-		var value = patchNameField.value;
-
-		if (value === 'New Patch') {
-			var newPatchName = '';
-			var foundDuplicate = false;
-			var message = 'Enter a name for the new patch';
-
-			while (newPatchName === '' || foundDuplicate) {
-				newPatchName = prompt(message);
-				if (newPatchName === '') {
-					message = 'Patch name cannot be blank. Enter a name for the new patch or press Cancel to abort.';
-				}
-				else {
-					foundDuplicate = Object.keys(localStorage).indexOf(newPatchName) !== -1;
-					message = 'There is already a patch named ' + newPatchName + '. Enter a new name for the new patch or press Cancel to abort.';
-				}
-			}
-			if (newPatchName === null) {
-				patchNameField.value = workingPatch.patchName;
+		var headerArea = document.getElementById('header');
+		var menuButton = document.getElementById('menu_button');
+		menuButton.addEventListener('touch', openMenu);
+		menuButton.addEventListener('click', openMenu);
+		function openMenu(event) {
+			event.preventDefault()
+			if (!menuButton.classList.contains('open')) {
+				menuButton.classList.add('open');
+				headerArea.style.height = (document.getElementById('welcome_message').clientHeight + 130) + 'px';
 			}
 			else {
-				makeNewPatch(newPatchName);
+				menuButton.classList.remove('open');
+				headerArea.style.height = 'var(--headerheight)';
 			}
 		}
-		else if (value === 'Save As...') {
-			var newPatchName = '';
-			var defaultName = workingPatch.patchName + ' copy';
-			var foundDuplicate = false;
-			var message = 'Enter a name for the patch copy';
 
-			while (newPatchName === '' || foundDuplicate) {
-				newPatchName = prompt(message, defaultName);
-				if (newPatchName === '') {
-					message = 'Patch name cannot be blank. Enter a name for the patch copy or press Cancel to abort.';
-				}
-				else {
-					foundDuplicate = Object.keys(localStorage).indexOf(newPatchName) !== -1;
-					message = 'There is already a patch named ' + newPatchName + '. Enter a new name for the patch copy or press Cancel to abort.';
-					defaultName = newPatchName;
-				}
-			}
-			if (newPatchName === null) {
-				patchNameField.value = workingPatch.patchName;
-			}
-			else {
-				makeNewPatch(newPatchName, true);
-			}
-		}
-		else if (value === 'Rename') {
-			var newPatchName = '';
-			var defaultName = workingPatch.patchName;
-			var foundDuplicate = false;
-			var message = 'Enter a new name for the patch.';
+		// ********* Arrows *********
 
-			while (newPatchName === '' || foundDuplicate) {
-				newPatchName = prompt(message, defaultName);
-				if (newPatchName === '') {
-					message = 'Patch name cannot be blank. Enter a new name for the patch or press Cancel to abort.';
-				}
-				else {
-					foundDuplicate = Object.keys(localStorage).indexOf(newPatchName) !== -1;
-					message = 'There is already a patch named ' + newPatchName + '. Enter a new name for the patch or press Cancel to abort.';
-					defaultName = newPatchName;
-				}
-			}
-			if (newPatchName === null) {
-				patchNameField.value = workingPatch.patchName;
-			}
-			else {
-				localStorage.removeItem(workingPatch.patchName);
-				workingPatch.patchName = newPatchName;
-				localStorage.setItem('workingPatchName', newPatchName);
-				savePatch();
-				location.reload();
-			}
+		var arrow1 = document.getElementById('arrow1');
+		var arrow2 = document.getElementById('arrow2');
+
+		function rotateArrows() {
+			setTimeout(function() {
+				arrow1.style.transform = 'rotate(' + ((Math.random() * 100) - 50) + 'deg)';
+				arrow2.style.transform = 'rotate(' + ((Math.random() * 100) + 300) + 'deg)';
+				rotateArrows();
+			}, (Math.random() * 10000) + 15000);
 		}
-		else if (value === 'Delete') {
-			var confirmation = confirm('Press OK to delete ' + workingPatch.patchName + '. THIS CANNOT BE UNDONE!');
-			if (confirmation == true) {
-				localStorage.removeItem(workingPatch.patchName);
-				var allLocalStorage = Object.keys(localStorage);
-				var foundAPatch = false;
-				for (var i = 0; i < allLocalStorage.length; i++) {
-					var name = allLocalStorage[i];
-					if (name !== 'workingAuthor' && name !== 'workingPatchName' && name !== 'legacyPatches' && name !== 'superTopSecretCode') {
-						localStorage.setItem('workingPatchName', name);
-						foundAPatch = true;
-						break;
+		rotateArrows();
+
+		// ***************************   Patch Info   ***************************
+
+		patchNameField = document.getElementById('patch_name');
+		authorField = document.getElementById('author');
+		patchNotesField = document.getElementById('patch_notes');
+		shareButton = document.getElementById('get_share_link');
+
+		instrument0CoastCheckbox = document.getElementById('instrument_checkbox_0coast');
+		instrumentStregaCheckbox = document.getElementById('instrument_checkbox_strega');
+		instrument0CTRLCheckbox = document.getElementById('instrument_checkbox_0ctrl');
+		instrumentMother32Checkbox = document.getElementById('instrument_checkbox_mother32');
+		instrumentDFAMCheckbox = document.getElementById('instrument_checkbox_dfam');
+		instrumentSubharmoniconCheckbox = document.getElementById('instrument_checkbox_subharmonicon');
+		instrumentWerkstattCheckbox = document.getElementById('instrument_checkbox_werkstatt');
+		instrumentExpandedRackCheckbox = document.getElementById('instrument_checkbox_expandedrack');
+		instrumentExternalCVCheckbox = document.getElementById('instrument_checkbox_externalcv');
+
+		instrument0CoastCheckbox.addEventListener('change', function() { saveInstrument(instrument0CoastCheckbox); collapseInstruments() });
+		instrumentStregaCheckbox.addEventListener('change', function() { saveInstrument(instrumentStregaCheckbox); collapseInstruments() });
+		instrument0CTRLCheckbox.addEventListener('change', function() { saveInstrument(instrument0CTRLCheckbox); collapseInstruments() });
+		instrumentMother32Checkbox.addEventListener('change', function() { saveInstrument(instrumentMother32Checkbox); collapseInstruments() });
+		instrumentDFAMCheckbox.addEventListener('change', function() { saveInstrument(instrumentDFAMCheckbox); collapseInstruments() });
+		instrumentSubharmoniconCheckbox.addEventListener('change', function() { saveInstrument(instrumentSubharmoniconCheckbox); collapseInstruments() });
+		instrumentWerkstattCheckbox.addEventListener('change', function() { saveInstrument(instrumentWerkstattCheckbox); collapseInstruments() });
+		instrumentExpandedRackCheckbox.addEventListener('change', function() { saveInstrument(instrumentExpandedRackCheckbox); collapseInstruments() });
+		instrumentExternalCVCheckbox.addEventListener('change', function() { saveInstrument(instrumentExternalCVCheckbox); collapseInstruments() });
+
+		instrument0Coast = document.getElementById('instrument_0coast');
+		instrumentStrega = document.getElementById('instrument_strega');
+		instrument0CTRL = document.getElementById('instrument_0ctrl');
+		instrumentMother32 = document.getElementById('instrument_mother32');
+		instrumentDFAM = document.getElementById('instrument_dfam');
+		instrumentSubharmonicon = document.getElementById('instrument_subharmonicon');
+		instrumentWerkstatt = document.getElementById('instrument_werkstatt');
+		instrumentExpandedRack = document.getElementById('instrument_expandedrack');
+		instrumentExternalCV = document.getElementById('instrument_externalcv');
+		noInstruments = document.getElementById('no_instruments');
+
+		// ********* Patch Name Menu *********
+
+		patchNameField.addEventListener('change', function() {
+			var value = patchNameField.value;
+
+			if (value === 'New Patch') {
+				var newPatchName = '';
+				var foundDuplicate = false;
+				var message = 'Enter a name for the new patch';
+
+				while (newPatchName === '' || foundDuplicate) {
+					newPatchName = prompt(message);
+					if (newPatchName === '') {
+						message = 'Patch name cannot be blank. Enter a name for the new patch or press Cancel to abort.';
+					}
+					else {
+						foundDuplicate = Object.keys(localStorage).indexOf(newPatchName) !== -1;
+						message = 'There is already a patch named ' + newPatchName + '. Enter a new name for the new patch or press Cancel to abort.';
 					}
 				}
-				if (!foundAPatch) {
-					makeNewPatch('Untitled 1');
+				if (newPatchName === null) {
+					patchNameField.value = workingPatch.patchName;
 				}
+				else {
+					makeNewPatch(newPatchName);
+				}
+			}
+			else if (value === 'Save As...') {
+				var newPatchName = '';
+				var defaultName = workingPatch.patchName + ' copy';
+				var foundDuplicate = false;
+				var message = 'Enter a name for the patch copy';
+
+				while (newPatchName === '' || foundDuplicate) {
+					newPatchName = prompt(message, defaultName);
+					if (newPatchName === '') {
+						message = 'Patch name cannot be blank. Enter a name for the patch copy or press Cancel to abort.';
+					}
+					else {
+						foundDuplicate = Object.keys(localStorage).indexOf(newPatchName) !== -1;
+						message = 'There is already a patch named ' + newPatchName + '. Enter a new name for the patch copy or press Cancel to abort.';
+						defaultName = newPatchName;
+					}
+				}
+				if (newPatchName === null) {
+					patchNameField.value = workingPatch.patchName;
+				}
+				else {
+					makeNewPatch(newPatchName, true);
+				}
+			}
+			else if (value === 'Rename') {
+				var newPatchName = '';
+				var defaultName = workingPatch.patchName;
+				var foundDuplicate = false;
+				var message = 'Enter a new name for the patch.';
+
+				while (newPatchName === '' || foundDuplicate) {
+					newPatchName = prompt(message, defaultName);
+					if (newPatchName === '') {
+						message = 'Patch name cannot be blank. Enter a new name for the patch or press Cancel to abort.';
+					}
+					else {
+						foundDuplicate = Object.keys(localStorage).indexOf(newPatchName) !== -1;
+						message = 'There is already a patch named ' + newPatchName + '. Enter a new name for the patch or press Cancel to abort.';
+						defaultName = newPatchName;
+					}
+				}
+				if (newPatchName === null) {
+					patchNameField.value = workingPatch.patchName;
+				}
+				else {
+					localStorage.removeItem(workingPatch.patchName);
+					workingPatch.patchName = newPatchName;
+					localStorage.setItem('workingPatchName', newPatchName);
+					savePatch();
+					location.reload();
+				}
+			}
+			else if (value === 'Delete') {
+				var confirmation = confirm('Press OK to delete ' + workingPatch.patchName + '. THIS CANNOT BE UNDONE!');
+				if (confirmation == true) {
+					localStorage.removeItem(workingPatch.patchName);
+					var allLocalStorage = Object.keys(localStorage);
+					var foundAPatch = false;
+					for (var i = 0; i < allLocalStorage.length; i++) {
+						var name = allLocalStorage[i];
+						if (name !== 'workingAuthor' && name !== 'workingPatchName' && name !== 'legacyPatches' && name !== 'superTopSecretCode') {
+							localStorage.setItem('workingPatchName', name);
+							foundAPatch = true;
+							break;
+						}
+					}
+					if (!foundAPatch) {
+						makeNewPatch('Untitled 1');
+					}
+					location.reload();
+				}
+				else {
+					patchNameField.value = workingPatch.patchName;
+				}
+			}
+			else if (value === '---------') {
+
+			}
+			else {
+				localStorage.setItem('workingPatchName', value);
 				location.reload();
 			}
-			else {
-				patchNameField.value = workingPatch.patchName;
-			}
-		}
-		else if (value === '---------') {
+		});
 
-		}
-		else {
-			localStorage.setItem('workingPatchName', value);
-			location.reload();
-		}
-	});
+		// ********* Author Info *********
 
-	// ********* Author Info *********
-
-	authorField.addEventListener('keyup', function() {
-		workingPatch.author = author.value;
-		localStorage.setItem('workingAuthor', author.value);
-		savePatch();
-	});
-
-	// ********* Patch Notes *********
-
-	patchNotesField.addEventListener('keyup', function() {
-		workingPatch.patchNotes = patchNotesField.value;
-		savePatch();
-	});
-
-	// ********* Sharing *********
-
-	shareButton.addEventListener('touch', function() { sharePatch() });
-	shareButton.addEventListener('click', function() { sharePatch() });
-
-	// ***************************   Selects: Jack, Knob, MIDI Input   ***************************
-
-	var allSelects = document.getElementsByTagName('select');
-	for (var i = 0; i < allSelects.length; i++) {
-		var element = allSelects[i];
-
-		if (element.classList.contains('knobs')) {
-			knobFields[element.id] = document.getElementById(element.id);
-		}
-		else if (element.classList.contains('jacks')) {
-			jackFields[element.id] = document.getElementById(element.id);
-		}
-		else if (element.classList.contains('midi')) {
-			midiFields[element.id] = document.getElementById(element.id);
-		}
-	}
-
-	for (const key in knobFields) {
-		const field = knobFields[key];
-		field.addEventListener('change', function() { saveKnob(field) });
-	}
-
-	for (const key in jackFields) {
-		const field = jackFields[key];
-		field.addEventListener('change', function() { saveJack(field) });
-	}
-
-	for (const key in midiFields) {
-		const field = midiFields[key];
-		field.addEventListener('change', function() { saveMIDI(field) });
-	}
-
-	// ***************************   Plus Buttons   ***************************
-
-	var allJacksPlusButtons = document.getElementsByClassName('plus');
-	for (var i = 0; i < allJacksPlusButtons.length; i++) {
-		var element = allJacksPlusButtons[i];
-		plusButtons[element.id] = document.getElementById(element.id);
-	}
-
-	for (const key in plusButtons) {
-		const field = plusButtons[key];
-		field.addEventListener('touch', function() { newJackConnection(key) });
-		field.addEventListener('click', function() { newJackConnection(key) });
-	}
-
-	// ***************************   Special Fields   ***************************
-
-	// ********* 0-Coast clock *********
-
-	clockSpeedField = document.getElementById('nocoast_clock_speed');
-	clockSpeedTypeField = document.getElementById('nocoast_clock_speed_type');
-	clockSpeedMultiplierField = document.getElementById('nocoast_clock_speed_multiplier');
-	midiALFOSpeedField = document.getElementById('nocoast_midi_a_speed');
-	midiALFOSpeedTypeField = document.getElementById('nocoast_midi_a_speed_type');
-	midiALFOSpeedMultiplierField = document.getElementById('nocoast_midi_a_multiplier');
-	midiBLFOSpeedField = document.getElementById('nocoast_midi_b_speed');
-	midiBLFOSpeedTypeField = document.getElementById('nocoast_midi_b_speed_type');
-	midiBLFOSpeedMultiplierField = document.getElementById('nocoast_midi_b_multiplier');
-
-	clockSpeedField.addEventListener('keyup', function() { saveClock(clockSpeedField, true) });
-	clockSpeedTypeField.addEventListener('change', function() { saveClock(clockSpeedTypeField, false, clockSpeedMultiplierField) });
-	clockSpeedMultiplierField.addEventListener('change', function() { saveClock(clockSpeedMultiplierField, false) });
-	midiBLFOSpeedField.addEventListener('keyup', function() { saveClock(midiBLFOSpeedField, true) });;
-	midiBLFOSpeedTypeField.addEventListener('change', function() { saveClock(midiBLFOSpeedTypeField, false, midiBLFOSpeedMultiplierField) });
-	midiBLFOSpeedMultiplierField.addEventListener('change', function() { saveClock(midiBLFOSpeedMultiplierField, false) });
-
-	// ********* Coast Express *********
-
-	var coastExpressHelp = document.getElementById('coast_express_help');
-	var coastExpressHelpToggle = document.getElementById('coast_express_help_toggle');
-	coastExpressHelpToggle.addEventListener('click', function() {
-		if (coastExpressHelp.classList.contains('collapse')) {
-			coastExpressHelp.classList.remove('collapse');
-			coastExpressHelpToggle.classList.add('open');
-		}
-		else {
-			coastExpressHelp.classList.add('collapse');
-			coastExpressHelpToggle.classList.remove('open');
-		}
-	});
-
-	coastExpressLinkImage = document.getElementById('coast_express_link');
-	coastExpressLinkAnchor = document.getElementById('coast_express_link_anchor');
-	coastExpressShareLinkInput = document.getElementById('coast_express_share_link');
-
-	coastExpressShareLinkInput.addEventListener('focus', function() {
-		var promptText = 'Paste Share Link from ce.rustle.works here.'
-		var promptDefault = '';
-		if (workingPatch.midiInput && workingPatch.midiInput.coastExpressLink) {
-			promptText += ' Remove the link below if you wish to remove the previously shared link.';
-			promptDefault = workingPatch.midiInput.coastExpressLink;
-		}
-
-		var link = prompt(promptText, promptDefault);
-		coastExpressShareLinkInput.blur();
-
-		if (link === '' && promptDefault !== '') {
-			delete workingPatch.midiInput['coastExpressLink'];
+		authorField.addEventListener('keyup', function() {
+			workingPatch.author = author.value;
+			localStorage.setItem('workingAuthor', author.value);
 			savePatch();
-			insertCoastExpressShareLink();
-		}
-		else if (link || link === '') {
-			var compressedPatch = link.split('/?patch=')[1];
+		});
 
-			if (!compressedPatch) {
-				alert('The text entered does not seem to ba a Coast Express Share Link. Please try again.')
-				coastExpressShareLinkInput.focus();
+		// ********* Patch Notes *********
+
+		patchNotesField.addEventListener('keyup', function() {
+			workingPatch.patchNotes = patchNotesField.value;
+			savePatch();
+		});
+
+		// ********* Sharing *********
+
+		shareButton.addEventListener('touch', function() { sharePatch() });
+		shareButton.addEventListener('click', function() { sharePatch() });
+
+		// ***************************   Selects: Jack, Knob, MIDI Input   ***************************
+
+		var allSelects = document.getElementsByTagName('select');
+		for (var i = 0; i < allSelects.length; i++) {
+			var element = allSelects[i];
+
+			if (element.classList.contains('knobs')) {
+				knobFields[element.id] = document.getElementById(element.id);
+			}
+			else if (element.classList.contains('jacks')) {
+				jackFields[element.id] = document.getElementById(element.id);
+			}
+			else if (element.classList.contains('midi')) {
+				midiFields[element.id] = document.getElementById(element.id);
+			}
+		}
+
+		for (const key in knobFields) {
+			const field = knobFields[key];
+			field.addEventListener('change', function() { saveKnob(field) });
+		}
+
+		for (const key in jackFields) {
+			const field = jackFields[key];
+			field.addEventListener('change', function() { saveJack(field) });
+		}
+
+		for (const key in midiFields) {
+			const field = midiFields[key];
+			field.addEventListener('change', function() { saveMIDI(field) });
+		}
+
+		// ***************************   Plus Buttons   ***************************
+
+		var allJacksPlusButtons = document.getElementsByClassName('plus');
+		for (var i = 0; i < allJacksPlusButtons.length; i++) {
+			var element = allJacksPlusButtons[i];
+			plusButtons[element.id] = document.getElementById(element.id);
+		}
+
+		for (const key in plusButtons) {
+			const field = plusButtons[key];
+			field.addEventListener('touch', function() { newJackConnection(key) });
+			field.addEventListener('click', function() { newJackConnection(key) });
+		}
+
+		// ***************************   Special Fields   ***************************
+
+		// ********* 0-Coast clock *********
+
+		clockSpeedField = document.getElementById('nocoast_clock_speed');
+		clockSpeedTypeField = document.getElementById('nocoast_clock_speed_type');
+		clockSpeedMultiplierField = document.getElementById('nocoast_clock_speed_multiplier');
+		midiALFOSpeedField = document.getElementById('nocoast_midi_a_speed');
+		midiALFOSpeedTypeField = document.getElementById('nocoast_midi_a_speed_type');
+		midiALFOSpeedMultiplierField = document.getElementById('nocoast_midi_a_multiplier');
+		midiBLFOSpeedField = document.getElementById('nocoast_midi_b_speed');
+		midiBLFOSpeedTypeField = document.getElementById('nocoast_midi_b_speed_type');
+		midiBLFOSpeedMultiplierField = document.getElementById('nocoast_midi_b_multiplier');
+
+		clockSpeedField.addEventListener('keyup', function() { saveClock(clockSpeedField, true) });
+		clockSpeedTypeField.addEventListener('change', function() { saveClock(clockSpeedTypeField, false, clockSpeedMultiplierField) });
+		clockSpeedMultiplierField.addEventListener('change', function() { saveClock(clockSpeedMultiplierField, false) });
+		midiBLFOSpeedField.addEventListener('keyup', function() { saveClock(midiBLFOSpeedField, true) });;
+		midiBLFOSpeedTypeField.addEventListener('change', function() { saveClock(midiBLFOSpeedTypeField, false, midiBLFOSpeedMultiplierField) });
+		midiBLFOSpeedMultiplierField.addEventListener('change', function() { saveClock(midiBLFOSpeedMultiplierField, false) });
+
+		// ********* Coast Express *********
+
+		var coastExpressHelp = document.getElementById('coast_express_help');
+		var coastExpressHelpToggle = document.getElementById('coast_express_help_toggle');
+		coastExpressHelpToggle.addEventListener('click', function() {
+			if (coastExpressHelp.classList.contains('collapse')) {
+				coastExpressHelp.classList.remove('collapse');
+				coastExpressHelpToggle.classList.add('open');
 			}
 			else {
-				if (!workingPatch.midiInput) {
-					workingPatch.midiInput = {}
-				}
-				workingPatch.midiInput.coastExpressLink = compressedPatch;
+				coastExpressHelp.classList.add('collapse');
+				coastExpressHelpToggle.classList.remove('open');
+			}
+		});
+
+		coastExpressLinkImage = document.getElementById('coast_express_link');
+		coastExpressLinkAnchor = document.getElementById('coast_express_link_anchor');
+		coastExpressShareLinkInput = document.getElementById('coast_express_share_link');
+
+		coastExpressShareLinkInput.addEventListener('focus', function() {
+			var promptText = 'Paste Share Link from ce.rustle.works here.'
+			var promptDefault = '';
+			if (workingPatch.midiInput && workingPatch.midiInput.coastExpressLink) {
+				promptText += ' Remove the link below if you wish to remove the previously shared link.';
+				promptDefault = workingPatch.midiInput.coastExpressLink;
+			}
+
+			var link = prompt(promptText, promptDefault);
+			coastExpressShareLinkInput.blur();
+
+			if (link === '' && promptDefault !== '') {
+				delete workingPatch.midiInput['coastExpressLink'];
 				savePatch();
 				insertCoastExpressShareLink();
 			}
-		}
-	});
+			else if (link || link === '') {
+				var compressedPatch = link.split('/?patch=')[1];
 
-	// ***************************   First Run or Load Share or Load Patch   ***************************
-
-	var savedWorkingPatchName;
-
-	var sharedPatchCode = window.location.search.replace('?patch=', '');
-	var sharedPatchUncompressed = LZString.decompressFromEncodedURIComponent(sharedPatchCode);
-	var sharedPatchUncompressedObject;
-
-	if (sharedPatchUncompressed && sharedPatchUncompressed.indexOf('"a":"') !== -1) {
-		try {
-			sharedPatchUncompressedObject = JSON.parse(sharedPatchUncompressed);
-		} catch (error) {
-			alert('The shared patch appears to be invalid. Please check the URL and try again');
-			history.pushState(sharedPatchCode, '', window.location.pathname);
-		}
-		savedWorkingPatchName = loadLegacyShareLink(sharedPatchCode, sharedPatchUncompressedObject);
-	}
-	else if (sharedPatchUncompressed) {
-		stringCodes.forEach(code => {
-			var regex = new RegExp(code[0], 'g');
-			sharedPatchUncompressed = sharedPatchUncompressed.replace(regex, code[1]);
+				if (!compressedPatch) {
+					alert('The text entered does not seem to ba a Coast Express Share Link. Please try again.')
+					coastExpressShareLinkInput.focus();
+				}
+				else {
+					if (!workingPatch.midiInput) {
+						workingPatch.midiInput = {}
+					}
+					workingPatch.midiInput.coastExpressLink = compressedPatch;
+					savePatch();
+					insertCoastExpressShareLink();
+				}
+			}
 		});
-		try {
-			sharedPatchUncompressedObject = JSON.parse(sharedPatchUncompressed);
-		} catch (error) {
-			console.log(sharedPatchUncompressed);
-			console.log(error);
-			alert('The shared patch appears to be invalid. Please check the URL and try again');
-			history.pushState(sharedPatchCode, '', window.location.pathname);
+
+		// ***************************   First Run or Load Share or Load Patch   ***************************
+
+		var savedWorkingPatchName;
+
+		var sharedPatchCode = window.location.search.replace('?patch=', '');
+		var sharedPatchUncompressed = LZString.decompressFromEncodedURIComponent(sharedPatchCode);
+		var sharedPatchUncompressedObject;
+
+		if (sharedPatchUncompressed && sharedPatchUncompressed.indexOf('"a":"') !== -1) {
+			try {
+				sharedPatchUncompressedObject = JSON.parse(sharedPatchUncompressed);
+			} catch (error) {
+				alert('The shared patch appears to be invalid. Please check the URL and try again');
+				history.pushState(sharedPatchCode, '', window.location.pathname);
+			}
+			savedWorkingPatchName = loadLegacyShareLink(sharedPatchCode, sharedPatchUncompressedObject);
 		}
+		else if (sharedPatchUncompressed) {
+			stringCodes.forEach(code => {
+				var regex = new RegExp(code[0], 'g');
+				sharedPatchUncompressed = sharedPatchUncompressed.replace(regex, code[1]);
+			});
+			try {
+				sharedPatchUncompressedObject = JSON.parse(sharedPatchUncompressed);
+			} catch (error) {
+				console.log(sharedPatchUncompressed);
+				console.log(error);
+				alert('The shared patch appears to be invalid. Please check the URL and try again');
+				history.pushState(sharedPatchCode, '', window.location.pathname);
+			}
 
-		if (sharedPatchUncompressedObject)  {
+			if (sharedPatchUncompressedObject)  {
 
-			savedWorkingPatchName = sharedPatchUncompressedObject.patchName;
-			var cancelLoad = false;
-			while (Object.keys(localStorage).indexOf(savedWorkingPatchName) !== -1 && !cancelLoad) {
-				var newPatchName = prompt('You already have a patch named ' + savedWorkingPatchName + '. Please enter a new name for the shared patch.', savedWorkingPatchName);
-				if (newPatchName === null) {
-					cancelLoad = true;
+				savedWorkingPatchName = sharedPatchUncompressedObject.patchName;
+				var cancelLoad = false;
+				while (Object.keys(localStorage).indexOf(savedWorkingPatchName) !== -1 && !cancelLoad) {
+					var newPatchName = prompt('You already have a patch named ' + savedWorkingPatchName + '. Please enter a new name for the shared patch.', savedWorkingPatchName);
+					if (newPatchName === null) {
+						cancelLoad = true;
+					}
+					else if (newPatchName !== '') {
+						savedWorkingPatchName = newPatchName;
+					}
 				}
-				else if (newPatchName !== '') {
-					savedWorkingPatchName = newPatchName;
+
+				if (!cancelLoad) {
+					sharedPatchUncompressedObject.patchName = savedWorkingPatchName;
+					localStorage.setItem('workingPatchName', savedWorkingPatchName);
+					localStorage.setItem(savedWorkingPatchName, JSON.stringify(sharedPatchUncompressedObject));
+				}
+				else {
+					savedWorkingPatchName = undefined;
+				}
+
+				history.pushState(sharedPatchCode, '', window.location.pathname);
+			}
+		}
+
+		if (!savedWorkingPatchName)  {
+			savedWorkingPatchName = localStorage['workingPatchName'];
+		}
+
+		if (savedWorkingPatchName) {
+			workingPatch = JSON.parse(localStorage[savedWorkingPatchName]);
+
+			var allLocalStorage = Object.keys(localStorage);
+			allLocalStorage.sort();
+			for (var i = 0; i < allLocalStorage.length; i++) {
+				var name = allLocalStorage[i];
+				if (name !== 'workingAuthor' && name !== 'workingPatchName' && name !== 'legacyPatches' && name !== 'superTopSecretCode') {
+					addPatchNameToSelect(name, false);
 				}
 			}
 
-			if (!cancelLoad) {
-				sharedPatchUncompressedObject.patchName = savedWorkingPatchName;
-				localStorage.setItem('workingPatchName', savedWorkingPatchName);
-				localStorage.setItem(savedWorkingPatchName, JSON.stringify(sharedPatchUncompressedObject));
-			}
-			else {
-				savedWorkingPatchName = undefined;
-			}
-
-			history.pushState(sharedPatchCode, '', window.location.pathname);
+			loadSavedPatch();
+		}
+		else {
+			makeNewPatch('Untitled 1');
+			setTimeout(function() {
+				menuButton.click();
+			}, 1100);
 		}
 	}
-
-	if (!savedWorkingPatchName)  {
-		savedWorkingPatchName = localStorage['workingPatchName'];
-	}
-
-	if (savedWorkingPatchName) {
-		workingPatch = JSON.parse(localStorage[savedWorkingPatchName]);
-
-		var allLocalStorage = Object.keys(localStorage);
-		allLocalStorage.sort();
-		for (var i = 0; i < allLocalStorage.length; i++) {
-			var name = allLocalStorage[i];
-			if (name !== 'workingAuthor' && name !== 'workingPatchName' && name !== 'legacyPatches' && name !== 'superTopSecretCode') {
-				addPatchNameToSelect(name, false);
-			}
-		}
-
-		loadSavedPatch();
-	}
-	else {
-		makeNewPatch('Untitled 1');
-		setTimeout(function() {
-			menuButton.click();
-		}, 1100);
-	}
-
 } // *** /window.onload
 
 
@@ -486,11 +512,32 @@ function loadSavedPatch() {
 			instrumentStregaCheckbox.checked = false;
 		}
 
+		if (workingPatch.instruments && workingPatch.instruments.indexOf('0-CTRL') !== -1) {
+			instrument0CTRLCheckbox.checked = true;
+		}
+		else {
+			instrument0CTRLCheckbox.checked = false;
+		}
+
+		if (workingPatch.instruments && workingPatch.instruments.indexOf('Mother 32') !== -1) {
+			instrumentMother32Checkbox.checked = true;
+		}
+		else {
+			instrumentMother32Checkbox.checked = false;
+		}
+
 		if (workingPatch.instruments && workingPatch.instruments.indexOf('DFAM') !== -1) {
 			instrumentDFAMCheckbox.checked = true;
 		}
 		else {
 			instrumentDFAMCheckbox.checked = false;
+		}
+
+		if (workingPatch.instruments && workingPatch.instruments.indexOf('Subharmonicon') !== -1) {
+			instrumentSubharmoniconCheckbox.checked = true;
+		}
+		else {
+			instrumentSubharmoniconCheckbox.checked = false;
 		}
 
 		if (workingPatch.instruments && workingPatch.instruments.indexOf('Werkstatt') !== -1) {
@@ -620,7 +667,10 @@ function saveInstrument(field) {
 	var instrumentGuide = {
 		'instrument_checkbox_0coast': '0-Coast',
 		'instrument_checkbox_strega': 'Strega',
+		'instrument_checkbox_0ctrl': '0-CTRL',
+		'instrument_checkbox_mother32': 'Mother 32',
 		'instrument_checkbox_dfam': 'DFAM',
+		'instrument_checkbox_subharmonicon': 'Subharmonicon',
 		'instrument_checkbox_werkstatt': 'Werkstatt',
 		'instrument_checkbox_expandedrack': 'Expanded Rack',
 		'instrument_checkbox_externalcv': 'External CV'
@@ -741,12 +791,36 @@ function collapseInstruments() {
 		instrumentStrega.classList.add('collapse');
 	}
 
+	if (instrument0CTRLCheckbox.checked) {
+		instrument0CTRL.classList.remove('collapse');
+		instrumentsSelected = true;
+	}
+	else {
+		instrument0CTRL.classList.add('collapse');
+	}
+
+	if (instrumentMother32Checkbox.checked) {
+		instrumentMother32.classList.remove('collapse');
+		instrumentsSelected = true;
+	}
+	else {
+		instrumentMother32.classList.add('collapse');
+	}
+
 	if (instrumentDFAMCheckbox.checked) {
 		instrumentDFAM.classList.remove('collapse');
 		instrumentsSelected = true;
 	}
 	else {
 		instrumentDFAM.classList.add('collapse');
+	}
+
+	if (instrumentSubharmoniconCheckbox.checked) {
+		instrumentSubharmonicon.classList.remove('collapse');
+		instrumentsSelected = true;
+	}
+	else {
+		instrumentSubharmonicon.classList.add('collapse');
 	}
 
 	if (instrumentWerkstattCheckbox.checked) {
@@ -817,7 +891,7 @@ function insertJackDestinations(jackselect) {
 
 function changeActive(field) {
 	var grandparentDiv = field.parentNode.parentNode;
-	if (field.value === '' || field.value === 'off'){
+	if (field.value === ''){
 		grandparentDiv.classList.remove('active');
 	}
 	else {

@@ -138,7 +138,7 @@ h2 {
 	font-weight: normal;
 	color: var(--orange);
 	font-size: 1.6em;
-	margin: 6px 18px;
+	margin: 18px 18px;
 }
 h2:after {
 	content: '';
@@ -235,6 +235,15 @@ textarea {
 	grid-template-columns: 134px 354px auto;
 }
 
+.item.knobs > div {
+	padding-right: 4px;
+}
+
+.item.jacks > div {
+	padding-right: 4px;
+}
+
+
 .instrument_0coast .item.knobs {
 	grid-template-columns: 296px auto;
 }
@@ -251,16 +260,48 @@ textarea {
 	grid-template-columns: 264px 0px max-content max-content;
 }
 
+.instrument_0ctrl .item.knobs {
+	grid-template-columns: 296px auto;
+}
+
+.instrument_0ctrl .item.jacks {
+	grid-template-columns: 220px 0px max-content max-content;
+}
+
+.instrument_mother32 .item.knobs {
+	grid-template-columns: 206px auto;
+}
+
+.instrument_mother32 .item.knobs > * > select {
+	width: 128px;
+}
+
+.instrument_mother32 .item.jacks {
+	grid-template-columns: 120px 0px max-content max-content;
+}
+
 .instrument_dfam .item.knobs {
 	grid-template-columns: 266px auto;
+}
+
+.instrument_dfam .item.knobs > * > select {
+	width: 108px;
 }
 
 .instrument_dfam .item.jacks {
 	grid-template-columns: 116px 0px max-content max-content;
 }
 
-.instrument_dfam .item.knobs > * > select {
-	width: 103px;
+.instrument_subharmonicon .item.knobs {
+	grid-template-columns: 206px auto;
+}
+
+.instrument_subharmonicon .item.knobs > * > select {
+	width: 132px;
+}
+
+.instrument_subharmonicon .item.jacks {
+	grid-template-columns: 148px 0px max-content max-content;
 }
 
 .instrument_werkstatt .item.knobs {
@@ -365,7 +406,7 @@ select.knobs {
 }
 
 select.jacks {
-	width: 438px;
+	width: 508px;
 }
 
 select.midi {
@@ -423,9 +464,24 @@ select.clocks {
 		grid-template-columns: 434px auto;
 	}
 
+	#instrument_0ctrl_columns {
+		display: grid;
+		grid-template-columns:464px auto;
+	}
+
+	#instrument_mother32_columns {
+		display: grid;
+		grid-template-columns:441px auto;
+	}
+
 	#instrument_dfam_columns {
 		display: grid;
-		grid-template-columns: 441px auto;
+		grid-template-columns: 476px auto;
+	}
+
+	#instrument_subharmonicon_columns {
+		display: grid;
+		grid-template-columns:441px auto;
 	}
 
 	#instrument_werkstatt_columns {
@@ -468,12 +524,25 @@ select.clocks {
 	#contact_info {
 		width: 340px;
 		padding-left: 30px;
-		/* padding-right: 10px; */
 		float: right;
 	}
 }
 
-@media only screen and (max-width: 630px) {
+@media only screen and (max-width: 830px) {
+	html, body {
+		font-size: 14px;
+	}
+
+	.item.knobs  {
+		grid-template-columns: calc(100% - 462px) 0px max-content max-content !important;
+	}
+
+	.item.jacks  {
+		grid-template-columns: calc(100% - 528px) 0px max-content max-content !important;
+	}
+}
+
+@media only screen and (max-width: 767px) {
 
 	header {
 		padding: 16px 12px 3px;
@@ -487,21 +556,17 @@ select.clocks {
 		text-align: right;
 	}
 
-	.item.patch_info, .item.knobs, .item.clocks {
-		grid-template-columns: 100%;
+	.item.knobs  {
+		grid-template-columns: calc(100% - 336px) 0px max-content max-content !important;
 	}
 
-	.item.jacks {
-		grid-template-columns: calc(100% - 30px) 30px;
+	.item.jacks  {
+		grid-template-columns: calc(100% - 421px) 0px max-content max-content !important;
 	}
 
 	#share_area {
 		max-width: 100%;
 		text-align: left;
-	}
-
-	select.clocks {
-		width: 92px;
 	}
 
 	select.patch_info, textarea.patch_info {
@@ -517,31 +582,6 @@ select.clocks {
 	}
 
 }
-
-
-
-@media only screen and (max-width: 450px) {
-
-
-  }
-
-
-@media only screen and (max-width: 368px) {
-
-	html, body {
-		font-size: 14px;
-	}
-
-	.item.patch_info, .item.knobs, .item.clocks {
-		grid-template-columns: calc(100% - 54px);
-	}
-
-	.item.jacks {
-		grid-template-columns: calc(100% - 94px) 30px;
-	}
-
-}
-
 
 .supertopsecret {
 	display: block;
