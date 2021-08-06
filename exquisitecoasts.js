@@ -480,18 +480,23 @@ window.onload = function() {
 		}
 	}
 
-	var isChrome = navigator.userAgent.indexOf('Chrome') > -1;
-	var isSafari = navigator.userAgent.indexOf("Safari") > -1;
-	var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-	if (isIOS) {
-		alert('The use of the Safari browser is strongly discouraged for Exquisite Coasts. Safari deletes local storage data after seven days so you are at risk of losing all your saved patches. To safely use Exquisite Coasts on your iPhone or iPad you must save the website to your homescreen. To do that, tap the share icon in the Safari menu bar and select "Add to Homescreen."');
-	}
-	else if (isSafari) {
-		if (!isChrome) {
-			alert('The use of the Safari browser is strongly discouraged for Exquisite Coasts. Safari deletes local storage data after seven days so you are at risk of losing all your saved patches. The Firefox or Chrome browsers are recommended for all macOS users.');
-		}
-	}
+	setTimeout(() => {
+		var isChrome = navigator.userAgent.indexOf('Chrome') > -1;
+		var isSafari = navigator.userAgent.indexOf("Safari") > -1;
+		var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+		var isIPad = navigator.userAgent.match(/Mac/) && navigator.maxTouchPoints && navigator.maxTouchPoints > 2;
 
+		if (isIOS || isIPad) {
+			if (window.navigator.standalone !== true) {
+				alert('The use of the Safari browser is strongly discouraged for Exquisite Coasts. Safari deletes local storage data after seven days so you are at risk of losing all your saved patches. To safely use Exquisite Coasts on your iPhone or iPad you must save the website to your homescreen. To do that, tap the share icon in the Safari menu bar and select "Add to Homescreen."');
+			}
+		}
+		else if (isSafari) {
+			if (!isChrome) {
+				alert('The use of the Safari browser is strongly discouraged for Exquisite Coasts. Safari deletes local storage data after seven days so you are at risk of losing all your saved patches. The Firefox or Chrome browsers are recommended for all macOS users.');
+			}
+		}
+	}, 2500);
 
 } // *** /window.onload
 
