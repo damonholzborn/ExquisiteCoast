@@ -401,11 +401,13 @@ window.onload = function() {
 	// *** Forget select positions if Firefox
 	if(navigator.userAgent.toLowerCase().indexOf('firefox') > -1){
 		Array.from(document.getElementsByTagName('select')).forEach(element => {
-			console.log('yo');
-			if (element.classList.contains('knobs')) {
+			const classes = element.classList;
+			if (classes.contains('knobs') || classes.contains('clocks')) {
 				element.value = '';
 			}
 		});
+		document.getElementById('nocoast_clock_speed').value = '';
+		document.getElementById('nocoast_midi_b_speed').value = '';
 	}
 
 	var savedWorkingPatchName;
