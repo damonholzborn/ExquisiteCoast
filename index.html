@@ -20,9 +20,9 @@
 	<title>Exquisite Coasts</title>
 
 	<script src="lz-string.js"></script>
-	<script src="exquisitestringcodes.js?v=007"></script>
-	<script src="exquisitecoasts.js?v=007"></script>
-	<link rel="stylesheet" type="text/css" href="style.css?v=007">
+	<script src="exquisitestringcodes.js?v=008"></script>
+	<script src="exquisitecoasts.js?v=008"></script>
+	<link rel="stylesheet" type="text/css" href="style.css?v=008">
 
 </head>
 <body>
@@ -8160,6 +8160,40 @@
 
 				<div class="item knobs">
 					<div>
+						Level
+					</div>
+					<div>
+						<select id="rack_level_freq" class="knobs pointy">
+							<option value=""> </option>
+							<option value="min">min</option>
+							<option value="max">max</option>
+							<option value="7:00">7:00</option>
+							<option value="7:30">7:30</option>
+							<option value="8:00">8:00</option>
+							<option value="8:30">8:30</option>
+							<option value="9:00">9:00</option>
+							<option value="9:30">9:30</option>
+							<option value="10:00">10:00</option>
+							<option value="10:30">10:30</option>
+							<option value="11:00">11:00</option>
+							<option value="11:30">11:30</option>
+							<option value="12:00">12:00</option>
+							<option value="12:30">12:30</option>
+							<option value="1:00">1:00</option>
+							<option value="1:30">1:30</option>
+							<option value="2:00">2:00</option>
+							<option value="2:30">2:30</option>
+							<option value="3:00">3:00</option>
+							<option value="3:30">3:30</option>
+							<option value="4:00">4:00</option>
+							<option value="4:30">4:30</option>
+							<option value="5:00">5:00</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="item knobs">
+					<div>
 						Freq
 					</div>
 					<div>
@@ -8232,6 +8266,40 @@
 					</div>
 					<div>
 						<select id="rack_filter_freq_cv_attenuator" class="knobs pointy">
+							<option value=""> </option>
+							<option value="min">min</option>
+							<option value="max">max</option>
+							<option value="7:00">7:00</option>
+							<option value="7:30">7:30</option>
+							<option value="8:00">8:00</option>
+							<option value="8:30">8:30</option>
+							<option value="9:00">9:00</option>
+							<option value="9:30">9:30</option>
+							<option value="10:00">10:00</option>
+							<option value="10:30">10:30</option>
+							<option value="11:00">11:00</option>
+							<option value="11:30">11:30</option>
+							<option value="12:00">12:00</option>
+							<option value="12:30">12:30</option>
+							<option value="1:00">1:00</option>
+							<option value="1:30">1:30</option>
+							<option value="2:00">2:00</option>
+							<option value="2:30">2:30</option>
+							<option value="3:00">3:00</option>
+							<option value="3:30">3:30</option>
+							<option value="4:00">4:00</option>
+							<option value="4:30">4:30</option>
+							<option value="5:00">5:00</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="item knobs">
+					<div>
+						Mix
+					</div>
+					<div>
+						<select id="rack_mix_freq" class="knobs pointy">
 							<option value=""> </option>
 							<option value="min">min</option>
 							<option value="max">max</option>
@@ -8593,23 +8661,6 @@
 					</div>
 				</div>
 
-				<div class="item_category">
-					Piezo
-				</div>
-
-				<div class="item jacks" data-connections="1">
-					<div>
-						Audio Out
-					</div>
-					<div></div>
-					<div id="rack_piezo_audio_out_container_0">
-						<select id="rack_piezo_audio_out_0" data-index="0" class="jacks"></select>
-					</div>
-					<div id="rack_piezo_audio_out_plus" class="plus pointy">
-						+
-					</div>
-				</div>
-
 				<div class="supertopsecret">
 					<div class="item_category">
 						Ring Modulator
@@ -8642,12 +8693,41 @@
 				</div>
 
 				<div class="item_category">
-					Disting
+					Piezo Amp
 				</div>
 
 				<div class="item jacks" data-connections="1">
 					<div>
-						A
+						Piezo
+					</div>
+					<div></div>
+					<div id="expandedrack_piezo_amp_piezo_container_0">
+						<select id="expandedrack_piezo_amp_piezo_0" data-index="0" class="jacks"></select>
+					</div>
+					<div id="expandedrack_piezo_amp_piezo_plus" class="plus pointy">
+						+
+					</div>
+				</div>
+				<div class="item jacks" data-connections="1">
+					<div>
+						Out
+					</div>
+					<div></div>
+					<div id="expandedrack_piezo_amp_out_container_0">
+						<select id="expandedrack_piezo_amp_out_0" data-index="0" class="jacks"></select>
+					</div>
+					<div id="expandedrack_piezo_amp_out_plus" class="plus pointy">
+						+
+					</div>
+				</div>
+
+				<div class="item_category">
+					Disting 1
+				</div>
+
+				<div class="item jacks" data-connections="1">
+					<div>
+						1A
 					</div>
 					<div></div>
 					<div id="expandedrack_disting_a_container_0">
@@ -8659,7 +8739,7 @@
 				</div>
 				<div class="item jacks" data-connections="1">
 					<div>
-						B
+						1B
 					</div>
 					<div></div>
 					<div id="expandedrack_disting_b_container_0">
@@ -8698,7 +8778,6 @@
 						+
 					</div>
 				</div>
-
 
 				<div class="item_category">
 					TP8
