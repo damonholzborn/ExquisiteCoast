@@ -436,6 +436,44 @@ select.clocks {
 	margin-left: 32px;
 }
 
+#support_us {
+	font-size: 0.8em;
+	margin-left: 32px;
+}
+
+#pedalboard_container, #elements {
+	height: 84px;
+	overflow: hidden;
+}
+
+#pedalboard_container.active {
+	height: auto;
+	overflow: visible;
+}
+
+#pedalboard_preset, #elements {
+	display: block;
+	width: 334px;
+	height:34px;
+}
+
+#pedalboard_preset_save_button {
+	width: 334px;
+	padding: 6px 24px;
+	margin-top: 12px;
+	border: 1px solid var(--white);
+	border-radius: 6px;
+	text-align: center;
+}
+
+#elements.active {
+	height: 17ex;
+}
+
+.active > #pedalboard_preset_save_button {
+	color: green;
+}
+
 /* ********* Media Queries ********* */
 
 
@@ -447,6 +485,7 @@ select.clocks {
 	}
 
 	#get_share_link {
+		width: 100%;
 		padding: 6px 24px;
 		margin-left: 0px;
 		border: 1px solid var(--white);
