@@ -268,18 +268,6 @@ textarea {
 	grid-template-columns: 220px 0px max-content max-content;
 }
 
-.instrument_mother32 .item.knobs {
-	grid-template-columns: 206px auto;
-}
-
-.instrument_mother32 .item.knobs > * > select {
-	width: 128px;
-}
-
-.instrument_mother32 .item.jacks {
-	grid-template-columns: 120px 0px max-content max-content;
-}
-
 .instrument_dfam .item.knobs {
 	grid-template-columns: 266px auto;
 }
@@ -290,6 +278,30 @@ textarea {
 
 .instrument_dfam .item.jacks {
 	grid-template-columns: 116px 0px max-content max-content;
+}
+
+.instrument_mavis .item.knobs {
+	grid-template-columns: 166px auto;
+}
+
+.instrument_mavis .item.knobs > * > select {
+	width: 94px;
+}
+
+.instrument_mavis .item.jacks {
+	grid-template-columns: 142px 0px max-content max-content;
+}
+
+.instrument_mother32 .item.knobs {
+	grid-template-columns: 206px auto;
+}
+
+.instrument_mother32 .item.knobs > * > select {
+	width: 128px;
+}
+
+.instrument_mother32 .item.jacks {
+	grid-template-columns: 120px 0px max-content max-content;
 }
 
 .instrument_subharmonicon .item.knobs {
@@ -508,14 +520,19 @@ select.clocks {
 		grid-template-columns:464px auto;
 	}
 
-	#instrument_mother32_columns {
-		display: grid;
-		grid-template-columns:441px auto;
-	}
-
 	#instrument_dfam_columns {
 		display: grid;
 		grid-template-columns: 476px auto;
+	}
+
+	#instrument_mavis_columns {
+		display: grid;
+		grid-template-columns: 360px auto;
+	}
+
+	#instrument_mother32_columns {
+		display: grid;
+		grid-template-columns:441px auto;
 	}
 
 	#instrument_subharmonicon_columns {
@@ -561,7 +578,7 @@ select.clocks {
 	}
 
 	#contact_info {
-		width: 340px;
+		width: 384px;
 		padding-left: 30px;
 		float: right;
 	}

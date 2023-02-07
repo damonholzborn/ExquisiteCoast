@@ -20,8 +20,9 @@ var midiBLFOSpeedMultiplierField;
 var instrument0CoastCheckbox;
 var instrumentStregaCheckbox;
 var instrument0CTRLCheckbox;
-var instrumentMother32Checkbox;
 var instrumentDFAMCheckbox;
+var instrumentMavisCheckbox;
+var instrumentMother32Checkbox;
 var instrumentSubharmoniconCheckbox;
 var instrumentWerkstattCheckbox;
 var instrumentExpandedRackCheckbox;
@@ -30,8 +31,9 @@ var instrumentExternalCVCheckbox;
 var instrument0Coast;
 var instrumentStrega;
 var instrument0CTRL;
-var instrumentMother32;
 var instrumentDFAM;
+var instrumentMavis;
+var instrumentMother32;
 var instrumentSubharmonicon;
 var instrumentWerkstatt;
 var instrumentExpandedRack;
@@ -54,16 +56,22 @@ var jackDestinations = {
 	'0-Coast': ['TEMPO Input', 'Voltage MATH: Channel 1 Input', 'Voltage MATH: Channel 2 Input', 'Oscillator: 1/V OCTave Input', 'Oscillator: Linear FM Input', 'Overtone: CV Input', 'Multiply: CV Input', 'Slope: Rise/Fall Time CV Input', 'Slope: Trigger Input', 'Contour: Decay Time CV Input', 'Contour: Gate Input', 'Balance: Channel External Input', 'Balance: CV Input', 'Dynamics: CV Input'],
 	'Strega': ['External: Substance In', 'Activation: CV In', 'Tonic: Tonic Modulation Interference Input', 'Tones: CV In', 'Tones: 1V/ Octave', 'Time/Filter: Time Modulation Input', 'Time/Filter: Time CV In', 'Time/Filter: Time Unity CV In', 'Time/Filter: Decay CV In', 'Time/Filter: Absorb CV In', 'Time/Filter: Blend CV In', 'Time/Filter: Filter CV In', 'Agitation Generator: Begin and End In', 'Agitation Generator: Speed CV In'],
 	'0-CTRL': ['Clock Input', 'Dynamic Reset Input', 'Stop Input', 'Direction Input', 'Strength CV Input', 'Time CV Input'],
-	'Mother 32': ['Ext. Audio', 'Mix CV', 'VCA CV', 'VCF Cutoff', 'VCF Res.', 'VCO 1V/Oct', 'CVO Lin FM'],
 	'DFAM': ['Trigger', 'VCA CV', 'Velocity', 'VCA Decay', 'Ext Audio', 'VCF Decay', 'Noise Level', 'VCO Decay', 'VCF Mod', 'VCO 1 CV', 'VCO 2 CV', '1⭢2 FM Amount', 'Tempo', 'Run/Stop', 'Adv/Clock'],
+	'Mavis': ['Fold In', '1V/Oct', 'PWM', 'One (-5)', 'LFO Rate', 'Cutoff', 'Gate', 'VCA CV', 'TWO', 'S+H (VCO)', 'S+H Gate (LFO)', 'Attn (+5)', 'Mult'],
+	'Mother 32': ['Ext. Audio', 'Mix CV', 'VCA CV', 'VCF Cutoff', 'VCF Res.', 'VCO 1V/Oct', 'CVO Lin FM'],
 	'Subharmonicon': ['VCO 1', 'VCO 1 Sub', 'VCO 1 PWM', 'VCA', 'VCO 2', 'VCO 2 Sub', 'VCO 2 PWM', 'Cutoff', 'Play', 'Reset', 'Trigger', 'Rhythm 1', 'Rhythm 2', 'Rhythm 3', 'Rhythm 4', 'Clock'],
 	'Werkstatt': ['VCA CV In', 'VCF CV In', 'VCO Lin FM In', 'VCO Exp FM In', 'LFO FM In', 'Gate In', 'VCF Aud In'],
-	'Expanded Rack': ['Filter: Audio In', 'Filter: Freq CV', 'Filter: Freq CV (attenuated)', 'Attenuator 1: In', 'Attenuator 2: In', 'Attenuator 3: In', 'Att-Off 1: In', 'Att-Off 2: In', 'LPG 1: Signal In', 'LPG 1: CV In', 'LPG 2: Signal In', 'LPG 2: CV In', 'Sample & Hold: Signal In', 'Sample & Hold: S&H', 'Sample & Hold: T&H', 'Slew 1: Signal In', 'Piezo Amp: In', 'Disting 1: Z', 'Disting 1: X', 'Disting 1: Y', 'Disting 2: Z', 'Disting 2: X', 'Disting 2: Y', 'TP8: Top Left', 'TP8: Top Right', 'TP8: Top Diamond', 'TP8: Middle Left', 'TP8: Middle Right', 'TP8: Bottom Diamond', 'TP8: Bottom Left', 'TP8: Bottom Right'],
+	'Expanded Rack': ['Filter: Audio In', 'Filter: Freq CV', 'Filter: Freq CV (attenuated)', 'Attenuator 1: In', 'Attenuator 2: In', 'Attenuator 3: In', 'Att-Off 1: In', 'Att-Off 2: In', 'LPG 1: Signal In', 'LPG 1: CV In', 'LPG 2: Signal In', 'LPG 2: CV In', 'Sample & Hold: Signal In', 'Sample & Hold: S&H', 'Sample & Hold: T&H', 'Slew 1: Signal In', 'Piezo Amp: In', 'Disting 1: Z', 'Disting 1: X', 'Disting 1: Y', 'Disting 2: Z', 'Disting 2: X', 'Disting 2: Y', 'TP8: Top Left', 'TP8: Top Right', 'TP8: Top Diamond', 'TP8: Middle Left', 'TP8: Middle Right', 'TP8: Bottom Diamond', 'TP8: Bottom Left', 'TP8: Bottom Right', 'Pedalboard: Pedal 1', 'Pedalboard: Pedal2'],
 	'External CV': ['Sync In'],
 	'System': ['Audio Out']
 }
 
 window.onload = function() {
+	if (location.href.indexOf('localhost') !== -1) {
+		var liveScript = document.createElement('script');
+		liveScript.src = 'https://livejs.com/live.js';
+		document.head.appendChild(liveScript);
+  }
 
 	if (screen.width < 768 && window.innerHeight > window.innerWidth) {
 		alert("Please rotate your phone. Exqusite Coast only displays well on phones when in landscape mode.");
@@ -107,8 +115,9 @@ window.onload = function() {
 				arrow1.style.transform = 'rotate(' + ((Math.random() * 100) - 50) + 'deg)';
 				arrow2.style.transform = 'rotate(' + ((Math.random() * 100) + 300) + 'deg)';
 				rotateArrows();
-			}, (Math.random() * 10000) + 15000);
-		}
+			// }, (Math.random() * 10000) + 15000);
+			}, 3400);
+	}
 		rotateArrows();
 
 		// ***************************   Patch Info   ***************************
@@ -124,8 +133,9 @@ window.onload = function() {
 		instrument0CoastCheckbox = document.getElementById('instrument_checkbox_0coast');
 		instrumentStregaCheckbox = document.getElementById('instrument_checkbox_strega');
 		instrument0CTRLCheckbox = document.getElementById('instrument_checkbox_0ctrl');
-		instrumentMother32Checkbox = document.getElementById('instrument_checkbox_mother32');
 		instrumentDFAMCheckbox = document.getElementById('instrument_checkbox_dfam');
+		instrumentMavisCheckbox = document.getElementById('instrument_checkbox_mavis');
+		instrumentMother32Checkbox = document.getElementById('instrument_checkbox_mother32');
 		instrumentSubharmoniconCheckbox = document.getElementById('instrument_checkbox_subharmonicon');
 		instrumentWerkstattCheckbox = document.getElementById('instrument_checkbox_werkstatt');
 		instrumentExpandedRackCheckbox = document.getElementById('instrument_checkbox_expandedrack');
@@ -134,8 +144,9 @@ window.onload = function() {
 		instrument0CoastCheckbox.addEventListener('change', function() { saveInstrument(instrument0CoastCheckbox); collapseInstruments() });
 		instrumentStregaCheckbox.addEventListener('change', function() { saveInstrument(instrumentStregaCheckbox); collapseInstruments() });
 		instrument0CTRLCheckbox.addEventListener('change', function() { saveInstrument(instrument0CTRLCheckbox); collapseInstruments() });
-		instrumentMother32Checkbox.addEventListener('change', function() { saveInstrument(instrumentMother32Checkbox); collapseInstruments() });
 		instrumentDFAMCheckbox.addEventListener('change', function() { saveInstrument(instrumentDFAMCheckbox); collapseInstruments() });
+		instrumentMavisCheckbox.addEventListener('change', function() { saveInstrument(instrumentMavisCheckbox); collapseInstruments() });
+		instrumentMother32Checkbox.addEventListener('change', function() { saveInstrument(instrumentMother32Checkbox); collapseInstruments() });
 		instrumentSubharmoniconCheckbox.addEventListener('change', function() { saveInstrument(instrumentSubharmoniconCheckbox); collapseInstruments() });
 		instrumentWerkstattCheckbox.addEventListener('change', function() { saveInstrument(instrumentWerkstattCheckbox); collapseInstruments() });
 		instrumentExpandedRackCheckbox.addEventListener('change', function() { saveInstrument(instrumentExpandedRackCheckbox); collapseInstruments() });
@@ -144,8 +155,9 @@ window.onload = function() {
 		instrument0Coast = document.getElementById('instrument_0coast');
 		instrumentStrega = document.getElementById('instrument_strega');
 		instrument0CTRL = document.getElementById('instrument_0ctrl');
-		instrumentMother32 = document.getElementById('instrument_mother32');
 		instrumentDFAM = document.getElementById('instrument_dfam');
+		instrumentMavis = document.getElementById('instrument_mavis');
+		instrumentMother32 = document.getElementById('instrument_mother32');
 		instrumentSubharmonicon = document.getElementById('instrument_subharmonicon');
 		instrumentWerkstatt = document.getElementById('instrument_werkstatt');
 		instrumentExpandedRack = document.getElementById('instrument_expandedrack');
@@ -636,18 +648,25 @@ function loadSavedPatch() {
 			instrument0CTRLCheckbox.checked = false;
 		}
 
-		if (workingPatch.instruments && workingPatch.instruments.indexOf('Mother 32') !== -1) {
-			instrumentMother32Checkbox.checked = true;
-		}
-		else {
-			instrumentMother32Checkbox.checked = false;
-		}
-
 		if (workingPatch.instruments && workingPatch.instruments.indexOf('DFAM') !== -1) {
 			instrumentDFAMCheckbox.checked = true;
 		}
 		else {
 			instrumentDFAMCheckbox.checked = false;
+		}
+
+		if (workingPatch.instruments && workingPatch.instruments.indexOf('Mavis') !== -1) {
+			instrumentMavisCheckbox.checked = true;
+		}
+		else {
+			instrumentMavisCheckbox.checked = false;
+		}
+
+		if (workingPatch.instruments && workingPatch.instruments.indexOf('Mother 32') !== -1) {
+			instrumentMother32Checkbox.checked = true;
+		}
+		else {
+			instrumentMother32Checkbox.checked = false;
 		}
 
 		if (workingPatch.instruments && workingPatch.instruments.indexOf('Subharmonicon') !== -1) {
@@ -809,8 +828,9 @@ function saveInstrument(field) {
 		'instrument_checkbox_0coast': '0-Coast',
 		'instrument_checkbox_strega': 'Strega',
 		'instrument_checkbox_0ctrl': '0-CTRL',
-		'instrument_checkbox_mother32': 'Mother 32',
 		'instrument_checkbox_dfam': 'DFAM',
+		'instrument_checkbox_mavis': 'Mavis',
+		'instrument_checkbox_mother32': 'Mother 32',
 		'instrument_checkbox_subharmonicon': 'Subharmonicon',
 		'instrument_checkbox_werkstatt': 'Werkstatt',
 		'instrument_checkbox_expandedrack': 'Expanded Rack',
@@ -956,20 +976,28 @@ function collapseInstruments() {
 		instrument0CTRL.classList.add('collapse');
 	}
 
-	if (instrumentMother32Checkbox.checked) {
-		instrumentMother32.classList.remove('collapse');
-		instrumentsSelected = true;
-	}
-	else {
-		instrumentMother32.classList.add('collapse');
-	}
-
 	if (instrumentDFAMCheckbox.checked) {
 		instrumentDFAM.classList.remove('collapse');
 		instrumentsSelected = true;
 	}
 	else {
 		instrumentDFAM.classList.add('collapse');
+	}
+
+	if (instrumentMavisCheckbox.checked) {
+		instrumentMavis.classList.remove('collapse');
+		instrumentsSelected = true;
+	}
+	else {
+		instrumentMavis.classList.add('collapse');
+	}
+
+	if (instrumentMother32Checkbox.checked) {
+		instrumentMother32.classList.remove('collapse');
+		instrumentsSelected = true;
+	}
+	else {
+		instrumentMother32.classList.add('collapse');
 	}
 
 	if (instrumentSubharmoniconCheckbox.checked) {
