@@ -20,9 +20,9 @@
 	<title>Exquisite Coasts</title>
 
 	<script src="lz-string.js"></script>
-	<script src="exquisitestringcodes.js?v=011"></script>
-	<script src="exquisitecoasts.js?v=011"></script>
-	<link rel="stylesheet" type="text/css" href="style.css?v=011">
+	<script src="exquisitestringcodes.js?v=012"></script>
+	<script src="exquisitecoasts.js?v=012"></script>
+	<link rel="stylesheet" type="text/css" href="style.css?v=012">
 
 </head>
 <body>
@@ -8399,6 +8399,31 @@
 						</select>
 					</div>
 				</div>
+				<div id="secretwerkstattkey" class="supertopsecret">
+					<div class="item knobs">
+						<div>
+							Key
+						</div>
+						<div>
+							<select id="werkstatt_keyboard_key" class="knobs pointy">
+								<option value=""> </option>
+								<option value="C-low">C (low)</option>
+								<option value="C#">C#</option>
+								<option value="D">D</option>
+								<option value="D#">D#</option>
+								<option value="e">E</option>
+								<option value="F">F</option>
+								<option value="F#">F#</option>
+								<option value="G">G</option>
+								<option value="G#">G#</option>
+								<option value="A">A</option>
+								<option value="A#">A#</option>
+								<option value="B">B</option>
+								<option value="C-high">C (high)</option>
+							</select>
+						</div>
+					</div>
+				</div>
 
 			</section>
 
@@ -8784,12 +8809,12 @@
 			</div>
 
 			<div class="item_category">
-				Reverb
+				<del>Reverb</del>
 			</div>
 
 			<div class="item knobs reverb">
 				<div>
-					Plugin
+					<del>Plugin</del>
 				</div>
 				<div>
 					<select id="reverb_plugin" class="knobs pointy">
@@ -8801,19 +8826,6 @@
 						<option value="Things Texture">Things Texture</option>
 						<option value="ValhallaSupermassive">ValhallaSupermassive</option>
 					</select>
-				</div>
-			</div>
-
-			<div class="item_category">
-				Elements
-			</div>
-
-			<div class="item knobs">
-				<div>
-					List
-				</div>
-				<div id="elements_div">
-					<textarea id="elements" class="patch_info"></textarea>
 				</div>
 			</div>
 
@@ -9020,6 +9032,42 @@
 							<option value="Low Pass" disabled>Low Pass</option>
 							<option value="High Pass" disabled>High Pass</option>
 							<option value="Special" disabled>Special</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="item_category">
+					Drive
+				</div>
+
+				<div class="item knobs">
+					<div>
+						Drive
+					</div>
+					<div>
+						<select id="rack_drive_drive" class="knobs pointy">
+							<option value=""> </option>
+							<option value="min">min</option>
+							<option value="max">max</option>
+							<option value="7:30">7:30</option>
+							<option value="8:00">8:00</option>
+							<option value="8:30">8:30</option>
+							<option value="9:00">9:00</option>
+							<option value="9:30">9:30</option>
+							<option value="10:00">10:00</option>
+							<option value="10:30">10:30</option>
+							<option value="11:00">11:00</option>
+							<option value="11:30">11:30</option>
+							<option value="12:00">12:00</option>
+							<option value="12:30">12:30</option>
+							<option value="1:00">1:00</option>
+							<option value="1:30">1:30</option>
+							<option value="2:00">2:00</option>
+							<option value="2:30">2:30</option>
+							<option value="3:00">3:00</option>
+							<option value="3:30">3:30</option>
+							<option value="4:00">4:00</option>
+							<option value="4:30">4:30</option>
 						</select>
 					</div>
 				</div>
@@ -9356,6 +9404,37 @@
 						+
 					</div>
 				</div>
+
+				<div class="item_category">
+					Drive
+				</div>
+
+				<div class="item jacks" data-connections="1">
+					<div>
+						Low/1 Out
+					</div>
+					<div></div>
+					<div id="rack_drive_lowone_container_0">
+						<select id="rack_drive_lowone_0" data-index="0" class="jacks"></select>
+					</div>
+					<div id="rack_drive_lowone_plus" class="plus pointy">
+						+
+					</div>
+				</div>
+				<div class="item jacks" data-connections="1">
+					<div>
+						High/2 Out
+					</div>
+					<div></div>
+					<div id="rack_drive_hightwo_container_0">
+						<select id="rack_drive_hightwo_0" data-index="0" class="jacks"></select>
+					</div>
+					<div id="rack_drive_hightwo_plus" class="plus pointy">
+						+
+					</div>
+				</div>
+
+
 
 				<div class="item_category">
 					Passive Attenuator
