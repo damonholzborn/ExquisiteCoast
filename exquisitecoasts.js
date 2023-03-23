@@ -60,7 +60,7 @@ var jackDestinations = {
 	'Mother 32': ['Ext. Audio', 'Mix CV', 'VCA CV', 'VCF Cutoff', 'VCF Res.', 'VCO 1V/Oct', 'CVO Lin FM'],
 	'Subharmonicon': ['VCO 1', 'VCO 1 Sub', 'VCO 1 PWM', 'VCA', 'VCO 2', 'VCO 2 Sub', 'VCO 2 PWM', 'Cutoff', 'Play', 'Reset', 'Trigger', 'Rhythm 1', 'Rhythm 2', 'Rhythm 3', 'Rhythm 4', 'Clock'],
 	'Werkstatt': ['VCA CV In', 'VCF CV In', 'VCO Lin FM In', 'VCO Exp FM In', 'LFO FM In', 'Gate In', 'VCF Aud In'],
-	'Expanded Rack': ['Filter: Audio In', 'Filter: Freq CV', 'Filter: Freq CV (attenuated)', 'Drive: Low/1', 'Drive: High/2', 'Attenuator 1: In', 'Attenuator 2: In', 'Attenuator 3: In', 'Att-Off 1: In', 'Att-Off 2: In', 'LPG 1: Signal In', 'LPG 1: CV In', 'LPG 2: Signal In', 'LPG 2: CV In', 'Sample & Hold: Signal In', 'Sample & Hold: S&H', 'Sample & Hold: T&H', 'Slew 1: Signal In', 'Piezo Amp: In', 'Disting 1: Z', 'Disting 1: X', 'Disting 1: Y', 'Disting 2: Z', 'Disting 2: X', 'Disting 2: Y', 'TP8: Top Left', 'TP8: Top Right', 'TP8: Top Diamond', 'TP8: Middle Left', 'TP8: Middle Right', 'TP8: Bottom Diamond', 'TP8: Bottom Left', 'TP8: Bottom Right', 'Pedalboard: Pedal 1', 'Pedalboard: Pedal2'],
+	'Expanded Rack': ['Filter: Audio In', 'Filter: Freq CV', 'Filter: Freq CV (attenuated)', 'Drive: Low/1', 'Drive: High/2', 'Mimeophon: L (Mono) Input', 'Mimeophon: R Input', 'Mimeophon: Repeats: CV Input', 'Mimeophon: Zone: CV Input', 'Mimeophon: Mix: CV Input', 'Mimeophon: Rate: CV Input', 'Mimeophon: Rate: µ Input', 'Mimeophon: Halo: CV Input', 'Mimeophon: Color: CV Input', 'Mimeophon: Tempo: Input', 'Mimeophon: Flip: Input', 'Mimeophon: Hold: Input', 'Attenuator 1: In', 'Attenuator 2: In', 'Attenuator 3: In', 'Att-Off 1: In', 'Att-Off 2: In', 'LPG 1: Signal In', 'LPG 1: CV In', 'LPG 2: Signal In', 'LPG 2: CV In', 'Sample & Hold: Signal In', 'Sample & Hold: S&H', 'Sample & Hold: T&H', 'Slew 1: Signal In', 'Piezo Amp: In', 'Disting 1: Z', 'Disting 1: X', 'Disting 1: Y', 'Disting 2: Z', 'Disting 2: X', 'Disting 2: Y', 'TP8: Top Left', 'TP8: Top Right', 'TP8: Top Diamond', 'TP8: Middle Left', 'TP8: Middle Right', 'TP8: Bottom Diamond', 'TP8: Bottom Left', 'TP8: Bottom Right', 'Pedalboard: Pedal 1', 'Pedalboard: Pedal2'],
 	'External CV': ['Sync In'],
 	'System': ['Audio Out']
 }
@@ -740,6 +740,7 @@ function selectAllJacks(update) {
 		}
 
 		for (var i = 0; i < connections.length; i++) {
+
 			if (connections[i].indexOf('Disting:') !== -1) {
 				connections[i] = connections[i].replace('Disting:', 'Disting 1:');
 			}

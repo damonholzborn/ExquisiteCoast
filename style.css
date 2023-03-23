@@ -341,7 +341,7 @@ textarea {
 }
 
 .instrument_expandedrack .item.knobs {
-	grid-template-columns: 214px auto;
+	grid-template-columns: 312px auto;
 }
 
 .instrument_expandedrack .item.knobs > * > select {
@@ -349,7 +349,7 @@ textarea {
 }
 
 .instrument_expandedrack .item.jacks {
-	grid-template-columns: 196px 0px max-content max-content;
+	grid-template-columns: 220px 0px max-content max-content;
 }
 
 .instrument_externalcv .item.jacks {
@@ -552,7 +552,7 @@ select.clocks {
 
 	#instrument_expandedrack_columns {
 		display: grid;
-		grid-template-columns: 404px auto;
+		grid-template-columns: 510px auto;
 	}
 }
 
