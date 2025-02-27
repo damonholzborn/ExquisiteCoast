@@ -10,7 +10,7 @@
 	<link rel="manifest" href="site.webmanifest">
 	<link rel="mask-icon" href="safari-pinned-tab.svg" color="#5bbad5">
 	<meta name="msapplication-TileColor" content="#ffc40d">
-	<meta name="theme-color" content="#ffffff">
+	<meta name="theme-color" content="#141414">
 
 	<meta property="og:title" content="Exquisite Coasts">
 	<meta property="og:description" content="A Shared Patch Game for the Make Noise 0-Coast & the Moog Werkstatt.">
@@ -20,9 +20,9 @@
 	<title>Exquisite Coasts</title>
 
 	<script src="lz-string.js"></script>
-	<script src="exquisitestringcodes.js?v=013"></script>
-	<script src="exquisitecoasts.js?v=013"></script>
-	<link rel="stylesheet" type="text/css" href="style.css?v=013">
+	<script src="exquisitestringcodes.js?v=035"></script>
+	<script src="exquisitecoasts.js?v=035"></script>
+	<link rel="stylesheet" type="text/css" href="style.css?v=035">
 
 </head>
 <body>
@@ -97,19 +97,30 @@
 			<p><a href="mailto: ec@rustle.works">ec@rustle.works</a></p>
 
 			<p>Damon Holzborn<br>
-			<a href="http://damonholzborn.com" target="_blank">damonholzborn.com</a><br>
-			<a href="http://rustleworks.com" target="_blank">rustleworks.com</a><br>
-			<a href="https://twitter.com/damonholzborn/" target="_blank">@damonholzborn</a> (Twitter)<br>
-			<a href="https://www.instagram.com/damonholzborn/" target="_blank">@damonholzborn</a> (Instagram)</p>
+				<a href="http://damonholzborn.com" target="_blank">damonholzborn.com</a><br>
+				<a href="http://rustleworks.com" target="_blank">rustleworks.com</a><br>
+				<a href="https://www.instagram.com/damonholzborn/" target="_blank">@damonholzborn</a> (Instagram)
+			</p>
 
 			<p>John O'Brien<br>
-			<a href="http://johnmobrien.com" target="_blank">johnmobrien.com</a><br>
-			<a href="https://www.newmusicusa.org/profile/jmob77/" target="_blank">Profile at New Music USA</a><br>
-			<a href="https://www.instagram.com/johnoandthirtynine/" target="_blank">@johnoandthirtynine</a> (Instagram)</p>
+				<a href="http://johnmobrien.com" target="_blank">johnmobrien.com</a><br>
+				<a href="https://www.newmusicusa.org/profile/jmob77/" target="_blank">Profile at New Music USA</a><br>
+				<a href="https://www.instagram.com/johnoandthirtynine/" target="_blank">@johnoandthirtynine</a> (Instagram)
+			</p>
 
 			<p>Releases<br>
-			<a href="https://holzbornobrien.bandcamp.com/album/exquisite-coast-one" target="_blank">Exquisite Coast One</a><br>
-			<a href="https://holzbornobrien.bandcamp.com/album/exquisite-coast-two" target="_blank">Exquisite Coast Two</a></p>
+				<a href="https://holzbornobrien.bandcamp.com/album/exquisite-coast-one" target="_blank">Exquisite Coast One</a><br>
+				<a href="https://holzbornobrien.bandcamp.com/album/exquisite-coast-two" target="_blank">Exquisite Coast Two</a>
+			</p>
+
+			<p>Other Web Guides & Tools<br>
+				<a href="https://roat.rustle.works" target="_blank">Reference of Ancient Times</a><br>
+				<a href="https://distingquickguide.rustle.works" target="_blank">Disting mk4 Quick Guide</a><br>
+				<a href="https://withw.rustle.works" target="_blank">with w/</a><br>
+				<a href="https://ce.rustle.works" target="_blank">Coast Express</a><br>
+				<a href="https://taphear.rustle.works" target="_blank">Tap Hear</a><br>
+				<a href="https://textxox.rustle.works/" target="_blank">TextXoX</a>
+			</p>
 		</div>
 	</div>
 </header>
@@ -198,6 +209,9 @@
 					<span id="secretcheckboxes" class="supertopsecret">
 						<input type="checkbox" id="instrument_checkbox_expandedrack">
 						<label for="instrument_checkbox_expandedrack">Expanded Rack</label>
+						<br>
+						<input type="checkbox" id="instrument_checkbox_lyra4">
+						<label for="instrument_checkbox_lyra4">Lyra-4</label>
 						<br>
 						<input type="checkbox" id="instrument_checkbox_externalcv">
 						<label for="instrument_checkbox_external_cv">External CV</label>
@@ -8583,6 +8597,7 @@
 			</div>
 
 			<div class="item knobs">
+
 				<div>
 					Algorithm
 				</div>
@@ -8691,6 +8706,14 @@
 						<option value="N-8">N-8 Clockable SD Ping Pong</option>
 					</select>
 				</div>
+
+				<div>
+					Preset
+				</div>
+				<div>
+					<textarea id="disting_params" class="disting_params" placeholder="required: params used or 'default'"></textarea>
+				</div>
+
 			</div>
 
 			<div class="item_category">
@@ -8698,6 +8721,7 @@
 			</div>
 
 			<div class="item knobs">
+
 				<div>
 					Algorithm
 				</div>
@@ -8806,6 +8830,15 @@
 						<option value="N-8">N-8 Clockable SD Ping Pong</option>
 					</select>
 				</div>
+
+				<div>
+					Preset
+				</div>
+				<div>
+					<textarea id="disting2_params" class="disting_params" placeholder="required: params used or 'default'"></textarea>
+				</div>
+
+
 			</div>
 
 			<div class="item_category">
@@ -8813,6 +8846,7 @@
 			</div>
 
 			<div class="item knobs reverb">
+
 				<div>
 					<del>Plugin</del>
 				</div>
@@ -8827,6 +8861,7 @@
 						<option value="ValhallaSupermassive">ValhallaSupermassive</option>
 					</select>
 				</div>
+
 			</div>
 
 			<div class="item_category">
@@ -8857,6 +8892,558 @@
 				<h3>
 					Knobs & Buttons
 				</h3>
+
+
+				<div class="item_category">
+					RoAT
+				</div>
+
+				<div class="item knobs">
+					<div>
+						4.1 LFO 1 Type
+					</div>
+					<div>
+						<select id="rack_roat_lfo_type_one" class="knobs pointy">
+							<option value=""> </option>
+							<option value="min">min</option>
+							<option value="max">max</option>
+							<option value="7:30">7:30</option>
+							<option value="8:00">8:00</option>
+							<option value="8:30">8:30</option>
+							<option value="9:00">9:00</option>
+							<option value="9:30">9:30</option>
+							<option value="10:00">10:00</option>
+							<option value="10:30">10:30</option>
+							<option value="11:00">11:00</option>
+							<option value="11:30">11:30</option>
+							<option value="12:00">12:00</option>
+							<option value="12:30">12:30</option>
+							<option value="1:00">1:00</option>
+							<option value="1:30">1:30</option>
+							<option value="2:00">2:00</option>
+							<option value="2:30">2:30</option>
+							<option value="3:00">3:00</option>
+							<option value="3:30">3:30</option>
+							<option value="4:00">4:00</option>
+							<option value="4:30">4:30</option>
+						</select>
+					</div>
+				</div>
+				<div class="item knobs">
+					<div>
+						4.2 LFO 2 Type
+					</div>
+					<div>
+						<select id="rack_roat_lfo_type_two" class="knobs pointy">
+							<option value=""> </option>
+							<option value="min">min</option>
+							<option value="max">max</option>
+							<option value="7:30">7:30</option>
+							<option value="8:00">8:00</option>
+							<option value="8:30">8:30</option>
+							<option value="9:00">9:00</option>
+							<option value="9:30">9:30</option>
+							<option value="10:00">10:00</option>
+							<option value="10:30">10:30</option>
+							<option value="11:00">11:00</option>
+							<option value="11:30">11:30</option>
+							<option value="12:00">12:00</option>
+							<option value="12:30">12:30</option>
+							<option value="1:00">1:00</option>
+							<option value="1:30">1:30</option>
+							<option value="2:00">2:00</option>
+							<option value="2:30">2:30</option>
+							<option value="3:00">3:00</option>
+							<option value="3:30">3:30</option>
+							<option value="4:00">4:00</option>
+							<option value="4:30">4:30</option>
+						</select>
+					</div>
+				</div>
+				<div class="item knobs">
+					<div>
+						4.3 LFO 3 Type
+					</div>
+					<div>
+						<select id="rack_roat_lfo_type_three" class="knobs pointy">
+							<option value=""> </option>
+							<option value="min">min</option>
+							<option value="max">max</option>
+							<option value="7:30">7:30</option>
+							<option value="8:00">8:00</option>
+							<option value="8:30">8:30</option>
+							<option value="9:00">9:00</option>
+							<option value="9:30">9:30</option>
+							<option value="10:00">10:00</option>
+							<option value="10:30">10:30</option>
+							<option value="11:00">11:00</option>
+							<option value="11:30">11:30</option>
+							<option value="12:00">12:00</option>
+							<option value="12:30">12:30</option>
+							<option value="1:00">1:00</option>
+							<option value="1:30">1:30</option>
+							<option value="2:00">2:00</option>
+							<option value="2:30">2:30</option>
+							<option value="3:00">3:00</option>
+							<option value="3:30">3:30</option>
+							<option value="4:00">4:00</option>
+							<option value="4:30">4:30</option>
+						</select>
+					</div>
+				</div>
+				<div class="item knobs">
+					<div>
+						4.4 LFO 4 Type
+					</div>
+					<div>
+						<select id="rack_roat_lfo_type_four" class="knobs pointy">
+							<option value=""> </option>
+							<option value="min">min</option>
+							<option value="max">max</option>
+							<option value="7:30">7:30</option>
+							<option value="8:00">8:00</option>
+							<option value="8:30">8:30</option>
+							<option value="9:00">9:00</option>
+							<option value="9:30">9:30</option>
+							<option value="10:00">10:00</option>
+							<option value="10:30">10:30</option>
+							<option value="11:00">11:00</option>
+							<option value="11:30">11:30</option>
+							<option value="12:00">12:00</option>
+							<option value="12:30">12:30</option>
+							<option value="1:00">1:00</option>
+							<option value="1:30">1:30</option>
+							<option value="2:00">2:00</option>
+							<option value="2:30">2:30</option>
+							<option value="3:00">3:00</option>
+							<option value="3:30">3:30</option>
+							<option value="4:00">4:00</option>
+							<option value="4:30">4:30</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="item knobs">
+					<div>
+						6.1 Summation Type Node 1
+					</div>
+					<div>
+						<select id="rack_roat_summation_type_one" class="knobs pointy">
+							<option value=""> </option>
+							<option value="min">min</option>
+							<option value="max">max</option>
+							<option value="7:30">7:30</option>
+							<option value="8:00">8:00</option>
+							<option value="8:30">8:30</option>
+							<option value="9:00">9:00</option>
+							<option value="9:30">9:30</option>
+							<option value="10:00">10:00</option>
+							<option value="10:30">10:30</option>
+							<option value="11:00">11:00</option>
+							<option value="11:30">11:30</option>
+							<option value="12:00">12:00</option>
+							<option value="12:30">12:30</option>
+							<option value="1:00">1:00</option>
+							<option value="1:30">1:30</option>
+							<option value="2:00">2:00</option>
+							<option value="2:30">2:30</option>
+							<option value="3:00">3:00</option>
+							<option value="3:30">3:30</option>
+							<option value="4:00">4:00</option>
+							<option value="4:30">4:30</option>
+						</select>
+					</div>
+				</div>
+				<div class="item knobs">
+					<div>
+						6.2 Summation Type Node 2
+					</div>
+					<div>
+						<select id="rack_roat_summation_type_two" class="knobs pointy">
+							<option value=""> </option>
+							<option value="min">min</option>
+							<option value="max">max</option>
+							<option value="7:30">7:30</option>
+							<option value="8:00">8:00</option>
+							<option value="8:30">8:30</option>
+							<option value="9:00">9:00</option>
+							<option value="9:30">9:30</option>
+							<option value="10:00">10:00</option>
+							<option value="10:30">10:30</option>
+							<option value="11:00">11:00</option>
+							<option value="11:30">11:30</option>
+							<option value="12:00">12:00</option>
+							<option value="12:30">12:30</option>
+							<option value="1:00">1:00</option>
+							<option value="1:30">1:30</option>
+							<option value="2:00">2:00</option>
+							<option value="2:30">2:30</option>
+							<option value="3:00">3:00</option>
+							<option value="3:30">3:30</option>
+							<option value="4:00">4:00</option>
+							<option value="4:30">4:30</option>
+						</select>
+					</div>
+				</div>
+				<div class="item knobs">
+					<div>
+						6.3 Summation Type Node 3
+					</div>
+					<div>
+						<select id="rack_roat_summation_type_three" class="knobs pointy">
+							<option value=""> </option>
+							<option value="min">min</option>
+							<option value="max">max</option>
+							<option value="7:30">7:30</option>
+							<option value="8:00">8:00</option>
+							<option value="8:30">8:30</option>
+							<option value="9:00">9:00</option>
+							<option value="9:30">9:30</option>
+							<option value="10:00">10:00</option>
+							<option value="10:30">10:30</option>
+							<option value="11:00">11:00</option>
+							<option value="11:30">11:30</option>
+							<option value="12:00">12:00</option>
+							<option value="12:30">12:30</option>
+							<option value="1:00">1:00</option>
+							<option value="1:30">1:30</option>
+							<option value="2:00">2:00</option>
+							<option value="2:30">2:30</option>
+							<option value="3:00">3:00</option>
+							<option value="3:30">3:30</option>
+							<option value="4:00">4:00</option>
+							<option value="4:30">4:30</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="item knobs">
+					<div>
+						6.4 Summation Diagram
+					</div>
+					<div>
+						<select id="rack_roat_summation_diagram" class="knobs pointy">
+							<option value=""> </option>
+							<option value="min">min</option>
+							<option value="max">max</option>
+							<option value="7:30">7:30</option>
+							<option value="8:00">8:00</option>
+							<option value="8:30">8:30</option>
+							<option value="9:00">9:00</option>
+							<option value="9:30">9:30</option>
+							<option value="10:00">10:00</option>
+							<option value="10:30">10:30</option>
+							<option value="11:00">11:00</option>
+							<option value="11:30">11:30</option>
+							<option value="12:00">12:00</option>
+							<option value="12:30">12:30</option>
+							<option value="1:00">1:00</option>
+							<option value="1:30">1:30</option>
+							<option value="2:00">2:00</option>
+							<option value="2:30">2:30</option>
+							<option value="3:00">3:00</option>
+							<option value="3:30">3:30</option>
+							<option value="4:00">4:00</option>
+							<option value="4:30">4:30</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="item knobs">
+					<div>
+						7.1 Tempo
+					</div>
+					<div>
+						<select id="rack_roat_tempo" class="knobs pointy">
+							<option value=""> </option>
+							<option value="free">free</option>
+							<option value="clock">clock in</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="item knobs">
+					<div>
+						7.2 Summation Bypass
+					</div>
+					<div>
+						<select id="rack_roat_summation_bypass" class="knobs pointy">
+							<option value=""> </option>
+							<option value="off">off</option>
+							<option value="on">on</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="item_category">
+					Plaits
+				</div>
+
+				<div class="item knobs">
+					<div>
+						Algorithm
+					</div>
+					<div>
+						<select id="rack_plaits_algorithm" class="knobs pointy">
+							<option value=""> </option>
+							<option value="green1">Green 1 - Virtual-analog</option>
+							<option value="green2">Green 2 - Waveshaper/Wavefolder</option>
+							<option value="green3">Green 3 - Sine-wave Phase Mod</option>
+							<option value="green4">Green 4 - Formants</option>
+							<option value="green5">Green 5 - Additive</option>
+							<option value="green6">Green 6 - Wave Banks</option>
+							<option value="green7">Green 7 - Chords</option>
+							<option value="green8">Green 8 - Speech Synthesis</option>
+							<option value="red1">Red 1 - Sawtooth Swarm</option>
+							<option value="red2">Red 2 - Filtered White Noise</option>
+							<option value="red8">Red 3 - Dust Noise</option>
+							<option value="red2">Red 4 - Mini-Rings - String Modeling</option>
+							<option value="red6">Red 5 - Mini-Rings - Modal Resonator</option>
+							<option value="red3">Red 6 - Classic Drum Machines</option>
+							<option value="red4">Red 7 - Drum Machine Emulation</option>
+							<option value="red5">Red 8 - Metalic Drum Machine</option>
+							<option value="orange1">Orange 1 - Classic Waveshapes</option>
+							<option value="orange2">Orange 2 - Phase Distortion and Modulation</option>
+							<option value="orange3">Orange 3 - 6-operator FM 1</option>
+							<option value="orange4">Orange 4 - 6-operator FM 2</option>
+							<option value="orange5">Orange 5 - 6-operator FM 3</option>
+							<option value="orange6">Orange 6 - Wave Terrain Synthesis</option>
+							<option value="orange7">Orange 7 - String Machine Emulation</option>
+							<option value="orange8">Orange 8 - Square Chords or Arpeggios</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="item knobs">
+					<div>
+						Freq
+					</div>
+					<div>
+						<select id="rack_plaits_freq" class="knobs pointy">
+							<option value=""> </option>
+							<option value="min">min</option>
+							<option value="max">max</option>
+							<option value="7:30">7:30</option>
+							<option value="8:00">8:00</option>
+							<option value="8:30">8:30</option>
+							<option value="9:00">9:00</option>
+							<option value="9:30">9:30</option>
+							<option value="10:00">10:00</option>
+							<option value="10:30">10:30</option>
+							<option value="11:00">11:00</option>
+							<option value="11:30">11:30</option>
+							<option value="12:00">12:00</option>
+							<option value="12:30">12:30</option>
+							<option value="1:00">1:00</option>
+							<option value="1:30">1:30</option>
+							<option value="2:00">2:00</option>
+							<option value="2:30">2:30</option>
+							<option value="3:00">3:00</option>
+							<option value="3:30">3:30</option>
+							<option value="4:00">4:00</option>
+							<option value="4:30">4:30</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="item knobs">
+					<div>
+						Harm
+					</div>
+					<div>
+						<select id="rack_plaits_harm" class="knobs pointy">
+							<option value=""> </option>
+							<option value="min">min</option>
+							<option value="max">max</option>
+							<option value="7:30">7:30</option>
+							<option value="8:00">8:00</option>
+							<option value="8:30">8:30</option>
+							<option value="9:00">9:00</option>
+							<option value="9:30">9:30</option>
+							<option value="10:00">10:00</option>
+							<option value="10:30">10:30</option>
+							<option value="11:00">11:00</option>
+							<option value="11:30">11:30</option>
+							<option value="12:00">12:00</option>
+							<option value="12:30">12:30</option>
+							<option value="1:00">1:00</option>
+							<option value="1:30">1:30</option>
+							<option value="2:00">2:00</option>
+							<option value="2:30">2:30</option>
+							<option value="3:00">3:00</option>
+							<option value="3:30">3:30</option>
+							<option value="4:00">4:00</option>
+							<option value="4:30">4:30</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="item knobs">
+					<div>
+						Timbre
+					</div>
+					<div>
+						<select id="rack_plaits_timbre" class="knobs pointy">
+							<option value=""> </option>
+							<option value="min">min</option>
+							<option value="max">max</option>
+							<option value="7:30">7:30</option>
+							<option value="8:00">8:00</option>
+							<option value="8:30">8:30</option>
+							<option value="9:00">9:00</option>
+							<option value="9:30">9:30</option>
+							<option value="10:00">10:00</option>
+							<option value="10:30">10:30</option>
+							<option value="11:00">11:00</option>
+							<option value="11:30">11:30</option>
+							<option value="12:00">12:00</option>
+							<option value="12:30">12:30</option>
+							<option value="1:00">1:00</option>
+							<option value="1:30">1:30</option>
+							<option value="2:00">2:00</option>
+							<option value="2:30">2:30</option>
+							<option value="3:00">3:00</option>
+							<option value="3:30">3:30</option>
+							<option value="4:00">4:00</option>
+							<option value="4:30">4:30</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="item knobs">
+					<div>
+						Morph
+					</div>
+					<div>
+						<select id="rack_plaits_morph" class="knobs pointy">
+							<option value=""> </option>
+							<option value="min">min</option>
+							<option value="max">max</option>
+							<option value="7:30">7:30</option>
+							<option value="8:00">8:00</option>
+							<option value="8:30">8:30</option>
+							<option value="9:00">9:00</option>
+							<option value="9:30">9:30</option>
+							<option value="10:00">10:00</option>
+							<option value="10:30">10:30</option>
+							<option value="11:00">11:00</option>
+							<option value="11:30">11:30</option>
+							<option value="12:00">12:00</option>
+							<option value="12:30">12:30</option>
+							<option value="1:00">1:00</option>
+							<option value="1:30">1:30</option>
+							<option value="2:00">2:00</option>
+							<option value="2:30">2:30</option>
+							<option value="3:00">3:00</option>
+							<option value="3:30">3:30</option>
+							<option value="4:00">4:00</option>
+							<option value="4:30">4:30</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="item knobs">
+					<div>
+						Timbre Attenuverter
+					</div>
+					<div>
+						<select id="rack_plaits_timbre_attenuverter" class="knobs pointy">
+							<option value=""> </option>
+							<option value="min">min</option>
+							<option value="max">max</option>
+							<option value="7:30">7:30</option>
+							<option value="8:00">8:00</option>
+							<option value="8:30">8:30</option>
+							<option value="9:00">9:00</option>
+							<option value="9:30">9:30</option>
+							<option value="10:00">10:00</option>
+							<option value="10:30">10:30</option>
+							<option value="11:00">11:00</option>
+							<option value="11:30">11:30</option>
+							<option value="12:00">12:00</option>
+							<option value="12:30">12:30</option>
+							<option value="1:00">1:00</option>
+							<option value="1:30">1:30</option>
+							<option value="2:00">2:00</option>
+							<option value="2:30">2:30</option>
+							<option value="3:00">3:00</option>
+							<option value="3:30">3:30</option>
+							<option value="4:00">4:00</option>
+							<option value="4:30">4:30</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="item knobs">
+					<div>
+						Morph Attenuverter
+					</div>
+					<div>
+						<select id="rack_plaits_morph_attenuverter" class="knobs pointy">
+							<option value=""> </option>
+							<option value="min">min</option>
+							<option value="max">max</option>
+							<option value="7:30">7:30</option>
+							<option value="8:00">8:00</option>
+							<option value="8:30">8:30</option>
+							<option value="9:00">9:00</option>
+							<option value="9:30">9:30</option>
+							<option value="10:00">10:00</option>
+							<option value="10:30">10:30</option>
+							<option value="11:00">11:00</option>
+							<option value="11:30">11:30</option>
+							<option value="12:00">12:00</option>
+							<option value="12:30">12:30</option>
+							<option value="1:00">1:00</option>
+							<option value="1:30">1:30</option>
+							<option value="2:00">2:00</option>
+							<option value="2:30">2:30</option>
+							<option value="3:00">3:00</option>
+							<option value="3:30">3:30</option>
+							<option value="4:00">4:00</option>
+							<option value="4:30">4:30</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="item knobs">
+					<div>
+						FM Attenuverter
+					</div>
+					<div>
+						<select id="rack_plaits_fm_attenuverter" class="knobs pointy">
+							<option value=""> </option>
+							<option value="min">min</option>
+							<option value="max">max</option>
+							<option value="7:30">7:30</option>
+							<option value="8:00">8:00</option>
+							<option value="8:30">8:30</option>
+							<option value="9:00">9:00</option>
+							<option value="9:30">9:30</option>
+							<option value="10:00">10:00</option>
+							<option value="10:30">10:30</option>
+							<option value="11:00">11:00</option>
+							<option value="11:30">11:30</option>
+							<option value="12:00">12:00</option>
+							<option value="12:30">12:30</option>
+							<option value="1:00">1:00</option>
+							<option value="1:30">1:30</option>
+							<option value="2:00">2:00</option>
+							<option value="2:30">2:30</option>
+							<option value="3:00">3:00</option>
+							<option value="3:30">3:30</option>
+							<option value="4:00">4:00</option>
+							<option value="4:30">4:30</option>
+						</select>
+					</div>
+				</div>
+
+
+
+
+
+
+
 
 				<div class="item_category">
 					Filter
@@ -9147,27 +9734,14 @@
 					<div>
 						<select id="rack_mimeophon_zone_panelcontrol" class="knobs pointy">
 							<option value=""> </option>
-							<option value="min">min</option>
-							<option value="max">max</option>
-							<option value="7:30">7:30</option>
-							<option value="8:00">8:00</option>
-							<option value="8:30">8:30</option>
-							<option value="9:00">9:00</option>
-							<option value="9:30">9:30</option>
-							<option value="10:00">10:00</option>
-							<option value="10:30">10:30</option>
-							<option value="11:00">11:00</option>
-							<option value="11:30">11:30</option>
-							<option value="12:00">12:00</option>
-							<option value="12:30">12:30</option>
-							<option value="1:00">1:00</option>
-							<option value="1:30">1:30</option>
-							<option value="2:00">2:00</option>
-							<option value="2:30">2:30</option>
-							<option value="3:00">3:00</option>
-							<option value="3:30">3:30</option>
-							<option value="4:00">4:00</option>
-							<option value="4:30">4:30</option>
+							<option value="teal">teal</option>
+							<option value="green">green</option>
+							<option value="yellow">yellow</option>
+							<option value="orange">orange</option>
+							<option value="red">red</option>
+							<option value="magenta">magenta</option>
+							<option value="lavender">lavender</option>
+							<option value="blue">blue</option>
 						</select>
 					</div>
 				</div>
@@ -9423,6 +9997,148 @@
 				</div>
 
 				<div class="item_category">
+					Disting
+				</div>
+
+				<div class="item knobs">
+					<div>
+						Z Knob
+					</div>
+					<div>
+						<select id="rack_disting_zknob_one" class="knobs pointy">
+							<option value=""> </option>
+							<option value="min">min</option>
+							<option value="max">max</option>
+							<option value="blue">blue</option>
+							<option value="center">center</option>
+							<option value="red">red</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="item_category">
+					Slew
+				</div>
+
+				<div class="item knobs">
+					<div>
+						Time
+					</div>
+					<div>
+						<select id="rack_slew_time_one" class="knobs pointy">
+							<option value=""> </option>
+							<option value="min">min</option>
+							<option value="max">max</option>
+							<option value="7:30">7:30</option>
+							<option value="8:00">8:00</option>
+							<option value="8:30">8:30</option>
+							<option value="9:00">9:00</option>
+							<option value="9:30">9:30</option>
+							<option value="10:00">10:00</option>
+							<option value="10:30">10:30</option>
+							<option value="11:00">11:00</option>
+							<option value="11:30">11:30</option>
+							<option value="12:00">12:00</option>
+							<option value="12:30">12:30</option>
+							<option value="1:00">1:00</option>
+							<option value="1:30">1:30</option>
+							<option value="2:00">2:00</option>
+							<option value="2:30">2:30</option>
+							<option value="3:00">3:00</option>
+							<option value="3:30">3:30</option>
+							<option value="4:00">4:00</option>
+							<option value="4:30">4:30</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="item_category">
+					Mix-B
+				</div>
+
+				<div class="item knobs">
+					<div>
+						o
+					</div>
+					<div>
+						<select id="rack_mixer_levelo_one" class="knobs pointy">
+							<option value=""> </option>
+							<option value="min">min</option>
+							<option value="max">max</option>
+							<option value="25">25%</option>
+							<option value="50">50%</option>
+							<option value="75">75%</option>
+						</select>
+					</div>
+				</div>
+				<div class="item knobs">
+					<div>
+						oo
+					</div>
+					<div>
+						<select id="rack_mixer_leveloo_one" class="knobs pointy">
+							<option value=""> </option>
+							<option value="min">min</option>
+							<option value="max">max</option>
+							<option value="25">25%</option>
+							<option value="50">50%</option>
+							<option value="75">75%</option>
+						</select>
+					</div>
+				</div>
+				<div class="item knobs">
+					<div>
+						ooo
+					</div>
+					<div>
+						<select id="rack_mixer_levelooo_one" class="knobs pointy">
+							<option value=""> </option>
+							<option value="min">min</option>
+							<option value="max">max</option>
+							<option value="25">25%</option>
+							<option value="50">50%</option>
+							<option value="75">75%</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="item_category">
+					CTACT
+				</div>
+
+				<div class="item knobs">
+					<div>
+						Gain
+					</div>
+					<div>
+						<select id="rack_piezo_amp_one" class="knobs pointy">
+							<option value=""> </option>
+							<option value="min">min</option>
+							<option value="max">max</option>
+							<option value="7:30">7:30</option>
+							<option value="8:00">8:00</option>
+							<option value="8:30">8:30</option>
+							<option value="9:00">9:00</option>
+							<option value="9:30">9:30</option>
+							<option value="10:00">10:00</option>
+							<option value="10:30">10:30</option>
+							<option value="11:00">11:00</option>
+							<option value="11:30">11:30</option>
+							<option value="12:00">12:00</option>
+							<option value="12:30">12:30</option>
+							<option value="1:00">1:00</option>
+							<option value="1:30">1:30</option>
+							<option value="2:00">2:00</option>
+							<option value="2:30">2:30</option>
+							<option value="3:00">3:00</option>
+							<option value="3:30">3:30</option>
+							<option value="4:00">4:00</option>
+							<option value="4:30">4:30</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="item_category">
 					Passive Attenuator
 				</div>
 
@@ -9526,7 +10242,7 @@
 
 				<div class="item knobs">
 					<div>
-						Attenuate 1
+						Attenuater 1
 					</div>
 					<div>
 						<select id="rack_attoff_attenuator_one" class="knobs pointy">
@@ -9588,7 +10304,7 @@
 				</div>
 				<div class="item knobs">
 					<div>
-						Attenuate 2
+						Attenuater 2
 					</div>
 					<div>
 						<select id="rack_attoff_attenuator_two" class="knobs pointy">
@@ -9650,46 +10366,15 @@
 				</div>
 
 				<div class="item_category">
-					Slew
+					Att-Vert
 				</div>
 
 				<div class="item knobs">
 					<div>
-						Rise Time 1
+						Attenverter 1
 					</div>
 					<div>
-						<select id="rack_slew_rise_one" class="knobs pointy">
-							<option value=""> </option>
-							<option value="min">min</option>
-							<option value="max">max</option>
-							<option value="7:30">7:30</option>
-							<option value="8:00">8:00</option>
-							<option value="8:30">8:30</option>
-							<option value="9:00">9:00</option>
-							<option value="9:30">9:30</option>
-							<option value="10:00">10:00</option>
-							<option value="10:30">10:30</option>
-							<option value="11:00">11:00</option>
-							<option value="11:30">11:30</option>
-							<option value="12:00">12:00</option>
-							<option value="12:30">12:30</option>
-							<option value="1:00">1:00</option>
-							<option value="1:30">1:30</option>
-							<option value="2:00">2:00</option>
-							<option value="2:30">2:30</option>
-							<option value="3:00">3:00</option>
-							<option value="3:30">3:30</option>
-							<option value="4:00">4:00</option>
-							<option value="4:30">4:30</option>
-						</select>
-					</div>
-				</div>
-				<div class="item knobs">
-					<div>
-						Fall Time 1
-					</div>
-					<div>
-						<select id="rack_slew_fall_one" class="knobs pointy">
+						<select id="rack_attoff_attvert_one" class="knobs pointy">
 							<option value=""> </option>
 							<option value="min">min</option>
 							<option value="max">max</option>
@@ -9725,6 +10410,52 @@
 				<h3>
 					Output Jacks
 				</h3>
+
+				<div class="item_category">
+					RoAT
+				</div>
+
+				<div class="item jacks" data-connections="1">
+					<div>
+						Out
+					</div>
+					<div></div>
+					<div id="rack_roat_out_container_0">
+						<select id="rack_roat_out_0" data-index="0" class="jacks"></select>
+					</div>
+					<div id="rack_roat_out_plus" class="plus pointy">
+						+
+					</div>
+				</div>
+
+				<div class="item_category">
+					Plaits
+				</div>
+
+				<div class="item jacks" data-connections="1">
+					<div>
+						Out
+					</div>
+					<div></div>
+					<div id="rack_plaits_out_container_0">
+						<select id="rack_plaits_out_0" data-index="0" class="jacks"></select>
+					</div>
+					<div id="rack_plaits_out_plus" class="plus pointy">
+						+
+					</div>
+				</div>
+				<div class="item jacks" data-connections="1">
+					<div>
+						Aux
+					</div>
+					<div></div>
+					<div id="rack_plaits_aux_container_0">
+						<select id="rack_plaits_aux_0" data-index="0" class="jacks"></select>
+					</div>
+					<div id="rack_plaits_aux_plus" class="plus pointy">
+						+
+					</div>
+				</div>
 
 				<div class="item_category">
 					Filter
@@ -9827,77 +10558,6 @@
 					</div>
 				</div>
 
-
-				<div class="item_category">
-					Passive Attenuator
-				</div>
-
-				<div class="item jacks" data-connections="1">
-					<div>
-						Attenuator 1
-					</div>
-					<div></div>
-					<div id="rack_attenuator_one_container_0">
-						<select id="rack_attenuator_one_0" data-index="0" class="jacks"></select>
-					</div>
-					<div id="rack_attenuator_one_plus" class="plus pointy">
-						+
-					</div>
-				</div>
-				<div class="item jacks" data-connections="1">
-					<div>
-						Attenuator 2
-					</div>
-					<div></div>
-					<div id="rack_attenuator_two_container_0">
-						<select id="rack_attenuator_two_0" data-index="0" class="jacks"></select>
-					</div>
-					<div id="rack_attenuator_two_plus" class="plus pointy">
-						+
-					</div>
-				</div>
-				<div class="item jacks" data-connections="1">
-					<div>
-						Attenuator 3
-					</div>
-					<div></div>
-					<div id="rack_attenuator_three_container_0">
-						<select id="rack_attenuator_three_0" data-index="0" class="jacks"></select>
-					</div>
-					<div id="rack_attenuator_three_plus" class="plus pointy">
-						+
-					</div>
-				</div>
-
-				<div class="item_category">
-					Low Pass Gate
-				</div>
-
-				<div class="item jacks" data-connections="1">
-					<div>
-						LPG 1
-					</div>
-					<div></div>
-					<div id="rack_lpg_one_container_0">
-						<select id="rack_lpg_one_0" data-index="0" class="jacks"></select>
-					</div>
-					<div id="rack_lpg_one_plus" class="plus pointy">
-						+
-					</div>
-				</div>
-				<div class="item jacks" data-connections="1">
-					<div>
-						LPG 2
-					</div>
-					<div></div>
-					<div id="rack_lpg_two_container_0">
-						<select id="rack_lpg_two_0" data-index="0" class="jacks"></select>
-					</div>
-					<div id="rack_lpg_two_plus" class="plus pointy">
-						+
-					</div>
-				</div>
-
 				<div class="item_category">
 					Disting 1
 				</div>
@@ -9988,12 +10648,92 @@
 				</div>
 
 				<div class="item_category">
-					Piezo Amp
+					Sample & Hold
 				</div>
 
 				<div class="item jacks" data-connections="1">
 					<div>
-						Piezo
+						Signal Out
+					</div>
+					<div></div>
+					<div id="rack_sandh_signal_out_one_container_0">
+						<select id="rack_sandh_signal_out_one_0" data-index="0" class="jacks"></select>
+					</div>
+					<div id="rack_sandh_signal_out_one_plus" class="plus pointy">
+						+
+					</div>
+				</div>
+
+				<div class="item_category">
+					FSR
+				</div>
+
+				<div class="item jacks" data-connections="1">
+					<div>
+						CV
+					</div>
+					<div></div>
+					<div id="expandedrack_fsr_cv_one_container_0">
+						<select id="expandedrack_fsr_cv_one_0" data-index="0" class="jacks"></select>
+					</div>
+					<div id="expandedrack_fsr_cv_one_plus" class="plus pointy">
+						+
+					</div>
+				</div>
+				<div class="item jacks" data-connections="1">
+					<div>
+						Out
+					</div>
+					<div></div>
+					<div id="expandedrack_fsr_gate_one_container_0">
+						<select id="expandedrack_fsr_gate_one_0" data-index="0" class="jacks"></select>
+					</div>
+					<div id="expandedrack_fsr_gate_one_plus" class="plus pointy">
+						+
+					</div>
+				</div>
+
+				<div class="item_category">
+					Slew
+				</div>
+
+				<div class="item jacks" data-connections="1">
+					<div>
+						Signal Out
+					</div>
+					<div></div>
+					<div id="rack_slew_signal_out_one_container_0">
+						<select id="rack_slew_signal_out_one_0" data-index="0" class="jacks"></select>
+					</div>
+					<div id="rack_slew_signal_out_one_plus" class="plus pointy">
+						+
+					</div>
+				</div>
+
+				<div class="item_category">
+					Mix-B
+				</div>
+
+				<div class="item jacks" data-connections="1">
+					<div>
+						Mix Out
+					</div>
+					<div></div>
+					<div id="rack_mixb_mix_out_container_0">
+						<select id="rack_mixb_mix_out_0" data-index="0" class="jacks"></select>
+					</div>
+					<div id="rack_mixb_mix_out_plus" class="plus pointy">
+						+
+					</div>
+				</div>
+
+				<div class="item_category">
+					CTACT
+				</div>
+
+				<div class="item jacks" data-connections="1">
+					<div>
+						Piezo/In
 					</div>
 					<div></div>
 					<div id="expandedrack_piezo_amp_piezo_container_0">
@@ -10012,6 +10752,47 @@
 						<select id="expandedrack_piezo_amp_out_0" data-index="0" class="jacks"></select>
 					</div>
 					<div id="expandedrack_piezo_amp_out_plus" class="plus pointy">
+						+
+					</div>
+				</div>
+
+				<div class="item_category">
+					Passive Attenuator
+				</div>
+
+				<div class="item jacks" data-connections="1">
+					<div>
+						Attenuator 1
+					</div>
+					<div></div>
+					<div id="rack_attenuator_one_container_0">
+						<select id="rack_attenuator_one_0" data-index="0" class="jacks"></select>
+					</div>
+					<div id="rack_attenuator_one_plus" class="plus pointy">
+						+
+					</div>
+				</div>
+				<div class="item jacks" data-connections="1">
+					<div>
+						Attenuator 2
+					</div>
+					<div></div>
+					<div id="rack_attenuator_two_container_0">
+						<select id="rack_attenuator_two_0" data-index="0" class="jacks"></select>
+					</div>
+					<div id="rack_attenuator_two_plus" class="plus pointy">
+						+
+					</div>
+				</div>
+				<div class="item jacks" data-connections="1">
+					<div>
+						Attenuator 3
+					</div>
+					<div></div>
+					<div id="rack_attenuator_three_container_0">
+						<select id="rack_attenuator_three_0" data-index="0" class="jacks"></select>
+					</div>
+					<div id="rack_attenuator_three_plus" class="plus pointy">
 						+
 					</div>
 				</div>
@@ -10046,64 +10827,89 @@
 				</div>
 
 				<div class="item_category">
-					Sample & Hold
+					Att-Vert
 				</div>
 
 				<div class="item jacks" data-connections="1">
 					<div>
-						Signal Out
+						Att-Vert 1
 					</div>
 					<div></div>
-					<div id="rack_sandh_signal_out_one_container_0">
-						<select id="rack_sandh_signal_out_one_0" data-index="0" class="jacks"></select>
+					<div id="rack_attvert_one_container_0">
+						<select id="rack_attvert_one_0" data-index="0" class="jacks"></select>
 					</div>
-					<div id="rack_sandh_signal_out_one_plus" class="plus pointy">
+					<div id="rack_attvert_one_plus" class="plus pointy">
+						+
+					</div>
+				</div>
+
+
+				<div class="item_category">
+					Fine CV
+				</div>
+
+				<div class="item jacks" data-connections="1">
+					<div>
+						Fine CV 1
+					</div>
+					<div></div>
+					<div id="rack_fine_tune_one_container_0">
+						<select id="rack_fine_tune_one_0" data-index="0" class="jacks"></select>
+					</div>
+					<div id="rack_fine_tune_one_plus" class="plus pointy">
+						+
+					</div>
+				</div>
+				<div class="item jacks" data-connections="1">
+					<div>
+						Fine CV 2
+					</div>
+					<div></div>
+					<div id="rack_fine_tune_two_container_0">
+						<select id="rack_fine_tune_two_0" data-index="0" class="jacks"></select>
+					</div>
+					<div id="rack_fine_tune_two_plus" class="plus pointy">
+						+
+					</div>
+				</div>
+				<div class="item jacks" data-connections="1">
+					<div>
+						Fine CV 3
+					</div>
+					<div></div>
+					<div id="rack_fine_tune_three_container_0">
+						<select id="rack_fine_tune_three_0" data-index="0" class="jacks"></select>
+					</div>
+					<div id="rack_fine_tune_three_plus" class="plus pointy">
 						+
 					</div>
 				</div>
 
 				<div class="item_category">
-					Slew
+					Low Pass Gate
 				</div>
 
 				<div class="item jacks" data-connections="1">
 					<div>
-						Signal Out
+						LPG 1
 					</div>
 					<div></div>
-					<div id="rack_slew_signal_out_one_container_0">
-						<select id="rack_slew_signal_out_one_0" data-index="0" class="jacks"></select>
+					<div id="rack_lpg_one_container_0">
+						<select id="rack_lpg_one_0" data-index="0" class="jacks"></select>
 					</div>
-					<div id="rack_slew_signal_out_one_plus" class="plus pointy">
-						+
-					</div>
-				</div>
-
-				<div class="item_category">
-					FSR
-				</div>
-
-				<div class="item jacks" data-connections="1">
-					<div>
-						CV
-					</div>
-					<div></div>
-					<div id="expandedrack_fsr_cv_one_container_0">
-						<select id="expandedrack_fsr_cv_one_0" data-index="0" class="jacks"></select>
-					</div>
-					<div id="expandedrack_fsr_cv_one_plus" class="plus pointy">
+					<div id="rack_lpg_one_plus" class="plus pointy">
 						+
 					</div>
 				</div>
 				<div class="item jacks" data-connections="1">
 					<div>
-						Out
+						LPG 2
 					</div>
 					<div></div>
-					<div id="expandedrack_fsr_gate_one_container_0">
-						<select id="expandedrack_fsr_gate_one_0" data-index="0" class="jacks"></select>
+					<div id="rack_lpg_two_container_0">
+						<select id="rack_lpg_two_0" data-index="0" class="jacks"></select>
 					</div>
-					<div id="expandedrack_fsr_gate_one_plus" class="plus pointy">
+					<div id="rack_lpg_two_plus" class="plus pointy">
 						+
 					</div>
 				</div>
@@ -10234,6 +11040,867 @@
 						<select id="expandedrack_tp8_bottomright_0" data-index="0" class="jacks"></select>
 					</div>
 					<div id="expandedrack_tp8_bottomright_plus" class="plus pointy">
+						+
+					</div>
+				</div>
+
+			</section>
+
+		</section>
+
+	</div>
+
+
+	<!-- ***************************   Instrument: Lyra-4  *************************** -->
+
+	<div id="instrument_lyra4" class="collapse">
+
+		<h2>
+			Lyra-4
+		</h2>
+
+		<section id="instrument_lyra4_columns">
+
+			<!-- ***************************   Lyra-4 Output Jacks   *************************** -->
+
+			<section class="instrument_lyra4">
+
+				<h3>
+					Knobs & Switches
+				</h3>
+
+				<div class="item_category">
+					Distortion
+				</div>
+
+				<div class="item knobs">
+					<div>
+						Drive
+					</div>
+					<div>
+						<select id="lyra4_distortion_drive_one" class="knobs pointy">
+							<option value=""> </option>
+							<option value="min">min</option>
+							<option value="max">max</option>
+							<option value="7:30">7:30</option>
+							<option value="8:00">8:00</option>
+							<option value="8:30">8:30</option>
+							<option value="9:00">9:00</option>
+							<option value="9:30">9:30</option>
+							<option value="10:00">10:00</option>
+							<option value="10:30">10:30</option>
+							<option value="11:00">11:00</option>
+							<option value="11:30">11:30</option>
+							<option value="12:00">12:00</option>
+							<option value="12:30">12:30</option>
+							<option value="1:00">1:00</option>
+							<option value="1:30">1:30</option>
+							<option value="2:00">2:00</option>
+							<option value="2:30">2:30</option>
+							<option value="3:00">3:00</option>
+							<option value="3:30">3:30</option>
+							<option value="4:00">4:00</option>
+							<option value="4:30">4:30</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="item knobs">
+					<div>
+						Mix
+					</div>
+					<div>
+						<select id="lyra4_distortion_mix_one" class="knobs pointy">
+							<option value=""> </option>
+							<option value="min">min</option>
+							<option value="max">max</option>
+							<option value="7:30">7:30</option>
+							<option value="8:00">8:00</option>
+							<option value="8:30">8:30</option>
+							<option value="9:00">9:00</option>
+							<option value="9:30">9:30</option>
+							<option value="10:00">10:00</option>
+							<option value="10:30">10:30</option>
+							<option value="11:00">11:00</option>
+							<option value="11:30">11:30</option>
+							<option value="12:00">12:00</option>
+							<option value="12:30">12:30</option>
+							<option value="1:00">1:00</option>
+							<option value="1:30">1:30</option>
+							<option value="2:00">2:00</option>
+							<option value="2:30">2:30</option>
+							<option value="3:00">3:00</option>
+							<option value="3:30">3:30</option>
+							<option value="4:00">4:00</option>
+							<option value="4:30">4:30</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="item_category">
+					Mod Delay
+				</div>
+
+				<div class="item knobs">
+					<div>
+						Waveform
+					</div>
+					<div>
+						<select id="lyra4_moddelay_waveform_one" class="knobs pointy">
+							<option value=""> </option>
+							<option value="square">square</option>
+							<option value="triangle">triangle</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="item knobs">
+					<div>
+						Mod Source
+					</div>
+					<div>
+						<select id="lyra4_moddelay_modsource_one" class="knobs pointy">
+							<option value=""> </option>
+							<option value="self">self</option>
+							<option value="off">off</option>
+							<option value="lfo">lfo</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="item knobs">
+					<div>
+						Mod
+					</div>
+					<div>
+						<select id="lyra4_moddelay_mod_one" class="knobs pointy">
+							<option value=""> </option>
+                     <option value="min">min</option>
+                     <option value="max">max</option>
+                     <option value="7:30">7:30</option>
+                     <option value="8:00">8:00</option>
+                     <option value="8:30">8:30</option>
+                     <option value="9:00">9:00</option>
+                     <option value="9:30">9:30</option>
+                     <option value="10:00">10:00</option>
+                     <option value="10:30">10:30</option>
+                     <option value="11:00">11:00</option>
+                     <option value="11:30">11:30</option>
+                     <option value="12:00">12:00</option>
+                     <option value="12:30">12:30</option>
+                     <option value="1:00">1:00</option>
+                     <option value="1:30">1:30</option>
+                     <option value="2:00">2:00</option>
+                     <option value="2:30">2:30</option>
+                     <option value="3:00">3:00</option>
+                     <option value="3:30">3:30</option>
+                     <option value="4:00">4:00</option>
+                     <option value="4:30">4:30</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="item knobs">
+					<div>
+						Time
+					</div>
+					<div>
+						<select id="lyra4_moddelay_time_one" class="knobs pointy">
+							<option value=""> </option>
+                     <option value="min">min</option>
+                     <option value="max">max</option>
+                     <option value="7:30">7:30</option>
+                     <option value="8:00">8:00</option>
+                     <option value="8:30">8:30</option>
+                     <option value="9:00">9:00</option>
+                     <option value="9:30">9:30</option>
+                     <option value="10:00">10:00</option>
+                     <option value="10:30">10:30</option>
+                     <option value="11:00">11:00</option>
+                     <option value="11:30">11:30</option>
+                     <option value="12:00">12:00</option>
+                     <option value="12:30">12:30</option>
+                     <option value="1:00">1:00</option>
+                     <option value="1:30">1:30</option>
+                     <option value="2:00">2:00</option>
+                     <option value="2:30">2:30</option>
+                     <option value="3:00">3:00</option>
+                     <option value="3:30">3:30</option>
+                     <option value="4:00">4:00</option>
+                     <option value="4:30">4:30</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="item knobs">
+					<div>
+						FB
+					</div>
+					<div>
+						<select id="lyra4_moddelay_fb_one" class="knobs pointy">
+							<option value=""> </option>
+                     <option value="min">min</option>
+                     <option value="max">max</option>
+                     <option value="7:30">7:30</option>
+                     <option value="8:00">8:00</option>
+                     <option value="8:30">8:30</option>
+                     <option value="9:00">9:00</option>
+                     <option value="9:30">9:30</option>
+                     <option value="10:00">10:00</option>
+                     <option value="10:30">10:30</option>
+                     <option value="11:00">11:00</option>
+                     <option value="11:30">11:30</option>
+                     <option value="12:00">12:00</option>
+                     <option value="12:30">12:30</option>
+                     <option value="1:00">1:00</option>
+                     <option value="1:30">1:30</option>
+                     <option value="2:00">2:00</option>
+                     <option value="2:30">2:30</option>
+                     <option value="3:00">3:00</option>
+                     <option value="3:30">3:30</option>
+                     <option value="4:00">4:00</option>
+                     <option value="4:30">4:30</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="item knobs">
+					<div>
+						Mix
+					</div>
+					<div>
+						<select id="lyra4_moddelay_mix_one" class="knobs pointy">
+							<option value=""> </option>
+                     <option value="min">min</option>
+                     <option value="max">max</option>
+                     <option value="7:30">7:30</option>
+                     <option value="8:00">8:00</option>
+                     <option value="8:30">8:30</option>
+                     <option value="9:00">9:00</option>
+                     <option value="9:30">9:30</option>
+                     <option value="10:00">10:00</option>
+                     <option value="10:30">10:30</option>
+                     <option value="11:00">11:00</option>
+                     <option value="11:30">11:30</option>
+                     <option value="12:00">12:00</option>
+                     <option value="12:30">12:30</option>
+                     <option value="1:00">1:00</option>
+                     <option value="1:30">1:30</option>
+                     <option value="2:00">2:00</option>
+                     <option value="2:30">2:30</option>
+                     <option value="3:00">3:00</option>
+                     <option value="3:30">3:30</option>
+                     <option value="4:00">4:00</option>
+                     <option value="4:30">4:30</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="item_category">
+					Hyper LFO
+				</div>
+
+				<div class="item knobs">
+					<div>
+						And/Or
+					</div>
+					<div>
+						<select id="lyra4_hyperlfo_andor_one" class="knobs pointy">
+							<option value=""> </option>
+                     <option value="and">and</option>
+                     <option value="delay">delay</option>
+                     <option value="or">or</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="item knobs">
+					<div>
+						Sync
+					</div>
+					<div>
+						<select id="lyra4_hyperlfo_sync_one" class="knobs pointy">
+							<option value=""> </option>
+                     <option value="on">on</option>
+                     <option value="off">off</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="item knobs">
+					<div>
+						Freq A
+					</div>
+					<div>
+						<select id="lyra4_hyperlfo_freqa_one" class="knobs pointy">
+							<option value=""> </option>
+                     <option value="min">min</option>
+                     <option value="max">max</option>
+                     <option value="7:30">7:30</option>
+                     <option value="8:00">8:00</option>
+                     <option value="8:30">8:30</option>
+                     <option value="9:00">9:00</option>
+                     <option value="9:30">9:30</option>
+                     <option value="10:00">10:00</option>
+                     <option value="10:30">10:30</option>
+                     <option value="11:00">11:00</option>
+                     <option value="11:30">11:30</option>
+                     <option value="12:00">12:00</option>
+                     <option value="12:30">12:30</option>
+                     <option value="1:00">1:00</option>
+                     <option value="1:30">1:30</option>
+                     <option value="2:00">2:00</option>
+                     <option value="2:30">2:30</option>
+                     <option value="3:00">3:00</option>
+                     <option value="3:30">3:30</option>
+                     <option value="4:00">4:00</option>
+                     <option value="4:30">4:30</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="item knobs">
+					<div>
+						Freq B
+					</div>
+					<div>
+						<select id="lyra4_hyperlfo_freqb_one" class="knobs pointy">
+							<option value=""> </option>
+                     <option value="min">min</option>
+                     <option value="max">max</option>
+                     <option value="7:30">7:30</option>
+                     <option value="8:00">8:00</option>
+                     <option value="8:30">8:30</option>
+                     <option value="9:00">9:00</option>
+                     <option value="9:30">9:30</option>
+                     <option value="10:00">10:00</option>
+                     <option value="10:30">10:30</option>
+                     <option value="11:00">11:00</option>
+                     <option value="11:30">11:30</option>
+                     <option value="12:00">12:00</option>
+                     <option value="12:30">12:30</option>
+                     <option value="1:00">1:00</option>
+                     <option value="1:30">1:30</option>
+                     <option value="2:00">2:00</option>
+                     <option value="2:30">2:30</option>
+                     <option value="3:00">3:00</option>
+                     <option value="3:30">3:30</option>
+                     <option value="4:00">4:00</option>
+                     <option value="4:30">4:30</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="item_category">
+					Voices
+				</div>
+
+				<div class="item knobs">
+					<div>
+						Hold
+					</div>
+					<div>
+						<select id="lyra4_voices_hold_one" class="knobs pointy">
+							<option value=""> </option>
+                     <option value="min">min</option>
+                     <option value="max">max</option>
+                     <option value="7:30">7:30</option>
+                     <option value="8:00">8:00</option>
+                     <option value="8:30">8:30</option>
+                     <option value="9:00">9:00</option>
+                     <option value="9:30">9:30</option>
+                     <option value="10:00">10:00</option>
+                     <option value="10:30">10:30</option>
+                     <option value="11:00">11:00</option>
+                     <option value="11:30">11:30</option>
+                     <option value="12:00">12:00</option>
+                     <option value="12:30">12:30</option>
+                     <option value="1:00">1:00</option>
+                     <option value="1:30">1:30</option>
+                     <option value="2:00">2:00</option>
+                     <option value="2:30">2:30</option>
+                     <option value="3:00">3:00</option>
+                     <option value="3:30">3:30</option>
+                     <option value="4:00">4:00</option>
+                     <option value="4:30">4:30</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="item knobs">
+					<div>
+						Pitch
+					</div>
+					<div>
+						<select id="lyra4_voices_pitch_one" class="knobs pointy">
+							<option value=""> </option>
+                     <option value="min">min</option>
+                     <option value="max">max</option>
+                     <option value="7:30">7:30</option>
+                     <option value="8:00">8:00</option>
+                     <option value="8:30">8:30</option>
+                     <option value="9:00">9:00</option>
+                     <option value="9:30">9:30</option>
+                     <option value="10:00">10:00</option>
+                     <option value="10:30">10:30</option>
+                     <option value="11:00">11:00</option>
+                     <option value="11:30">11:30</option>
+                     <option value="12:00">12:00</option>
+                     <option value="12:30">12:30</option>
+                     <option value="1:00">1:00</option>
+                     <option value="1:30">1:30</option>
+                     <option value="2:00">2:00</option>
+                     <option value="2:30">2:30</option>
+                     <option value="3:00">3:00</option>
+                     <option value="3:30">3:30</option>
+                     <option value="4:00">4:00</option>
+                     <option value="4:30">4:30</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="item knobs">
+					<div>
+						12 LFO CV
+					</div>
+					<div>
+						<select id="lyra4_voices_12lfocv_one" class="knobs pointy">
+							<option value=""> </option>
+                     <option value="34">34</option>
+                     <option value="off">off</option>
+                     <option value="lfofbcv">lfo/fb cv</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="item knobs">
+					<div>
+						12 Mod
+					</div>
+					<div>
+						<select id="lyra4_voices_12mod_one" class="knobs pointy">
+							<option value=""> </option>
+                     <option value="min">min</option>
+                     <option value="max">max</option>
+                     <option value="7:30">7:30</option>
+                     <option value="8:00">8:00</option>
+                     <option value="8:30">8:30</option>
+                     <option value="9:00">9:00</option>
+                     <option value="9:30">9:30</option>
+                     <option value="10:00">10:00</option>
+                     <option value="10:30">10:30</option>
+                     <option value="11:00">11:00</option>
+                     <option value="11:30">11:30</option>
+                     <option value="12:00">12:00</option>
+                     <option value="12:30">12:30</option>
+                     <option value="1:00">1:00</option>
+                     <option value="1:30">1:30</option>
+                     <option value="2:00">2:00</option>
+                     <option value="2:30">2:30</option>
+                     <option value="3:00">3:00</option>
+                     <option value="3:30">3:30</option>
+                     <option value="4:00">4:00</option>
+                     <option value="4:30">4:30</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="item knobs">
+					<div>
+						12 Sharp
+					</div>
+					<div>
+						<select id="lyra4_voices_12sharp_one" class="knobs pointy">
+							<option value=""> </option>
+                     <option value="min">min</option>
+                     <option value="max">max</option>
+                     <option value="7:30">7:30</option>
+                     <option value="8:00">8:00</option>
+                     <option value="8:30">8:30</option>
+                     <option value="9:00">9:00</option>
+                     <option value="9:30">9:30</option>
+                     <option value="10:00">10:00</option>
+                     <option value="10:30">10:30</option>
+                     <option value="11:00">11:00</option>
+                     <option value="11:30">11:30</option>
+                     <option value="12:00">12:00</option>
+                     <option value="12:30">12:30</option>
+                     <option value="1:00">1:00</option>
+                     <option value="1:30">1:30</option>
+                     <option value="2:00">2:00</option>
+                     <option value="2:30">2:30</option>
+                     <option value="3:00">3:00</option>
+                     <option value="3:30">3:30</option>
+                     <option value="4:00">4:00</option>
+                     <option value="4:30">4:30</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="item knobs">
+					<div>
+						1 Tune
+					</div>
+					<div>
+						<select id="lyra4_voices_1tune_one" class="knobs pointy">
+							<option value=""> </option>
+                     <option value="min">min</option>
+                     <option value="max">max</option>
+                     <option value="7:30">7:30</option>
+                     <option value="8:00">8:00</option>
+                     <option value="8:30">8:30</option>
+                     <option value="9:00">9:00</option>
+                     <option value="9:30">9:30</option>
+                     <option value="10:00">10:00</option>
+                     <option value="10:30">10:30</option>
+                     <option value="11:00">11:00</option>
+                     <option value="11:30">11:30</option>
+                     <option value="12:00">12:00</option>
+                     <option value="12:30">12:30</option>
+                     <option value="1:00">1:00</option>
+                     <option value="1:30">1:30</option>
+                     <option value="2:00">2:00</option>
+                     <option value="2:30">2:30</option>
+                     <option value="3:00">3:00</option>
+                     <option value="3:30">3:30</option>
+                     <option value="4:00">4:00</option>
+                     <option value="4:30">4:30</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="item knobs">
+					<div>
+						2 Tune
+					</div>
+					<div>
+						<select id="lyra4_voices_2tune_one" class="knobs pointy">
+							<option value=""> </option>
+                     <option value="min">min</option>
+                     <option value="max">max</option>
+                     <option value="7:30">7:30</option>
+                     <option value="8:00">8:00</option>
+                     <option value="8:30">8:30</option>
+                     <option value="9:00">9:00</option>
+                     <option value="9:30">9:30</option>
+                     <option value="10:00">10:00</option>
+                     <option value="10:30">10:30</option>
+                     <option value="11:00">11:00</option>
+                     <option value="11:30">11:30</option>
+                     <option value="12:00">12:00</option>
+                     <option value="12:30">12:30</option>
+                     <option value="1:00">1:00</option>
+                     <option value="1:30">1:30</option>
+                     <option value="2:00">2:00</option>
+                     <option value="2:30">2:30</option>
+                     <option value="3:00">3:00</option>
+                     <option value="3:30">3:30</option>
+                     <option value="4:00">4:00</option>
+                     <option value="4:30">4:30</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="item knobs">
+					<div>
+						12 Fast
+					</div>
+					<div>
+						<select id="lyra4_voices_12fast_one" class="knobs pointy">
+							<option value=""> </option>
+							<option value="Fast">slow</option>
+							<option value="Slow">fast</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="item knobs">
+					<div>
+						34 LFO CV
+					</div>
+					<div>
+						<select id="lyra4_voices_34lfocv_one" class="knobs pointy">
+							<option value=""> </option>
+                     <option value="12">12</option>
+                     <option value="off">off</option>
+                     <option value="lfofbcv">lfo/fb cv</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="item knobs">
+					<div>
+						34 Sharp
+					</div>
+					<div>
+						<select id="lyra4_voices_34sharp_one" class="knobs pointy">
+							<option value=""> </option>
+                     <option value="min">min</option>
+                     <option value="max">max</option>
+                     <option value="7:30">7:30</option>
+                     <option value="8:00">8:00</option>
+                     <option value="8:30">8:30</option>
+                     <option value="9:00">9:00</option>
+                     <option value="9:30">9:30</option>
+                     <option value="10:00">10:00</option>
+                     <option value="10:30">10:30</option>
+                     <option value="11:00">11:00</option>
+                     <option value="11:30">11:30</option>
+                     <option value="12:00">12:00</option>
+                     <option value="12:30">12:30</option>
+                     <option value="1:00">1:00</option>
+                     <option value="1:30">1:30</option>
+                     <option value="2:00">2:00</option>
+                     <option value="2:30">2:30</option>
+                     <option value="3:00">3:00</option>
+                     <option value="3:30">3:30</option>
+                     <option value="4:00">4:00</option>
+                     <option value="4:30">4:30</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="item knobs">
+					<div>
+						34 Mod
+					</div>
+					<div>
+						<select id="lyra4_voices_34mod_one" class="knobs pointy">
+							<option value=""> </option>
+                     <option value="min">min</option>
+                     <option value="max">max</option>
+                     <option value="7:30">7:30</option>
+                     <option value="8:00">8:00</option>
+                     <option value="8:30">8:30</option>
+                     <option value="9:00">9:00</option>
+                     <option value="9:30">9:30</option>
+                     <option value="10:00">10:00</option>
+                     <option value="10:30">10:30</option>
+                     <option value="11:00">11:00</option>
+                     <option value="11:30">11:30</option>
+                     <option value="12:00">12:00</option>
+                     <option value="12:30">12:30</option>
+                     <option value="1:00">1:00</option>
+                     <option value="1:30">1:30</option>
+                     <option value="2:00">2:00</option>
+                     <option value="2:30">2:30</option>
+                     <option value="3:00">3:00</option>
+                     <option value="3:30">3:30</option>
+                     <option value="4:00">4:00</option>
+                     <option value="4:30">4:30</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="item knobs">
+					<div>
+						3 Tune
+					</div>
+					<div>
+						<select id="lyra4_voices_3tune_one" class="knobs pointy">
+							<option value=""> </option>
+                     <option value="min">min</option>
+                     <option value="max">max</option>
+                     <option value="7:30">7:30</option>
+                     <option value="8:00">8:00</option>
+                     <option value="8:30">8:30</option>
+                     <option value="9:00">9:00</option>
+                     <option value="9:30">9:30</option>
+                     <option value="10:00">10:00</option>
+                     <option value="10:30">10:30</option>
+                     <option value="11:00">11:00</option>
+                     <option value="11:30">11:30</option>
+                     <option value="12:00">12:00</option>
+                     <option value="12:30">12:30</option>
+                     <option value="1:00">1:00</option>
+                     <option value="1:30">1:30</option>
+                     <option value="2:00">2:00</option>
+                     <option value="2:30">2:30</option>
+                     <option value="3:00">3:00</option>
+                     <option value="3:30">3:30</option>
+                     <option value="4:00">4:00</option>
+                     <option value="4:30">4:30</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="item knobs">
+					<div>
+						4 Tune
+					</div>
+					<div>
+						<select id="lyra4_voices_4tune_one" class="knobs pointy">
+							<option value=""> </option>
+                     <option value="min">min</option>
+                     <option value="max">max</option>
+                     <option value="7:30">7:30</option>
+                     <option value="8:00">8:00</option>
+                     <option value="8:30">8:30</option>
+                     <option value="9:00">9:00</option>
+                     <option value="9:30">9:30</option>
+                     <option value="10:00">10:00</option>
+                     <option value="10:30">10:30</option>
+                     <option value="11:00">11:00</option>
+                     <option value="11:30">11:30</option>
+                     <option value="12:00">12:00</option>
+                     <option value="12:30">12:30</option>
+                     <option value="1:00">1:00</option>
+                     <option value="1:30">1:30</option>
+                     <option value="2:00">2:00</option>
+                     <option value="2:30">2:30</option>
+                     <option value="3:00">3:00</option>
+                     <option value="3:30">3:30</option>
+                     <option value="4:00">4:00</option>
+                     <option value="4:30">4:30</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="item knobs">
+					<div>
+						34 Fast
+					</div>
+					<div>
+						<select id="lyra4_voices_34fast_one" class="knobs pointy">
+							<option value=""> </option>
+							<option value="Fast">slow</option>
+							<option value="Slow">fast</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="item knobs">
+					<div>
+						Volume
+					</div>
+					<div>
+						<select id="lyra4_voices_volume_one" class="knobs pointy">
+							<option value=""> </option>
+                     <option value="min">min</option>
+                     <option value="max">max</option>
+                     <option value="7:30">7:30</option>
+                     <option value="8:00">8:00</option>
+                     <option value="8:30">8:30</option>
+                     <option value="9:00">9:00</option>
+                     <option value="9:30">9:30</option>
+                     <option value="10:00">10:00</option>
+                     <option value="10:30">10:30</option>
+                     <option value="11:00">11:00</option>
+                     <option value="11:30">11:30</option>
+                     <option value="12:00">12:00</option>
+                     <option value="12:30">12:30</option>
+                     <option value="1:00">1:00</option>
+                     <option value="1:30">1:30</option>
+                     <option value="2:00">2:00</option>
+                     <option value="2:30">2:30</option>
+                     <option value="3:00">3:00</option>
+                     <option value="3:30">3:30</option>
+                     <option value="4:00">4:00</option>
+                     <option value="4:30">4:30</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="item knobs">
+					<div>
+						Total FB
+					</div>
+					<div>
+						<select id="lyra4_voices_totalfb_one" class="knobs pointy">
+							<option value=""> </option>
+                     <option value="on">on</option>
+                     <option value="off">off</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="item knobs">
+					<div>
+						Vibr
+					</div>
+					<div>
+						<select id="lyra4_voices_vibr_one" class="knobs pointy">
+							<option value=""> </option>
+                     <option value="on">on</option>
+                     <option value="off">off</option>
+						</select>
+					</div>
+				</div>
+
+
+				<div class="item_category">
+					Touch Pads
+				</div>
+
+				<div class="item knobs">
+					<div>
+						1
+					</div>
+					<div>
+						<select id="lyra4_touchpads_1_one" class="knobs pointy">
+							<option value=""> </option>
+                     <option value="on">on</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="item knobs">
+					<div>
+						2
+					</div>
+					<div>
+						<select id="lyra4_touchpads_2_one" class="knobs pointy">
+							<option value=""> </option>
+                     <option value="on">on</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="item knobs">
+					<div>
+						3
+					</div>
+					<div>
+						<select id="lyra4_touchpads_3_one" class="knobs pointy">
+							<option value=""> </option>
+                     <option value="on">on</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="item knobs">
+					<div>
+						4
+					</div>
+					<div>
+						<select id="lyra4_touchpads_4_one" class="knobs pointy">
+							<option value=""> </option>
+                     <option value="on">on</option>
+						</select>
+					</div>
+				</div>
+
+			</section>
+
+			<section class="instrument_lyra4">
+
+				<h3>
+					Output Jacks
+				</h3>
+
+				<!-- <div class="item_category">
+					CV 1
+				</div> -->
+
+				<div class="item jacks" data-connections="1">
+					<div>
+						Out
+					</div>
+					<div></div>
+					<div id="lyra4_out_container_0">
+						<select id="lyra4_out_0" data-index="0" class="jacks"></select>
+					</div>
+					<div id="lyra4_out_plus" class="plus pointy">
 						+
 					</div>
 				</div>

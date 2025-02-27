@@ -31,7 +31,7 @@ html, body {
 
 
 	font-weight: normal;
-	font-size: 18px;
+	font-size: 16px;
 	box-sizing: border-box;
 	margin: 0;
 }
@@ -127,7 +127,7 @@ h1 {
 #welcome_message {
 	font-weight:  100;
 	line-height: 1.4em;
-	max-width: 860px;
+	max-width: 1166px;
 	margin: 12px auto;
 	padding: 4px;
 	grid-column: 1 / 4;
@@ -245,19 +245,19 @@ textarea {
 
 
 .instrument_0coast .item.knobs {
-	grid-template-columns: 296px auto;
+	grid-template-columns: 272px auto;
 }
 
 .instrument_0coast .item.jacks {
-	grid-template-columns: 220px 0px max-content max-content;
+	grid-template-columns: 200px 0px max-content max-content;
 }
 
 .instrument_strega .item.knobs {
-	grid-template-columns: 266px auto;
+	grid-template-columns: 246px auto;
 }
 
 .instrument_strega .item.jacks {
-	grid-template-columns: 264px 0px max-content max-content;
+	grid-template-columns: 240px 0px max-content max-content;
 }
 
 .instrument_0ctrl .item.knobs {
@@ -265,11 +265,11 @@ textarea {
 }
 
 .instrument_0ctrl .item.jacks {
-	grid-template-columns: 220px 0px max-content max-content;
+	grid-template-columns: 210px 0px max-content max-content;
 }
 
 .instrument_dfam .item.knobs {
-	grid-template-columns: 266px auto;
+	grid-template-columns: 216px auto;
 }
 
 .instrument_dfam .item.knobs > * > select {
@@ -277,11 +277,11 @@ textarea {
 }
 
 .instrument_dfam .item.jacks {
-	grid-template-columns: 116px 0px max-content max-content;
+	grid-template-columns: 106px 0px max-content max-content;
 }
 
 .instrument_mavis .item.knobs {
-	grid-template-columns: 166px auto;
+	grid-template-columns: 156px auto;
 }
 
 .instrument_mavis .item.knobs > * > select {
@@ -289,11 +289,11 @@ textarea {
 }
 
 .instrument_mavis .item.jacks {
-	grid-template-columns: 142px 0px max-content max-content;
+	grid-template-columns: 136px 0px max-content max-content;
 }
 
 .instrument_mother32 .item.knobs {
-	grid-template-columns: 206px auto;
+	grid-template-columns: 190px auto;
 }
 
 .instrument_mother32 .item.knobs > * > select {
@@ -305,7 +305,7 @@ textarea {
 }
 
 .instrument_subharmonicon .item.knobs {
-	grid-template-columns: 206px auto;
+	grid-template-columns: 202px auto;
 }
 
 .instrument_subharmonicon .item.knobs > * > select {
@@ -313,7 +313,7 @@ textarea {
 }
 
 .instrument_subharmonicon .item.jacks {
-	grid-template-columns: 148px 0px max-content max-content;
+	grid-template-columns: 144px 0px max-content max-content;
 }
 
 .instrument_werkstatt .item.knobs {
@@ -341,7 +341,7 @@ textarea {
 }
 
 .instrument_expandedrack .item.knobs {
-	grid-template-columns: 312px auto;
+	grid-template-columns: 300px auto;
 }
 
 .instrument_expandedrack .item.knobs > * > select {
@@ -349,12 +349,30 @@ textarea {
 }
 
 .instrument_expandedrack .item.jacks {
-	grid-template-columns: 220px 0px max-content max-content;
+	grid-template-columns: 198px 0px max-content max-content;
 }
 
 .instrument_externalcv .item.jacks {
 	grid-template-columns: 140px 0px max-content max-content;
 }
+
+
+
+
+.instrument_lyra4 .item.knobs {
+	grid-template-columns: 140px auto;
+}
+
+.instrument_lyra4 .item.knobs > * > select {
+	width: 107px;
+}
+
+.instrument_lyra4 .item.jacks {
+	grid-template-columns: 198px 0px max-content max-content;
+}
+
+
+
 
 .item.jacks.addtional {
 	grid-template-columns: 90px max-content max-content;
@@ -418,7 +436,7 @@ select.knobs {
 }
 
 select.jacks {
-	width: 508px;
+	width: 360px;
 }
 
 select.midi {
@@ -484,6 +502,11 @@ select.clocks {
 
 .active > #pedalboard_preset_save_button {
 	color: green;
+}
+
+.disting_params {
+	width: 434px;
+	height: 4.6em;
 }
 
 /* ********* Media Queries ********* */
@@ -554,6 +577,11 @@ select.clocks {
 		display: grid;
 		grid-template-columns: 510px auto;
 	}
+
+	#instrument_lyra4_columns {
+		display: grid;
+		grid-template-columns: 374px auto;
+	}
 }
 
 @media only screen and (max-width: 1166px) {
@@ -567,13 +595,13 @@ select.clocks {
 @media only screen and (min-width: 900px) {
 
 	#welcome_message {
-		max-width: 100%;
+		/* max-width: 100%; */
 		margin: 12px 12px;
 	}
 
 	#welcome_text {
-		width: calc(100% - 340px);
-		max-width: 850px;
+		width: calc(100% - 390px);
+		/* max-width: 850px; */
 		float: left;
 	}
 

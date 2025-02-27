@@ -25,6 +25,7 @@ var instrumentMother32Checkbox;
 var instrumentSubharmoniconCheckbox;
 var instrumentWerkstattCheckbox;
 var instrumentExpandedRackCheckbox;
+var instrumentLyra4Checkbox;
 var instrumentExternalCVCheckbox;
 
 var instrument0Coast;
@@ -36,6 +37,7 @@ var instrumentMother32;
 var instrumentSubharmonicon;
 var instrumentWerkstatt;
 var instrumentExpandedRack;
+var instrumentLyra4;
 var instrumentExternalCV;
 var noInstruments;
 
@@ -60,7 +62,8 @@ var jackDestinations = {
 	'Mother 32': ['Ext. Audio', 'Mix CV', 'VCA CV', 'VCF Cutoff', 'VCF Res.', 'VCO 1V/Oct', 'CVO Lin FM'],
 	'Subharmonicon': ['VCO 1', 'VCO 1 Sub', 'VCO 1 PWM', 'VCA', 'VCO 2', 'VCO 2 Sub', 'VCO 2 PWM', 'Cutoff', 'Play', 'Reset', 'Trigger', 'Rhythm 1', 'Rhythm 2', 'Rhythm 3', 'Rhythm 4', 'Clock'],
 	'Werkstatt': ['VCA CV In', 'VCF CV In', 'VCO Lin FM In', 'VCO Exp FM In', 'LFO FM In', 'Gate In', 'VCF Aud In'],
-	'Expanded Rack': ['Filter: Audio In', 'Filter: Freq CV', 'Filter: Freq CV (attenuated)', 'Drive: Low/1', 'Drive: High/2', 'Mimeophon: L (Mono) Input', 'Mimeophon: R Input', 'Mimeophon: Repeats: CV Input', 'Mimeophon: Zone: CV Input', 'Mimeophon: Mix: CV Input', 'Mimeophon: Rate: CV Input', 'Mimeophon: Rate: µ Input', 'Mimeophon: Halo: CV Input', 'Mimeophon: Color: CV Input', 'Mimeophon: Tempo: Input', 'Mimeophon: Flip: Input', 'Mimeophon: Hold: Input', 'Attenuator 1: In', 'Attenuator 2: In', 'Attenuator 3: In', 'Att-Off 1: In', 'Att-Off 2: In', 'LPG 1: Signal In', 'LPG 1: CV In', 'LPG 2: Signal In', 'LPG 2: CV In', 'Sample & Hold: Signal In', 'Sample & Hold: S&H', 'Sample & Hold: T&H', 'Slew 1: Signal In', 'Piezo Amp: In', 'Disting 1: Z', 'Disting 1: X', 'Disting 1: Y', 'Disting 2: Z', 'Disting 2: X', 'Disting 2: Y', 'TP8: Top Left', 'TP8: Top Right', 'TP8: Top Diamond', 'TP8: Middle Left', 'TP8: Middle Right', 'TP8: Bottom Diamond', 'TP8: Bottom Left', 'TP8: Bottom Right', 'Pedalboard: Pedal 1', 'Pedalboard: Pedal2'],
+	'Expanded Rack': ['RoAT: Clock In', 'Plaits: Timbre', 'Plaits: Morph', 'Plaits: Level', 'Plaits: Model', 'Plaits: FM', 'Plaits: Harm', 'Plaits: Trig', 'Plaits: V/Oct', 'Filter: Audio In', 'Filter: Freq CV', 'Filter: Freq CV (attenuated)', 'Drive: Low/1', 'Drive: High/2', 'Mimeophon: L (Mono) Input', 'Mimeophon: R Input', 'Mimeophon: Repeats: CV Input', 'Mimeophon: Zone: CV Input', 'Mimeophon: Mix: CV Input', 'Mimeophon: Rate: CV Input', 'Mimeophon: Rate: µ Input', 'Mimeophon: Halo: CV Input', 'Mimeophon: Color: CV Input', 'Mimeophon: Tempo: Input', 'Mimeophon: Flip: Input', 'Mimeophon: Hold: Input', 'Disting 1: Z', 'Disting 1: X', 'Disting 1: Y', 'Disting 2: Z', 'Disting 2: X', 'Disting 2: Y', 'Sample & Hold: Signal In', 'Sample & Hold: S&H', 'Sample & Hold: T&H', 'Slew 1: Signal In', 'Mix-B: o', 'Mix-B: oo', 'Mix-B: ooo', 'Piezo Amp: In', 'Attenuator 1: In', 'Attenuator 2: In', 'Attenuator 3: In', 'Att-Off 1: In', 'Att-Off 2: In', "Att-Vert 1: In", 'LPG 1: Signal In', 'LPG 1: CV In', 'LPG 2: Signal In', 'LPG 2: CV In', 'TP8: Top Left', 'TP8: Top Right', 'TP8: Top Diamond', 'TP8: Middle Left', 'TP8: Middle Right', 'TP8: Bottom Diamond', 'TP8: Bottom Left', 'TP8: Bottom Right', 'Pedalboard: Pedal 1', 'Pedalboard: Pedal 2', 'Pedalboard: Pedal 3', 'Pedalboard: Pedal 4'],
+	'Lyra-4': ['CV Voice', 'CV Delay'],
 	'External CV': ['Sync In'],
 	'System': ['Audio Out']
 }
@@ -70,11 +73,17 @@ window.onload = function() {
 		var liveScript = document.createElement('script');
 		liveScript.src = 'https://livejs.com/live.js';
 		document.head.appendChild(liveScript);
-  }
-
-	if (screen.width < 768 && window.innerHeight > window.innerWidth) {
-		alert("Please rotate your phone. Exqusite Coast only displays well on phones when in landscape mode.");
 	}
+
+	if (location.search.indexOf('supertopsecret') !== -1) {
+		localStorage.setItem('superTopSecretCode', true);
+	}
+
+	setTimeout(() => {
+		if (screen.width < 768 && window.innerHeight > window.innerWidth) {
+			alert("Please rotate your phone. Exqusite Coast only displays well on phones when in landscape mode.");
+		}
+	}, 2000);
 
 	if (location.href.indexOf('localhost') === -1 && location.protocol !== 'https:') {
 		location.replace(`https:${location.href.substring(location.protocol.length)}`);
@@ -97,7 +106,7 @@ window.onload = function() {
 			event.preventDefault()
 			if (!menuButton.classList.contains('open')) {
 				menuButton.classList.add('open');
-				headerArea.style.height = (document.getElementById('welcome_message').clientHeight + 130) + 'px';
+				headerArea.style.height = (document.getElementById('welcome_message').clientHeight + 48) + 'px';
 			}
 			else {
 				menuButton.classList.remove('open');
@@ -126,6 +135,8 @@ window.onload = function() {
 		authorField = document.getElementById('author');
 		patchNotesField = document.getElementById('patch_notes');
 		pedalboardPresetField = document.getElementById('pedalboard_preset');
+		distingParamsField = document.getElementById('disting_params');
+		disting2ParamsField = document.getElementById('disting2_params');
 		pedalboardPresetSaveButton = document.getElementById('pedalboard_preset_save_button');
 		shareButton = document.getElementById('get_share_link');
 
@@ -138,6 +149,7 @@ window.onload = function() {
 		instrumentSubharmoniconCheckbox = document.getElementById('instrument_checkbox_subharmonicon');
 		instrumentWerkstattCheckbox = document.getElementById('instrument_checkbox_werkstatt');
 		instrumentExpandedRackCheckbox = document.getElementById('instrument_checkbox_expandedrack');
+		instrumentLyra4Checkbox = document.getElementById('instrument_checkbox_lyra4');
 		instrumentExternalCVCheckbox = document.getElementById('instrument_checkbox_externalcv');
 
 		instrument0CoastCheckbox.addEventListener('change', function() { saveInstrument(instrument0CoastCheckbox); collapseInstruments() });
@@ -149,6 +161,7 @@ window.onload = function() {
 		instrumentSubharmoniconCheckbox.addEventListener('change', function() { saveInstrument(instrumentSubharmoniconCheckbox); collapseInstruments() });
 		instrumentWerkstattCheckbox.addEventListener('change', function() { saveInstrument(instrumentWerkstattCheckbox); collapseInstruments() });
 		instrumentExpandedRackCheckbox.addEventListener('change', function() { saveInstrument(instrumentExpandedRackCheckbox); collapseInstruments() });
+		instrumentLyra4Checkbox.addEventListener('change', function() { saveInstrument(instrumentLyra4Checkbox); collapseInstruments() });
 		instrumentExternalCVCheckbox.addEventListener('change', function() { saveInstrument(instrumentExternalCVCheckbox); collapseInstruments() });
 
 		instrument0Coast = document.getElementById('instrument_0coast');
@@ -160,6 +173,7 @@ window.onload = function() {
 		instrumentSubharmonicon = document.getElementById('instrument_subharmonicon');
 		instrumentWerkstatt = document.getElementById('instrument_werkstatt');
 		instrumentExpandedRack = document.getElementById('instrument_expandedrack');
+		instrumentLyra4 = document.getElementById('instrument_lyra4');
 		instrumentExternalCV = document.getElementById('instrument_externalcv');
 		noInstruments = document.getElementById('no_instruments');
 
@@ -289,16 +303,19 @@ window.onload = function() {
 			savePatch();
 		});
 
-		// ********* Pedalboard Preset *********
+		// ********* Disting Params *********
 
-		pedalboardPresetField.addEventListener('keyup', function() {
-			workingPatch.pedalboardPreset = pedalboardPresetField.value;
-			if (pedalboardPresetField.value.trim() === '') {
-				delete workingPatch.pedalboardPreset;
-			}
-			changeActive(pedalboardPresetField);
+		distingParamsField.addEventListener('keyup', function() {
+			workingPatch.distingParams = distingParamsField.value;
 			savePatch();
 		});
+
+		disting2ParamsField.addEventListener('keyup', function() {
+			workingPatch.disting2Params = disting2ParamsField.value;
+			savePatch();
+		});
+
+		// ********* Pedalboard Preset *********
 
 		pedalboardPresetField.ondragover = function() {
 			this.className = 'hover';
@@ -551,29 +568,40 @@ window.onload = function() {
 		}
 		else {
 			makeNewPatch('Untitled 1');
-			setTimeout(function() {
-				menuButton.click();
-			}, 1100);
+			if (!appIsSavedToHomescreen()) {
+				setTimeout(function() {
+					menuButton.click();
+				}, 1100);
+			}
 		}
-
 
 		setTimeout(() => {
 			var isChrome = navigator.userAgent.indexOf('Chrome') > -1;
 			var isSafari = navigator.userAgent.indexOf("Safari") > -1;
 			var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
 			var isIPad = navigator.userAgent.match(/Mac/) && navigator.maxTouchPoints && navigator.maxTouchPoints > 2;
+			var isPersistent;
+			if (navigator.storage && navigator.storage.persist) {
+				navigator.storage.persist().then((persistent) => {
+					if (persistent) {
+						isPersistent = true;
+					} else {
+						isPersistent = false;
+					}
 
-			if (isIOS || isIPad) {
-				if (window.navigator.standalone !== true) {
-					alert('The use of the Safari browser is strongly discouraged for Exquisite Coasts. Safari deletes local storage data after seven days so you are at risk of losing all your saved patches. To safely use Exquisite Coasts on your iPhone or iPad you must save the website to your homescreen. To do that, tap the share icon in the Safari menu bar and select "Add to Homescreen."');
-				}
+					if (isIOS || isIPad) {
+						if (window.navigator.standalone !== true) {
+							alert('The use of the Safari browser is strongly discouraged for Exquisite Coasts. Safari deletes local storage data after seven days so you are at risk of losing all your saved patches. To safely use Exquisite Coasts on your iPhone or iPad you must save the website to your homescreen. To do so, tap the share icon in the Safari menu bar and select "Add to Homescreen."');
+						}
+					}
+					else if (isSafari) {
+						if (!isChrome && !isPersistent) {
+							alert('The use of the Safari browser is strongly discouraged for Exquisite Coasts. Safari deletes local storage data after seven days so you are at risk of losing all your saved patches. To safely use Exquisite Coasts with Safari, with macOS Sonoma (10.14) and later you may save the website as an app. To do so, click the share icon in the Safari toolbar and select "Add to Dock." \n\nFirefox or Chrome browsers are otherwise recommended for all macOS users.');
+						}
+					}
+				});
 			}
-			else if (isSafari) {
-				if (!isChrome) {
-					alert('The use of the Safari browser is strongly discouraged for Exquisite Coasts. Safari deletes local storage data after seven days so you are at risk of losing all your saved patches. The Firefox or Chrome browsers are recommended for all macOS users.');
-				}
-			}
-		}, 2500);
+		}, 1500);
 	}
 } // *** /window.onload
 
@@ -592,6 +620,13 @@ function loadSavedPatch() {
 		}
 		if (workingPatch.patchNotes) {
 			patchNotesField.value = workingPatch.patchNotes;
+		}
+
+		if (workingPatch.distingParams) {
+			distingParamsField.value = workingPatch.distingParams;
+		}
+		if (workingPatch.disting2Params) {
+			disting2ParamsField.value = workingPatch.disting2Params;
 		}
 
 		if (workingPatch.pedalboardPreset) {
@@ -661,6 +696,13 @@ function loadSavedPatch() {
 			}
 			else {
 				instrumentExpandedRackCheckbox.checked = false;
+			}
+
+			if (workingPatch.instruments && workingPatch.instruments.indexOf('Lyra-4') !== -1) {
+				instrumentLyra4Checkbox.checked = true;
+			}
+			else {
+				instrumentLyra4Checkbox.checked = false;
 			}
 
 			if (workingPatch.instruments && workingPatch.instruments.indexOf('External CV') !== -1) {
@@ -807,6 +849,7 @@ function saveInstrument(field) {
 		'instrument_checkbox_subharmonicon': 'Subharmonicon',
 		'instrument_checkbox_werkstatt': 'Werkstatt',
 		'instrument_checkbox_expandedrack': 'Expanded Rack',
+		'instrument_checkbox_lyra4': 'Lyra-4',
 		'instrument_checkbox_externalcv': 'External CV'
 	}
 	if (!workingPatch.instruments) {
@@ -995,6 +1038,14 @@ function collapseInstruments() {
 	}
 	else {
 		instrumentExpandedRack.classList.add('collapse');
+	}
+
+	if (instrumentLyra4Checkbox.checked) {
+		instrumentLyra4.classList.remove('collapse');
+		instrumentsSelected = true;
+	}
+	else {
+		instrumentLyra4.classList.add('collapse');
 	}
 
 	if (instrumentExternalCVCheckbox.checked) {
@@ -1286,3 +1337,18 @@ function loadLegacyShareLink(sharedpatchcode, sharedpatchobject) {
 	history.pushState(sharedpatchcode, '', window.location.pathname);
 	return savedWorkingPatchName
 }
+
+function appIsSavedToHomescreen() {
+	// For iOS Safari
+	if (window.navigator.standalone !== undefined) {
+	  return window.navigator.standalone;
+	}
+
+	// For Android browsers
+	if (window.matchMedia('(display-mode: standalone)').matches) {
+	  return true;
+	}
+
+	// If none of the above, it's not standalone
+	return false;
+ }
